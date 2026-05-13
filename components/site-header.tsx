@@ -54,7 +54,7 @@ export function SiteHeader() {
   };
 
   const githubUrl =
-    process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com";
+    process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/morislaflame/burne-ui-site";
 
   return (
     <header className="sticky top-0 z-50 border-b border-base bg-surface/90 shadow-token-sm backdrop-blur-md">
