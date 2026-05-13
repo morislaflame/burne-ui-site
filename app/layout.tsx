@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Burne UI",
-  description: "Документация и демо React UI kit Burne UI",
+  description: "Modern Design System for your project on Tailwind CSS v4",
 };
 
 export default function RootLayout({
