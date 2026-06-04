@@ -117,9 +117,9 @@ function Ex({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-/** Блочный компонент — 2/3 ширины ячейки, центрирован. */
+/** Блочный компонент — на sm+ ограничен 2/3 ширины ячейки, на мобильных — на всю ширину. */
 function Block({ children }: { children: ReactNode }) {
-  return <div className="w-full max-w-[66.667%] min-w-0">{children}</div>;
+  return <div className="w-full min-w-0 sm:max-w-[66.667%]">{children}</div>;
 }
 
 // ─── Stateful demo components ────────────────────────────────────────────────

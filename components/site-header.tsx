@@ -278,7 +278,7 @@ export function SiteHeader() {
       <div className="flex items-center gap-mid px-8 py-mid sm:px-large">
         <span className="shrink-0 text-header-2 text-foreground">Burne UI</span>
 
-        <div className="max-sm:hidden flex min-w-0 flex-1 items-center">
+        <div className="hidden min-w-0 flex-1 items-center sm:flex">
           <SectionNavBar active={activeSection} />
         </div>
 
