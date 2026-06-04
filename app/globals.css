@@ -29,3 +29,23 @@
     gap: var(--space-plus);
   }
 }
+
+/* Section nav in header — scrollable but no visible scrollbar */
+.section-nav-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.section-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sticky header offset for section scroll + active detection */
+:root {
+  --site-header-height: 4.5rem;
+  --site-scroll-gap: var(--space-mid);
+}
+
+[data-brn-section] {
+  scroll-margin-top: calc(var(--site-header-height) + var(--site-scroll-gap));
+}
