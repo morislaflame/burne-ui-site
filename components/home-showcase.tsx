@@ -687,18 +687,25 @@ function ToastStackDemo() {
   );
 }
 
-/** Offset = sticky header + extra gap below it. */
+const DEFAULT_SECTION_SCROLL_OFFSET = 88;
+
+/** Offset = sticky header + gap (always in px, safe for IntersectionObserver). */
 function getSectionScrollOffset(): number {
-  const root = document.documentElement;
-  const header = parseFloat(
-    getComputedStyle(root).getPropertyValue("--site-header-height") || "0",
-  );
-  const gap = parseFloat(
-    getComputedStyle(root).getPropertyValue("--site-scroll-gap") || "16",
-  );
-  const measured =
-    document.querySelector<HTMLElement>("[data-site-header]")?.offsetHeight ?? 0;
-  return Math.max(header, measured) + gap;
+  const section = document.querySelector<HTMLElement>("[data-brn-section]");
+  if (section) {
+    const marginTop = parseFloat(getComputedStyle(section).scrollMarginTop);
+    if (Number.isFinite(marginTop) && marginTop > 0) {
+      return Math.round(marginTop);
+    }
+  }
+
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const headerHeight = header?.getBoundingClientRect().height ?? 0;
+  if (Number.isFinite(headerHeight) && headerHeight > 0) {
+    return Math.round(headerHeight + 16);
+  }
+
+  return DEFAULT_SECTION_SCROLL_OFFSET;
 }
 
 function scrollToShowcaseSection(el: Element) {
@@ -744,6 +751,8 @@ export function HomeShowcase() {
 
     const attach = () => {
       const offset = getSectionScrollOffset();
+      if (!Number.isFinite(offset) || offset < 0) return;
+
       observer?.disconnect();
 
       observer = new IntersectionObserver(

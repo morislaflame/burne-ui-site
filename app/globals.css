@@ -43,7 +43,7 @@
 /* Sticky header offset for section scroll + active detection */
 :root {
   --site-header-height: 4.5rem;
-  --site-scroll-gap: var(--space-mid);
+  --site-scroll-gap: 16px;
 }
 
 [data-brn-section] {
