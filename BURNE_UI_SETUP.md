@@ -428,6 +428,27 @@ Tailwind v4 при `@source` на `burne-ui/dist` может вырезать `b
 
 - `configureMotion(...)` вызван слишком поздно или не в клиентском слое.
 
+### Vercel / `npm install`: `playwright: command not found`
+
+У опубликованного `burne-ui` в `postinstall` historically вызывался `playwright install`, но `playwright` — devDependency самой библиотеки и **не ставится** в приложение-потребитель.
+
+**Fix в проекте сайта:**
+
+```ini
+# .npmrc
+ignore-scripts=true
+```
+
+```json
+// vercel.json
+{
+  "installCommand": "npm install --ignore-scripts"
+}
+```
+
+`burne-ui` поставляется уже собранным (`dist/`) — postinstall-скрипты зависимостей для runtime не нужны.  
+Локально для разработки `burne-ui` после `npm i` в репозитории кита: `npm run playwright:install`.
+
 ---
 
 ## 12) Минимальный final checklist
