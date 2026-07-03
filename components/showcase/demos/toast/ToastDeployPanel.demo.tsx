@@ -1,0 +1,33 @@
+import { Button } from "burne-ui";
+import { Surface } from "burne-ui";
+import { Text } from "burne-ui";
+import { useToast } from "burne-ui";
+
+export function ToastDeployPanelDemo() {
+  const { toast } = useToast();
+
+  return (
+    <Surface variant="secondary" padding="mid" className="flex w-full max-w-sm flex-col gap-mid">
+      <div className="flex flex-col gap-small">
+        <Text as="p" variant="base" className="font-medium">
+          Production deploy
+        </Text>
+        <Text as="p" variant="small" className="text-muted">
+          Deploy your app to the cloud in 2 minutes
+        </Text>
+      </div>
+      <Button
+        variant="primary"
+        className="w-full"
+        onClick={() =>
+          toast.show({
+            title: "Production deploy started",
+            description: "Your app will be available in 2 minutes",
+          })
+        }
+      >
+        Deploy
+      </Button>
+    </Surface>
+  );
+}

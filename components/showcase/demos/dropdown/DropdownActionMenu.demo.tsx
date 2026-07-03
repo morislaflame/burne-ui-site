@@ -1,0 +1,49 @@
+import { IoCopyOutline, IoPencilOutline, IoTrashOutline } from "react-icons/io5";
+
+import { Button } from "burne-ui";
+import { Dropdown } from "burne-ui";
+import { Surface } from "burne-ui";
+import { Text } from "burne-ui";
+
+export function DropdownActionMenuDemo() {
+  return (
+    <Surface variant="secondary" padding="mid" className="flex w-full max-w-sm items-center justify-between gap-mid">
+      <div className="flex min-w-0 flex-col gap-xsmall">
+        <Text as="span" variant="small" className="font-medium">
+          Design system
+        </Text>
+        <Text as="span" variant="tools" className="text-muted">
+          Updated 2 hours ago
+        </Text>
+      </div>
+      <Dropdown>
+        <Dropdown.Trigger asChild>
+          <Button variant="ghost" size="small" type="button" aria-label="Actions">
+            ···
+          </Button>
+        </Dropdown.Trigger>
+        <Dropdown.Popover className="min-w-52">
+          <Dropdown.Item value="edit" selection={false}>
+            <Dropdown.ItemLabel>Edit</Dropdown.ItemLabel>
+            <Dropdown.ItemIcon>
+              <IoPencilOutline aria-hidden />
+            </Dropdown.ItemIcon>
+          </Dropdown.Item>
+          <Dropdown.Item value="copy" selection={false}>
+            <Dropdown.ItemLabel>Duplicate</Dropdown.ItemLabel>
+            <Dropdown.ItemIcon>
+              <IoCopyOutline aria-hidden />
+            </Dropdown.ItemIcon>
+          </Dropdown.Item>
+          <Dropdown.Separator />
+          <Dropdown.Item value="delete" selection={false}>
+            <Dropdown.ItemLabel>Delete</Dropdown.ItemLabel>
+            <Dropdown.ItemIcon>
+              <IoTrashOutline aria-hidden />
+            </Dropdown.ItemIcon>
+          </Dropdown.Item>
+        </Dropdown.Popover>
+      </Dropdown>
+    </Surface>
+  );
+}

@@ -1,0 +1,27 @@
+import { Disclosure, DisclosureGroup } from "burne-ui";
+import { Switch } from "burne-ui";
+import { Text } from "burne-ui";
+
+export function DisclosureSettingsGroupDemo() {
+  return (
+    <DisclosureGroup variant="card" defaultValue="notifications" className="w-full max-w-lg">
+      <Disclosure value="notifications">
+        <Disclosure.Trigger>Notifications</Disclosure.Trigger>
+        <Disclosure.Content>
+          <div className="flex flex-col gap-mid">
+            <Switch defaultChecked label="Email-digest" />
+            <Switch label="Push on mobile" />
+          </div>
+        </Disclosure.Content>
+      </Disclosure>
+      <Disclosure value="privacy">
+        <Disclosure.Trigger>Privacy</Disclosure.Trigger>
+        <Disclosure.Content>
+          <Text as="p" variant="small" className="text-muted">
+            Manage Profile Visibility and Analytics Data.
+          </Text>
+        </Disclosure.Content>
+      </Disclosure>
+    </DisclosureGroup>
+  );
+}

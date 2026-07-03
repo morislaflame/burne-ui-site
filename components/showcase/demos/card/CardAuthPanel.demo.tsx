@@ -1,0 +1,95 @@
+import { useCallback, useState } from "react";
+
+import { Form, type FormValues } from "burne-ui";
+import { Button } from "burne-ui";
+import { Card } from "burne-ui";
+import { Checkbox } from "burne-ui";
+import { Input } from "burne-ui";
+import { Link } from "burne-ui";
+import { Tabs } from "burne-ui";
+
+export function CardAuthPanelDemo() {
+  const [tab, setTab] = useState("login");
+
+  const onSubmit = useCallback((values: FormValues) => {
+    void values;
+  }, []);
+
+  return (
+    <Card variant="secondary" className="w-full max-w-sm">
+      <Card.Header>
+        <Card.Title>Account</Card.Title>
+        <Card.Description>Login or create a new profile</Card.Description>
+      </Card.Header>
+      <Card.Body>
+        <Tabs value={tab} onValueChange={setTab}>
+          <Tabs.List className="w-full">
+            <Tabs.Tab value="login" className="flex-1">
+              Entrance
+            </Tabs.Tab>
+            <Tabs.Tab value="register" className="flex-1">
+              Registration
+            </Tabs.Tab>
+          </Tabs.List>
+
+          <Tabs.Panel value="login" className="">
+            <Form onSubmit={onSubmit} aria-label="Login" className="gap-large">
+              <Form.Section>
+                <Input isRequired label="Email" name="login-email" autoComplete="email" placeholder="you@example.com" />
+                <Input
+                  isRequired
+                  label="Password"
+                  name="login-password"
+                  inputType="password"
+                  autoComplete="current-password"
+                  placeholder="••••••••"
+                />
+                <div className="flex">
+                  <Link href="#" size="small" className="text-muted">
+                    Forgot your password?
+                  </Link>
+                </div>
+              </Form.Section>
+              <Button type="submit" variant="primary" className="w-full">
+                Login
+              </Button>
+            </Form>
+          </Tabs.Panel>
+
+          <Tabs.Panel value="register">
+            <Form onSubmit={onSubmit} aria-label="Registration" className="gap-large">
+              <Form.Section>
+                <Input isRequired label="Name" name="register-name" autoComplete="name" placeholder="Ivan"/>
+                <Input isRequired label="Email" name="register-email" autoComplete="email" placeholder="you@example.com" />
+                <Input
+                  isRequired
+                  label="Password"
+                  name="register-password"
+                  inputType="password"
+                  autoComplete="new-password"
+                  placeholder="••••••••"
+                />
+              </Form.Section>
+              <Form.Section>
+                <Checkbox
+                  required
+                  name="terms"
+                  value="accepted"
+                  label="I accept the terms of use"
+                />
+              </Form.Section>
+              <Button type="submit" variant="primary" className="w-full">
+                Create an account
+              </Button>
+            </Form>
+          </Tabs.Panel>
+        </Tabs>
+      </Card.Body>
+      <Card.Footer className="justify-center border-t border-token flex flex-col gap-xsmall">
+        <Link href="#" size="small" className="text-muted">
+          Privacy Policy
+        </Link>
+      </Card.Footer>
+    </Card>
+  );
+}

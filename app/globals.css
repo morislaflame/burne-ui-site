@@ -1,33 +1,51 @@
 @import "tailwindcss";
 @source "../node_modules/burne-ui/dist";
-@source "../components";
-@source ".";
+@source "../components/**/*.{tsx,ts}";
+@source "../app/**/*.{tsx,ts}";
+@source "../lib/**/*.{tsx,ts}";
 
 @import "burne-ui/styles.css";
 
-/**
- * Сетка сайта: правила ниже импорта burne-ui, иначе `.grid-cols-1` из `ui.css`
- * перекрывает утилиты вида `sm:grid-cols-3` (одинаковая специфичность, поздний слой).
+/*
+ * Site Tailwind re-generates `text-base` from @source with default 1rem.
+ * burne-ui semantic `text-base` = `--text-scale-small` (0.875rem).
  */
-.burne-site-showcase-grid {
-  display: grid;
-  width: 100%;
-  align-items: stretch;
-  grid-auto-rows: auto;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-mid);
+@theme {
+  --text-base: var(--text-base-size);
+  --text-base--line-height: var(--text-base-line-height);
+  --text-base--font-weight: var(--text-base-weight);
+  /* Site @source re-generates font tokens; wire them to burne-ui runtime vars. */
+  --font-sans: var(--font-family-sans);
+  --font-mono: var(--font-family-mono);
 }
 
-@media (max-width: 639.98px) {
-  .burne-site-showcase-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
+:root {
+  --site-header-height: 4.5rem;
 }
 
-@media (min-width: 640px) {
-  .burne-site-showcase-grid {
-    gap: var(--space-plus);
-  }
+/* Same as burne-ui/playground/playground.css — inherit runtime --font-family-* tokens. */
+html,
+body {
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.showcase-shell {
+  min-height: 0;
+  flex: 1 1 0%;
+  overflow: hidden;
+}
+
+/**
+ * Button async layers (label / loader / success / error) stack in one grid cell.
+ * GSAP hides inactive layers via autoAlpha; aria-hidden mirrors asyncState for SSR
+ * and as a fallback before GSAP attaches refs (Next.js pre-render).
+ */
+button .col-start-1.row-start-1[aria-hidden="true"] {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Section nav in header — scrollable but no visible scrollbar */
@@ -40,12 +58,10 @@
   display: none;
 }
 
-/* Sticky header offset for section scroll + active detection */
-:root {
-  --site-header-height: 4.5rem;
-  --site-scroll-gap: 16px;
-}
-
-[data-brn-section] {
-  scroll-margin-top: calc(var(--site-header-height) + var(--site-scroll-gap));
+/*
+ * Tailwind v4 re-processes burne-ui gloss CSS from @source and drops the
+ * unprefixed backdrop-filter, leaving only -webkit-backdrop-filter.
+ */
+:is(.gloss-panel, .gloss-control, .gloss-btn, .gloss-indicator) {
+  backdrop-filter: blur(var(--gloss-blur));
 }

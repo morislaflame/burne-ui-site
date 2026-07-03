@@ -1,0 +1,73 @@
+"use client";
+
+import { KbdClassNamesFullDemo } from "@/components/showcase/demos/kbd/KbdClassNamesFull.demo";
+import kbdClassNamesFullSource from "@/components/showcase/demos/kbd/KbdClassNamesFull.demo.tsx?raw";
+import { KbdGlossDemo } from "@/components/showcase/demos/kbd/KbdGloss.demo";
+import kbdGlossSource from "@/components/showcase/demos/kbd/KbdGloss.demo.tsx?raw";
+import { KbdVariantsDemo } from "@/components/showcase/demos/kbd/KbdVariants.demo";
+import kbdVariantsSource from "@/components/showcase/demos/kbd/KbdVariants.demo.tsx?raw";
+import { KbdSizesDemo } from "@/components/showcase/demos/kbd/KbdSizes.demo";
+import kbdSizesSource from "@/components/showcase/demos/kbd/KbdSizes.demo.tsx?raw";
+import { KbdGroupDemo } from "@/components/showcase/demos/kbd/KbdGroup.demo";
+import kbdGroupSource from "@/components/showcase/demos/kbd/KbdGroup.demo.tsx?raw";
+import { KbdShortcutsDemo } from "@/components/showcase/demos/kbd/KbdShortcuts.demo";
+import kbdShortcutsSource from "@/components/showcase/demos/kbd/KbdShortcuts.demo.tsx?raw";
+import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
+import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
+import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
+
+export function KbdShowcase() {
+  return (
+    <ShowcasePage
+      title="Kbd"
+      description="Displaying keys and shortcuts - options as in Badge, without status."
+      importPath='import { Kbd } from "burne-ui";'
+      tags={["core", "typography"]}
+    >
+      <ShowcaseSection title="Options" description="default, primary, secondary, outline, gloss.">
+        <ShowcaseDemoFromFile Demo={KbdVariantsDemo} source={kbdVariantsSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Dimensions" description="size: small, base, mid, large.">
+        <ShowcaseDemoFromFile Demo={KbdSizesDemo} source={kbdSizesSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Gloss" description='variant="gloss" — glass key with hover-lift.'>
+        <ShowcaseDemoFromFile Demo={KbdGlossDemo} source={kbdGlossSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Kbd.Group" description="Multiple keys with separator «+».">
+        <ShowcaseDemoFromFile Demo={KbdGroupDemo} source={kbdGroupSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection title="Shortcuts" description="Kbd in buttons and action lists.">
+        <ShowcaseDemoFromFile Demo={KbdShortcutsDemo} source={kbdShortcutsSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection title="classNames" description="Slot customization root through classNames.">
+        <ShowcaseDemoFromFile Demo={KbdClassNamesFullDemo} source={kbdClassNamesFullSource} />
+      </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="variant, size, hoverLift on the root. Kbd.Group — compound for keyboard shortcuts."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Customization">
+          <p>
+            Slots <code>classNames.root</code>, <code>classNames.group</code>,{" "}
+            <code>classNames.separator</code>. Group separator — prop <code>separator</code> (
+            <code>null</code> hides).
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss='variant="gloss"' />
+      </ShowcaseDoc>
+    </ShowcasePage>
+  );
+}

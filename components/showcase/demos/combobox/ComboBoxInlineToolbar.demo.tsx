@@ -1,0 +1,89 @@
+import { useMemo, useState } from "react";
+import { IoGlobeOutline } from "react-icons/io5";
+
+import { ComboBox } from "burne-ui";
+import { useComboBoxContext } from "burne-ui";
+import { ListBox } from "burne-ui";
+
+const RECENT = ["ru", "en"] as const;
+const ALL_LANGS = [
+  { value: "ru", label: "Russian", hint: "Interface in Russian" },
+  { value: "en", label: "English", hint: "UI in English" },
+  { value: "de", label: "Deutsch", hint: "Demnächst" },
+  { value: "fr", label: "Français", hint: "Beta" },
+] as const;
+
+const COMBO_OPTIONS = ALL_LANGS.map((lang) => ({
+  value: lang.value,
+  label: lang.label,
+  hint: lang.hint,
+  filterText: `${lang.label} ${lang.hint}`,
+}));
+
+function GroupedLanguageItems() {
+  const { filteredValues } = useComboBoxContext();
+  const byValue = useMemo(() => new Map(ALL_LANGS.map((l) => [l.value, l])), []);
+
+  const recent = filteredValues.filter((v) => RECENT.includes(v as (typeof RECENT)[number]));
+  const rest = filteredValues.filter((v) => !RECENT.includes(v as (typeof RECENT)[number]));
+
+  if (filteredValues.length === 0) {
+    return <ListBox.Empty>Language not found</ListBox.Empty>;
+  }
+
+  const renderItem = (value: string) => {
+    const lang = byValue.get(value as (typeof ALL_LANGS)[number]["value"]);
+    if (!lang) return null;
+
+    return (
+      <ListBox.Item key={value} value={value}>
+        <ListBox.ItemIndicator />
+        <ListBox.Label>{lang.label}</ListBox.Label>
+        <ListBox.Hint>{lang.hint}</ListBox.Hint>
+        <ListBox.Icon>
+          <IoGlobeOutline aria-hidden className="text-muted" />
+        </ListBox.Icon>
+      </ListBox.Item>
+    );
+  };
+
+  return (
+    <>
+      {recent.length > 0 ? (
+        <ListBox.Section>
+          <ListBox.Header>Recent</ListBox.Header>
+          {recent.map(renderItem)}
+        </ListBox.Section>
+      ) : null}
+      {rest.length > 0 ? (
+        <ListBox.Section>
+          <ListBox.Header>All languages</ListBox.Header>
+          {rest.map(renderItem)}
+        </ListBox.Section>
+      ) : null}
+    </>
+  );
+}
+
+export function ComboBoxInlineToolbarDemo() {
+  const [value, setValue] = useState("ru");
+
+  return (
+    <ComboBox
+      variant="outline"
+      options={COMBO_OPTIONS}
+      value={value}
+      onValueChange={setValue}
+      className="w-full max-w-xs"
+    >
+      <ComboBox.Label>Interface language</ComboBox.Label>
+      <ComboBox.InputGroup>
+        <ComboBox.Input placeholder="Find language…" />
+        <ComboBox.Trigger />
+      </ComboBox.InputGroup>
+      <ComboBox.Popover>
+        <GroupedLanguageItems />
+      </ComboBox.Popover>
+    </ComboBox>
+  );
+}

@@ -1,0 +1,25 @@
+import { Field } from "burne-ui";
+import { Input } from "burne-ui";
+import { Label } from "burne-ui";
+
+export function FieldHorizontalPairDemo() {
+  return (
+    <Field.Set className="w-full max-w-lg">
+      <Field.Legend>
+        <Field.LegendHeader>
+          <Label>Report period</Label>
+        </Field.LegendHeader>
+      </Field.Legend>
+      <Field.Group className="grid grid-cols-1 gap-mid sm:grid-cols-2">
+        <Input>
+          <Input.Label>From</Input.Label>
+          <Input.Control name="from" placeholder="2026-01-01" inputMode="numeric" />
+        </Input>
+        <Input>
+          <Input.Label>By</Input.Label>
+          <Input.Control name="to" placeholder="2026-06-30" inputMode="numeric" />
+        </Input>
+      </Field.Group>
+    </Field.Set>
+  );
+}

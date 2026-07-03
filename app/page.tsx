@@ -1,9 +1,7 @@
-import { HomeShowcase } from "@/components/home-showcase";
+import { redirect } from "next/navigation";
+
+import { DEFAULT_SHOWCASE_PAGE_ID, showcasePagePath } from "@/lib/showcase/registry";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-0 flex-1 flex-col p-8">
-      <HomeShowcase />
-    </main>
-  );
+  redirect(showcasePagePath(DEFAULT_SHOWCASE_PAGE_ID));
 }

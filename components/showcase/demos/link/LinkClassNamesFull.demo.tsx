@@ -1,0 +1,18 @@
+import { Link } from "burne-ui";
+
+export function LinkClassNamesFullDemo() {
+  return (
+    <Link
+      href="#"
+      showDefaultIcon
+      underline
+      classNames={{
+        anchor: "gap-small rounded-mid border border-primary/25 p-xsmall text-primary",
+        text: "font-semibold tracking-wide",
+        iconEnd: "text-warning",
+      }}
+    >
+      Documentation
+    </Link>
+  );
+}

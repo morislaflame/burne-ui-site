@@ -1,0 +1,30 @@
+import { IoShieldCheckmark } from "react-icons/io5";
+
+import { Checkbox } from "burne-ui";
+import { Text } from "burne-ui";
+
+export function CheckboxIndicatorCompoundDemo() {
+  return (
+    <div className="flex w-full max-w-lg flex-col gap-mid">
+      <Text as="p" variant="small" className="font-medium">
+        Compound: Fill + Mark
+      </Text>
+      <Checkbox variant="outline" defaultChecked>
+        <Checkbox.Control>
+          <Checkbox.Indicator classNames={{ shell: "rounded-mid" }}>
+            <Checkbox.Indicator.Fill/>
+            <Checkbox.Indicator.Mark>
+              <IoShieldCheckmark aria-hidden />
+            </Checkbox.Indicator.Mark>
+          </Checkbox.Indicator>
+        </Checkbox.Control>
+        <Checkbox.Content>
+          <Checkbox.Label>2FA</Checkbox.Label>
+          <Checkbox.Hint>
+            Square indicator through compound Fill/Mark and rounded-mid on shell.
+          </Checkbox.Hint>
+        </Checkbox.Content>
+      </Checkbox>
+    </div>
+  );
+}

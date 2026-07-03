@@ -1,0 +1,61 @@
+import { IoCheckmark } from "react-icons/io5";
+
+import { Button } from "burne-ui";
+import { Card } from "burne-ui";
+import { Text } from "burne-ui";
+
+const PLANS = [
+  {
+    id: "free",
+    title: "Free",
+    price: "0 ₽",
+    description: "For personal projects",
+    features: ["3 project", "Community support"],
+    highlighted: false,
+  },
+  {
+    id: "pro",
+    title: "Pro",
+    price: "990 ₽",
+    description: "For teams of up to 10 people",
+    features: ["Unlimited projects", "Priority support"],
+    highlighted: true,
+  },
+] as const;
+
+export function CardPricingGridDemo() {
+  return (
+    <div className="grid w-full max-w-2xl gap-mid sm:grid-cols-2">
+      {PLANS.map((plan) => (
+        <Card key={plan.id} variant={plan.highlighted ? "secondary" : "outline"}>
+          <Card.Header className="gap-0">
+            <Card.Title className="text-xl font-bold">{plan.title}</Card.Title>
+            <Card.Description>{plan.description}</Card.Description>
+          </Card.Header>
+          <Card.Body className="flex flex-col gap-mid">
+            <Text as="p" variant="large" className="font-semibold">
+              {plan.price}
+              <Text as="span" variant="tools" className="font-normal text-muted">
+                {" "}
+                / months
+              </Text>
+            </Text>
+            <ul className="mt-mid flex flex-col gap-xsmall">
+              {plan.features.map((feature) => (
+                <li key={feature} className="flex items-center gap-xsmall text-sm text-muted">
+                  <IoCheckmark aria-hidden className="size-4 shrink-0 text-primary" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </Card.Body>
+          <Card.Footer className="flex justify-end">
+            <Button size="small" variant={plan.highlighted ? "primary" : "outline"}>
+              Choose
+            </Button>
+          </Card.Footer>
+        </Card>
+      ))}
+    </div>
+  );
+}
