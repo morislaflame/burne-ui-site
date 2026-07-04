@@ -1,6 +1,5 @@
 "use client";
 
-import { BadgeAnchorDemo } from "@/components/showcase/demos/badge/BadgeAnchor.demo";
 import badgeAnchorSource from "@/components/showcase/demos/badge/BadgeAnchor.demo.tsx?raw";
 import { BadgeClassNamesFullDemo } from "@/components/showcase/demos/badge/BadgeClassNamesFull.demo";
 import badgeClassNamesFullSource from "@/components/showcase/demos/badge/BadgeClassNamesFull.demo.tsx?raw";
@@ -41,10 +40,6 @@ export function BadgeShowcase() {
 
       <ShowcaseSection title="Gloss" description="variant gloss — glass surface with motion.">
         <ShowcaseDemoFromFile Demo={BadgeGlossDemo} source={badgeGlossSource} />
-      </ShowcaseSection>
-
-      <ShowcaseSection title="Badge.Anchor" description="Counter and dot-indicator on top of avatar.">
-        <ShowcaseDemoFromFile Demo={BadgeAnchorDemo} source={badgeAnchorSource} />
       </ShowcaseSection>
 
       <ShowcaseSection

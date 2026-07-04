@@ -15,9 +15,8 @@ export function ToastSizesDemo() {
           type="button"
           onClick={() =>
             toast.show({
-              status: "info",
               size,
-              title: `size=${size}`,
+              title: `Size: ${size}`,
               description: "Padding, icon, typography and width viewport.",
             })
           }

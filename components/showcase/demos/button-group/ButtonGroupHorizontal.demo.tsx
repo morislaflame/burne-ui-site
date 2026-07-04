@@ -6,7 +6,7 @@ import { Dropdown } from "burne-ui";
 
 export function ButtonGroupHorizontalDemo() {
   return (
-    <ButtonGroup aria-label="Actions with a document">
+    <ButtonGroup aria-label="Actions with a document" className="max-w-component-small">
       <ButtonGroupText>View</ButtonGroupText>
       <Button variant="outline">List</Button>
       <Button variant="outline" groupSegment={{ orientation: "horizontal", position: "middle" }}>
@@ -23,7 +23,7 @@ export function ButtonGroupHorizontalDemo() {
             <IoEllipsisHorizontal aria-hidden className="icon-base" />
           </Button>
         </Dropdown.Trigger>
-        <Dropdown.Popover>
+        <Dropdown.Popover >
           <Dropdown.Item value="dup" selection={false}>
             Duplicate
           </Dropdown.Item>

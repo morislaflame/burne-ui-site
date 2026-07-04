@@ -27,7 +27,6 @@ export const SHOWCASE_GROUPS: ShowcaseGroup[] = [
       { id: "toggle-button", label: "ToggleButton" },
       { id: "toggle-button-group", label: "ToggleButtonGroup" },
       { id: "button-group", label: "ButtonGroup" },
-      { id: "ripple", label: "Ripple" },
     ],
   },
   {

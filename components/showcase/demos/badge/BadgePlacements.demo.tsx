@@ -2,10 +2,10 @@ import { Badge, type BadgePlacement } from "burne-ui";
 import { Text } from "burne-ui";
 
 const PLACEMENTS: BadgePlacement[] = [
-  "top-right",
   "top-left",
-  "bottom-right",
+  "top-right",
   "bottom-left",
+  "bottom-right",
 ];
 
 export function BadgePlacementsDemo() {

@@ -170,7 +170,7 @@ export const ROSE_LIGHT_COLORS: ThemeColors = {
   secondaryForeground: "#18181b",
   tertiary: "#e2e2e4",
   tertiaryForeground: "#18181b",
-  border: "#fecdd3",
+  border: "#f5e6e7",
   foreground: "#18181b",
   muted: "#71717a",
   primary: "#f43f5e",

@@ -5,7 +5,7 @@ import { Text } from "burne-ui";
 export function KbdShortcutsDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-mid">
-      <Text as="p" variant="small" className="font-medium">
+      <Text as="p" variant="base" className="font-medium">
         Hotkeys
       </Text>
       <div className="grid gap-small">

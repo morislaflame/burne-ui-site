@@ -52,9 +52,6 @@ const ButtonGroupShowcase = showcaseDynamic(() =>
     default: m.ButtonGroupShowcase,
   })),
 );
-const RippleShowcase = showcaseDynamic(() =>
-  import("@/components/showcase/pages/RippleShowcase").then((m) => ({ default: m.RippleShowcase })),
-);
 const BadgeShowcase = showcaseDynamic(() =>
   import("@/components/showcase/pages/BadgeShowcase").then((m) => ({ default: m.BadgeShowcase })),
 );
@@ -209,7 +206,6 @@ export const SHOWCASE_PAGE_COMPONENTS: Partial<Record<string, ShowcasePageCompon
   "toggle-button": ToggleButtonShowcase,
   "toggle-button-group": ToggleButtonGroupShowcase,
   "button-group": ButtonGroupShowcase,
-  ripple: RippleShowcase,
   badge: BadgeShowcase,
   alert: AlertShowcase,
   toast: ToastShowcase,

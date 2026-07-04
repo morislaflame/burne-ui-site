@@ -6,8 +6,8 @@ export function CloseButtonClassNamesFullDemo() {
       variant="outline"
       size="mid"
       classNames={{
-        root: "border-info/50 bg-info/5 shadow-token-base hover:bg-info/10",
-        icon: "text-info",
+        root: "border-primary/50 bg-primary/5 shadow-token-base hover:bg-primary-tint",
+        icon: "text-primary",
       }}
       aria-label="Close with custom classNames"
     />

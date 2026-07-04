@@ -12,7 +12,7 @@ export function TextHeroBlockDemo() {
       >
         Custom hero-block
       </Text>
-      <Text as="p" variant="mid" className="max-w-md text-muted">
+      <Text as="p" variant="base" className="max-w-md text-muted">
         Gradient on the header and background solid - via utility-classes on top preset variant.
       </Text>
     </div>

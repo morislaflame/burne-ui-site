@@ -4,7 +4,7 @@ import { Button } from "burne-ui";
 
 export function ButtonVariantsDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-small">
+    <div className="flex flex-wrap items-center gap-base">
       <Button>Default</Button>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>

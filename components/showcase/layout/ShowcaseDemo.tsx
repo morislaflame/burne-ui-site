@@ -93,7 +93,7 @@ export function ShowcaseDemo({
         variant="default"
         padding={padding}
         className={cn(
-          "rounded-none border-0 shadow-none bg-transparent flex items-center justify-center min-h-72 p-mid",
+          "rounded-none border-0 shadow-none bg-transparent flex items-center justify-center min-h-72 p-mid px-large",
           alignClass,
         )}
       >

@@ -8,7 +8,7 @@ export function ToggleButtonClassNamesFullDemo() {
       defaultPressed
       leftIcon={<IoHeartOutline aria-hidden />}
       classNames={{
-        root: "rounded-mid ring-1 ring-danger/25",
+        root: "rounded-mid border-danger/25",
         fill: "bg-danger/20",
         content: "gap-small",
         leftIcon: "text-danger",

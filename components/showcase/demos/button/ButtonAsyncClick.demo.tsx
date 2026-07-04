@@ -11,7 +11,7 @@ export function ButtonAsyncClickDemo() {
       }
       className="cursor-progress w-fit"
     >
-      Async conservation
+      Async
     </Button>
   );
 }

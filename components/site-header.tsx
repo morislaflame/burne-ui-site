@@ -48,7 +48,6 @@ export function SiteHeader() {
         <div className="ml-auto flex shrink-0 items-center gap-small sm:gap-mid">
           <Switch
             gloss
-            size="small"
             checked={state.theme === "light"}
             onChange={(event) => setTheme(event.target.checked ? "light" : "dark")}
             label={<span className="hidden sm:inline">Light theme</span>}
