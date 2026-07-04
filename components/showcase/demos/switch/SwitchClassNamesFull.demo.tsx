@@ -4,7 +4,6 @@ export function SwitchClassNamesFullDemo() {
   return (
     <Switch
       defaultChecked
-      gloss
       color="var(--color-primary)"
       classNames={{
         root: "max-w-md rounded-mid border border-info/25 p-base",
@@ -15,7 +14,7 @@ export function SwitchClassNamesFullDemo() {
         hint: "text-muted/80",
       }}
     >
-      <Switch.Control />
+      <Switch.Control gloss />
       <Switch.Content>
         <Switch.Label>Notifications</Switch.Label>
         <Switch.Hint>Setting up slots via classNames on root.</Switch.Hint>

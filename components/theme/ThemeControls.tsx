@@ -537,6 +537,8 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
               { id: "sand", label: "Sand" },
               { id: "bold", label: "Bold" },
               { id: "autumn", label: "Autumn" },
+              { id: "harvest", label: "Harvest" },
+              { id: "mystic", label: "Mystic" },
             ] as const
           ).map(({ id, label }) => (
             <Button

@@ -77,7 +77,9 @@ export type ColorPresetKey =
   | "peach"
   | "sand"
   | "bold"
-  | "autumn";
+  | "autumn"
+  | "harvest"
+  | "mystic";
 
 export type ThemeTokenState = {
   theme: ThemeMode;

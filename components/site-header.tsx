@@ -1,9 +1,10 @@
 "use client";
 
-import { Button, Switch, Text } from "burne-ui";
+import { Button, Separator, Switch, Text } from "burne-ui";
 import { useLayoutEffect, useRef } from "react";
 import { IoLogoGithub, IoMoon, IoSunny } from "react-icons/io5";
 
+import { ShowcaseMobileNavTrigger } from "@/components/showcase/showcase-mobile-nav-trigger";
 import { useThemeTokens } from "@/components/theme/useThemeTokens";
 
 export function SiteHeader() {
@@ -55,7 +56,9 @@ export function SiteHeader() {
             iconOff={<IoMoon aria-hidden />}
             iconOn={<IoSunny aria-hidden />}
           />
-          
+
+          <Separator orientation="vertical" />
+
           <Button
             type="button"
             variant="outline"
@@ -67,6 +70,8 @@ export function SiteHeader() {
           >
             GitHub
           </Button>
+
+          <ShowcaseMobileNavTrigger />
         </div>
       </div>
     </header>

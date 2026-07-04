@@ -5,7 +5,7 @@
     "": {
       "name": "burne-ui-site",
       "dependencies": {
-        "burne-ui": "1.3.0",
+        "burne-ui": "^1.3.1",
         "next": "16.2.6",
         "react": "19.2.4",
         "react-dom": "19.2.4",
@@ -24,10 +24,6 @@
       },
     },
   },
-  "trustedDependencies": [
-    "sharp",
-    "unrs-resolver",
-  ],
   "packages": {
     "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "", {}, "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="],
 
@@ -395,7 +391,7 @@
 
     "buffer-from": ["buffer-from@1.1.2", "", {}, "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ=="],
 
-    "burne-ui": ["burne-ui@1.3.0", "", { "dependencies": { "@gsap/react": "^2.1.2", "clsx": "^2.1.1", "gsap": "^3.15.0", "ogl": "^1.0.11", "tailwind-merge": "^3.6.0" }, "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-icons": "^5.0.0" } }, "sha512-MNg8985P22KkNh35zo7eXmQMMJvqBMI9qWO8DBXkqrwGN9Q0tGbMjkjtSwWCTEF40lsmgsFnr889ffkysILsLQ=="],
+    "burne-ui": ["burne-ui@1.3.1", "", { "dependencies": { "@gsap/react": "^2.1.2", "clsx": "^2.1.1", "gsap": "^3.15.0", "ogl": "^1.0.11", "tailwind-merge": "^3.6.0" }, "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-icons": "^5.0.0" } }, "sha512-GVq5Egp+ikcySC1K3RL0xr2Aa3s35+J64aYnLCeq0/nHG6tS9W24+jIM89zF7Eutp/go/QDb+PndTkYQlhqp8w=="],
 
     "call-bind": ["call-bind@1.0.9", "", { "dependencies": { "call-bind-apply-helpers": "^1.0.2", "es-define-property": "^1.0.1", "get-intrinsic": "^1.3.0", "set-function-length": "^1.2.2" } }, "sha512-a/hy+pNsFUTR+Iz8TCJvXudKVLAnz/DyeSUo10I5yvFDQJBFU2s9uqQpoSrJlroHUKoKqzg+epxyP9lqFdzfBQ=="],
 
