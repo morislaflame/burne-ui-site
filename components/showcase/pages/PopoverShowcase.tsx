@@ -19,7 +19,6 @@ import popoverSizesSource from "@/components/showcase/demos/popover/PopoverSizes
 import { PopoverWithHeaderDemo } from "@/components/showcase/demos/popover/PopoverWithHeader.demo";
 import popoverWithHeaderSource from "@/components/showcase/demos/popover/PopoverWithHeader.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -66,24 +65,6 @@ export function PopoverShowcase() {
         <ShowcaseDemoFromFile Demo={PopoverShareMenuDemo} source={popoverShareMenuSource} />
         <ShowcaseDemoFromFile Demo={PopoverFilterPanelDemo} source={popoverFilterPanelSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Trigger, Content, Header, Body, Label, Hint and Arrow — slots for panel structure."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Arrow">
-          <p>
-            <code>showArrow</code> on Content includes Popover.Arrow — pointer to trigger.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

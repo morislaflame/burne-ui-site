@@ -3,7 +3,6 @@
 import { GlossComponentsDemo } from "@/components/showcase/demos/gloss/GlossComponents.demo";
 import glossComponentsSource from "@/components/showcase/demos/gloss/GlossComponents.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -21,26 +20,6 @@ export function GlossShowcase() {
       >
         <ShowcaseDemoFromFile padding="plus" align="stretch" Demo={GlossComponentsDemo} source={glossComponentsSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Application">
-          <p>
-            Pass it on <code>variant=&quot;gloss&quot;</code> on Button, Input, Card, Dialog, Drawer,
-            Alert, Badge, Popover and other components where the option is supported. U Tooltip —{" "}
-            <code>surface=&quot;gloss&quot;</code>, at Slider and Switch — boolean prop <code>gloss</code>.
-            Theme tokens control transparency and conic-stroke.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss>
-          <p>
-            Hover/press For gloss-surfaces - through <code>configureMotion()</code> (
-            <code>enableHoverLift</code>, <code>interactiveDuration</code>,{" "}
-            <code>pressSqueezeScale</code>). Glass colors — CSS-variables <code>--color-surface</code>,{" "}
-            <code>--color-border</code> and associated tokens after import{" "}
-            <code>burne-ui/styles.css</code>.
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

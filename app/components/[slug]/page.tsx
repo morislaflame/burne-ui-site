@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { ShowcaseMarkdownDoc } from "@/components/showcase/layout/ShowcaseMarkdownDoc";
 import { ShowcasePageView } from "@/components/showcase/showcase-page-view";
+import { getComponentDocs } from "@/lib/showcase/component-docs.server";
 import { findShowcasePage, SHOWCASE_PAGES } from "@/lib/showcase/registry";
 
 type PageProps = {
@@ -28,5 +30,12 @@ export default async function ComponentShowcasePage({ params }: PageProps) {
   const page = findShowcasePage(slug);
   if (!page) notFound();
 
-  return <ShowcasePageView pageId={page.id} label={page.label} />;
+  const docs = getComponentDocs(page.id);
+
+  return (
+    <div className="flex flex-col gap-xlarge">
+      <ShowcasePageView pageId={page.id} label={page.label} />
+      {docs ? <ShowcaseMarkdownDoc docs={docs} /> : null}
+    </div>
+  );
 }

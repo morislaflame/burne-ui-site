@@ -18,7 +18,6 @@ import badgeSizesSource from "@/components/showcase/demos/badge/BadgeSizes.demo.
 import { BadgeVariantsDemo } from "@/components/showcase/demos/badge/BadgeVariants.demo";
 import badgeVariantsSource from "@/components/showcase/demos/badge/BadgeVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -58,34 +57,6 @@ export function BadgeShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={BadgeServiceStatusListDemo} source={badgeServiceStatusListSource} />
         <ShowcaseDemoFromFile Demo={BadgeInboxButtonDemo} source={badgeInboxButtonSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="variant, status, size, icon on the root Badge. Badge.Anchor — compound-wrapper for positioning on top children."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Customization">
-          <p>
-            <code>placement</code> For dot-mode in <code>Badge.Anchor</code>. Dimensions:{" "}
-            <code>small</code>, <code>base</code>, <code>mid</code>, <code>large</code>.{" "}
-            <code>variant=&quot;gloss&quot;</code> — glass shell. Additional styles —{" "}
-            <code>className</code> and <code>classNames</code>; hover-lift at the subsidiary Badge in Anchor —{" "}
-            <code>configureMotion()</code> (<code>badgeAnchorHoverLiftScale</code>).
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Next step">
-          <p>
-            The next step is to go through and unify the names of the slots (
-            <code>root</code>/<code>content</code>/<code>message</code> etc.) in the general guideline,
-            so that they are called the same everywhere in China.
-          </p>
-        </ShowcaseDoc.Block>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

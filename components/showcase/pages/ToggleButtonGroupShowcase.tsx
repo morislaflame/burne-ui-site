@@ -15,7 +15,6 @@ import toggleButtonGroupVerticalSource from "@/components/showcase/demos/toggleB
 import { ToggleButtonGroupViewToolbarDemo } from "@/components/showcase/demos/toggleButtonGroup/ToggleButtonGroupViewToolbar.demo";
 import toggleButtonGroupViewToolbarSource from "@/components/showcase/demos/toggleButtonGroup/ToggleButtonGroupViewToolbar.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -51,26 +50,6 @@ export function ToggleButtonGroupShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ToggleButtonGroupVerticalDemo} source={toggleButtonGroupVerticalSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={ToggleButtonGroupEditorBarDemo} source={toggleButtonGroupEditorBarSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="type (single | multiple, default multiple), value, onValueChange, variant, size, separated, orientation, aria-label on the root. Child ToggleButton with value."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Availability">
-          <p>
-            Required <code>aria-label</code> in the group. <code>leftIcon</code> on ToggleButton — decorative
-            icon with <code>aria-hidden</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

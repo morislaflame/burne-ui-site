@@ -15,7 +15,6 @@ import calendarModesSource from "@/components/showcase/demos/calendar/CalendarMo
 import { CalendarSizesDemo } from "@/components/showcase/demos/calendar/CalendarSizes.demo";
 import calendarSizesSource from "@/components/showcase/demos/calendar/CalendarSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -58,32 +57,6 @@ export function CalendarShowcase() {
         <ShowcaseDemoFromFile align="start" Demo={CalendarCompoundLayoutDemo} source={calendarCompoundLayoutSource} />
         <ShowcaseDemoFromFile align="start" Demo={CalendarInlineWidgetDemo} source={calendarInlineWidgetSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="value / onValueChange on the root with prop mode."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Calendar.Header, Calendar.Grid, Calendar.Footer for custom layout."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="root, header, grid, dayCell, cell, cellFill, footer and other slots on root."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss>
-          <p>
-            Localization and restrictions — <code>minValue</code>, <code>maxValue</code>, <code>locale</code>.
-            Fill selected cells — <code>configureMotion()</code> (<code>enableToggleButtonFill</code>).
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

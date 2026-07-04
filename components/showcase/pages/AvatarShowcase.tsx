@@ -15,7 +15,6 @@ import avatarProjectMembersSource from "@/components/showcase/demos/avatar/Avata
 import { AvatarSizesFallbackDemo } from "@/components/showcase/demos/avatar/AvatarSizesFallback.demo";
 import avatarSizesFallbackSource from "@/components/showcase/demos/avatar/AvatarSizesFallback.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -54,29 +53,6 @@ export function AvatarShowcase() {
         <ShowcaseDemoFromFile Demo={AvatarProjectMembersDemo} source={avatarProjectMembersSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={AvatarPresenceRowDemo} source={avatarPresenceRowSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="label, src, size and variant on the root Avatar — main method."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Avatar.Fallback — custom content if there is no image."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Dimensions">
-          <p>
-            <code>small</code>, <code>base</code>, <code>mid</code>, <code>large</code>. Initials are generated from{" "}
-            <code>label</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

@@ -15,7 +15,6 @@ import dropdownStatusPickerSource from "@/components/showcase/demos/dropdown/Dro
 import { DropdownUserMenuDemo } from "@/components/showcase/demos/dropdown/DropdownUserMenu.demo";
 import dropdownUserMenuSource from "@/components/showcase/demos/dropdown/DropdownUserMenu.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -57,30 +56,6 @@ export function DropdownShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={DropdownActionMenuDemo} source={dropdownActionMenuSource} />
         <ShowcaseDemoFromFile Demo={DropdownStatusPickerDemo} source={dropdownStatusPickerSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Dropdown.Trigger, Dropdown.Popover (variant gloss), Group, Item, ItemLabel, ItemHint, ItemIcon, Sub."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Choice">
-          <p>
-            <code>defaultValue</code> / <code>value</code> + <code>onValueChange</code> for controlled mode.
-            <code>multiple</code> switches to an array of values.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss>
-          <p>
-            <code>variant=&quot;gloss&quot;</code> on <code>Dropdown.Popover</code>. Items with{" "}
-            <code>href</code> rendered as links with a role menuitem.
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

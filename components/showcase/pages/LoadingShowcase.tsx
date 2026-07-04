@@ -11,7 +11,6 @@ import loadingInlineStatusSource from "@/components/showcase/demos/loading/Loadi
 import { LoadingSizesColorsDemo } from "@/components/showcase/demos/loading/LoadingSizesColors.demo";
 import loadingSizesColorsSource from "@/components/showcase/demos/loading/LoadingSizesColors.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -42,27 +41,6 @@ export function LoadingShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={LoadingInlineStatusDemo} source={loadingInlineStatusSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={LoadingColorGridDemo} source={loadingColorGridSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="variant spinner | dots, size, color on the root."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization>
-          <p>
-            Colors: <code>primary</code>, <code>success</code>, <code>muted</code> etc. Dimensions:{" "}
-            <code>small</code>, <code>base</code>, <code>mid</code>, <code>large</code>. Points:{" "}
-            <code>loadingDotsDuration</code> (full jump, wave step = duration / 3),{" "}
-            <code>loadingDotsEaseUp</code>, <code>loadingDotsEaseDown</code>,{" "}
-            <code>enableLoadingDots</code>.
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

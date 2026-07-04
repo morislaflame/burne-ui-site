@@ -15,7 +15,6 @@ import comboBoxInlineToolbarSource from "@/components/showcase/demos/combobox/Co
 import { ComboBoxWorkspacePickerDemo } from "@/components/showcase/demos/combobox/ComboBoxWorkspacePicker.demo";
 import comboBoxWorkspacePickerSource from "@/components/showcase/demos/combobox/ComboBoxWorkspacePicker.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -58,29 +57,6 @@ export function ComboBoxShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ComboBoxInlineToolbarDemo} source={comboBoxInlineToolbarSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={ComboBoxStackPickerDemo} source={comboBoxStackPickerSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="options: { value, label }[], value, onValueChange, label, hint, variant."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="root, inputGroup, input, trigger, popover, popoverBody, listBox, hint, error."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Options">
-          <p>
-            Array <code>options</code> with margins <code>value</code> and <code>label</code>. For gloss-style
-            pass it on <code>variant=&quot;gloss&quot;</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

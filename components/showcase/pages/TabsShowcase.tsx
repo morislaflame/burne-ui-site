@@ -19,7 +19,6 @@ import tabsSettingsPanelSource from "@/components/showcase/demos/tabs/TabsSettin
 import { TabsVerticalSidebarDemo } from "@/components/showcase/demos/tabs/TabsVerticalSidebar.demo";
 import tabsVerticalSidebarSource from "@/components/showcase/demos/tabs/TabsVerticalSidebar.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -66,25 +65,6 @@ export function TabsShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={TabsVerticalSidebarDemo} source={tabsVerticalSidebarSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={TabsDashboardShellDemo} source={tabsDashboardShellSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Tabs.List, Tabs.Tab and Tabs.Panel — slots. value/onValueChange or defaultValue for state."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Options">
-          <p>
-            <code>default</code>, <code>outline</code>, <code>secondary</code>, <code>gloss</code> — are set by prop{" "}
-            <code>variant</code> on the root Tabs.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

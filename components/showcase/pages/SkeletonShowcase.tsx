@@ -15,7 +15,6 @@ import skeletonTableRowsSource from "@/components/showcase/demos/skeleton/Skelet
 import { SkeletonTextBlockDemo } from "@/components/showcase/demos/skeleton/SkeletonTextBlock.demo";
 import skeletonTextBlockSource from "@/components/showcase/demos/skeleton/SkeletonTextBlock.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -58,29 +57,6 @@ export function SkeletonShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={SkeletonTableRowsDemo} source={skeletonTableRowsSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={SkeletonArticlePreviewDemo} source={skeletonArticlePreviewSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Skeleton.Circle, Skeleton.Text and Skeleton.Block — ready-made forms. classNames on each subcomponent."
-          />
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="Root Skeleton with className — arbitrary shape through dimensions."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Animations">
-          <p>
-            <code>pulse</code>, <code>wave</code>, <code>shimmer</code> — prop <code>variant</code> on any
-            subcomponent Skeleton.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

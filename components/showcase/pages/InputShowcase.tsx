@@ -24,7 +24,6 @@ import inputSizesSource from "@/components/showcase/demos/input/InputSizes.demo.
 import { InputVariantsDemo } from "@/components/showcase/demos/input/InputVariants.demo";
 import inputVariantsSource from "@/components/showcase/demos/input/InputVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -73,29 +72,6 @@ export function InputShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={InputAuthPanelDemo} source={inputAuthPanelSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={InputInlinePairDemo} source={inputInlinePairSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="label, hint, error, placeholder, variant and status — props on the root Input."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Input.Label, Input.Control, Input.Hint, Input.Error — for custom markup."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Options">
-          <p>
-            <code>variant</code>: default, outline, secondary, gloss. <code>status</code>: default, danger, success,
-            warning. Field tips — prop <code>hint</code>, not <code>description</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

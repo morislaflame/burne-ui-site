@@ -15,7 +15,6 @@ import linkSizesSource from "@/components/showcase/demos/link/LinkSizes.demo.tsx
 import { LinkVariantsDemo } from "@/components/showcase/demos/link/LinkVariants.demo";
 import linkVariantsSource from "@/components/showcase/demos/link/LinkVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -54,29 +53,6 @@ export function LinkShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={LinkArticleInlineDemo} source={linkArticleInlineSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={LinkCardActionsDemo} source={linkCardActionsSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="href, underline, leftIcon and showDefaultIcon on the root - the main props for links."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Link.Icon with position start|end; empty Link.Icon — standard icon ↗."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="External links">
-          <p>
-            <code>showDefaultIcon</code> adds an “open in new tab” icon. For external URL use{" "}
-            <code>target=&quot;_blank&quot;</code> and <code>rel=&quot;noreferrer&quot;</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

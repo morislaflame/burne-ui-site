@@ -13,7 +13,6 @@ import drawerNotificationPanelSource from "@/components/showcase/demos/drawer/Dr
 import { DrawerPlacementDemo } from "@/components/showcase/demos/drawer/DrawerPlacement.demo";
 import drawerPlacementSource from "@/components/showcase/demos/drawer/DrawerPlacement.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -51,24 +50,6 @@ export function DrawerShowcase() {
         <ShowcaseDemoFromFile Demo={DrawerMobileNavDemo} source={drawerMobileNavSource} />
         <ShowcaseDemoFromFile Demo={DrawerNotificationPanelDemo} source={drawerNotificationPanelSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Drawer.Header, Drawer.Body, Drawer.Footer, Drawer.Close — panel structure."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss>
-          <p>
-            <code>placement</code>: left, right, top, bottom. <code>size</code> — width or height
-            panels. Slide-animation — <code>configureMotion()</code> (<code>interactiveDuration</code>).
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

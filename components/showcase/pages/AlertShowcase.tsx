@@ -15,7 +15,6 @@ import alertStatusesSource from "@/components/showcase/demos/alert/AlertStatuses
 import { AlertWithActionDemo } from "@/components/showcase/demos/alert/AlertWithAction.demo";
 import alertWithActionSource from "@/components/showcase/demos/alert/AlertWithAction.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -48,36 +47,6 @@ export function AlertShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={AlertCompactStackDemo} source={alertCompactStackSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={AlertCompoundBannerDemo} source={alertCompoundBannerSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="title, description, status, variant (including. gloss), size, icon, action on the root."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Message, Indicator, Content, Title, Description, Action — for complex markup."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Availability">
-          <p>
-            For <code>danger</code> and <code>warning</code> — <code>role=&quot;alert&quot;</code>. Auto-id
-            For <code>aria-labelledby</code> / <code>aria-describedby</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Next step">
-          <p>
-            The next step is to go through and unify the names of the slots (
-            <code>root</code>/<code>content</code>/<code>message</code> etc.) in the general guideline,
-            so that they are called the same everywhere in China.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

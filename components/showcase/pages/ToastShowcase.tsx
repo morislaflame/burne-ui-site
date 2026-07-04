@@ -17,7 +17,6 @@ import toastSizesSource from "@/components/showcase/demos/toast/ToastSizes.demo.
 import { ToastUndoActionDemo } from "@/components/showcase/demos/toast/ToastUndoAction.demo";
 import toastUndoActionSource from "@/components/showcase/demos/toast/ToastUndoAction.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -66,32 +65,6 @@ export function ToastShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ToastDeployPanelDemo} source={toastDeployPanelSource} />
         <ShowcaseDemoFromFile Demo={ToastPromiseFlowDemo} source={toastPromiseFlowSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <p>
-            Imperative API: <code>useToast()</code> → <code>toast.show</code>, <code>toast.success</code>,{" "}
-            <code>toast.danger</code>, <code>toast.promise</code> etc. Parameters: <code>title</code>,{" "}
-            <code>description</code>, <code>status</code>, <code>variant</code>, <code>size</code>,{" "}
-            <code>placement</code>, <code>timeout</code>, <code>action</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Provider">
-          <p>
-            <code>Toast.Provider</code> should wrap the application (layout). Without him{" "}
-            <code>useToast</code> will not be able to display notifications.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss>
-          <p>
-            Stack and reposition — <code>configureMotion()</code> (<code>enableToastStack</code>). Scrim
-            density - tokens <code>--toast-scrim-size</code>, <code>--toast-scrim-density</code>.
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

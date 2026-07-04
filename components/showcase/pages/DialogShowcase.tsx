@@ -15,7 +15,6 @@ import dialogSettingsModalSource from "@/components/showcase/demos/dialog/Dialog
 import { DialogSizesDemo } from "@/components/showcase/demos/dialog/DialogSizes.demo";
 import dialogSizesSource from "@/components/showcase/demos/dialog/DialogSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -57,28 +56,6 @@ export function DialogShowcase() {
         <ShowcaseDemoFromFile Demo={DialogSettingsModalDemo} source={dialogSettingsModalSource} />
         <ShowcaseDemoFromFile Demo={DialogCompactConfirmDemo} source={dialogCompactConfirmSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Dialog.Header, Dialog.Body, Dialog.Footer, Dialog.Close — full panel layout."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="dialog, overlay, panel, content, header, title, description, body, footer, close."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss>
-          <p>
-            <code>size</code> and <code>variant</code> on the root. Closing by Escape and click on backdrop —
-            custom props. Enter/leave — <code>configureMotion()</code>.
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

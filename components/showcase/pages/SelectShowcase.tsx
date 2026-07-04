@@ -11,7 +11,6 @@ import selectGlossSource from "@/components/showcase/demos/select/SelectGloss.de
 import { SelectSizesDemo } from "@/components/showcase/demos/select/SelectSizes.demo";
 import selectSizesSource from "@/components/showcase/demos/select/SelectSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -46,23 +45,6 @@ export function SelectShowcase() {
           source={selectClassNamesFullSource}
         />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="options: { value, label }[], value, onValueChange, label, hint, variant."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="TriggerGroup, Value, Trigger, Popover, Hint, Error + classNames."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

@@ -1,5 +1,5 @@
 import { useMemo, useState, type ChangeEvent } from "react";
-import { IoAdd, IoCheckmark, IoMoon, IoSunny } from "react-icons/io5";
+import { IoAdd, IoCheckmark, IoMoon, IoSearchOutline, IoSunny } from "react-icons/io5";
 
 import {
   AlertDialog,
@@ -24,7 +24,6 @@ import { Input } from "burne-ui";
 import { ListBox } from "burne-ui";
 import { Popover } from "burne-ui";
 import { Radio } from "burne-ui";
-import { SearchInput } from "burne-ui";
 import { Slider } from "burne-ui";
 import { Surface } from "burne-ui";
 import { Switch } from "burne-ui";
@@ -181,12 +180,13 @@ export function GlossComponentsDemo() {
             rows={2}
             hint="TextArea gloss"
           />
-          <SearchInput
+          <Input.Control
             variant="gloss"
             aria-label="Search gloss"
             placeholder="Find…"
             value={glossSearch}
-            onValueChange={setGlossSearch}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setGlossSearch(event.target.value)}
+            prefix={<IoSearchOutline className="icon-base shrink-0" aria-hidden />}
           />
         </div>
       </div>

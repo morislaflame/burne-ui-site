@@ -11,7 +11,6 @@ import surfaceNestedPanelsSource from "@/components/showcase/demos/surface/Surfa
 import { SurfaceVariantsDemo } from "@/components/showcase/demos/surface/SurfaceVariants.demo";
 import surfaceVariantsSource from "@/components/showcase/demos/surface/SurfaceVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -39,24 +38,6 @@ export function SurfaceShowcase() {
         <ShowcaseDemoFromFile Demo={SurfaceDashboardWidgetDemo} source={surfaceDashboardWidgetSource} />
         <ShowcaseDemoFromFile Demo={SurfaceGlassStackDemo} source={surfaceGlassStackSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="variant and padding on the root - the main way to set the background and padding of the container."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Padding">
-          <p>
-            <code>mid</code>, <code>plus</code>, <code>large</code> — preset padding inside Surface.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

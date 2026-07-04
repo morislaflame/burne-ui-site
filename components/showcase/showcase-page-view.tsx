@@ -90,11 +90,6 @@ const ComboBoxShowcase = showcaseDynamic(() =>
 const SelectShowcase = showcaseDynamic(() =>
   import("@/components/showcase/pages/SelectShowcase").then((m) => ({ default: m.SelectShowcase })),
 );
-const SearchInputShowcase = showcaseDynamic(() =>
-  import("@/components/showcase/pages/SearchInputShowcase").then((m) => ({
-    default: m.SearchInputShowcase,
-  })),
-);
 const SliderShowcase = showcaseDynamic(() =>
   import("@/components/showcase/pages/SliderShowcase").then((m) => ({ default: m.SliderShowcase })),
 );
@@ -218,7 +213,6 @@ export const SHOWCASE_PAGE_COMPONENTS: Partial<Record<string, ShowcasePageCompon
   textarea: TextAreaShowcase,
   combobox: ComboBoxShowcase,
   select: SelectShowcase,
-  "search-input": SearchInputShowcase,
   slider: SliderShowcase,
   "time-field": TimeFieldShowcase,
   checkbox: CheckboxShowcase,

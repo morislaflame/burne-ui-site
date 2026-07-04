@@ -19,7 +19,6 @@ import colorPickerSidesSource from "@/components/showcase/demos/colorPicker/Colo
 import { ColorSlidersDemo } from "@/components/showcase/demos/colorPicker/ColorSliders.demo";
 import colorSlidersSource from "@/components/showcase/demos/colorPicker/ColorSliders.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -69,28 +68,6 @@ export function ColorPickerShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ColorPickerAlphaChannelDemo} source={colorPickerAlphaChannelSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={ColorPickerSettingsRowDemo} source={colorPickerSettingsRowSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="ColorPicker.Trigger and ColorPicker.Content. ColorSlider and ColorSwatch — individual primitives."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="content, contentPanel, trigger, area, slidersRow, hexInput, presets etc.."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Format">
-          <p>
-            Meaning — hex-line (<code>#rrggbb</code>). <code>hsvaToHex</code> to convert from HSVA.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

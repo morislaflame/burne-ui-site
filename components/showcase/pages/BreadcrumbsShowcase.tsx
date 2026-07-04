@@ -13,7 +13,6 @@ import breadcrumbsProductHeaderSource from "@/components/showcase/demos/breadcru
 import { BreadcrumbsShortPathDemo } from "@/components/showcase/demos/breadcrumbs/BreadcrumbsShortPath.demo";
 import breadcrumbsShortPathSource from "@/components/showcase/demos/breadcrumbs/BreadcrumbsShortPath.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -42,35 +41,6 @@ export function BreadcrumbsShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={BreadcrumbsProductHeaderDemo} source={breadcrumbsProductHeaderSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={BreadcrumbsDocTrailDemo} source={breadcrumbsDocTrailSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="`items` on root for quick assembly. Slots can be configured via `classNames`."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Breadcrumbs.List + Breadcrumbs.Item. Item can be nested through wrappers, collection is done recursively."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Availability">
-          <p>
-            The list is rendered as <code>&lt;ol&gt;</code>. The current page is marked <code>aria-current</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Next step">
-          <p>
-            The next step is to go through and unify the names of the slots (
-            <code>root</code>/<code>content</code>/<code>message</code> etc.) in the general guideline,
-            so that they are called the same everywhere in China.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

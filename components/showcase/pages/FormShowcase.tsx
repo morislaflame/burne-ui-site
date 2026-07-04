@@ -11,7 +11,6 @@ import formProfileSource from "@/components/showcase/demos/form/FormProfile.demo
 import { FormSearchToolbarDemo } from "@/components/showcase/demos/form/FormSearchToolbar.demo";
 import formSearchToolbarSource from "@/components/showcase/demos/form/FormSearchToolbar.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -45,29 +44,6 @@ export function FormShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={FormLoginPanelDemo} source={formLoginPanelSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={FormSearchToolbarDemo} source={formSearchToolbarSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Section — group of fields with dense gap-small inside; Form sets gap-mid between sections."
-          />
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="Root Form — native &lt;form&gt; with onSubmit. Fields (Input, CheckboxGroup) are invested as children."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Related Components">
-          <p>
-            <code>Input</code>, <code>CheckboxGroup</code>, <code>Button</code> — imported separately and
-            work inside Form through name/value.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

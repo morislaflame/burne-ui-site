@@ -51,7 +51,6 @@ export const SHOWCASE_GROUPS: ShowcaseGroup[] = [
       { id: "textarea", label: "TextArea" },
       { id: "combobox", label: "ComboBox" },
       { id: "select", label: "Select" },
-      { id: "search-input", label: "SearchInput" },
       { id: "slider", label: "Slider" },
       { id: "time-field", label: "TimeField" },
       { id: "checkbox", label: "Checkbox" },

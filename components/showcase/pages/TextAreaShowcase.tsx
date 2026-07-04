@@ -17,7 +17,6 @@ import textAreaSupportTicketSource from "@/components/showcase/demos/textarea/Te
 import { TextAreaWithErrorDemo } from "@/components/showcase/demos/textarea/TextAreaWithError.demo";
 import textAreaWithErrorSource from "@/components/showcase/demos/textarea/TextAreaWithError.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -61,29 +60,6 @@ export function TextAreaShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={TextAreaSupportTicketDemo} source={textAreaSupportTicketSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={TextAreaCommentThreadDemo} source={textAreaCommentThreadSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="label, hint, error, rows, placeholder, variant, status — on the root TextArea without children."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="TextArea.Label, TextArea.Control, TextArea.Hint, TextArea.Error — custom markup."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Behavior">
-          <p>
-            Inherits visual variant and status from Input. Hints — <code>hint</code>, not{" "}
-            <code>description</code>. Controlled/uncontrolled through value/defaultValue.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

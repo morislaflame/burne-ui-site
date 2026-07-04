@@ -21,7 +21,6 @@ import sliderVolumeCardSource from "@/components/showcase/demos/slider/SliderVol
 import { SliderVolumeDemo } from "@/components/showcase/demos/slider/SliderVolume.demo";
 import sliderVolumeSource from "@/components/showcase/demos/slider/SliderVolume.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -73,34 +72,6 @@ export function SliderShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={SliderBudgetPanelDemo} source={sliderBudgetPanelSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={SliderOpacityStripDemo} source={sliderOpacityStripSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="value, onValueChange, min, max, step, range, marks, showValue, formatValue, orientation, gloss."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Slider.Track, Slider.Rail, Slider.Fill, Slider.Thumb — custom rail markings."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Range">
-          <p>
-            At <code>range</code> value — motorcade <code>[number, number]</code>, onValueChange gets the same
-            type. <code>formatValue</code> formats the displayed value.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss="gloss">
-          <p>
-            Boolean prop <code>gloss</code> on the root - glass thumb. Filling during change value —{" "}
-            <code>configureMotion()</code> not applicable; thumb drag uses interactive tokens.
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

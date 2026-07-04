@@ -20,7 +20,6 @@ import tooltipSizesSource from "@/components/showcase/demos/tooltip/TooltipSizes
 import { TooltipVariantsDemo } from "@/components/showcase/demos/tooltip/TooltipVariants.demo";
 import tooltipVariantsSource from "@/components/showcase/demos/tooltip/TooltipVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -64,26 +63,6 @@ export function TooltipShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={TooltipFormHintDemo} source={tooltipFormHintSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={TooltipShortcutGridDemo} source={tooltipShortcutGridSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="Tooltip.Trigger wraps an interactive element, Tooltip.Content — tooltip text."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Positioning">
-          <p>
-            Prop <code>side</code> on the root — <code>top</code>, <code>bottom</code>, <code>left</code>,{" "}
-            <code>right</code>. Size — <code>small</code>, <code>base</code>, <code>mid</code>,{" "}
-            <code>large</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss='surface="gloss"' />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

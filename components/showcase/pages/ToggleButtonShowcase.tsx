@@ -17,7 +17,6 @@ import toggleButtonVariantsSource from "@/components/showcase/demos/toggle-butto
 import { ToggleButtonViewSwitchDemo } from "@/components/showcase/demos/toggle-button/ToggleButtonViewSwitch.demo";
 import toggleButtonViewSwitchSource from "@/components/showcase/demos/toggle-button/ToggleButtonViewSwitch.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -69,25 +68,6 @@ export function ToggleButtonShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ToggleButtonReactionBarDemo} source={toggleButtonReactionBarSource} />
         <ShowcaseDemoFromFile Demo={ToggleButtonViewSwitchDemo} source={toggleButtonViewSwitchSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="pressed, defaultPressed, onPressedChange, variant, size, leftIcon, value (in a group)."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Groups">
-          <p>
-            For mutually exclusive or multiple selection use{" "}
-            <code>ToggleButtonGroup</code> from <code>burne-ui</code>.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

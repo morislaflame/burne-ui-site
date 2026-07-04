@@ -17,7 +17,6 @@ import timeFieldVariantsSource from "@/components/showcase/demos/time-field/Time
 import { TimeFieldSizesDemo } from "@/components/showcase/demos/time-field/TimeFieldSizes.demo";
 import timeFieldSizesSource from "@/components/showcase/demos/time-field/TimeFieldSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -61,29 +60,6 @@ export function TimeFieldShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={TimeFieldReminderCardDemo} source={timeFieldReminderCardSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={TimeFieldSegmentedRowDemo} source={timeFieldSegmentedRowSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="simple"
-            description="value, onValueChange, label, hint, prefix, variant (default | gloss | segmented)."
-          />
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="TimeField.Label, TimeField.Control, TimeField.Hint — explicit field marking."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Format">
-          <p>
-            Value is string <code>&quot;HH:MM&quot;</code> in 24 hour format. prefix accepts ReactNode
-            (usually a time icon).
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

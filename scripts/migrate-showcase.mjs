@@ -28,7 +28,6 @@ const SHOWCASE_MIGRATIONS = [
   { id: "textarea", page: "TextAreaShowcase.tsx" },
   { id: "combobox", page: "ComboBoxShowcase.tsx" },
   { id: "select", page: "SelectShowcase.tsx" },
-  { id: "search-input", page: "SearchInputShowcase.tsx" },
   { id: "slider", page: "SliderShowcase.tsx" },
   { id: "time-field", page: "TimeFieldShowcase.tsx" },
   { id: "checkbox", page: "CheckboxShowcase.tsx" },

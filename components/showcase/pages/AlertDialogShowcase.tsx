@@ -15,7 +15,6 @@ import alertDialogSizesSource from "@/components/showcase/demos/alertDialog/Aler
 import { AlertDialogUnsavedChangesDemo } from "@/components/showcase/demos/alertDialog/AlertDialogUnsavedChanges.demo";
 import alertDialogUnsavedChangesSource from "@/components/showcase/demos/alertDialog/AlertDialogUnsavedChanges.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -57,24 +56,6 @@ export function AlertDialogShowcase() {
         <ShowcaseDemoFromFile Demo={AlertDialogUnsavedChangesDemo} source={alertDialogUnsavedChangesSource} />
         <ShowcaseDemoFromFile Demo={AlertDialogLogoutDemo} source={alertDialogLogoutSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="AlertDialog.Header, AlertDialog.Footer — fixed confirmation structure."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization gloss>
-          <p>
-            Tone primary-buttons - helper <code>primaryButtonVariantForAlertTone</code> from the package.{" "}
-            <code>status</code> fundamentally affects the icon and confirmation button.
-          </p>
-        </ShowcaseDoc.Customization>
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

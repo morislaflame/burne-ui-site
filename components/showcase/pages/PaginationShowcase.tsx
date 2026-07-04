@@ -13,7 +13,6 @@ import paginationTableFooterSource from "@/components/showcase/demos/pagination/
 import { PaginationWithPagesDemo } from "@/components/showcase/demos/pagination/PaginationWithPages.demo";
 import paginationWithPagesSource from "@/components/showcase/demos/pagination/PaginationWithPages.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
-import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -51,25 +50,6 @@ export function PaginationShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={PaginationCompactCenteredDemo} source={paginationCompactCenteredSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={PaginationCustomLabelsDemo} source={paginationCustomLabelsSource} />
       </ShowcaseSection>
-
-      <ShowcaseDoc>
-        <ShowcaseDoc.Block title="Import">
-          <ShowcaseDoc.Import path="burne-ui" />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="API">
-          <ShowcaseDoc.ApiRow
-            api="compound"
-            description="page, totalPages and onPageChange on the root. Summary, Content, Item, Previous, Next and Pages — slots."
-          />
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Block title="Control">
-          <p>
-            Store page state externally via <code>useState</code>. <code>onPageChange</code> called when
-            click on buttons and numbers.
-          </p>
-        </ShowcaseDoc.Block>
-        <ShowcaseDoc.Customization />
-      </ShowcaseDoc>
     </ShowcasePage>
   );
 }
