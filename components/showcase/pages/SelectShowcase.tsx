@@ -4,8 +4,8 @@ import { SelectClassNamesFullDemo } from "@/components/showcase/demos/select/Sel
 import selectClassNamesFullSource from "@/components/showcase/demos/select/SelectClassNamesFull.demo.tsx?raw";
 import { SelectCompoundDemo } from "@/components/showcase/demos/select/SelectCompound.demo";
 import selectCompoundSource from "@/components/showcase/demos/select/SelectCompound.demo.tsx?raw";
-import { SelectDefaultDemo } from "@/components/showcase/demos/select/SelectDefault.demo";
-import selectDefaultSource from "@/components/showcase/demos/select/SelectDefault.demo.tsx?raw";
+import { SelectVariantsDemo } from "@/components/showcase/demos/select/SelectVariants.demo";
+import selectVariantsSource from "@/components/showcase/demos/select/SelectVariants.demo.tsx?raw";
 import { SelectGlossDemo } from "@/components/showcase/demos/select/SelectGloss.demo";
 import selectGlossSource from "@/components/showcase/demos/select/SelectGloss.demo.tsx?raw";
 import { SelectSizesDemo } from "@/components/showcase/demos/select/SelectSizes.demo";
@@ -23,8 +23,8 @@ export function SelectShowcase() {
       importPath='import { Select } from "burne-ui";'
       tags={["core", "forms"]}
     >
-      <ShowcaseSection title="Default" description="options, value and onValueChange — controlled mode.">
-        <ShowcaseDemoFromFile align="center" Demo={SelectDefaultDemo} source={selectDefaultSource} />
+      <ShowcaseSection title="Options" description="variant: default, outline, secondary — alternative field shells.">
+        <ShowcaseDemoFromFile align="center" Demo={SelectVariantsDemo} source={selectVariantsSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Compound" description="Label, TriggerGroup, Value, Trigger, Popover.">

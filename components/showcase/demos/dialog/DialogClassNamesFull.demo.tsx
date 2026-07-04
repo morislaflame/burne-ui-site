@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button } from "burne-ui";
+import { Button, Input } from "burne-ui";
 import { Dialog } from "burne-ui";
 
 export function DialogClassNamesFullDemo() {
@@ -13,10 +13,10 @@ export function DialogClassNamesFullDemo() {
         onOpenChange={setOpen}
         classNames={{
           panel: "border-primary/40 shadow-token-large",
-          header: "border-b border-primary/20 pb-small",
-          title: "text-primary font-semibold",
+          header: "border-b border-primary/20 pb-mid",
+          title: "text-primary font-semibold text-large",
           description: "text-foreground/75",
-          footer: "border-t border-primary/20 pt-small",
+          footer: "border-t border-primary/20 pt-mid",
         }}
       >
         <Dialog.Trigger asChild>
@@ -30,13 +30,25 @@ export function DialogClassNamesFullDemo() {
             <Dialog.Title>Settings</Dialog.Title>
             <Dialog.Description>Slots are configured via classNames.</Dialog.Description>
           </Dialog.HeadingBlock>
-          <Dialog.Close />
+          <Dialog.Close variant="gloss" />
         </Dialog.Header>
-        <Dialog.Body>
-          <p className="text-small text-muted">Example body-slots with custom panel styles.</p>
+        <Dialog.Body className="flex flex-col gap-plus">
+          <Input>
+            <Input.Label>Name</Input.Label>
+            <Input.Control variant="gloss" name="gloss-name" placeholder="Ivan" autoComplete="name" />
+          </Input>
+          <Input>
+            <Input.Label>Email</Input.Label>
+            <Input.Control
+              variant="gloss"
+              name="gloss-email"
+              placeholder="you@example.com"
+              autoComplete="email"
+            />
+          </Input>
         </Dialog.Body>
         <Dialog.Footer>
-          <Button size="small" variant="outline" onClick={() => setOpen(false)}>
+          <Button size="small" variant="gloss" onClick={() => setOpen(false)}>
             Close
           </Button>
         </Dialog.Footer>

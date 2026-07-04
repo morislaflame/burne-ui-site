@@ -38,11 +38,13 @@ body {
 }
 
 /**
- * Button async layers (label / loader / success / error) stack in one grid cell.
+ * Button async layers (loader / success / error) stack in one grid cell.
  * GSAP hides inactive layers via autoAlpha; aria-hidden mirrors asyncState for SSR
  * and as a fallback before GSAP attaches refs (Next.js pre-render).
+ * Do not target col-start-1 row-start-1 alone — Expandable.Icon uses the same grid cell.
  */
-button .col-start-1.row-start-1[aria-hidden="true"] {
+button [data-button-async-layer][aria-hidden="true"],
+button .col-start-1.row-start-1.flex.items-center.justify-center[aria-hidden="true"] {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;

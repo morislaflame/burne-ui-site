@@ -9,7 +9,7 @@ export function DropdownActionMenuDemo() {
   return (
     <Surface variant="secondary" padding="mid" className="flex w-full max-w-sm items-center justify-between gap-mid">
       <div className="flex min-w-0 flex-col gap-xsmall">
-        <Text as="span" variant="small" className="font-medium">
+        <Text as="span" variant="mid" className="font-medium">
           Design system
         </Text>
         <Text as="span" variant="tools" className="text-muted">

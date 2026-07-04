@@ -5,11 +5,10 @@ export function InputClassNamesFullDemo() {
     <Input
       className="max-w-sm"
       classNames={{
-        root: "rounded-mid border border-primary/20 p-base",
-        shell: "ring-1 ring-primary/15",
-        control: "text-primary placeholder:text-primary/50",
+        root: "rounded-mid border-token bg-surface p-base",
+        control: "text-primary",
         hint: "text-foreground/70",
-        error: "font-medium",
+        error: "text-danger",
       }}
       label="Email"
       placeholder="you@example.com"
@@ -25,11 +24,10 @@ export function InputClassNamesCompoundDemo() {
     <Input
       className="max-w-sm"
       classNames={{
-        root: "rounded-mid border border-info/25 p-base",
-        shell: "border-info/30 bg-info/5",
-        prefix: "text-info",
-        suffix: "text-info",
-        hint: "text-info/80",
+        root: "rounded-mid border-token bg-surface p-mid",
+        prefix: "text-primary",
+        suffix: "text-primary",
+        hint: "text-foreground/70",
       }}
     >
       <Input.Label>Domain</Input.Label>

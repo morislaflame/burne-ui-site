@@ -12,12 +12,12 @@ export function TabsClassNamesFullDemo() {
     <Tabs
       defaultValue="account"
       classNames={{
-        root: "max-w-xl rounded-mid border border-info/25 p-base",
-        list: "bg-info/5 ring-1 ring-info/15",
-        indicator: "bg-info/30",
+        root: "max-w-component-large rounded-mid p-base bg-surface",
+        list: "bg-primary/5 rounded-small p-base",
+        indicator: "bg-primary",
         tab: "font-medium",
         tabText: "gap-small",
-        panel: "rounded-small bg-info/5 p-mid",
+        panel: "rounded-small bg-primary/5 p-mid",
       }}
     >
       <Tabs.List>

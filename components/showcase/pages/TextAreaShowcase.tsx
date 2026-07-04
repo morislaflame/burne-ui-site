@@ -2,8 +2,8 @@
 
 import { TextAreaClassNamesCompoundDemo, TextAreaClassNamesFullDemo } from "@/components/showcase/demos/textarea/TextAreaClassNamesFull.demo";
 import textAreaClassNamesFullSource from "@/components/showcase/demos/textarea/TextAreaClassNamesFull.demo.tsx?raw";
-import { TextAreaBasicDemo } from "@/components/showcase/demos/textarea/TextAreaBasic.demo";
-import textAreaBasicSource from "@/components/showcase/demos/textarea/TextAreaBasic.demo.tsx?raw";
+import { TextAreaVariantsDemo } from "@/components/showcase/demos/textarea/TextAreaVariants.demo";
+import textAreaVariantsSource from "@/components/showcase/demos/textarea/TextAreaVariants.demo.tsx?raw";
 import { TextAreaSizesDemo } from "@/components/showcase/demos/textarea/TextAreaSizes.demo";
 import textAreaSizesSource from "@/components/showcase/demos/textarea/TextAreaSizes.demo.tsx?raw";
 import { TextAreaCommentThreadDemo } from "@/components/showcase/demos/textarea/TextAreaCommentThread.demo";
@@ -29,8 +29,8 @@ export function TextAreaShowcase() {
       importPath='import { TextArea } from "burne-ui";'
       tags={["core", "forms"]}
     >
-      <ShowcaseSection title="Base" description="label, hint and rows at the root of the component.">
-        <ShowcaseDemoFromFile align="center" Demo={TextAreaBasicDemo} source={textAreaBasicSource} />
+      <ShowcaseSection title="Options" description="variant: default, outline, secondary — alternative field shells.">
+        <ShowcaseDemoFromFile align="center" Demo={TextAreaVariantsDemo} source={textAreaVariantsSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Dimensions" description="size: small, base, mid, large.">

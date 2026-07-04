@@ -7,7 +7,7 @@ export function SelectionIndicatorShapeCompareDemo() {
   const [selected, setSelected] = useState(true);
 
   return (
-    <div className="flex w-full max-w-lg flex-col gap-mid">
+    <div className="flex w-full max-w-component-small flex-col gap-mid justify-center items-center">
       <Text as="p" variant="small" className="font-medium">
         Shell shape
       </Text>
@@ -25,12 +25,12 @@ export function SelectionIndicatorShapeCompareDemo() {
             selected={selected}
             check
             classNames={{
-              shell: "rounded-mid",
-              fill: "rounded-[inherit]",
+              shell: "rounded-small border-token bg-surface",
+              fill: "rounded-none bg-primary inset-0",
             }}
           />
           <Text as="span" variant="tools" className="text-muted">
-            rounded-mid
+            rounded-small
           </Text>
         </div>
       </div>

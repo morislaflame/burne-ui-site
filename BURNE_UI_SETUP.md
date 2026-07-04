@@ -289,7 +289,7 @@ export function MotionProvider({ children }: { children: React.ReactNode }) {
 
 Основные группы `MotionConfig`:
 
-- тайминги/ease: `interactiveDuration`, `tooltipDuration`, `expandDuration`, `progressFillDuration`, и `*Ease`
+- тайминги/ease: `interactiveDuration`, `tooltipDuration`, `selectionFillDuration`, `expandDuration`, `progressFillDuration`, и `*Ease`
 - hover/press: `hoverLiftScale`, `pressSqueezeScale`, `badgeAnchorHoverLiftScale`
 - ripple: `rippleDefaultDuration`, `rippleDefaultOpacityFrom`, `rippleExpandableDuration`, `rippleEaseCss`
 - feature flags: `enableHoverLift`, `enablePressSqueeze`, `enableToggleButtonFill`, `enableRipple`, `enableExpandable`, `enableToastStack`, `enableAsyncButtonCrossfade`, `enableContentFade`, `enableFeedbackExpand`, `enableProgressFill`

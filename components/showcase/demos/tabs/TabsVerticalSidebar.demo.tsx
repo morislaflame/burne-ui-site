@@ -12,7 +12,7 @@ export function TabsVerticalSidebarDemo() {
       variant="outline"
       value={tab}
       onValueChange={setTab}
-      className="w-full max-w-md"
+      className="w-full max-w-component-small items-center justify-center"
     >
       <Tabs.List>
         <Tabs.Tab value="profile">Profile</Tabs.Tab>
@@ -21,7 +21,7 @@ export function TabsVerticalSidebarDemo() {
       </Tabs.List>
       <Tabs.Panel value="profile">
         <Text as="p" variant="small" className="text-muted">
-          orientation=&quot;vertical&quot; — side navigation.
+          Profile content.
         </Text>
       </Tabs.Panel>
       <Tabs.Panel value="team">

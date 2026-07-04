@@ -10,14 +10,14 @@ export function TableClassNamesFullDemo() {
   return (
     <Table
       classNames={{
-        root: "rounded-mid border border-info/25 shadow-token-base",
-        headerRow: "bg-info/10",
-        column: "text-info font-semibold",
-        row: "hover:bg-info/5",
+        root: "rounded-mid border border-primary/25 shadow-token-base",
+        headerRow: "bg-primary/10",
+        column: "text-primary font-semibold",
+        row: "hover:bg-primary/5",
         cell: "text-foreground/90",
-        footer: "bg-info/5",
+        footer: "bg-primary/5",
       }}
-      className="max-w-2xl"
+      className="max-w-component-large items-center justify-center w-full"
     >
       <Table.ScrollContainer>
         <Table.Content aria-label="Team">

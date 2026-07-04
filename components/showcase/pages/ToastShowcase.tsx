@@ -1,6 +1,6 @@
 "use client";
 
-import { ToastClassNamesCompoundDemo, ToastClassNamesFullDemo } from "@/components/showcase/demos/toast/ToastClassNamesFull.demo";
+import { ToastClassNamesFullDemo } from "@/components/showcase/demos/toast/ToastClassNamesFull.demo";
 import toastClassNamesFullSource from "@/components/showcase/demos/toast/ToastClassNamesFull.demo.tsx?raw";
 import { ToastDefaultDemo } from "@/components/showcase/demos/toast/ToastDefault.demo";
 import toastDefaultSource from "@/components/showcase/demos/toast/ToastDefault.demo.tsx?raw";
@@ -49,7 +49,6 @@ export function ToastShowcase() {
         description="Slots root, indicator, title, description, action, close, viewport, scrim, stack."
       >
         <ShowcaseDemoFromFile Demo={ToastClassNamesFullDemo} source={toastClassNamesFullSource} />
-        <ShowcaseDemoFromFile Demo={ToastClassNamesCompoundDemo} source={toastClassNamesFullSource} />
       </ShowcaseSection>
 
       <ShowcaseSection

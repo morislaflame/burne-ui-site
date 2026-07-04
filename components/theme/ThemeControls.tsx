@@ -55,6 +55,7 @@ const MOTION_DURATION_CONTROLS = [
   { key: "interactiveDuration" as const, min: 120, max: 600, step: 10, unit: "ms" },
   { key: "tooltipDuration" as const, min: 80, max: 400, step: 10, unit: "ms" },
   { key: "switchThumbDuration" as const, min: 120, max: 600, step: 10, unit: "ms" },
+  { key: "selectionFillDuration" as const, min: 120, max: 800, step: 10, unit: "ms" },
   { key: "expandDuration" as const, min: 200, max: 800, step: 10, unit: "ms" },
   { key: "feedbackExpandDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },
   { key: "rippleDefaultDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },

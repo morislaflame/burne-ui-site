@@ -12,8 +12,8 @@ import { TimeFieldSegmentedRowDemo } from "@/components/showcase/demos/time-fiel
 import timeFieldSegmentedRowSource from "@/components/showcase/demos/time-field/TimeFieldSegmentedRow.demo.tsx?raw";
 import { TimeFieldShiftWindowDemo } from "@/components/showcase/demos/time-field/TimeFieldShiftWindow.demo";
 import timeFieldShiftWindowSource from "@/components/showcase/demos/time-field/TimeFieldShiftWindow.demo.tsx?raw";
-import { TimeFieldSimpleDemo } from "@/components/showcase/demos/time-field/TimeFieldSimple.demo";
-import timeFieldSimpleSource from "@/components/showcase/demos/time-field/TimeFieldSimple.demo.tsx?raw";
+import { TimeFieldVariantsDemo } from "@/components/showcase/demos/time-field/TimeFieldVariants.demo";
+import timeFieldVariantsSource from "@/components/showcase/demos/time-field/TimeFieldVariants.demo.tsx?raw";
 import { TimeFieldSizesDemo } from "@/components/showcase/demos/time-field/TimeFieldSizes.demo";
 import timeFieldSizesSource from "@/components/showcase/demos/time-field/TimeFieldSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
@@ -29,8 +29,8 @@ export function TimeFieldShowcase() {
       importPath='import { TimeField } from "burne-ui";'
       tags={["core", "forms"]}
     >
-      <ShowcaseSection title="Simple API" description="Controlled value in 24 hour format.">
-        <ShowcaseDemoFromFile align="center" Demo={TimeFieldSimpleDemo} source={timeFieldSimpleSource} />
+      <ShowcaseSection title="Options" description="variant: default, outline, secondary — alternative field shells.">
+        <ShowcaseDemoFromFile align="center" Demo={TimeFieldVariantsDemo} source={timeFieldVariantsSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Dimensions" description="size: small, base, mid, large.">

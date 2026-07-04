@@ -104,6 +104,7 @@ export type ThemeTokenState = {
   tooltipDuration: number;
   switchThumbDuration: number;
   switchThumbEase: string;
+  selectionFillDuration: number;
   selectionFillEase: string;
   hoverLiftScale: number;
   badgeAnchorHoverLiftScale: number;
@@ -157,6 +158,7 @@ export const MOTION_DURATION_LABELS = {
   interactiveDuration: "Interactive duration",
   tooltipDuration: "Tooltip duration",
   switchThumbDuration: "Switch thumb duration",
+  selectionFillDuration: "Selection fill duration",
   expandDuration: "Expand duration",
   feedbackExpandDuration: "Feedback ring duration",
   rippleDefaultDuration: "Ripple duration",
@@ -318,6 +320,7 @@ export const SCALE_DEFAULTS = {
   tooltipDuration: 200,
   switchThumbDuration: 340,
   switchThumbEase: "back.out(1.4)",
+  selectionFillDuration: 200,
   selectionFillEase: "back.out(1.25)",
   hoverLiftScale: 1.025,
   badgeAnchorHoverLiftScale: 1.052,
@@ -616,6 +619,7 @@ function applyMotionFromState(state: ThemeTokenState) {
     tooltipDuration: state.tooltipDuration,
     switchThumbDuration: state.switchThumbDuration,
     switchThumbEase: state.switchThumbEase,
+    selectionFillDuration: state.selectionFillDuration,
     selectionFillEase: state.selectionFillEase,
     hoverLiftScale: state.hoverLiftScale,
     badgeAnchorHoverLiftScale: state.badgeAnchorHoverLiftScale,
@@ -656,6 +660,7 @@ function applyMotionFromState(state: ThemeTokenState) {
     tooltipDuration: state.tooltipDuration,
     switchThumbDuration: state.switchThumbDuration,
     switchThumbEase: state.switchThumbEase,
+    selectionFillDuration: state.selectionFillDuration,
     selectionFillEase: state.selectionFillEase,
     hoverLiftScale: state.hoverLiftScale,
     badgeAnchorHoverLiftScale: state.badgeAnchorHoverLiftScale,

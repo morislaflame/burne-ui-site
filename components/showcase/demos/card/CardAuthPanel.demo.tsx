@@ -85,7 +85,7 @@ export function CardAuthPanelDemo() {
           </Tabs.Panel>
         </Tabs>
       </Card.Body>
-      <Card.Footer className="justify-center border-t border-token flex flex-col gap-xsmall">
+      <Card.Footer className="justify-center flex flex-col gap-xsmall">
         <Link href="#" size="small" className="text-muted">
           Privacy Policy
         </Link>

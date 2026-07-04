@@ -11,7 +11,7 @@ export function TooltipFormHintDemo() {
         <Label htmlFor="api-key" className="text-sm font-medium">
           API-key
         </Label>
-        <Tooltip variant="info" side="right">
+        <Tooltip side="right">
           <Tooltip.Trigger>
             <button
               type="button"

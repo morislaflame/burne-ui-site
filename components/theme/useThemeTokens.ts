@@ -102,6 +102,7 @@ function useThemeTokensState() {
         | "interactiveDuration"
         | "tooltipDuration"
         | "switchThumbDuration"
+        | "selectionFillDuration"
         | "expandDuration"
         | "feedbackExpandDuration"
         | "rippleDefaultDuration"

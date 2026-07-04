@@ -21,7 +21,7 @@ export function DrawerNotificationPanelDemo() {
         <Drawer.Trigger asChild>
           <Button variant="outline">
             Notifications
-            <Badge size="small" className="ml-xsmall">
+            <Badge size="small" variant="primary" className="ml-xsmall aspect-square">
               3
             </Badge>
           </Button>
@@ -36,13 +36,18 @@ export function DrawerNotificationPanelDemo() {
         </Drawer.Header>
         <Drawer.Body className="flex flex-col gap-mid">
           {NOTIFICATIONS.map((item) => (
-            <div key={item.title} className="flex flex-col gap-xsmall rounded-base border-token px-plus py-small">
-              <Text as="span" variant="small" className="font-medium">
-                {item.title}
-              </Text>
-              <Text as="span" variant="tools" className="text-muted">
-                {item.time}
-              </Text>
+            <div key={item.title} className="flex items-center justify-between rounded-base border-token px-plus py-base">
+              <div className="flex flex-col items-start gap-xsmall">
+                <Text as="span" variant="mid" className="font-medium">
+                  {item.title}
+                </Text>
+                <Text as="span" variant="small" className="text-muted">
+                  {item.time}
+                </Text>
+              </div>
+              <Button variant="ghost" size="small" type="button">
+                View
+              </Button>
             </div>
           ))}
         </Drawer.Body>

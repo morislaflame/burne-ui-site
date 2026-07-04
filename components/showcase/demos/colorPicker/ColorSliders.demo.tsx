@@ -12,7 +12,7 @@ export function ColorSlidersDemo() {
   const [hsva, setHsva] = useState<HSVA>({ h: 220, s: 80, v: 90, a: 100 });
 
   return (
-    <div className="flex max-w-sm flex-col gap-mid">
+    <div className="flex max-w-component-small w-full flex-col gap-mid">
       <ColorSlider
         channel="hue"
         color={hsva}

@@ -59,7 +59,7 @@ export function ComboBoxStackPickerDemo() {
       options={COMBO_OPTIONS}
       value={value}
       onValueChange={setValue}
-      className="w-full max-w-sm"
+      className="w-full max-w-component-small"
     >
       <ComboBox.Label>Fast action</ComboBox.Label>
       <ComboBox.InputGroup>

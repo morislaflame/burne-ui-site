@@ -5,7 +5,7 @@ import { Label } from "burne-ui";
 
 export function FieldBillingSetDemo() {
   return (
-    <Field.Set className="w-full max-w-md">
+    <Field.Set className="w-full max-w-component-small">
       <Field.Legend>
         <Field.LegendHeader>
           <Label>Payment</Label>
@@ -24,7 +24,7 @@ export function FieldBillingSetDemo() {
         </Input>
       </Field.Group>
       <Field.Actions>
-        <Button type="button" variant="primary" size="small">
+        <Button type="submit" variant="primary">
           Pay
         </Button>
       </Field.Actions>

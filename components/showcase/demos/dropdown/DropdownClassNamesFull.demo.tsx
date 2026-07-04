@@ -7,7 +7,6 @@ export function DropdownClassNamesFullDemo() {
       selectionIndicator
       defaultValue="ru"
       classNames={{
-        popoverBody: "border border-primary/20",
         label: "text-primary",
         item: "rounded-lg",
       }}

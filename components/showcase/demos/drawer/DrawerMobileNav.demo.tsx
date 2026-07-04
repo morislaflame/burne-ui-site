@@ -25,7 +25,7 @@ export function DrawerMobileNavDemo() {
         <Drawer.Body>
           <nav aria-label="Mobile menu" className="flex flex-col gap-xsmall">
             {NAV.map((item) => (
-              <Button key={item} variant="ghost" size="small" type="button" className="justify-start">
+              <Button key={item} variant="ghost" type="button" className="justify-start">
                 {item}
               </Button>
             ))}

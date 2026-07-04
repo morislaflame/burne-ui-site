@@ -9,14 +9,14 @@ export function TextAreaReleaseNotesDemo() {
   const [value, setValue] = useState("Fixed indents in Field.Set and added custom demos to showcase.");
 
   return (
-    <div className="flex w-full max-w-md flex-col gap-xsmall rounded-mid border-token bg-tertiary p-mid">
+    <div className="flex w-full max-w-md flex-col gap-xsmall rounded-mid border-token bg-surface p-mid">
       <TextArea className="w-full">
         <TextArea.Label>Release Notes</TextArea.Label>
         <TextArea.Control
-          variant="outline"
           rows={4}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          variant="secondary"
         />
         <TextArea.Hint>Briefly describe the changes for changelog.</TextArea.Hint>
       </TextArea>

@@ -70,7 +70,7 @@ function MemberListItems() {
               </span>
             </ListBox.Label>
             <ListBox.Icon>
-              <Badge status="info" size="small">
+              <Badge variant="secondary" size="small">
                 {member.badge}
               </Badge>
             </ListBox.Icon>
@@ -89,7 +89,7 @@ export function ComboBoxWorkspacePickerDemo() {
       options={COMBO_OPTIONS}
       value={value}
       onValueChange={setValue}
-      className="w-full max-w-sm"
+      className="w-full max-w-component-small"
     >
       <ComboBox.Label>Task executor</ComboBox.Label>
       <ComboBox.InputGroup>

@@ -27,7 +27,7 @@ export function FormProfileDemo() {
         },
       }}
     >
-      <Form.Title>Profile</Form.Title>
+      <Form.Title className="text-mid">Profile</Form.Title>
       <Form.Section>
         <Form.Field name="name">
           <Input isRequired name="name" label="Name" placeholder="Ivan" autoComplete="name" />
@@ -43,7 +43,7 @@ export function FormProfileDemo() {
         </Form.Field>
       </Form.Section>
       <Form.Section>
-        <CheckboxGroup>
+        <CheckboxGroup selection="single">
           <CheckboxGroup.Legend>
             <CheckboxGroup.Label>Delivery method</CheckboxGroup.Label>
           </CheckboxGroup.Legend>

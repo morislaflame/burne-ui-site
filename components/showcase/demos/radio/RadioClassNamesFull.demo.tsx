@@ -8,16 +8,16 @@ export function RadioClassNamesFullDemo() {
       defaultChecked
       variant="gloss"
       classNames={{
-        root: "rounded-large border-info/40 p-mid shadow-token-base",
-        control: "ring-info/30",
-        controlTrack: "border-info/50",
-        indicator: "text-info",
+        root: "rounded-large border-token bg-surface p-mid shadow-token-base",
+        control: "ring-primary/30",
+        controlTrack: "border-primary/50",
+        indicator: "text-primary",
         content: "gap-xsmall",
         label: "gap-xsmall",
-        labelText: "text-info font-semibold",
+        labelText: "text-primary font-semibold",
         hint: "text-foreground/70",
       }}
-      className="max-w-md"
+      className="max-w-md max-w-component-small"
     >
       <Radio.Control>
         <Radio.Indicator />

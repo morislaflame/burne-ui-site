@@ -2,8 +2,8 @@
 
 import { ComboBoxClassNamesFullDemo } from "@/components/showcase/demos/combobox/ComboBoxClassNamesFull.demo";
 import comboBoxClassNamesFullSource from "@/components/showcase/demos/combobox/ComboBoxClassNamesFull.demo.tsx?raw";
-import { ComboBoxDefaultDemo } from "@/components/showcase/demos/combobox/ComboBoxDefault.demo";
-import comboBoxDefaultSource from "@/components/showcase/demos/combobox/ComboBoxDefault.demo.tsx?raw";
+import { ComboBoxVariantsDemo } from "@/components/showcase/demos/combobox/ComboBoxVariants.demo";
+import comboBoxVariantsSource from "@/components/showcase/demos/combobox/ComboBoxVariants.demo.tsx?raw";
 import { ComboBoxSizesDemo } from "@/components/showcase/demos/combobox/ComboBoxSizes.demo";
 import comboBoxSizesSource from "@/components/showcase/demos/combobox/ComboBoxSizes.demo.tsx?raw";
 import { ComboBoxGlossDemo } from "@/components/showcase/demos/combobox/ComboBoxGloss.demo";
@@ -27,8 +27,8 @@ export function ComboBoxShowcase() {
       importPath='import { ComboBox } from "burne-ui";'
       tags={["core", "forms"]}
     >
-      <ShowcaseSection title="Default" description="options, value and onValueChange — controlled mode.">
-        <ShowcaseDemoFromFile align="center" Demo={ComboBoxDefaultDemo} source={comboBoxDefaultSource} />
+      <ShowcaseSection title="Options" description="variant: default, outline, secondary — alternative field shells.">
+        <ShowcaseDemoFromFile align="center" Demo={ComboBoxVariantsDemo} source={comboBoxVariantsSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Dimensions" description="size: small, base, mid, large.">

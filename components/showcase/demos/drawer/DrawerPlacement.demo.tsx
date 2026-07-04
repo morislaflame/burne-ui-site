@@ -32,7 +32,7 @@ export function DrawerPlacementDemo() {
             <Drawer.Panel size={isHorizontal ? "mid" : "default"}>
               <Drawer.Header>
               <Drawer.HeadingBlock>
-                <Drawer.Title>placement={placement}</Drawer.Title>
+                <Drawer.Title>Placement: {placement}</Drawer.Title>
                 <Drawer.Description>
                   {isHorizontal ? "Horizontal panel, size mid." : "Vertical panel, size default."}
                 </Drawer.Description>

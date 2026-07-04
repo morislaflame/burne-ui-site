@@ -1,7 +1,7 @@
 "use client";
 
-import { SearchInputBasicDemo } from "@/components/showcase/demos/search-input/SearchInputBasic.demo";
-import searchInputBasicSource from "@/components/showcase/demos/search-input/SearchInputBasic.demo.tsx?raw";
+import { SearchInputVariantsDemo } from "@/components/showcase/demos/search-input/SearchInputVariants.demo";
+import searchInputVariantsSource from "@/components/showcase/demos/search-input/SearchInputVariants.demo.tsx?raw";
 import { SearchInputSizesDemo } from "@/components/showcase/demos/search-input/SearchInputSizes.demo";
 import searchInputSizesSource from "@/components/showcase/demos/search-input/SearchInputSizes.demo.tsx?raw";
 import { SearchInputCommandBarDemo } from "@/components/showcase/demos/search-input/SearchInputCommandBar.demo";
@@ -27,8 +27,8 @@ export function SearchInputShowcase() {
       importPath='import { SearchInput } from "burne-ui";'
       tags={["core", "forms"]}
     >
-      <ShowcaseSection title="Search" description="Controlled through value and onValueChange.">
-        <ShowcaseDemoFromFile align="center" Demo={SearchInputBasicDemo} source={searchInputBasicSource} />
+      <ShowcaseSection title="Options" description="variant: default, outline, secondary — alternative field shells.">
+        <ShowcaseDemoFromFile align="center" Demo={SearchInputVariantsDemo} source={searchInputVariantsSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Dimensions" description="size: small, base, mid, large.">

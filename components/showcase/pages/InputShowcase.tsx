@@ -36,7 +36,7 @@ export function InputShowcase() {
       importPath='import { Input } from "burne-ui";'
       tags={["core", "forms"]}
     >
-      <ShowcaseSection title="Options" description="default and variant outline — alternative field shells.">
+      <ShowcaseSection title="Options" description="variant: default, outline, secondary — alternative field shells.">
         <ShowcaseDemoFromFile align="center" Demo={InputVariantsDemo} source={inputVariantsSource} />
       </ShowcaseSection>
 
@@ -90,7 +90,7 @@ export function InputShowcase() {
         </ShowcaseDoc.Block>
         <ShowcaseDoc.Block title="Options">
           <p>
-            <code>variant</code>: default, gloss, outline. <code>status</code>: default, danger, success,
+            <code>variant</code>: default, outline, secondary, gloss. <code>status</code>: default, danger, success,
             warning. Field tips — prop <code>hint</code>, not <code>description</code>.
           </p>
         </ShowcaseDoc.Block>

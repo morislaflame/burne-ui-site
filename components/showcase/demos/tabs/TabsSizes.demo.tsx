@@ -3,7 +3,7 @@ import { Text } from "burne-ui";
 
 function TabsSizeRow({ size }: { size: "small" | "base" | "mid" | "large" }) {
   return (
-    <Tabs defaultValue="one" size={size} className="w-full max-w-md">
+    <Tabs defaultValue="one" size={size} className="w-full max-w-component-mid items-center justify-center">
       <Tabs.List>
         <Tabs.Tab value="one">One</Tabs.Tab>
         <Tabs.Tab value="two">Two</Tabs.Tab>
@@ -19,7 +19,7 @@ function TabsSizeRow({ size }: { size: "small" | "base" | "mid" | "large" }) {
 
 export function TabsSizesDemo() {
   return (
-    <div className="flex w-full flex-col gap-mid">
+    <div className="flex w-full flex-col gap-mid justify-center items-center max-w-component-mid">
       <TabsSizeRow size="small" />
       <TabsSizeRow size="base" />
       <TabsSizeRow size="mid" />

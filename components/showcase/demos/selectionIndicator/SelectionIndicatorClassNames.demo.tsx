@@ -7,7 +7,7 @@ export function SelectionIndicatorClassNamesDemo() {
   const [selected, setSelected] = useState(true);
 
   return (
-    <div className="flex w-full max-w-lg flex-col gap-mid">
+    <div className="flex w-full max-w-component-small flex-col gap-mid justify-center items-center">
       <Text as="p" variant="small" className="font-medium">
         classNames: shell / fill / mark
       </Text>
@@ -18,9 +18,9 @@ export function SelectionIndicatorClassNamesDemo() {
           selected={selected}
           check
           classNames={{
-            shell: "rounded-mid ring-1 ring-primary/30",
-            fill: "rounded-[inherit] bg-danger",
-            mark: "text-danger-foreground",
+            shell: "rounded-mid border-token bg-surface",
+            fill: "rounded-base bg-primary inset-0",
+            mark: "text-primary-foreground",
           }}
         />
         <SelectionIndicator size="large" variant="base" selected={selected} check />

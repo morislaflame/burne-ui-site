@@ -8,23 +8,13 @@ export function SelectionIndicatorThumbGalleryDemo() {
   const [active, setActive] = useState(true);
 
   return (
-    <div className="flex w-full max-w-md flex-col gap-mid">
+    <div className="flex w-full max-w-component-small flex-col gap-mid justify-center items-center">
       <Text as="p" variant="small" className="font-medium">
         SelectionThumb
       </Text>
       <div className="flex flex-wrap items-center gap-xlarge">
         <div className="selection-indicator-base flex items-center justify-center">
           <SelectionThumb active={active}>
-            <SelectionThumbIcon size="base">
-              <IoCheckmark aria-hidden />
-            </SelectionThumbIcon>
-          </SelectionThumb>
-        </div>
-        <div className="selection-indicator-mid flex items-center justify-center">
-          <SelectionThumb active={!active} className="rounded-mid">
-            <SelectionThumbIcon size="mid">
-              <IoEllipse aria-hidden />
-            </SelectionThumbIcon>
           </SelectionThumb>
         </div>
       </div>

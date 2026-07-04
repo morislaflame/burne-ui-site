@@ -13,9 +13,9 @@ export function AlertDialogClassNamesFullDemo() {
       status="warning"
       classNames={{
         panel: "ring-1 ring-warning/30",
-        title: "text-warning font-semibold",
+        title: "text-warning font-semibold text-large",
         description: "text-foreground/80",
-        footer: "border-t border-warning/20 pt-small",
+        footer: "border-t border-warning/20 pt-mid",
       }}
     >
       <AlertDialog.Trigger asChild>

@@ -6,7 +6,7 @@ export function PaginationCompactDemo() {
   const [page, setPage] = useState(1);
 
   return (
-    <Pagination page={page} totalPages={10} onPageChange={setPage}>
+    <Pagination page={page} totalPages={10} onPageChange={setPage} className="w-full max-w-component-large">
       <Pagination.Summary>Page {page} from 10</Pagination.Summary>
       <Pagination.Content>
         <Pagination.Item>

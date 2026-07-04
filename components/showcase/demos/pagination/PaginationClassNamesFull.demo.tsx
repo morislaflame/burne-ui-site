@@ -12,7 +12,7 @@ export function PaginationClassNamesFullDemo() {
       totalPages={totalPages}
       onPageChange={setPage}
       classNames={{
-        root: "rounded-mid border border-primary/25 p-base",
+        root: "rounded-mid border border-primary/25 p-base bg-surface shadow-token-base max-w-component-large",
         summaryText: "text-primary font-medium",
         content: "gap-small",
         interactive: "text-muted hover:text-primary",

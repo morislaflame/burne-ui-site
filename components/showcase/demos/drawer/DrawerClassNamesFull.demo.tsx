@@ -13,10 +13,10 @@ export function DrawerClassNamesFullDemo() {
         onOpenChange={setOpen}
         classNames={{
           panel: "border-primary/40 shadow-token-large",
-          header: "border-b border-primary/20 pb-small",
+          header: "border-b border-primary/20 pb-mid",
           title: "text-primary font-w-strong",
           description: "text-foreground/75",
-          footer: "border-t border-primary/20 pt-small",
+          footer: "border-t border-primary/20 pt-mid",
         }}
       >
         <Drawer.Trigger asChild>
@@ -34,7 +34,7 @@ export function DrawerClassNamesFullDemo() {
           <p className="text-small text-muted">Example body-slots with custom panel styles.</p>
         </Drawer.Body>
         <Drawer.Footer>
-          <Button size="small" variant="outline" onClick={() => setOpen(false)}>
+          <Button variant="outline" onClick={() => setOpen(false)}>
             Close
           </Button>
         </Drawer.Footer>

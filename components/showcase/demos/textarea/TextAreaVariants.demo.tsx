@@ -1,25 +1,28 @@
-import { Input } from "burne-ui";
+import { TextArea } from "burne-ui";
 
-export function InputVariantsDemo() {
+export function TextAreaVariantsDemo() {
   return (
-    <div className="flex flex-col gap-mid items-center w-full">
-      <Input
-        label="Email"
-        placeholder="you@example.com"
+    <div className="flex w-full flex-col items-center gap-mid">
+      <TextArea
+        label="Comment"
+        placeholder="Message text…"
+        rows={3}
         hint="Default shell — bg-surface."
         className="w-64"
       />
-      <Input
+      <TextArea
         label="Outline"
         variant="outline"
         placeholder="variant outline"
+        rows={3}
         hint="Transparent background with outline."
         className="w-64"
       />
-      <Input
+      <TextArea
         label="Secondary"
         variant="secondary"
         placeholder="variant secondary"
+        rows={3}
         hint="Secondary surface — like Button secondary."
         className="w-64"
       />
