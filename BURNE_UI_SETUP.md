@@ -51,14 +51,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/*
- * Tailwind v4 при повторной обработке gloss-классов из @source
- * может вырезать unprefixed backdrop-filter.
- */
-:is(.gloss-panel, .gloss-control, .gloss-btn, .gloss-indicator) {
-  backdrop-filter: blur(var(--gloss-blur));
-}
 ```
 
 Почему это важно:
@@ -67,6 +59,7 @@ body {
 - `@source "../node_modules/burne-ui/dist"` нужен, чтобы Tailwind не выкинул классы из библиотеки и ваших `className`.
 - Блок `@theme` после импорта `burne-ui/styles.css` **обязателен** для корректных `text-base`, `font-sans` / `font-mono` и runtime-смены шрифтов.
 - Правило `html, body { font-family: var(--font-family-sans) }` нужно, чтобы смена `--font-family-sans` сразу отражалась на всём UI.
+- Gloss `backdrop-filter` уже в пакете с **1.5.3+** (порядок `-webkit` → unprefixed) — копировать в `globals.css` не нужно.
 
 ---
 
@@ -458,7 +451,7 @@ ignore-scripts=true
 - [ ] Добавили `@source "../node_modules/burne-ui/dist"`
 - [ ] Добавили `@theme` с `--text-base`, `--font-sans`, `--font-mono`
 - [ ] Добавили `html, body { font-family: var(--font-family-sans); }`
-- [ ] (При gloss) добавили fallback `backdrop-filter` для gloss-классов
+- [ ] `burne-ui` ≥ 1.5.3 (gloss blur CSS в `styles.css`)
 - [ ] (При runtime-шрифтах) подключили Google Fonts или `next/font`
 - [ ] (Опционально) theme overrides (`--color-*`, `--space`, `--radius`, …)
 - [ ] (Опционально) `configureMotion(...)`

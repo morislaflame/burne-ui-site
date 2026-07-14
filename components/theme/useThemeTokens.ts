@@ -12,14 +12,14 @@ import {
 import {
   applyColorPresetToState,
   applyThemeModeToState,
-} from "./colorPresets";
-import {
   applyThemeTokens,
   clearThemeInlineTokens,
   createDefaultThemeState,
+  exportBurneThemeConfigSource,
   exportThemeCss,
   LAYOUT_PRESETS,
   SCALE_DEFAULTS,
+  themeTokenStateToConfig,
   type ColorPresetKey,
   type LayoutPresetKey,
   type ThemeColorKey,
@@ -27,7 +27,7 @@ import {
   type ThemeMode,
   type ThemeStatusForegroundKey,
   type ThemeTokenState,
-} from "./themeDefaults";
+} from "burne-ui";
 
 const ThemeTokensContext = createContext<ThemeTokensApi | null>(null);
 
@@ -191,12 +191,10 @@ function useThemeTokensState() {
     }));
   }, []);
 
-  /** Full preset - resets scale and applies the palette to the current theme mode. */
   const applyPreset = useCallback((preset: ColorPresetKey) => {
     setState((prev) => applyColorPresetToState(prev, preset, { resetScale: true }));
   }, []);
 
-  /** Color preset - only colors / statusForegrounds, theme mode does not change. */
   const applyColorPreset = useCallback((preset: ColorPresetKey) => {
     setState((prev) => applyColorPresetToState(prev, preset));
   }, []);
@@ -215,6 +213,13 @@ function useThemeTokensState() {
     const css = exportThemeCss(state);
     await navigator.clipboard.writeText(css);
     return css;
+  }, [state]);
+
+  /** TypeScript config for `BurneUIProvider config={...}` — save as `burne-theme.ts`. */
+  const copyConfig = useCallback(async () => {
+    const source = exportBurneThemeConfigSource(themeTokenStateToConfig(state));
+    await navigator.clipboard.writeText(source);
+    return source;
   }, [state]);
 
   return {
@@ -240,6 +245,7 @@ function useThemeTokensState() {
     applyLayoutPreset,
     reset,
     copyCss,
+    copyConfig,
     defaults: SCALE_DEFAULTS,
   };
 }

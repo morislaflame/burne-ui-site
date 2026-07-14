@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import { usePathname } from "next/navigation";
 import { IoColorPaletteOutline } from "react-icons/io5";
 
 import { Button, cn, Drawer } from "burne-ui";
@@ -14,7 +20,7 @@ function DesktopThemePanel() {
 
   return (
     <aside className="hidden md:flex h-full min-h-0 w-96 shrink-0 flex-col overflow-hidden border-l-token bg-surface">
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain p-mid">
+      <div className="site-panel-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain p-mid">
         <ThemeControls tokens={tokens} />
       </div>
     </aside>
@@ -56,7 +62,7 @@ function MobileThemeDrawer({
           </Drawer.HeadingBlock>
           <Drawer.Close />
         </Drawer.Header>
-        <Drawer.Body className="flex min-h-0 flex-1 flex-col overflow-y-auto p-mid">
+        <Drawer.Body className="site-panel-scroll flex min-h-0 flex-1 flex-col overflow-y-auto p-mid">
           <ThemeControls tokens={tokens} />
         </Drawer.Body>
       </Drawer.Panel>
@@ -64,8 +70,44 @@ function MobileThemeDrawer({
   );
 }
 
+function resetShowcaseScroll(el: HTMLElement | null) {
+  if (!el) return;
+  el.scrollTop = 0;
+  el.scrollLeft = 0;
+}
+
 export function ShowcaseShell({ children }: { children: ReactNode }) {
   const [themeDrawerOpen, setThemeDrawerOpen] = useState(false);
+  const pathname = usePathname();
+  const scrollRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const el = scrollRef.current;
+    const content = contentRef.current;
+    resetShowcaseScroll(el);
+
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      resetShowcaseScroll(el);
+      raf2 = requestAnimationFrame(() => resetShowcaseScroll(el));
+    });
+
+    // Dynamic import: loading → page grows; pin until that settle finishes.
+    const ro =
+      content && typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(() => resetShowcaseScroll(el))
+        : null;
+    if (content && ro) ro.observe(content);
+    const stopPin = window.setTimeout(() => ro?.disconnect(), 500);
+
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+      window.clearTimeout(stopPin);
+      ro?.disconnect();
+    };
+  }, [pathname]);
 
   return (
     <div className="relative flex min-h-0 flex-1 overflow-hidden showcase-shell">
@@ -74,8 +116,18 @@ export function ShowcaseShell({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
-        <main className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain">
-          <div className="mx-auto w-full max-w-4xl px-mid py-xlarge">{children}</div>
+        <main
+          ref={scrollRef}
+          data-showcase-scroll
+          className="site-panel-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain [overflow-anchor:none]"
+        >
+          <div
+            key={pathname}
+            ref={contentRef}
+            className="mx-auto box-border flex min-h-full w-full max-w-4xl flex-col px-mid py-xlarge"
+          >
+            {children}
+          </div>
         </main>
       </div>
 

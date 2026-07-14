@@ -4,7 +4,7 @@ import { Popover } from "burne-ui";
 export function PopoverWithHeaderDemo() {
   return (
     <Popover side="bottom">
-      <Popover.Trigger>
+      <Popover.Trigger asChild>
         <Button variant="secondary" type="button">
           With header
         </Button>

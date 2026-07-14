@@ -46,14 +46,14 @@ import {
   </Dropdown.Trigger>
   <Dropdown.Popover>
     <Dropdown.Group>
-      <Dropdown.Label>Select language</Dropdown.Label>
+      <Dropdown.Header>Select language</Dropdown.Header>
       <Dropdown.Item value="ru">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>Russian</Dropdown.ItemLabel>
+        <Dropdown.Label>Russian</Dropdown.Label>
       </Dropdown.Item>
       <Dropdown.Item value="en">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>English</Dropdown.ItemLabel>
+        <Dropdown.Label>English</Dropdown.Label>
       </Dropdown.Item>
     </Dropdown.Group>
   </Dropdown.Popover>
@@ -98,10 +98,10 @@ import {
 | `Dropdown.Trigger` | Toggle; `asChild` for `Button` |
 | `Dropdown.Popover` / `Content` | Wrapper over `Popover` |
 | `Dropdown.Group` | `role="group"` + optional indicators |
-| `Dropdown.Label` | Group heading |
+| `Dropdown.Header` | Section heading (like ListBox.Header) |
 | `Dropdown.Separator` | Divider (`Separator`) |
 | `Dropdown.Item` | Menu item / selection row |
-| `Dropdown.ItemLabel` / `Hint` / `Icon` | Row slots |
+| `Dropdown.Label` / `Hint` / `Icon` | Row slots |
 | `Dropdown.ItemIndicator` | `SelectionIndicator` compound |
 | `Dropdown.Sub` | Nested submenu |
 | `Dropdown.SubTrigger` / `SubContent` | Hover/flyout submenu |
@@ -286,7 +286,7 @@ Sub-parts (`Dropdown.Item`, `Dropdown.SubTrigger`, …) accept **`className`** o
 | `popover` | `Popover.Content` shell | z-index, outer ring |
 | `popoverBody` | `Popover.Body` | Padding, border, max-height scroll area |
 | `group` | `Dropdown.Group` | Gap between items |
-| `label` | `Dropdown.Label` | Muted section heading |
+| `header` | `Dropdown.Header` | Muted section heading |
 | `separator` | `Dropdown.Separator` | Divider spacing |
 | `item` | Item row | Radius, padding of the full row |
 | `itemLabel` | Label span | Item typography |
@@ -320,14 +320,14 @@ Sub-parts (`Dropdown.Item`, `Dropdown.SubTrigger`, …) accept **`className`** o
   </Dropdown.Trigger>
   <Dropdown.Popover>
     <Dropdown.Group>
-      <Dropdown.Label>Select language</Dropdown.Label>
+      <Dropdown.Header>Select language</Dropdown.Header>
       <Dropdown.Item value="ru">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>Russian</Dropdown.ItemLabel>
+        <Dropdown.Label>Russian</Dropdown.Label>
       </Dropdown.Item>
       <Dropdown.Item value="en">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>English</Dropdown.ItemLabel>
+        <Dropdown.Label>English</Dropdown.Label>
       </Dropdown.Item>
     </Dropdown.Group>
   </Dropdown.Popover>
@@ -341,7 +341,7 @@ Sub-parts (`Dropdown.Item`, `Dropdown.SubTrigger`, …) accept **`className`** o
   <Dropdown.Trigger>Menu</Dropdown.Trigger>
   <Dropdown.Popover bodyClassName="p-small">
     <Dropdown.Item variant="danger">
-      <Dropdown.ItemLabel>Delete</Dropdown.ItemLabel>
+      <Dropdown.Label>Delete</Dropdown.Label>
     </Dropdown.Item>
     <Dropdown.Separator />
     <Dropdown.Sub>

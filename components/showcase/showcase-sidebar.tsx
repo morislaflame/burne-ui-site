@@ -57,7 +57,7 @@ export function ShowcaseSidebar({
   const pathname = usePathname();
 
   return (
-    <div className={cn("flex min-h-0 flex-1 flex-col gap-mid overflow-y-auto overscroll-y-contain p-mid", className)}>
+    <div className={cn("site-panel-scroll flex min-h-0 flex-1 flex-col gap-mid overflow-y-auto overscroll-y-contain p-mid", className)}>
       {SHOWCASE_GROUPS.map((group: ShowcaseGroup) => (
         <div key={group.id} className="flex flex-col gap-xsmall">
           <Text

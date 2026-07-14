@@ -5,7 +5,7 @@ import { Text } from "burne-ui";
 export function PopoverSimpleDemo() {
   return (
     <Popover>
-      <Popover.Trigger>
+      <Popover.Trigger asChild>
         <Button variant="outline" type="button">
           Popover
         </Button>

@@ -6,7 +6,7 @@ export function CheckboxClassNamesFullDemo() {
       defaultChecked
       variant="outline"
       classNames={{
-        root: "rounded-large border-primary/40 p-mid shadow-token-base",
+        root: "rounded-large border-primary/40 p-mid",
         control: "ring-primary/30",
         controlTrack: "border-primary/50",
         indicator: "text-primary rounded-mid",

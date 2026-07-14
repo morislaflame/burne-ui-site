@@ -33,7 +33,6 @@ export function BadgeClassNamesFullDemo() {
           }}
         />
       </div>
-
     </div>
   );
 }

@@ -39,16 +39,10 @@ body {
 
 /**
  * Button async layers (loader / success / error) stack in one grid cell.
- * GSAP hides inactive layers via autoAlpha; aria-hidden mirrors asyncState for SSR
- * and as a fallback before GSAP attaches refs (Next.js pre-render).
+ * Inactive layers are hidden in burne-ui/styles.css via
+ * `button [data-button-async-layer][aria-hidden="true"]` (SSR / pre-hydration).
  * Do not target col-start-1 row-start-1 alone — Expandable.Icon uses the same grid cell.
  */
-button [data-button-async-layer][aria-hidden="true"],
-button .col-start-1.row-start-1.flex.items-center.justify-center[aria-hidden="true"] {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
 
 /* Section nav in header — scrollable but no visible scrollbar */
 .section-nav-scroll {
@@ -60,10 +54,21 @@ button .col-start-1.row-start-1.flex.items-center.justify-center[aria-hidden="tr
   display: none;
 }
 
-/*
- * Tailwind v4 re-processes burne-ui gloss CSS from @source and drops the
- * unprefixed backdrop-filter, leaving only -webkit-backdrop-filter.
+/**
+ * Nested site panels (sidebar / main / theme): still scroll with wheel/trackpad,
+ * but hide the thick classic OS bars that appear when a mouse is connected.
+ * Do not apply to `html`/`body` — leave the normal document scrollbar alone.
  */
-:is(.gloss-panel, .gloss-control, .gloss-btn, .gloss-indicator) {
-  backdrop-filter: blur(var(--gloss-blur));
+.site-panel-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+.site-panel-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+ * Gloss `backdrop-filter` reinforce lives in burne-ui/styles.css (1.5.3+).
+ * Do not re-add here after updating the package.
+ */

@@ -46,14 +46,14 @@ import {
   </Dropdown.Trigger>
   <Dropdown.Popover>
     <Dropdown.Group>
-      <Dropdown.Label>Выберите язык</Dropdown.Label>
+      <Dropdown.Header>Выберите язык</Dropdown.Header>
       <Dropdown.Item value="ru">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>Русский</Dropdown.ItemLabel>
+        <Dropdown.Label>Русский</Dropdown.Label>
       </Dropdown.Item>
       <Dropdown.Item value="en">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>English</Dropdown.ItemLabel>
+        <Dropdown.Label>English</Dropdown.Label>
       </Dropdown.Item>
     </Dropdown.Group>
   </Dropdown.Popover>
@@ -98,10 +98,10 @@ import {
 | `Dropdown.Trigger` | Toggle; `asChild` для `Button` |
 | `Dropdown.Popover` / `Content` | Обёртка над `Popover` |
 | `Dropdown.Group` | `role="group"` + optional indicators |
-| `Dropdown.Label` | Заголовок группы |
+| `Dropdown.Header` | Заголовок секции (как ListBox.Header) |
 | `Dropdown.Separator` | Разделитель (`Separator`) |
 | `Dropdown.Item` | Пункт меню / selection row |
-| `Dropdown.ItemLabel` / `Hint` / `Icon` | Слоты строки |
+| `Dropdown.Label` / `Hint` / `Icon` | Слоты строки |
 | `Dropdown.ItemIndicator` | `SelectionIndicator` compound |
 | `Dropdown.Sub` | Вложенное подменю |
 | `Dropdown.SubTrigger` / `SubContent` | Hover/flyout submenu |
@@ -286,7 +286,7 @@ Gloss submenu: `subContentGlossPanel` + `subContentGlossContent` вместо `b
 | `popover` | `Popover.Content` shell | z-index, outer ring |
 | `popoverBody` | `Popover.Body` | Padding, border, max-height scroll area |
 | `group` | `Dropdown.Group` | Gap между items |
-| `label` | `Dropdown.Label` | Заголовок секции muted |
+| `header` | `Dropdown.Header` | Заголовок секции muted |
 | `separator` | `Dropdown.Separator` | Отступы разделителя |
 | `item` | Item row | Radius, padding всей строки |
 | `itemLabel` | Label span | Typography пункта |
@@ -320,14 +320,14 @@ Gloss submenu: `subContentGlossPanel` + `subContentGlossContent` вместо `b
   </Dropdown.Trigger>
   <Dropdown.Popover>
     <Dropdown.Group>
-      <Dropdown.Label>Выберите язык</Dropdown.Label>
+      <Dropdown.Header>Выберите язык</Dropdown.Header>
       <Dropdown.Item value="ru">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>Русский</Dropdown.ItemLabel>
+        <Dropdown.Label>Русский</Dropdown.Label>
       </Dropdown.Item>
       <Dropdown.Item value="en">
         <Dropdown.ItemIndicator />
-        <Dropdown.ItemLabel>English</Dropdown.ItemLabel>
+        <Dropdown.Label>English</Dropdown.Label>
       </Dropdown.Item>
     </Dropdown.Group>
   </Dropdown.Popover>
@@ -341,7 +341,7 @@ Gloss submenu: `subContentGlossPanel` + `subContentGlossContent` вместо `b
   <Dropdown.Trigger>Меню</Dropdown.Trigger>
   <Dropdown.Popover bodyClassName="p-small">
     <Dropdown.Item variant="danger">
-      <Dropdown.ItemLabel>Удалить</Dropdown.ItemLabel>
+      <Dropdown.Label>Удалить</Dropdown.Label>
     </Dropdown.Item>
     <Dropdown.Separator />
     <Dropdown.Sub>

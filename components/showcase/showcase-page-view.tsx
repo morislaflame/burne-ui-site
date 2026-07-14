@@ -9,9 +9,13 @@ import { ShowcasePagePlaceholder } from "@/components/showcase/showcase-page-pla
 
 export type ShowcasePageComponent = ComponentType;
 
+/**
+ * Full main-column height: cancel shell `py-xlarge` with negative margin so
+ * `100dvh - header` matches the scrollport and does not leave extra scroll.
+ */
 function ShowcasePageLoading() {
   return (
-    <div className="flex min-h-[12rem] items-center justify-center">
+    <div className="-my-xlarge flex min-h-[calc(100dvh-var(--site-header-height,4.5rem))] w-full items-center justify-center">
       <Loading variant="dots" size="mid" color="primary" label="Loading showcase" />
     </div>
   );

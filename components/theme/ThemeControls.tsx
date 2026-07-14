@@ -482,13 +482,20 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
     applyLayoutPreset,
     reset,
     copyCss,
+    copyConfig,
   } = tokens;
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<"css" | "config" | null>(null);
 
-  const handleCopy = async () => {
+  const handleCopyCss = async () => {
     await copyCss();
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 2000);
+    setCopied("css");
+    window.setTimeout(() => setCopied(null), 2000);
+  };
+
+  const handleCopyConfig = async () => {
+    await copyConfig();
+    setCopied("config");
+    window.setTimeout(() => setCopied(null), 2000);
   };
 
   return (
@@ -501,15 +508,22 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
             
           </div>
           <Text as="p" variant="base" className="text-muted">
-            Change your theme tokens right here.
+            Change your theme tokens right here. Copy CSS for a stylesheet, or Copy config for{" "}
+            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
+              BurneUIProvider
+            </Text>
+            .
           </Text>
         </div>
         <div className="flex shrink-0 flex-wrap gap-xsmall">
               <Button type="button" size="small" variant="primary" onClick={reset}>
                 Reset
               </Button>
-              <Button type="button" size="small" variant="gloss" onClick={handleCopy}>
-                {copied ? "Copied" : "Copy CSS"}
+              <Button type="button" size="small" variant="gloss" onClick={handleCopyCss}>
+                {copied === "css" ? "Copied CSS" : "Copy CSS"}
+              </Button>
+              <Button type="button" size="small" variant="outline" onClick={handleCopyConfig}>
+                {copied === "config" ? "Copied config" : "Copy config"}
               </Button>
          </div>
 

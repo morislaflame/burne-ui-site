@@ -29,7 +29,7 @@ function ShowcaseMobileNavList({ onNavigate }: { onNavigate: () => void }) {
   const router = useRouter();
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col gap-mid overflow-y-auto overscroll-y-contain p-mid">
+    <div className="site-panel-scroll flex min-h-0 flex-1 flex-col gap-mid overflow-y-auto overscroll-y-contain p-mid">
       {SHOWCASE_GROUPS.map((group: ShowcaseGroup) => (
         <div key={group.id} className="flex flex-col gap-xsmall">
           <Text

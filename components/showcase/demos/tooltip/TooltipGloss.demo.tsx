@@ -4,7 +4,7 @@ import { Tooltip } from "burne-ui";
 export function TooltipGlossDemo() {
   return (
     <Tooltip surface="gloss" variant="info">
-      <Tooltip.Trigger>
+      <Tooltip.Trigger asChild>
         <Button variant="gloss">Gloss Tooltip</Button>
       </Tooltip.Trigger>
       <Tooltip.Content>
