@@ -192,9 +192,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 URL-ы для пресетов Theme panel лежат в `lib/theme-font-links.ts`.  
 При добавлении нового пресета обновите **три места**:
 
-1. `FONT_PRESETS` / `MONO_FONT_PRESETS` в `themeDefaults.ts`
+1. `FONT_PRESETS` / `MONO_FONT_PRESETS` в `components/theme/themePresets.ts`
 2. `lib/theme-font-links.ts` (Google Fonts URL)
-3. (для playground) `burne-ui/playground/index.html`
+3. (для playground) `burne-ui/playground/themePresets.ts` + `index.html`
 
 ### 6.5 Доступные пресеты (Theme panel)
 
@@ -350,7 +350,10 @@ app/
   layout.tsx              // Google Fonts <link>, провайдеры
 components/
   theme/
-    themeDefaults.ts      // applyThemeTokens, FONT_PRESETS, exportThemeCss
+    themeDefaults.ts      // re-export primitives из burne-ui
+    themePresets.ts       // FONT_PRESETS / LAYOUT_PRESETS (только сайт)
+    themePalettes.ts      // named color palettes (Ocean, Bold, …)
+    colorPresets.ts       // applyColorPresetToState
     useThemeTokens.ts     // ThemeTokensProvider
     ThemeControls.tsx     // UI панели токенов
 lib/

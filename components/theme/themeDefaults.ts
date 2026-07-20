@@ -1,39 +1,26 @@
 /**
  * Theme defaults / apply / export — re-exported from `burne-ui`.
- * Requires burne-ui with Theme API (BurneUIProvider / applyThemeTokens).
+ * Named color/font/layout presets live in `./themePresets` + `./colorPresets` + `./themePalettes`.
+ * Editor labels live in `./themeEditorChrome`.
  */
 export {
-  ANIMATION_FLAG_LABELS,
-  BORDER_COLOR_CSS_FORMULA,
-  BORDER_COLOR_CSS_FORMULA_BY_THEME,
   COLOR_CSS_VAR,
-  COLOR_LABELS,
   DEFAULT_FONT,
   DEFAULT_FONT_MONO,
-  FONT_PRESETS,
   FONT_WEIGHT_CSS_VAR,
   FONT_WEIGHT_DEFAULTS,
-  FONT_WEIGHT_LABELS,
-  GSAP_EASE_OPTIONS,
-  LAYOUT_PRESETS,
-  MONO_FONT_PRESETS,
-  MOTION_DURATION_LABELS,
-  MOTION_EASE_LABELS,
-  MOTION_SCALE_LABELS,
-  RIPPLE_EASE_CSS_OPTIONS,
+  MOTION_DEFAULTS,
   SCALE_DEFAULTS,
-  SCALE_TOKEN_LABELS,
-  STATUS_FOREGROUND_CSS_VAR,
-  STATUS_FOREGROUND_LABELS,
   TEXT_SCALE_BASES,
   applyThemeTokens,
   clearThemeInlineTokens,
   createDefaultThemeState,
+  exportBurneThemeConfigSource,
   exportThemeCss,
-  isBorderColorCustomized,
-  isDefaultBorderColor,
-  type ColorPresetKey,
-  type LayoutPresetKey,
+  activateThemeModePalette,
+  ensureModePalettes,
+  patchThemeColor,
+  themeTokenStateToConfig,
   type ThemeColorKey,
   type ThemeColors,
   type ThemeFontWeightKey,
@@ -43,3 +30,40 @@ export {
   type ThemeStatusForegrounds,
   type ThemeTokenState,
 } from "burne-ui";
+
+export {
+  ANIMATION_FLAG_LABELS,
+  COLOR_LABELS,
+  FONT_WEIGHT_LABELS,
+  GSAP_EASE_OPTIONS,
+  MOTION_DURATION_LABELS,
+  MOTION_EASE_LABELS,
+  MOTION_SCALE_LABELS,
+  RIPPLE_EASE_CSS_OPTIONS,
+  SCALE_TOKEN_LABELS,
+  STATUS_FOREGROUND_LABELS,
+} from "./themeEditorChrome";
+
+export {
+  FONT_PRESETS,
+  LAYOUT_PRESETS,
+  MONO_FONT_PRESETS,
+  type LayoutPresetKey,
+} from "./themePresets";
+
+export type { ColorPresetKey } from "./colorPresets";
+
+import {
+  createDefaultThemeState,
+  type ThemeMode,
+  type ThemeTokenState,
+} from "burne-ui";
+
+/** Docs theme-builder state — kit tokens + active named color preset id. */
+export type ThemeEditorState = ThemeTokenState & {
+  colorPreset: string | null;
+};
+
+export function createDefaultEditorState(theme: ThemeMode = "dark"): ThemeEditorState {
+  return { ...createDefaultThemeState(theme), colorPreset: null };
+}

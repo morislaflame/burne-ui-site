@@ -1,7 +1,7 @@
 /**
  * Google Fonts for ThemeControls presets.
- * Keep in sync with FONT_PRESETS / MONO_FONT_PRESETS in components/theme/themeDefaults.ts
- * and burne-ui/playground/index.html.
+ * Keep in sync with FONT_PRESETS / MONO_FONT_PRESETS in components/theme/themePresets.ts
+ * and burne-ui/playground/themePresets.ts / index.html.
  */
 export const THEME_SANS_FONTS_URL =
   "https://fonts.googleapis.com/css2?" +

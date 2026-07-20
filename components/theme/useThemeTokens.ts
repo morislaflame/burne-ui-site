@@ -12,22 +12,26 @@ import {
 import {
   applyColorPresetToState,
   applyThemeModeToState,
+  type ColorPresetKey,
+} from "./colorPresets";
+import {
   applyThemeTokens,
   clearThemeInlineTokens,
-  createDefaultThemeState,
+  createDefaultEditorState,
   exportBurneThemeConfigSource,
   exportThemeCss,
-  LAYOUT_PRESETS,
+  MOTION_DEFAULTS,
+  patchThemeColor,
   SCALE_DEFAULTS,
   themeTokenStateToConfig,
-  type ColorPresetKey,
-  type LayoutPresetKey,
   type ThemeColorKey,
+  type ThemeEditorState,
   type ThemeFontWeightKey,
   type ThemeMode,
   type ThemeStatusForegroundKey,
-  type ThemeTokenState,
-} from "burne-ui";
+} from "./themeDefaults";
+import { shuffleThemeState } from "./shuffleThemeState";
+import { LAYOUT_PRESETS, type LayoutPresetKey } from "./themePresets";
 
 const ThemeTokensContext = createContext<ThemeTokensApi | null>(null);
 
@@ -45,7 +49,7 @@ export function useThemeTokens(): ThemeTokensApi {
 }
 
 function useThemeTokensState() {
-  const [state, setState] = useState<ThemeTokenState>(() => createDefaultThemeState("dark"));
+  const [state, setState] = useState<ThemeEditorState>(() => createDefaultEditorState("dark"));
 
   useLayoutEffect(() => {
     applyThemeTokens(state);
@@ -101,14 +105,14 @@ function useThemeTokensState() {
       key:
         | "interactiveDuration"
         | "tooltipDuration"
+        | "expandDuration"
+        | "progressFillDuration"
+        | "loadingDotsDuration"
         | "switchThumbDuration"
         | "selectionFillDuration"
-        | "expandDuration"
         | "feedbackExpandDuration"
         | "rippleDefaultDuration"
-        | "rippleExpandableDuration"
-        | "progressFillDuration"
-        | "loadingDotsDuration",
+        | "rippleExpandableDuration",
       value: number,
     ) => {
       setState((prev) => ({ ...prev, [key]: value }));
@@ -175,20 +179,11 @@ function useThemeTokensState() {
   );
 
   const setColor = useCallback((key: ThemeColorKey, value: string) => {
-    setState((prev) => ({
-      ...prev,
-      colorPreset: null,
-      colors: { ...prev.colors, [key]: value },
-      ...(key === "border" ? { borderCustomized: true } : {}),
-    }));
+    setState((prev) => ({ ...patchThemeColor(prev, key, value), colorPreset: null }));
   }, []);
 
   const setStatusForeground = useCallback((key: ThemeStatusForegroundKey, value: string) => {
-    setState((prev) => ({
-      ...prev,
-      colorPreset: null,
-      statusForegrounds: { ...prev.statusForegrounds, [key]: value },
-    }));
+    setState((prev) => ({ ...patchThemeColor(prev, key, value), colorPreset: null }));
   }, []);
 
   const applyPreset = useCallback((preset: ColorPresetKey) => {
@@ -205,8 +200,12 @@ function useThemeTokensState() {
   }, []);
 
   const reset = useCallback(() => {
-    setState(createDefaultThemeState("dark"));
+    setState(createDefaultEditorState("dark"));
     clearThemeInlineTokens();
+  }, []);
+
+  const shuffle = useCallback(() => {
+    setState((prev) => shuffleThemeState(prev));
   }, []);
 
   const copyCss = useCallback(async () => {
@@ -244,9 +243,10 @@ function useThemeTokensState() {
     applyColorPreset,
     applyLayoutPreset,
     reset,
+    shuffle,
     copyCss,
     copyConfig,
-    defaults: SCALE_DEFAULTS,
+    defaults: { ...SCALE_DEFAULTS, ...MOTION_DEFAULTS },
   };
 }
 

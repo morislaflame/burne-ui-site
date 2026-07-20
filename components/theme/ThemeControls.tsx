@@ -12,24 +12,21 @@ import type { SelectOption } from "burne-ui";
 
 import {
   ANIMATION_FLAG_LABELS,
-  BORDER_COLOR_CSS_FORMULA_BY_THEME,
   COLOR_LABELS,
-  FONT_PRESETS,
-  FONT_WEIGHT_DEFAULTS,
   FONT_WEIGHT_LABELS,
   GSAP_EASE_OPTIONS,
-  MONO_FONT_PRESETS,
   MOTION_DURATION_LABELS,
   MOTION_EASE_LABELS,
   MOTION_SCALE_LABELS,
   RIPPLE_EASE_CSS_OPTIONS,
-  SCALE_DEFAULTS,
   SCALE_TOKEN_LABELS,
   STATUS_FOREGROUND_LABELS,
   type ThemeColorKey,
   type ThemeFontWeightKey,
   type ThemeStatusForegroundKey,
 } from "./themeDefaults";
+import { SCALE_CONTROLS } from "./themeControlRanges";
+import { FONT_PRESETS, MONO_FONT_PRESETS } from "./themePresets";
 import {
   buildTintValue,
   parseTintValue,
@@ -43,20 +40,12 @@ const TINT_COLOR_KEYS = new Set<ThemeColorKey>(["primaryTint", "primaryTintStron
 
 const FONT_WEIGHT_OPTIONS = [300, 400, 500, 600, 700, 800] as const;
 
-const SCALE_CONTROLS = [
-  { key: "space" as const, min: 0.3, max: 0.8, step: 0.025, unit: "rem" },
-  { key: "size" as const, min: 0.8, max: 1.25, step: 0.025, unit: "rem" },
-  { key: "radius" as const, min: 0, max: 1, step: 0.025, unit: "rem" },
-  { key: "borderWidth" as const, min: 0, max: 3, step: 0.5, unit: "px" },
-  { key: "textScale" as const, min: 0.85, max: 1.2, step: 0.025, unit: "×" },
-] as const;
-
 const MOTION_DURATION_CONTROLS = [
   { key: "interactiveDuration" as const, min: 120, max: 600, step: 10, unit: "ms" },
   { key: "tooltipDuration" as const, min: 80, max: 400, step: 10, unit: "ms" },
   { key: "switchThumbDuration" as const, min: 120, max: 600, step: 10, unit: "ms" },
   { key: "selectionFillDuration" as const, min: 120, max: 800, step: 10, unit: "ms" },
-  { key: "expandDuration" as const, min: 200, max: 800, step: 10, unit: "ms" },
+  { key: "expandDuration" as const, min: 100, max: 800, step: 10, unit: "ms" },
   { key: "feedbackExpandDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },
   { key: "rippleDefaultDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },
   { key: "rippleExpandableDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },
@@ -82,8 +71,8 @@ function formatSliderValue(value: number, step: number, unit: string) {
 }
 
 const TINT_DEFAULT_PERCENT: Record<"primaryTint" | "primaryTintStrong", number> = {
-  primaryTint: 10,
-  primaryTintStrong: 20,
+  primaryTint: 20,
+  primaryTintStrong: 25,
 };
 
 const COLOR_GROUPS: { label: string; keys: ThemeColorKey[] }[] = [
@@ -117,6 +106,39 @@ const COLOR_GROUPS: { label: string; keys: ThemeColorKey[] }[] = [
   {
     label: "status tokens",
     keys: ["danger", "success", "info", "warning"],
+  },
+  {
+    label: "hover tokens",
+    keys: [
+      "primaryHover",
+      "defaultHover",
+      "secondaryHover",
+      "tertiaryHover",
+      "surfaceTintDanger",
+      "surfaceTintDangerHover",
+      "dangerFillHover",
+      "surfaceTintSuccess",
+      "surfaceTintSuccessHover",
+      "successFillHover",
+      "surfaceTintInfo",
+      "surfaceTintInfoHover",
+      "infoFillHover",
+      "surfaceTintWarning",
+      "surfaceTintWarningHover",
+      "warningFillHover",
+    ],
+  },
+  {
+    label: "ripple tokens",
+    keys: [
+      "convergeRipplePrimaryFill",
+      "convergeRippleNeutral",
+      "convergeRippleNeutralMuted",
+      "convergeRippleDanger",
+      "convergeRippleSuccess",
+      "convergeRippleInfo",
+      "convergeRippleWarning",
+    ],
   },
 ];
 
@@ -481,6 +503,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
     applyColorPreset,
     applyLayoutPreset,
     reset,
+    shuffle,
     copyCss,
     copyConfig,
   } = tokens;
@@ -512,12 +535,33 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
             <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
               BurneUIProvider
             </Text>
+            . Shared layout/motion live in{" "}
+            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
+              tokens
+            </Text>
+            ; colors in{" "}
+            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
+              colors.light
+            </Text>
+            {" / "}
+            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
+              colors.dark
+            </Text>
             .
           </Text>
         </div>
         <div className="flex shrink-0 flex-wrap gap-xsmall">
               <Button type="button" size="small" variant="primary" onClick={reset}>
                 Reset
+              </Button>
+              <Button
+                type="button"
+                size="small"
+                variant="secondary"
+                onClick={shuffle}
+                title="Random color preset, scale tokens, and fonts (motion unchanged)"
+              >
+                Shuffle
               </Button>
               <Button type="button" size="small" variant="gloss" onClick={handleCopyCss}>
                 {copied === "css" ? "Copied CSS" : "Copy CSS"}
@@ -805,14 +849,6 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
                     defaultPercent={TINT_DEFAULT_PERCENT[key as "primaryTint" | "primaryTintStrong"]}
                     onChange={(value) => setColor(key, value)}
                   />
-                ) : key === "border" && !state.borderCustomized ? (
-                  <ColorControl
-                    key={key}
-                    label={COLOR_LABELS[key]}
-                    value={BORDER_COLOR_CSS_FORMULA_BY_THEME[state.theme]}
-                    previewBackground="var(--color-border)"
-                    onChange={(value) => setColor(key, value)}
-                  />
                 ) : (
                   <ColorControl
                     key={key}
@@ -836,7 +872,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
             <ColorControl
               key={key}
               label={STATUS_FOREGROUND_LABELS[key]}
-              value={state.statusForegrounds[key]}
+              value={state.colors[key]}
               onChange={(value) => setStatusForeground(key, value)}
             />
           ))}
