@@ -5,10 +5,11 @@ export function TextAreaClassNamesFullDemo() {
     <TextArea
       className="max-w-md"
       classNames={{
-        root: "rounded-mid border-token bg-surface p-base",
-        control: "text-primary",
+        root: "rounded-mid border border-primary/20 p-base",
+        shell: "ring-1 ring-primary/15",
+        control: "text-primary placeholder:text-primary/50",
         hint: "text-foreground/70",
-        error: "text-danger",
+        error: "font-medium",
       }}
       label="Comment"
       placeholder="Your review…"
@@ -25,10 +26,11 @@ export function TextAreaClassNamesCompoundDemo() {
     <TextArea
       className="max-w-md"
       classNames={{
-        root: "rounded-mid border-token bg-surface p-base",
-        control: "text-primary",
-        hint: "text-foreground/70",
-        error: "text-danger",
+        root: "rounded-mid border border-info/25 p-base",
+        shell: "border-info/30 bg-info/5",
+        control: "text-info placeholder:text-info/50",
+        resizeHandle: "text-info",
+        hint: "text-info/80",
       }}
     >
       <TextArea.Label>Description</TextArea.Label>

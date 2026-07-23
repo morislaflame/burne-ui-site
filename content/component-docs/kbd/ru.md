@@ -83,7 +83,7 @@ Compound API только через `Kbd.Group` — root leaf-компонен�
 | `mid` | `min-h-5 px-base py-xsmall` | `small` |
 | `large` | `min-h-5 px-base py-xsmall` | `small` |
 
-Общий shell: `rounded-small font-mono inline-flex items-center justify-center`.
+Общий root: `rounded-small font-mono inline-flex items-center justify-center`.
 
 ## Анимации
 

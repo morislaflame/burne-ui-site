@@ -12,11 +12,12 @@ export function ColorPickerClassNamesFullDemo() {
         value={color}
         onValueChange={setColor}
         classNames={{
-          contentPanel: "border border-primary/30 bg-primary/5 shadow-token-base",
-          area: "rounded-base ring-1 ring-primary/25",
-          hexInput: "border-primary/30 bg-primary/10",
-          hexInputField: "text-primary",
-          previewSwatch: "ring-2 ring-primary/30",
+          contentPanel: "border border-info/30 bg-info/5 shadow-token-base",
+          area: "rounded-base ring-1 ring-info/25",
+          hexInput: "border-info/30 bg-info/10",
+          hexInputField: "text-info",
+          previewSwatch: "ring-2 ring-info/30",
+          slidersStack: "gap-mid",
         }}
       >
         <ColorPicker.Trigger />

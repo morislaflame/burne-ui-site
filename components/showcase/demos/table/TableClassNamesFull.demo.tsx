@@ -10,20 +10,22 @@ export function TableClassNamesFullDemo() {
   return (
     <Table
       classNames={{
-        root: "rounded-mid border border-primary/25 shadow-token-base",
-        headerRow: "bg-primary/10",
-        column: "text-primary font-semibold",
-        row: "hover:bg-primary/5",
+        root: "rounded-mid border border-info/25 shadow-token-base",
+        headerRow: "bg-info/10",
+        column: "text-info font-semibold",
+        row: "hover:bg-info/5",
         cell: "text-foreground/90",
-        footer: "bg-primary/5",
+        footer: "bg-info/5",
       }}
-      className="max-w-component-large items-center justify-center w-full"
+      className="max-w-2xl"
     >
       <Table.ScrollContainer>
         <Table.Content aria-label="Team">
           <Table.Header>
-            <Table.Column isRowHeader>Name</Table.Column>
-            <Table.Column>Role</Table.Column>
+            <Table.HeaderRow className="bg-info/15">
+              <Table.Column isRowHeader>Name</Table.Column>
+              <Table.Column>Role</Table.Column>
+            </Table.HeaderRow>
           </Table.Header>
           <Table.Body>
             {rows.map((row) => (

@@ -60,17 +60,17 @@ toast.dismiss(id);
 | `promise(p, opts)` | loading → success/error |
 | `dismiss(id)` | Start dismiss animation |
 
-`AddToastOpts`: `status`, `variant`, `title`, `description`, `action`, `timeout` (default 4000 ms, `0` = do not close), `placement`, `id`, `isLoading`, `classNames`.
+`AddToastOpts`: `status`, `variant`, `title`, `description`, `action`, `timeout` (default 4000 ms, `0` = do not close), `placement`, `id`, `loading`, `classNames`.
 
 ### Toast.Root (card)
 
-Simple + compound (like Alert): `Toast.Title`, `Toast.Description`, `Toast.Indicator`, `Toast.ActionButton`, `Toast.CloseButton`.
+Simple + compound (like Alert): `Toast.Title`, `Toast.Description`, `Toast.Indicator`, `Toast.Action`, `Toast.Close`.
 
 | Prop | Default | Description |
 |------|---------|-------------|
 | `status` | `default` | Semantic surface tone |
 | `variant` | `default` | `default` \| `gloss` |
-| `isLoading` | `false` | Spinner instead of status icon |
+| `loading` | `false` | Spinner instead of status icon |
 | `onClose` | — | Shows close button (simple API) |
 | `classNames` | — | Card slots |
 
@@ -161,7 +161,7 @@ Tokens: `--toast-scrim-*` (`tokens/toastScrim.ts`).
 
 ### 7. Auto-dismiss
 
-`setTimeout` — not GSAP. `timeout: 0` or `isLoading` — no timer.
+`setTimeout` — not GSAP. `timeout: 0` or `loading` — no timer.
 
 #### Customization
 
@@ -194,7 +194,7 @@ configureMotion({
 | Element | Classes / tokens |
 |---------|------------------|
 | Card | `rounded-mid py-base px-plus`, `shadow-token-md` |
-| Viewport | `fixed z-[300]`, placement offsets (`top-4`, …) |
+| Viewport | `fixed z-toast` (`--z-toast`), placement offsets (`top-4`, …) |
 | Scrim | `toastScrimToken(gradientTop/Bottom, mask, …)` |
 | Width | `360px` (`TOAST_WIDTH_PX`) |
 
@@ -206,7 +206,7 @@ configureMotion({
 2. **Per-toast `classNames`** — in `toast.show({ classNames })` / `toast.success(…, { classNames })`; merged on top of provider.
 3. **`Toast.Root classNames`** — declarative card (simple/compound), like Alert.
 
-Subparts (`Toast.Title`, `Toast.CloseButton`, …) accept **`className`** on top of the slot.
+Subparts (`Toast.Title`, `Toast.Close`, …) accept **`className`** on top of the slot.
 
 ### `ToastClassNames` slots
 
@@ -279,7 +279,7 @@ Per-toast `classNames` **override** matching provider keys for that card.
       <Toast.Description>A new version is available.</Toast.Description>
     </Toast.Content>
   </Toast.Message>
-  <Toast.CloseButton />
+  <Toast.Close />
 </Toast>
 ```
 

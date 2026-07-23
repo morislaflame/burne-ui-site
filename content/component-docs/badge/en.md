@@ -281,7 +281,7 @@ Gloss lift uses a separate curve, not sm→md shadow tokens.
 <Badge.Anchor
   placement="top-right"
   classNames={{
-    anchor: "rounded-full ring-2 ring-primary/30",
+    root: "rounded-full ring-2 ring-primary/30",
     dot: "ring-2 ring-background bg-success",
   }}
 >

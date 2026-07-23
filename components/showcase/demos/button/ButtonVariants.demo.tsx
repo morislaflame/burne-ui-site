@@ -4,14 +4,14 @@ import { Button } from "burne-ui";
 
 export function ButtonVariantsDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-base">
+    <div className="flex flex-wrap items-center gap-small">
       <Button>Default</Button>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="ghost">Ghost</Button>
       <Button disabled>Disabled</Button>
-      <Button leftIcon={<IoAdd aria-hidden />}>With icon</Button>
+      <Button icon={<IoAdd aria-hidden />}>With icon</Button>
       <Button iconOnly aria-label="Add">
         <IoAdd aria-hidden />
       </Button>

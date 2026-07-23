@@ -13,12 +13,12 @@ export function InputAuthPanelDemo() {
           Compound Input in the settings panel
         </Text>
       </div>
-      <div className="flex flex-col gap-base">
-        <Input isRequired variant="secondary">
+      <div className="flex flex-col gap-mid">
+        <Input required>
           <Input.Label>Name</Input.Label>
           <Input.Control placeholder="Production key" autoComplete="off" />
         </Input>
-        <Input variant="secondary">
+        <Input>
           <Input.Label>Secret</Input.Label>
           <Input.Control inputType="password" placeholder="sk_live_…" autoComplete="off" />
           <Input.Hint>Don&apos;t pass the key to client code.</Input.Hint>

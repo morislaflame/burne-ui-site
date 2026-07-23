@@ -1,13 +1,12 @@
 # Disclosure
 
-Раскрывающийся блок (WAI-ARIA disclosure pattern). **Только compound API:** `Trigger`, `Content`, опционально `Handle` (drag). Контейнер `DisclosureGroup` — аккордеон с `accordion` / `separated`.
+Раскрывающийся блок (WAI-ARIA disclosure pattern). **Только compound API:** `Trigger`, `Content`, опционально `Handle` (drag). Контейнер `Disclosure.Group` — аккордеон с `accordion` / `separated`.
 
 ## Импорт
 
 ```tsx
 import {
   Disclosure,
-  DisclosureGroup,
   type DisclosureProps,
   type DisclosureGroupProps,
   type DisclosureTriggerProps,
@@ -40,10 +39,10 @@ import {
 </Disclosure>
 ```
 
-### DisclosureGroup (аккордеон)
+### Disclosure.Group (аккордеон)
 
 ```tsx
-<DisclosureGroup defaultValue="faq-1" variant="secondary">
+<Disclosure.Group defaultValue="faq-1" variant="secondary">
   <Disclosure value="faq-1">
     <Disclosure.Trigger>Вопрос 1</Disclosure.Trigger>
     <Disclosure.Content>Ответ 1</Disclosure.Content>
@@ -52,7 +51,7 @@ import {
     <Disclosure.Trigger>Вопрос 2</Disclosure.Trigger>
     <Disclosure.Content>Ответ 2</Disclosure.Content>
   </Disclosure>
-</DisclosureGroup>
+</Disclosure.Group>
 ```
 
 Simple API нет.
@@ -63,7 +62,7 @@ Simple API нет.
 |------|--------------|----------|
 | `open` / `defaultOpen` | `false` | Controlled / uncontrolled |
 | `onOpenChange` | — | `(open: boolean) => void` |
-| `value` | — | ID для `DisclosureGroup` + `accordion` |
+| `value` | — | ID для `Disclosure.Group` + `accordion` |
 | `variant` | `default` | Визуальный стиль (наследуется от группы) |
 | `size` | `base` | `small` \| `base` \| `mid` \| `large` |
 | `disabled` | `false` | Блокирует trigger |
@@ -80,7 +79,7 @@ Simple API нет.
 | `asChild` | `false` | Clone child с ARIA/handlers |
 | `className` | — | На `<button>` |
 
-### `DisclosureGroup` props
+### `Disclosure.Group` props
 
 | Prop | По умолчанию | Описание |
 |------|--------------|----------|
@@ -224,7 +223,7 @@ configureMotion({
 ### Два уровня
 
 1. **`className` на `Disclosure`** — root.
-2. **`classNames` на root** — trigger, content, handle; `DisclosureGroup` — слот `group`.
+2. **`classNames` на root** — trigger, content, handle; `Disclosure.Group` — слот `group`.
 
 `Disclosure.Trigger` — `className` на button.
 
@@ -242,7 +241,7 @@ configureMotion({
 | `contentPanel` | `<section>` | Content typography |
 | `glossPanel` / `glossContent` | Gloss layers | Gloss variant |
 | `handle` | Drag bar | Card drag grip |
-| `group` | `DisclosureGroup` | Accordion container |
+| `group` | `Disclosure.Group` | Accordion container |
 
 ### Single disclosure
 
@@ -262,13 +261,13 @@ configureMotion({
 ### Group separated cards
 
 ```tsx
-<DisclosureGroup separated variant="card" classNames={{ group: "gap-mid" }}>
+<Disclosure.Group separated variant="card" classNames={{ group: "gap-mid" }}>
   <Disclosure value="a" dragHandle>
     <Disclosure.Trigger>Шаг 1</Disclosure.Trigger>
     <Disclosure.Content>...</Disclosure.Content>
     <Disclosure.Handle />
   </Disclosure>
-</DisclosureGroup>
+</Disclosure.Group>
 ```
 
 ### Практические заметки
@@ -276,7 +275,7 @@ configureMotion({
 - `accordion={false}` — несколько открытых одновременно.
 - `icon={null}` — trigger без chevron.
 - `asChild` на Trigger — merge ARIA на child button/link.
-- Card в группе без `separated`: shell карточки на `DisclosureGroup`.
+- Card в группе без `separated`: shell карточки на `Disclosure.Group`.
 - **Не override `height` на `contentShell`** — GSAP collapsible.
 - Drag children order: Trigger → Content → Handle (`orderDragHandleChildren`).
 

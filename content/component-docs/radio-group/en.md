@@ -1,6 +1,6 @@
 # RadioGroup
 
-Radio button group in a native `<fieldset>`: compound API with `Legend`, `Label`, `Hint`, `Error`, `List`. One selected `value`; clicking the selected option again clears the selection (unless `isRequired`).
+Radio button group in a native `<fieldset>`: compound API with `Legend`, `Label`, `Hint`, `Error`, `List`. One selected `value`; clicking the selected option again clears the selection (unless `required`).
 
 ## Import
 
@@ -56,7 +56,7 @@ No Simple API.
 | `defaultValue` | — | Uncontrolled initial |
 | `onValueChange` | — | `(value: string \| undefined) => void` |
 | `name` | auto `radio-group-{id}` | Shared `name` for all `Radio` |
-| `isRequired` | `false` | Required mark; native `required` on the first radio |
+| `required` | `false` | Required mark; native `required` on the first radio |
 | `size` | `small` | `small` \| `base` \| `mid` \| `large` |
 | `disabled` | `false` | On fieldset + context → `Radio` |
 | `hintId` / `errorId` | auto | For `aria-describedby` |
@@ -192,7 +192,7 @@ No separate `radioGroupStyles.ts` — shared utils:
 ### With error
 
 ```tsx
-<RadioGroup isRequired>
+<RadioGroup required>
   <RadioGroup.Legend>
     <RadioGroup.Label>Payment method</RadioGroup.Label>
   </RadioGroup.Legend>
@@ -207,8 +207,8 @@ No separate `radioGroupStyles.ts` — shared utils:
 
 - Legend pattern: `Legend` → `Label` + optional `Hint`.
 - `name` on root is shared for all `Radio` (auto-generated if not set).
-- `isRequired` — `selectValue(undefined)` is blocked; required anchor on first radio.
-- When `isRequired={false}`, clicking again deselects.
+- `required` — `selectValue(undefined)` is blocked; required anchor on first radio.
+- When `required={false}`, clicking again deselects.
 - Compared to `CheckboxGroup selection="single"`: native radio semantics + arrow keys.
 - Option styles via `Radio`, not via the group.
 
@@ -229,7 +229,7 @@ Shared: `composite/utils/optionGroupFieldset.tsx`, `optionGroupLayout.ts`.
 - `Legend`: native `<legend>`
 - `Radio`: native `<input type="radio">`, arrow keys in group
 - `Error`: `role="alert"`
-- `isRequired`: native `required` on first radio (`claimRequiredAnchor`)
+- `required`: native `required` on first radio (`claimRequiredAnchor`)
 
 ## File structure
 

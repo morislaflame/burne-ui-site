@@ -25,6 +25,7 @@ export function AvatarClassNamesGlossDemo() {
         loading="lazy"
         classNames={{
           root: "border border-info/40",
+          glossWrap: "p-0.5 ring-1 ring-info/30 rounded-full",
         }}
       />
       <Avatar
@@ -34,6 +35,7 @@ export function AvatarClassNamesGlossDemo() {
         className="text-primary"
         classNames={{
           root: "bg-primary/10 text-primary font-semibold",
+          glossWrap: "shadow-token-mid",
         }}
       />
     </div>

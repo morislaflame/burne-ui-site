@@ -1,13 +1,12 @@
 # Avatar
 
-User avatar with image, fallback letter, tooltip via `nickname`, `variant="gloss"`, and grouping via `AvatarGroup`. Supports Simple API (`src`, `label`) and compound API (`Avatar.Image`, `Avatar.Fallback`).
+User avatar with image, fallback letter, tooltip via `nickname`, `variant="gloss"`, and grouping via `Avatar.Group`. Supports Simple API (`src`, `label`) and compound API (`Avatar.Image`, `Avatar.Fallback`).
 
 ## Import
 
 ```tsx
 import {
   Avatar,
-  AvatarGroup,
   type AvatarProps,
   type AvatarClassNames,
   type AvatarSize,
@@ -51,14 +50,14 @@ Custom fallback:
 </Avatar>
 ```
 
-### AvatarGroup
+### Avatar.Group
 
 ```tsx
-<AvatarGroup>
+<Avatar.Group>
   <Avatar size="base" label="One" src={one} alt="" />
   <Avatar size="base" label="Two" src={two} alt="" />
   <Avatar size="base" label="Plus five" nickname="+5" />
-</AvatarGroup>
+</Avatar.Group>
 ```
 
 ### Props
@@ -149,9 +148,9 @@ configureMotion({
 });
 ```
 
-### 2. AvatarGroup lift
+### 2. Avatar.Group lift
 
-Each item in `AvatarGroup` gets a wrapper:
+Each item in `Avatar.Group` gets a wrapper:
 
 ```
 <div style={{ transformOrigin: "center bottom" }}>
@@ -179,7 +178,7 @@ Reduced motion: transform is applied instantly.
 | Animation | Utility | `configureMotion` keys | Local prop |
 |-----------|---------|------------------------|------------|
 | Image fade in | `useAvatarImageFade` | `tooltipDuration`, `interactiveEase`, `enableContentFade` | `src` load state |
-| Group hover lift | GSAP in group wrapper | `interactiveDuration`, `interactiveEase` | `AvatarGroup` |
+| Group hover lift | GSAP in group wrapper | `interactiveDuration`, `interactiveEase` | `Avatar.Group` |
 | Gloss depth | CSS `gloss-panel` | — | `variant="gloss"` |
 
 ## Tokens and CSS
@@ -190,14 +189,14 @@ Reduced motion: transform is applied instantly.
 | `AVATAR_FALLBACK_CLASS` | Initials / placeholder bg |
 | `AVATAR_IMAGE_CLASS` | `object-cover`, starts at `opacity-0` until fade |
 | gloss wrap layers | Outer ring/shadow in `variant="gloss"` |
-| `groupItem` negative margin | Stack overlap in `AvatarGroup` |
+| `groupItem` negative margin | Stack overlap in `Avatar.Group` |
 
 ## Styling and customization
 
 ### Two levels
 
 1. **`className` on `Avatar`** — root shell. In `variant="gloss"` it applies to the inner circle.
-2. **`classNames` on root** — root/image/fallback slots; `AvatarGroup` — `group`/`groupItem`.
+2. **`classNames` on root** — root/image/fallback slots; `Avatar.Group` — `group`/`groupItem`.
 
 ### `AvatarClassNames` slots
 
@@ -206,7 +205,7 @@ Reduced motion: transform is applied instantly.
 | `root` | Avatar circle | Ring, border, fallback color |
 | `image` | `img` | Object-fit, filters, opacity helpers |
 | `fallback` | Fallback span | Initials bg/text |
-| `group` | `AvatarGroup` root | Gap, justify stack |
+| `group` | `Avatar.Group` root | Gap, justify stack |
 | `groupItem` | Group item wrapper | Overlap margin, lift target |
 | `glossWrap` | Outer gloss wrapper | Ring/padding around gloss circle |
 
@@ -244,7 +243,7 @@ Reduced motion: transform is applied instantly.
 ### Group stack
 
 ```tsx
-<AvatarGroup
+<Avatar.Group
   classNames={{
     group: "justify-center",
     groupItem: "-ml-small",
@@ -252,7 +251,7 @@ Reduced motion: transform is applied instantly.
 >
   <Avatar label="A" />
   <Avatar label="B" />
-</AvatarGroup>
+</Avatar.Group>
 ```
 
 ### Practical notes
@@ -269,13 +268,13 @@ Reduced motion: transform is applied instantly.
 |-----------|-------|
 | `Tooltip` | Automatically when `nickname` is set |
 | `Badge.Anchor` | Status/counter overlay on avatar |
-| `AvatarGroup` | Stack + hover lift |
+| `Avatar.Group` | Stack + hover lift |
 
 ## Accessibility
 
 - Root avatar: `role="group"`
 - `aria-label` comes from trimmed `label`
-- `AvatarGroup`: `role="group"`
+- `Avatar.Group`: `role="group"`
 - Fallback: `aria-hidden`
 - Image `alt` defaults to `""`; root label provides the avatar name
 - Tooltip trigger uses the same root

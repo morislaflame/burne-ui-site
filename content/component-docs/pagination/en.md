@@ -220,7 +220,11 @@ The active span itself is **not** squeezed — it is `<span aria-current="page">
     root: "rounded-mid border border-primary/20 p-base",
     summaryText: "text-primary",
     content: "gap-small",
-    interactive: "text-info hover:text-primary",
+    previous: "text-info hover:text-primary",
+
+    next: "text-info hover:text-primary",
+
+    page: "text-info hover:text-primary",
     pageActive: "text-primary font-semibold",
     navText: "font-medium",
   }}
@@ -251,7 +255,7 @@ Custom range: manually compose `Pagination.Page` + `Pagination.Ellipsis` with un
 
 - Icons: `react-icons/io5` (`IoChevronBack`, `IoChevronForward`).
 - `children` in `Previous` / `Next` — custom labels; use `aria-label` for a11y.
-- `Pagination.Page` accepts `isActive` override.
+- `Pagination.Page` accepts `active` override.
 - **Do not remove `data-flip-key`** from `<li>` when using a custom range — FLIP will break.
 - Summary is optional — prev/next/pages only is fine.
 - **Do not set `transform` on `<li>`** — conflicts with FLIP `x` tween.

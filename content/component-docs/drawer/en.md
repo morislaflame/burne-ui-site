@@ -58,7 +58,7 @@ const [open, setOpen] = useState(false);
   <Drawer.Trigger asChild>
     <Button>Menu</Button>
   </Drawer.Trigger>
-  <Drawer.Panel size="default">
+  <Drawer.Panel extent="default">
     <Drawer.Handle />
     <Drawer.Header>
       <Drawer.HeadingBlock>
@@ -205,7 +205,7 @@ Slide keyframes — in `drawerAPI.ts`, not in config.
 | Panel | `bg-surface border-token shadow-token-lg` |
 | Gloss | `gloss-panel gloss-deep` |
 | Handle grip | `bg-tertiary`, `rounded-full` |
-| z-index | `z-[100]` |
+| z-index | `z-dialog` (`--z-dialog`) |
 
 ## Styling and customization
 
@@ -256,7 +256,7 @@ Sub-parts (`Drawer.Title`, `Drawer.Handle`, …) accept **`className`** on top o
     footer: "border-t border-primary/20 pt-small",
   }}
 >
-  <Drawer.Panel size="mid" variant="gloss">
+  <Drawer.Panel extent="mid" variant="gloss">
     <Drawer.Handle />
     <Drawer.Header>
       <Drawer.HeadingBlock>

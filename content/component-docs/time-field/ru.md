@@ -7,9 +7,9 @@
 ```tsx
 import {
   TimeField,
-  TimeFieldControl,
-  TimeFieldHint,
-  TimeFieldError,
+  TimeField.Control,
+  TimeField.Hint,
+  TimeField.Error,
   type TimeFieldRootProps,
   type TimeFieldControlProps,
   type TimeFieldSize,
@@ -59,7 +59,7 @@ import {
 | `status` | `default` | `default` \| `danger` \| `success` \| `warning` |
 | `disabled` | `false` | Блокирует control |
 | `compact` | `false` | `w-fit` вместо `w-full` |
-| `isRequired` | `false` | `aria-required` на сегментах |
+| `required` | `false` | `aria-required` на сегментах |
 | `prefix` / `suffix` | — | Affix slots в control |
 | `id` | auto | Связь label/control |
 | `className` | — | На root |
@@ -197,7 +197,7 @@ React state — `bg-primary text-primary-foreground` на focused segment. Бе�
   format="HH:mm:ss"
   status="success"
   classNames={{
-    shell: "border-success/30",
+    root: "border-success/30",
     segment: "rounded-small",
     prefix: "text-success",
     hint: "text-success/80",
@@ -211,7 +211,7 @@ React state — `bg-primary text-primary-foreground` на focused segment. Бе�
 ### Validation compound
 
 ```tsx
-<TimeField status="danger" classNames={{ shell: "border-danger/40", error: "text-danger" }}>
+<TimeField status="danger" classNames={{ root: "border-danger/40", error: "text-danger" }}>
   <TimeField.Label>Время дедлайна</TimeField.Label>
   <TimeField.Control />
   <TimeField.Error>Укажите время в будущем</TimeField.Error>

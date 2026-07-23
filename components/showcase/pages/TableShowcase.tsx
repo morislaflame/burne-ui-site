@@ -6,6 +6,10 @@ import { TableBasicDemo } from "@/components/showcase/demos/table/TableBasic.dem
 import tableBasicSource from "@/components/showcase/demos/table/TableBasic.demo.tsx?raw";
 import { TableClassNamesFullDemo } from "@/components/showcase/demos/table/TableClassNamesFull.demo";
 import tableClassNamesFullSource from "@/components/showcase/demos/table/TableClassNamesFull.demo.tsx?raw";
+import { TableColumnLabelDemo } from "@/components/showcase/demos/table/TableColumnLabel.demo";
+import tableColumnLabelSource from "@/components/showcase/demos/table/TableColumnLabel.demo.tsx?raw";
+import { TableCustomSortIconDemo } from "@/components/showcase/demos/table/TableCustomSortIcon.demo";
+import tableCustomSortIconSource from "@/components/showcase/demos/table/TableCustomSortIcon.demo.tsx?raw";
 import { TableGlossDemo } from "@/components/showcase/demos/table/TableGloss.demo";
 import tableGlossSource from "@/components/showcase/demos/table/TableGloss.demo.tsx?raw";
 import { TableGlossSelectionDemo } from "@/components/showcase/demos/table/TableGlossSelection.demo";
@@ -17,6 +21,7 @@ import tableRowSelectionSource from "@/components/showcase/demos/table/TableRowS
 import { TableTeamRosterDemo } from "@/components/showcase/demos/table/TableTeamRoster.demo";
 import tableTeamRosterSource from "@/components/showcase/demos/table/TableTeamRoster.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -34,6 +39,28 @@ export function TableShowcase() {
 
       <ShowcaseSection title="Row selection" description="selectionMode multiple and control selectedKeys.">
         <ShowcaseDemoFromFile align="stretch" Demo={TableRowSelectionDemo} source={tableRowSelectionSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="Custom sort icon"
+        description="Table.Column sortIcon replaces the default chevron; null hides it."
+      >
+        <ShowcaseDemoFromFile
+          align="stretch"
+          Demo={TableCustomSortIconDemo}
+          source={tableCustomSortIconSource}
+        />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="Column Label"
+        description="Table.Label styles header text (color, weight). Plain Column children wrap automatically."
+      >
+        <ShowcaseDemoFromFile
+          align="stretch"
+          Demo={TableColumnLabelDemo}
+          source={tableColumnLabelSource}
+        />
       </ShowcaseSection>
 
       <ShowcaseSection title="Gloss" description="variant gloss — hover lines primary-tint, hover-lift panels.">
@@ -70,6 +97,26 @@ export function TableShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={TableInvoiceToolbarDemo} source={tableInvoiceToolbarSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={TableActivityFeedDemo} source={tableActivityFeedSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="ScrollContainer, Content, Header, HeaderRow, Column, Label, Body, Row and Cell — table slots."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Data">
+          <p>
+            <code>items</code> on Body and render-prop{" "}
+            <code>{`{(row) => ...}`}</code> for strings. <code>selectionMode</code>,{" "}
+            <code>selectedKeys</code> and <code>onSelectionChange</code> — for selection.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

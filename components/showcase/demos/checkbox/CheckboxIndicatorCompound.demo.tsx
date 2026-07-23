@@ -11,10 +11,10 @@ export function CheckboxIndicatorCompoundDemo() {
       </Text>
       <Checkbox variant="outline" defaultChecked>
         <Checkbox.Control>
-          <Checkbox.Indicator classNames={{ shell: "rounded-mid" }}>
+          <Checkbox.Indicator classNames={{ root: "rounded-mid" }}>
             <Checkbox.Indicator.Fill/>
             <Checkbox.Indicator.Mark>
-              <IoShieldCheckmark aria-hidden className="translate-y-[0.5px]" />
+              <IoShieldCheckmark aria-hidden />
             </Checkbox.Indicator.Mark>
           </Checkbox.Indicator>
         </Checkbox.Control>

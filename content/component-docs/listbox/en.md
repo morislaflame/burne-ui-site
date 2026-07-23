@@ -22,13 +22,13 @@ import {
 
 ```tsx
 <ListBox
-  label="Language"
+  aria-label="Language"
   defaultValue="ru"
   selectionIndicator
   onValueChange={setLang}
 >
-  <ListBox.Item value="ru" label="Russian" hint="Cyrillic" />
-  <ListBox.Item value="en" label="English" />
+  $1aria-label="Russian" hint="Cyrillic" />
+  $1aria-label="English" />
 </ListBox>
 ```
 
@@ -132,7 +132,7 @@ Mode: `radio` (single) or `multi` (multiple) from context.
 
 ### 4. Active highlight (CSS)
 
-`isActive` (keyboard focus option) → `bg-default-hover` — no GSAP.
+`active` (keyboard focus option) → `bg-default-hover` — no GSAP.
 
 ### Summary
 
@@ -176,7 +176,7 @@ Sub-parts (`ListBox.Item`, `ListBox.Header`, …) — **`className`** on top of 
 ```tsx
 <ListBox
   defaultValue="ru"
-  label="Interface language"
+  aria-label="Interface language"
   selectionIndicator
   classNames={{
     root: "rounded-mid border border-primary/20 p-base",
@@ -189,8 +189,8 @@ Sub-parts (`ListBox.Item`, `ListBox.Header`, …) — **`className`** on top of 
 >
   <ListBox.Section>
     <ListBox.Header>Available languages</ListBox.Header>
-    <ListBox.Item value="ru" label="Russian" hint="Cyrillic" />
-    <ListBox.Item value="en" label="English" />
+    $1aria-label="Russian" hint="Cyrillic" />
+    $1aria-label="English" />
   </ListBox.Section>
 </ListBox>
 ```

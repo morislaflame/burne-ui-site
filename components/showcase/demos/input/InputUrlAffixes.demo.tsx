@@ -4,7 +4,7 @@ import { Input } from "burne-ui";
 
 export function InputUrlAffixesDemo() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-mid rounded-mid border-token bg-secondary p-mid">
+    <div className="flex w-full max-w-md flex-col gap-small rounded-mid border-token bg-secondary p-mid">
       <Input className="w-full">
         <Input.Label>Project domain</Input.Label>
         <Input.Control placeholder="my-app" prefix="https://" suffix=".vercel.app" />

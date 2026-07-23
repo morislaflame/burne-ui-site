@@ -4,8 +4,8 @@ import { Switch } from "burne-ui";
 
 export function FieldSettingsPanelDemo() {
   return (
-    <Field.Set className="items-center justify-center">
-      <div className="flex flex-col gap-mid p-mid items-center justify-center">
+    <Field.Set className="w-full max-w-md">
+      <div className="flex flex-col gap-mid p-mid">
         <Field.Legend>
           <Field.LegendHeader>
             <Label>Notifications</Label>

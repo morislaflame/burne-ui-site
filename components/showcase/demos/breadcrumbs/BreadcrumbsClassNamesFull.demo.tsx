@@ -5,22 +5,22 @@ import { preventNav } from "@/lib/showcase/shared/utils";
 export function BreadcrumbsClassNamesFullDemo() {
   return (
     <Breadcrumbs
-      className="max-w-component-small rounded-mid border-token bg-surface p-mid shadow-token-base"
+      className="max-w-lg rounded-mid border border-token p-small"
       classNames={{
         list: "gap-small",
-        listItem: "gap-xsmall",
+        item: "gap-xsmall",
         separator: "text-primary opacity-100",
         separatorWrapper: "text-primary",
-        link: "text-primary hover:text-primary",
-        linkWrapper: "rounded-small",
-        linkText: "tracking-tight text-mid",
-        static: "text-primary",
-        current: "font-semibold text-primary text-large",
-        ellipsisTrigger: "text-primary",
+        itemLink: "text-info hover:text-info",
+        itemLinkWrapper: "rounded-small",
+        itemLinkText: "tracking-tight",
+        itemStatic: "text-warning",
+        itemCurrent: "font-semibold text-success",
+        ellipsisTrigger: "text-warning",
         ellipsisLiftWrapper: "rounded-small",
         ellipsisText: "font-semibold",
-        ellipsisPopover: "p-base",
-        dropdownItem: "text-primary text-base",
+        ellipsisPopover: "border border-token",
+        dropdownItem: "text-foreground",
       }}
     >
       <Breadcrumbs.List>

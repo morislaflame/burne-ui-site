@@ -7,9 +7,9 @@ Time input field with segments (hours / minutes / seconds). **Dual API:** simple
 ```tsx
 import {
   TimeField,
-  TimeFieldControl,
-  TimeFieldHint,
-  TimeFieldError,
+  TimeField.Control,
+  TimeField.Hint,
+  TimeField.Error,
   type TimeFieldRootProps,
   type TimeFieldControlProps,
   type TimeFieldSize,
@@ -59,7 +59,7 @@ import {
 | `status` | `default` | `default` \| `danger` \| `success` \| `warning` |
 | `disabled` | `false` | Disables control |
 | `compact` | `false` | `w-fit` instead of `w-full` |
-| `isRequired` | `false` | `aria-required` on segments |
+| `required` | `false` | `aria-required` on segments |
 | `prefix` / `suffix` | — | Affix slots in control |
 | `id` | auto | Links label/control |
 | `className` | — | On root |
@@ -197,7 +197,7 @@ React state — `bg-primary text-primary-foreground` on focused segment. No GSAP
   format="HH:mm:ss"
   status="success"
   classNames={{
-    shell: "border-success/30",
+    root: "border-success/30",
     segment: "rounded-small",
     prefix: "text-success",
     hint: "text-success/80",
@@ -211,7 +211,7 @@ React state — `bg-primary text-primary-foreground` on focused segment. No GSAP
 ### Validation compound
 
 ```tsx
-<TimeField status="danger" classNames={{ shell: "border-danger/40", error: "text-danger" }}>
+<TimeField status="danger" classNames={{ root: "border-danger/40", error: "text-danger" }}>
   <TimeField.Label>Deadline time</TimeField.Label>
   <TimeField.Control />
   <TimeField.Error>Enter a time in the future</TimeField.Error>

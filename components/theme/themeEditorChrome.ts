@@ -6,7 +6,7 @@ import type {
   ThemeColorKey,
   ThemeFontWeightKey,
   ThemeStatusForegroundKey,
-} from "burne-ui";
+} from "burne-ui/internal";
 
 export const SCALE_TOKEN_LABELS = {
   space: "Spacing",

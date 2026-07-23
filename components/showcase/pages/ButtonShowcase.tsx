@@ -1,5 +1,7 @@
 "use client";
 
+import { ButtonAsChildDemo } from "@/components/showcase/demos/button/ButtonAsChild.demo";
+import buttonAsChildSource from "@/components/showcase/demos/button/ButtonAsChild.demo.tsx?raw";
 import { ButtonAsyncClickDemo } from "@/components/showcase/demos/button/ButtonAsyncClick.demo";
 import buttonAsyncClickSource from "@/components/showcase/demos/button/ButtonAsyncClick.demo.tsx?raw";
 import { ButtonCtaCardDemo } from "@/components/showcase/demos/button/ButtonCtaCard.demo";
@@ -15,6 +17,7 @@ import buttonSizesSource from "@/components/showcase/demos/button/ButtonSizes.de
 import { ButtonVariantsDemo } from "@/components/showcase/demos/button/ButtonVariants.demo";
 import buttonVariantsSource from "@/components/showcase/demos/button/ButtonVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -46,6 +49,13 @@ export function ButtonShowcase() {
       </ShowcaseSection>
 
       <ShowcaseSection
+        title="asChild"
+        description="Button styles on <a> / router Link — asChild merges onto the child."
+      >
+        <ShowcaseDemoFromFile Demo={ButtonAsChildDemo} source={buttonAsChildSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
         title="Custom Variations"
         description="Mine layout and palette - one `.demo.tsx` for variation, code from ?raw."
       >
@@ -53,6 +63,33 @@ export function ButtonShowcase() {
         <ShowcaseDemoFromFile Demo={ButtonFabClusterDemo} source={buttonFabClusterSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={ButtonDangerBannerDemo} source={buttonDangerBannerSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="variant, size, status, icon, iconOnly, ripple, onAsyncClick, disabled, asChild, variant gloss."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Ripple">
+          <p>
+            Prop <code>ripple</code> mounts built-in <code>&lt;Ripple /&gt;</code> with a tone underneath{" "}
+            <code>variant</code>/<code>status</code>. For a custom layer —{" "}
+            <code>buttonRippleTone(variant, status)</code> from the package.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Customization">
+          <p>
+            Additional styles — <code>className</code>. <code>variant=&quot;gloss&quot;</code> — glass
+            surface (tokens <code>--color-surface</code>, <code>--color-border</code>). In{" "}
+            <code>ButtonGroup</code> segments are rounded through group context. Ripple and hover/press —{" "}
+            <code>configureMotion()</code> and <code>buttonRippleTone(variant, status)</code> from the package.
+          </p>
+        </ShowcaseDoc.Block>
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

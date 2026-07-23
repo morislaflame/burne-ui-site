@@ -2,7 +2,7 @@
  * Theme builder presets (colors / fonts / layout).
  * Lives in site & playground — not in the burne-ui package.
  */
-import { DARK_COLORS, DEFAULT_FONT, DEFAULT_FONT_MONO, LIGHT_COLORS } from "burne-ui";
+import { DARK_COLORS, DEFAULT_FONT, DEFAULT_FONT_MONO, LIGHT_COLORS } from "burne-ui/internal";
 
 export const LAYOUT_PRESETS = {
   compact: { space: 0.4, size: 0.9, radius: 0.375, borderWidth: 1, textScale: 0.95 },

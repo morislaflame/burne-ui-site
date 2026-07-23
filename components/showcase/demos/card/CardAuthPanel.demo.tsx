@@ -35,9 +35,9 @@ export function CardAuthPanelDemo() {
           <Tabs.Panel value="login" className="">
             <Form onSubmit={onSubmit} aria-label="Login" className="gap-large">
               <Form.Section>
-                <Input isRequired label="Email" name="login-email" autoComplete="email" placeholder="you@example.com" />
+                <Input required label="Email" name="login-email" autoComplete="email" placeholder="you@example.com" />
                 <Input
-                  isRequired
+                  required
                   label="Password"
                   name="login-password"
                   inputType="password"
@@ -59,10 +59,10 @@ export function CardAuthPanelDemo() {
           <Tabs.Panel value="register">
             <Form onSubmit={onSubmit} aria-label="Registration" className="gap-large">
               <Form.Section>
-                <Input isRequired label="Name" name="register-name" autoComplete="name" placeholder="Ivan"/>
-                <Input isRequired label="Email" name="register-email" autoComplete="email" placeholder="you@example.com" />
+                <Input required label="Name" name="register-name" autoComplete="name" placeholder="Ivan"/>
+                <Input required label="Email" name="register-email" autoComplete="email" placeholder="you@example.com" />
                 <Input
-                  isRequired
+                  required
                   label="Password"
                   name="register-password"
                   inputType="password"
@@ -85,7 +85,7 @@ export function CardAuthPanelDemo() {
           </Tabs.Panel>
         </Tabs>
       </Card.Body>
-      <Card.Footer className="justify-center flex flex-col gap-xsmall">
+      <Card.Footer className="justify-center border-t border-token flex flex-col gap-xsmall">
         <Link href="#" size="small" className="text-muted">
           Privacy Policy
         </Link>

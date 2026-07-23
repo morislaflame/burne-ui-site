@@ -7,7 +7,7 @@
 ```tsx
 import {
   Link,
-  LinkIcon,
+  Link.Icon,
   type LinkProps,
   type LinkSize,
   type LinkIconPosition,
@@ -24,7 +24,7 @@ import {
 | `href` | `string` | — | Обязательный URL |
 | `size` | `small` \| `base` \| `mid` \| `large` | `base` | Текст и иконки |
 | `underline` | `boolean` | `false` | Подчёркивание текста |
-| `leftIcon` / `rightIcon` | `ReactNode` | — | Simple API иконки |
+| `icon` + `iconPosition` | `ReactNode` | — | Simple API иконки |
 | `showDefaultIcon` | `boolean` | `false` | `IoArrowForward` ↗ |
 | `defaultIconPosition` | `start` \| `end` | `end` | Позиция дефолтной иконки |
 | `className` | `string` | — | На `<a>` |
@@ -49,7 +49,7 @@ type LinkClassNames = {
   Документация
 </Link>
 
-<Link href="/back" leftIcon={<IoChevronBack aria-hidden />} size="small">
+<Link href="/back" icon={<IoChevronBack aria-hidden />} size="small">
   Назад
 </Link>
 ```
@@ -177,7 +177,7 @@ Link — один компонент; «compound» меняет только р�
 | `anchor` | `<a>` | Gap, padding, border, hover-lift target |
 | `text` | `Text` (children) | Шрифт, underline override |
 | `iconStart` | Обёртка левой иконки | Размер, muted/hover цвет |
-| `iconEnd` | Обёртка правой иконки | Дефолтная ↗ или `rightIcon` |
+| `iconEnd` | Обёртка правой иконки | Дефолтная ↗ или `icon` + `iconPosition="end"` |
 
 `size`, `underline` — базовая типографика и подчёркивание из `linkStyles.ts`.
 
@@ -188,10 +188,10 @@ Link — один компонент; «compound» меняет только р�
   href="/docs"
   underline
   showDefaultIcon
-  leftIcon={<IoDocument aria-hidden />}
+  icon={<IoDocument aria-hidden />}
   className="max-w-xs"
   classNames={{
-    anchor: "gap-small rounded-mid border border-primary/20 p-xsmall text-info",
+    root: "gap-small rounded-mid border border-primary/20 p-xsmall text-info",
     text: "font-semibold",
     iconStart: "opacity-80",
     iconEnd: "text-warning",
@@ -201,7 +201,7 @@ Link — один компонент; «compound» меняет только р�
 </Link>
 ```
 
-Иконки через props `leftIcon` / `rightIcon` / `showDefaultIcon` — стили обёрток через `iconStart` / `iconEnd`.
+Иконки через props `icon` + `iconPosition` / `showDefaultIcon` — стили обёрток через `iconStart` / `iconEnd`.
 
 ### Compound API
 
@@ -209,7 +209,7 @@ Link — один компонент; «compound» меняет только р�
 <Link
   href="/item"
   classNames={{
-    anchor: "gap-mid",
+    root: "gap-mid",
     text: "text-primary",
     iconStart: "text-muted group-hover:text-foreground",
   }}

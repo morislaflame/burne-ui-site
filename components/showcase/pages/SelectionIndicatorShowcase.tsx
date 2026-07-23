@@ -13,6 +13,7 @@ import selectionIndicatorThumbGallerySource from "@/components/showcase/demos/se
 import { SelectionIndicatorVariantMixDemo } from "@/components/showcase/demos/selectionIndicator/SelectionIndicatorVariantMix.demo";
 import selectionIndicatorVariantMixSource from "@/components/showcase/demos/selectionIndicator/SelectionIndicatorVariantMix.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -54,6 +55,25 @@ export function SelectionIndicatorShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={SelectionIndicatorVariantMixDemo} source={selectionIndicatorVariantMixSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={SelectionIndicatorThumbGalleryDemo} source={selectionIndicatorThumbGallerySource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="size, variant, selected, check on the root. Used inside Checkbox, Radio and SelectionThumb."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Related Components">
+          <p>
+            <code>SelectionThumb</code> and <code>SelectionThumb.Icon</code> — for sliders Slider. Dimensions:{" "}
+            <code>small</code>, <code>base</code>, <code>mid</code>, <code>large</code>.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

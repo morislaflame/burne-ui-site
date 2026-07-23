@@ -1,4 +1,4 @@
-import { type SubmitEvent, useState } from "react";
+import { type FormEvent, useState } from "react";
 
 import { Button, Input, Toast, useToast } from "burne-ui";
 
@@ -8,7 +8,7 @@ function ToastRenameForm({ onSubmit }: { onSubmit: (name: string) => void }) {
   return (
     <form
       className="mt-small flex flex-col gap-small w-full"
-      onSubmit={(e: SubmitEvent<HTMLFormElement>) => {
+      onSubmit={(e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const value = name.trim();
         if (!value) return;
@@ -16,12 +16,13 @@ function ToastRenameForm({ onSubmit }: { onSubmit: (name: string) => void }) {
       }}
     >
       <Input.Control
+        size="small"
         placeholder="New name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         autoComplete="off"
       />
-      <Button type="submit" variant="primary" disabled={!name.trim()}>
+      <Button type="submit" size="small" variant="primary" disabled={!name.trim()}>
         Save
       </Button>
     </form>
@@ -48,7 +49,7 @@ export function ToastClassNamesFullDemo() {
           classNames: {
             root: "rounded-large",
             indicator: "text-primary",
-            title: "font-semibold text-primary text-mid",
+            title: "font-semibold text-primary text-large",
             description: "text-foreground/80",
           },
         });
@@ -56,5 +57,22 @@ export function ToastClassNamesFullDemo() {
     >
       Show toast with form
     </Button>
+  );
+}
+
+export function ToastClassNamesCompoundDemo() {
+  return (
+    <Toast
+      status="success"
+      classNames={{
+        root: "rounded-large border-success/40 bg-success/10",
+        title: "font-semibold text-success",
+        description: "text-foreground/80",
+        close: "text-success",
+      }}
+      onClose={() => {}}
+      title="Compound toast"
+      description="classNames on Toast root for declarative API."
+    />
   );
 }

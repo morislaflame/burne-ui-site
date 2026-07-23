@@ -1,13 +1,12 @@
 # ButtonGroup
 
-Layout wrapper for joined or separate segments: `Button`, `Input.Control`, `ComboBox`, `SearchInput`, `Dropdown`, `ButtonGroupText`. **Not compound API** — root + separate `ButtonGroupText`.
+Layout wrapper for joined or separate segments: `Button`, `Input.Control`, `ComboBox`, `SearchInput`, `Dropdown`, `ButtonGroup.Text`. **Not compound API** — root + separate `ButtonGroup.Text`.
 
 ## Import
 
 ```tsx
 import {
   ButtonGroup,
-  ButtonGroupText,
   type ButtonGroupProps,
   type ButtonGroupTextProps,
   type ButtonGroupOrientation,
@@ -23,7 +22,7 @@ Style helpers (from module): `buttonGroupRoundingClasses`, `buttonGroupSegmentSu
 
 ```tsx
 <ButtonGroup aria-label="Document actions" buttonSize="base" variant="default">
-  <ButtonGroupText>View</ButtonGroupText>
+  <ButtonGroup.Text>View</ButtonGroup.Text>
   <Button variant="secondary">List</Button>
   <Button variant="primary">Grid</Button>
   <Dropdown>
@@ -52,7 +51,7 @@ Style helpers (from module): `buttonGroupRoundingClasses`, `buttonGroupSegmentSu
 </ButtonGroup>
 ```
 
-Simple API and compound `ButtonGroup.Text` **do not exist** — only `ButtonGroupText`.
+Simple API and compound `ButtonGroup.Text` **do not exist** — only `ButtonGroup.Text`.
 
 ### Root props
 
@@ -67,7 +66,7 @@ Simple API and compound `ButtonGroup.Text` **do not exist** — only `ButtonGrou
 
 No `status` on group — on child `Button`s. No `classNames` on root.
 
-### `ButtonGroupText` props
+### `ButtonGroup.Text` props
 
 | Prop | Description |
 |------|----------|
@@ -87,7 +86,7 @@ No `status` on group — on child `Button`s. No `classNames` on root.
 | `ComboBox` | yes |
 | `SearchInput` | yes |
 | `Dropdown` | yes (root) |
-| `ButtonGroupText` | yes |
+| `ButtonGroup.Text` | yes |
 
 Position: `first` \| `middle` \| `last` \| `only` — auto or `groupSegment` on child.
 
@@ -100,7 +99,7 @@ Position: `first` \| `middle` \| `last` \| `only` — auto or `groupSegment` on 
 | `variant="gloss"` | `gloss-panel`; separators hidden |
 | `orientation="vertical"` | `flex-col`, separators `border-b-token` |
 
-| `buttonSize` | `ButtonGroupText` Text variant |
+| `buttonSize` | `ButtonGroup.Text` Text variant |
 |--------------|-------------------------------|
 | `small` | `small` |
 | `base` | `base` |
@@ -130,7 +129,7 @@ Position: `first` \| `middle` \| `last` \| `only` — auto or `groupSegment` on 
 
 When `groupSegment`: standalone shell hover disabled; `buttonGroupRoundingClasses` + `buttonGroupSegmentSurfaceClasses` applied.
 
-### ButtonGroupText
+### ButtonGroup.Text
 
 Static span — **no** GSAP.
 
@@ -156,7 +155,7 @@ configureMotion({
 |----------|---------|---------------------------|----------------|
 | Button squeeze | `useFirstLevelInteractiveMotion` | `pressSqueezeScale` | `groupSegment` |
 | Input shell | field shell utils | hover tokens | `groupSegment` |
-| ButtonGroupText | — | — | static |
+| ButtonGroup.Text | — | — | static |
 
 ## Tokens and CSS
 
@@ -181,7 +180,7 @@ Gloss: `glossInteractive.css` on root.
 | Part | Customization |
 |-------|--------------|
 | root | `ButtonGroup className` |
-| `ButtonGroupText` | `className` |
+| `ButtonGroup.Text` | `className` |
 | segments | `Button className`, `groupSegment` override |
 
 ### Toolbar with Input

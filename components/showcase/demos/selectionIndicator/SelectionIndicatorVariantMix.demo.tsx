@@ -1,7 +1,7 @@
 import { SelectionIndicator } from "burne-ui";
 import { Text } from "burne-ui";
 
-const VARIANTS = ["base", "secondary", "outline", "gloss"] as const;
+const VARIANTS = ["default", "secondary", "outline", "gloss"] as const;
 
 export function SelectionIndicatorVariantMixDemo() {
   return (

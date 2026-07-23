@@ -2,6 +2,8 @@
 
 import { AccordionCheckoutFaqDemo } from "@/components/showcase/demos/accordion/AccordionCheckoutFaq.demo";
 import accordionCheckoutFaqSource from "@/components/showcase/demos/accordion/AccordionCheckoutFaq.demo.tsx?raw";
+import { AccordionClassNamesFullDemo } from "@/components/showcase/demos/accordion/AccordionClassNamesFull.demo";
+import accordionClassNamesFullSource from "@/components/showcase/demos/accordion/AccordionClassNamesFull.demo.tsx?raw";
 import { AccordionCompoundDemo } from "@/components/showcase/demos/accordion/AccordionCompound.demo";
 import accordionCompoundSource from "@/components/showcase/demos/accordion/AccordionCompound.demo.tsx?raw";
 import { AccordionSizesDemo } from "@/components/showcase/demos/accordion/AccordionSizes.demo";
@@ -11,6 +13,7 @@ import accordionDocsSectionsSource from "@/components/showcase/demos/accordion/A
 import { AccordionReleaseNotesDemo } from "@/components/showcase/demos/accordion/AccordionReleaseNotes.demo";
 import accordionReleaseNotesSource from "@/components/showcase/demos/accordion/AccordionReleaseNotes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -31,6 +34,17 @@ export function AccordionShowcase() {
       </ShowcaseSection>
 
       <ShowcaseSection
+        title="classNames"
+        description="Full customization of slots (root, item, heading, Expandable slots) via classNames on Root."
+      >
+        <ShowcaseDemoFromFile
+          align="stretch"
+          Demo={AccordionClassNamesFullDemo}
+          source={accordionClassNamesFullSource}
+        />
+      </ShowcaseSection>
+
+      <ShowcaseSection
         title="Custom Variations"
         description="FAQ registration, documentation sections and release notes — `demos/accordion/`."
       >
@@ -38,6 +52,32 @@ export function AccordionShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={AccordionDocsSectionsDemo} source={accordionDocsSectionsSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={AccordionReleaseNotesDemo} source={accordionReleaseNotesSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Accordion.Item → Heading (Trigger, Message with Content/Title/Description) → Panel (Body). Icon, Indicator — optional."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="State">
+          <p>
+            <code>defaultOpenIndex</code> on the root - the index of the open item when mounted. One open item
+            at a time (accordion-behavior).
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization>
+          <p>
+            Panel opening — <code>configureMotion()</code> (<code>expandDuration</code>,{" "}
+            <code>enableExpandable</code>). <code>classNames</code> on Root (root, item, heading, trigger,
+            triggerLift, message, icon, content, title, description, chevron, panelShell, panel,
+            glossContent) — locally overridable on <code>Accordion.Item</code>.
+          </p>
+        </ShowcaseDoc.Customization>
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

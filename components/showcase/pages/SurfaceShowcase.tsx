@@ -1,5 +1,7 @@
 "use client";
 
+import { SurfaceClassNamesFullDemo } from "@/components/showcase/demos/surface/SurfaceClassNamesFull.demo";
+import surfaceClassNamesFullSource from "@/components/showcase/demos/surface/SurfaceClassNamesFull.demo.tsx?raw";
 import { SurfaceDashboardWidgetDemo } from "@/components/showcase/demos/surface/SurfaceDashboardWidget.demo";
 import surfaceDashboardWidgetSource from "@/components/showcase/demos/surface/SurfaceDashboardWidget.demo.tsx?raw";
 import { SurfaceGlassStackDemo } from "@/components/showcase/demos/surface/SurfaceGlassStack.demo";
@@ -11,6 +13,7 @@ import surfaceNestedPanelsSource from "@/components/showcase/demos/surface/Surfa
 import { SurfaceVariantsDemo } from "@/components/showcase/demos/surface/SurfaceVariants.demo";
 import surfaceVariantsSource from "@/components/showcase/demos/surface/SurfaceVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -30,6 +33,10 @@ export function SurfaceShowcase() {
         <ShowcaseDemoFromFile Demo={SurfaceGlossDemo} source={surfaceGlossSource} />
       </ShowcaseSection>
 
+      <ShowcaseSection title="classNames" description="Slots root and glossContent via classNames.">
+        <ShowcaseDemoFromFile Demo={SurfaceClassNamesFullDemo} source={surfaceClassNamesFullSource} />
+      </ShowcaseSection>
+
       <ShowcaseSection
         title="Custom Variations"
         description="Nested panels, dashboard widget and gloss-stack — `demos/surface/`."
@@ -38,6 +45,24 @@ export function SurfaceShowcase() {
         <ShowcaseDemoFromFile Demo={SurfaceDashboardWidgetDemo} source={surfaceDashboardWidgetSource} />
         <ShowcaseDemoFromFile Demo={SurfaceGlassStackDemo} source={surfaceGlassStackSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="variant and padding on the root - the main way to set the background and padding of the container."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Padding">
+          <p>
+            <code>mid</code>, <code>plus</code>, <code>large</code> — preset padding inside Surface.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

@@ -15,6 +15,7 @@ import avatarProjectMembersSource from "@/components/showcase/demos/avatar/Avata
 import { AvatarSizesFallbackDemo } from "@/components/showcase/demos/avatar/AvatarSizesFallback.demo";
 import avatarSizesFallbackSource from "@/components/showcase/demos/avatar/AvatarSizesFallback.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -23,14 +24,14 @@ export function AvatarShowcase() {
     <ShowcasePage
       title="Avatar"
       description="User avatars with initials, image and grouping."
-      importPath='import { Avatar, AvatarGroup } from "burne-ui";'
+      importPath='import { Avatar } from "burne-ui";'
       tags={["core", "media"]}
     >
       <ShowcaseSection title="Dimensions and fallback" description="size, label, src and custom Fallback.">
         <ShowcaseDemoFromFile Demo={AvatarSizesFallbackDemo} source={avatarSizesFallbackSource} />
       </ShowcaseSection>
 
-      <ShowcaseSection title="AvatarGroup" description="Stack of avatars in one group.">
+      <ShowcaseSection title="Avatar.Group" description="Stack of avatars in one group.">
         <ShowcaseDemoFromFile Demo={AvatarGroupDemo} source={avatarGroupSource} />
       </ShowcaseSection>
 
@@ -53,6 +54,29 @@ export function AvatarShowcase() {
         <ShowcaseDemoFromFile Demo={AvatarProjectMembersDemo} source={avatarProjectMembersSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={AvatarPresenceRowDemo} source={avatarPresenceRowSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="label, src, size and variant on the root Avatar — main method."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Avatar.Fallback — custom content if there is no image."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Dimensions">
+          <p>
+            <code>small</code>, <code>base</code>, <code>mid</code>, <code>large</code>. Initials are generated from{" "}
+            <code>label</code>.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

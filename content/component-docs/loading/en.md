@@ -22,7 +22,7 @@ Simple API — a single `<span role="status">`.
 
 | Prop | Type | Default | Description |
 |------|-----|--------------|----------|
-| `variant` | `spinner` \| `dots` | `spinner` | Indicator type |
+| `type` | `spinner` \| `dots` | `spinner` | Indicator type |
 | `size` | `small` \| `base` \| `mid` \| `large` | `base` | Size |
 | `color` | see below | `primary` | Semantic color |
 | `label` | `string` | `"Loading"` | `aria-label` for screen readers |
@@ -37,10 +37,10 @@ Simple API — a single `<span role="status">`.
 ```tsx
 <Loading />
 
-<Loading variant="dots" size="mid" color="success" label="Saving…" />
+<Loading type="dots" size="mid" color="success" label="Saving…" />
 
-// In Toast with isLoading
-<Toast status="default" isLoading title="Loading" />
+// In Toast with loading
+<Toast status="default" loading title="Loading" />
 ```
 
 ## variant
@@ -71,7 +71,7 @@ Track height: `dotSize + jumpPx` (inline style).
 
 ## Animations
 
-### 1. Spinner (`variant="spinner"`)
+### 1. Spinner (`type="spinner"`)
 
 **DOM:**
 
@@ -86,7 +86,7 @@ Track height: `dotSize + jumpPx` (inline style).
 
 Color: `text-{color}` on the ring (`border-current`).
 
-### 2. Dots wave (`variant="dots"`)
+### 2. Dots wave (`type="dots"`)
 
 **DOM:**
 
@@ -142,7 +142,7 @@ configureMotion({
 | Location | variant | color |
 |-------|---------|-------|
 | `Button` async loader | spinner | based on button variant |
-| `Toast` `isLoading` | spinner | via `toastLoadingColor(status)` |
+| `Toast` `loading` | spinner | via `toastLoadingColor(status)` |
 | Standalone | both | `color` prop |
 
 ### Summary: what is configured where
@@ -170,7 +170,7 @@ Loading is a leaf component: **only `className` on root** (`<span role="status">
 
 | Method | What it changes |
 |--------|------------|
-| `variant` | `spinner` (ring) or `dots` (three dots) |
+| `type` | `spinner` (ring) or `dots` (three dots) |
 | `size` | Spinner / dots layout size |
 | `color` | Semantic tint (`primary`, `info`, `danger`, …) |
 | `className` | Opacity, margin, display on root |
@@ -178,7 +178,7 @@ Loading is a leaf component: **only `className` on root** (`<span role="status">
 
 ```tsx
 <Loading
-  variant="dots"
+  type="dots"
   size="large"
   color="info"
   className="opacity-90 mx-auto"
@@ -195,7 +195,7 @@ Loading is a leaf component: **only `className` on root** (`<span role="status">
 
 ```tsx
 <Button disabled className="gap-small">
-  <Loading variant="spinner" size="small" color="foreground" className="shrink-0" />
+  <Loading type="spinner" size="small" color="foreground" className="shrink-0" />
   Saving…
 </Button>
 ```

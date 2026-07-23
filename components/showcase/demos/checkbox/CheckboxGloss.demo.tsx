@@ -8,7 +8,7 @@ export function CheckboxGlossDemo() {
   const [on, setOn] = useState(true);
 
   return (
-    <div className="flex flex-wrap items-center gap-mid justify-center">
+    <div className="flex flex-wrap items-center gap-mid">
       <Checkbox
         label="Checkbox gloss (off)"
         variant="gloss"
@@ -20,7 +20,7 @@ export function CheckboxGlossDemo() {
         variant="gloss"
         checked={on}
         onChange={(e) => setOn(e.target.checked)}
-        checkIcon={<IoCheckmark aria-hidden />}
+        icon={<IoCheckmark aria-hidden />}
       />
     </div>
   );

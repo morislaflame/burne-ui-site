@@ -22,13 +22,13 @@ import {
 
 ```tsx
 <ListBox
-  label="Язык"
+  aria-label="Язык"
   defaultValue="ru"
   selectionIndicator
   onValueChange={setLang}
 >
-  <ListBox.Item value="ru" label="Русский" hint="Кириллица" />
-  <ListBox.Item value="en" label="English" />
+  $1aria-label="Русский" hint="Кириллица" />
+  $1aria-label="English" />
 </ListBox>
 ```
 
@@ -132,7 +132,7 @@ Reduced motion: skip GSAP.
 
 ### 4. Active highlight (CSS)
 
-`isActive` (keyboard focus option) → `bg-default-hover` — без GSAP.
+`active` (keyboard focus option) → `bg-default-hover` — без GSAP.
 
 ### Сводка
 
@@ -176,7 +176,7 @@ Reduced motion: skip GSAP.
 ```tsx
 <ListBox
   defaultValue="ru"
-  label="Язык интерфейса"
+  aria-label="Язык интерфейса"
   selectionIndicator
   classNames={{
     root: "rounded-mid border border-primary/20 p-base",
@@ -189,8 +189,8 @@ Reduced motion: skip GSAP.
 >
   <ListBox.Section>
     <ListBox.Header>Доступные языки</ListBox.Header>
-    <ListBox.Item value="ru" label="Русский" hint="Кириллица" />
-    <ListBox.Item value="en" label="English" />
+    $1aria-label="Русский" hint="Кириллица" />
+    $1aria-label="English" />
   </ListBox.Section>
 </ListBox>
 ```

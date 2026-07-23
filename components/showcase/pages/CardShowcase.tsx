@@ -17,6 +17,7 @@ import cardProductSelectableSource from "@/components/showcase/demos/card/CardPr
 import { CardVariantsDemo } from "@/components/showcase/demos/card/CardVariants.demo";
 import cardVariantsSource from "@/components/showcase/demos/card/CardVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -60,6 +61,33 @@ export function CardShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={CardMetricTilesDemo} source={cardMetricTilesSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={CardProductSelectableDemo} source={cardProductSelectableSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Card.Header, Card.Title, Card.Description, Card.Body, Card.Footer — card slots."
+          />
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="pressable and onPress on the root - an interactive card-button."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="root, header, title, description, body, footer, content, glossContent."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Options">
+          <p>
+            <code>default</code>, <code>outline</code>, <code>secondary</code>, <code>gloss</code> — prop{" "}
+            <code>variant</code> on the root Card.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

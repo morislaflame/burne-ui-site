@@ -155,14 +155,14 @@ configureMotion({
 
 ### Два уровня
 
-1. **`className` на root** — `Field.Root`.
+1. **`className` на root** — `Field`.
 2. **`classNames` на root** — все слоты.
 
 ### Слоты `ProgressBarClassNames`
 
 | Слот | DOM | Назначение |
 |------|-----|------------|
-| `root` | `Field.Root` | Padding, border |
+| `root` | `Field` | Padding, border |
 | `label` | Label | Typography |
 | `header` | Header row | Layout |
 | `value` | Value text | Процент / status |

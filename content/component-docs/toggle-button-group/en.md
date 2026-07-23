@@ -26,7 +26,7 @@ import { ToggleButton } from "burne-ui";
   variant="default"
   size="base"
 >
-  <ToggleButton value="bold" leftIcon={<IoTextOutline aria-hidden />}>
+  <ToggleButton value="bold" icon={<IoTextOutline aria-hidden />}>
     Bold
   </ToggleButton>
   <ToggleButton value="italic">Italic</ToggleButton>
@@ -82,7 +82,7 @@ Only **`ToggleButton`** with a required `value`. Arbitrary Fragment wrappers are
 
 | `size` | Passed through to each `ToggleButton` |
 
-Button customization — `classNames` on `ToggleButton` (`root`, `fill`, `content`, `leftIcon`, `label`).
+Button customization — `classNames` on `ToggleButton` (`root`, `fill`, `content`, `icon`, `label`).
 
 ## Animations
 
@@ -165,8 +165,8 @@ Root: `role="toolbar"`, `aria-orientation`, `aria-disabled`.
   aria-label="View mode"
   className="w-fit"
 >
-  <ToggleButton value="list" leftIcon={<IoList aria-hidden />}>List</ToggleButton>
-  <ToggleButton value="grid" leftIcon={<IoGrid aria-hidden />}>Grid</ToggleButton>
+  <ToggleButton value="list" icon={<IoList aria-hidden />}>List</ToggleButton>
+  <ToggleButton value="grid" icon={<IoGrid aria-hidden />}>Grid</ToggleButton>
 </ToggleButtonGroup>
 ```
 
@@ -204,7 +204,7 @@ Root: `role="toolbar"`, `aria-orientation`, `aria-disabled`.
 | `multiple` | `aria-pressed` on buttons |
 | `single` | `role="radio"`, `aria-checked`; roving `tabIndex` |
 | Arrows | Arrow Left/Right (horizontal) or Up/Down (vertical) when `single` |
-| Icons | `aria-hidden` on decorative `leftIcon` |
+| Icons | `aria-hidden` on decorative `icon` |
 
 ## File structure
 

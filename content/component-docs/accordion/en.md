@@ -37,7 +37,7 @@ import {
             <Accordion.Title>Shipping</Accordion.Title>
             <Accordion.Description>Timelines and terms</Accordion.Description>
           </Accordion.Content>
-          <Accordion.Indicator />
+          <Accordion.Chevron />
         </Accordion.Message>
       </Accordion.Trigger>
     </Accordion.Heading>
@@ -54,9 +54,9 @@ No Simple API.
 
 | Prop | Default | Description |
 |------|---------|-------------|
-| `openId` | — | Controlled: ID of the open item |
-| `onOpenIdChange` | — | `(id: string \| null) => void` |
-| `defaultOpenId` | `null` | Initial ID (takes priority over `defaultOpenIndex`) |
+| `value` | — | Controlled: ID of the open item |
+| `onValueChange` | — | `(id: string \| null) => void` |
+| `defaultValue` | `null` | Initial ID (takes priority over `defaultOpenIndex`) |
 | `defaultOpenIndex` | `null` | Initial index (0-based) when Item has no `value` |
 | `size` | `base` | `small` \| `base` \| `mid` \| `large` — applies to all Items |
 | `className` | — | On root `<div>` |
@@ -86,7 +86,7 @@ Each Item is a wrapper around `Expandable` (`compound={true}`, controlled `open`
 | `Accordion.Content` | `Expandable.Content` | Title + Description group |
 | `Accordion.Title` | `Expandable.Title` | Title |
 | `Accordion.Description` | `Expandable.Description` | Muted subtitle |
-| `Accordion.Indicator` | Custom chevron span | Chevron instead of `Expandable.Chevron` |
+| `Accordion.Chevron` | Custom chevron span | Chevron instead of `Expandable.Chevron` |
 | `Accordion.Panel` | `Expandable.Panel` | Expandable `<section>` |
 | `Accordion.Body` | `Text as="div"` | Panel body (`text-muted`) |
 
@@ -96,16 +96,16 @@ Each Item is a wrapper around `Expandable` (`compound={true}`, controlled `open`
 
 ```tsx
 // Uncontrolled
-<Accordion defaultOpenIndex={0} onOpenIdChange={(id) => console.log(id)} />
+<Accordion defaultOpenIndex={0} onValueChange={(id) => console.log(id)} />
 
 // Controlled
-const [openId, setOpenId] = useState<string | null>("shipping");
-<Accordion openId={openId} onOpenIdChange={setOpenId}>
+const [value, setValue] = useState<string | null>("shipping");
+<Accordion value={value} onValueChange={setValue}>
   <Accordion.Item value="shipping">...</Accordion.Item>
 </Accordion>
 ```
 
-Behavior: click on open item → `openId = null`; click on another → closes the previous one.
+Behavior: click on open item → `value = null`; click on another → closes the previous one.
 
 ## Sizes
 
@@ -159,7 +159,7 @@ configureMotion({
 
 ### 3. Indicator rotation (`accordionAnimations.ts`)
 
-`useAccordionIndicatorAnimation(open)` → `useChevronRotation` on `Accordion.Indicator`.
+`useAccordionIndicatorAnimation(open)` → `useChevronRotation` on `Accordion.Chevron`.
 
 - `Accordion.Trigger` defaults to `hideChevron={true}`
 - Rotation: `motionInteractive()`; off when `enableExpandable: false`
@@ -170,7 +170,7 @@ configureMotion({
 
 ### What's not included
 
-- Group-level FLIP on `openId` change
+- Group-level FLIP on `value` change
 - `variant="gloss"` on Accordion
 - Animation of `Accordion.Body` / `Heading`
 - `classNames` provider (only per-part `className`)
@@ -213,7 +213,7 @@ configureMotion({
 | root | `Accordion className` |
 | item | `Accordion.Item className` |
 | heading / trigger / message / … | `className` on sub-part |
-| indicator | `Accordion.Indicator className` |
+| indicator | `Accordion.Chevron className` |
 | panel / body | `Accordion.Panel` / `Accordion.Body className` |
 
 `ExpandableClassNames` is **not passed through** Accordion.
@@ -231,7 +231,7 @@ configureMotion({
             <Accordion.Content>
               <Accordion.Title>{item.title}</Accordion.Title>
             </Accordion.Content>
-            <Accordion.Indicator />
+            <Accordion.Chevron />
           </Accordion.Message>
         </Accordion.Trigger>
       </Accordion.Heading>
@@ -257,9 +257,9 @@ configureMotion({
 ### Practical notes
 
 - Recommended structure: `Heading` → `Trigger` → `Message` → slots → `Panel` → `Body`.
-- `Accordion.Indicator` — inside or next to `Message` (grid resolves by `displayName`).
+- `Accordion.Chevron` — inside or next to `Message` (grid resolves by `displayName`).
 - For controlled state, use stable `value` on Items; do not rely on auto-index when reordering.
-- Comparison with `Expandable`: single block vs group with `openId`.
+- Comparison with `Expandable`: single block vs group with `value`.
 - **Do not set `rounded` on Item** — rounding is applied by root via first/last selectors.
 
 ## Integrations
@@ -281,7 +281,7 @@ Delegated to `Expandable` + Accordion semantics:
 - Icon / Indicator: `aria-hidden`
 - Keyboard: Enter/Space on trigger
 
-**No** `role="group"` / accordion pattern on root — each Item is an autonomous disclosure; "one open at a time" is JS-only (`openId`).
+**No** `role="group"` / accordion pattern on root — each Item is an autonomous disclosure; "one open at a time" is JS-only (`value`).
 
 ## File structure
 

@@ -30,7 +30,7 @@ Compound via `Object.assign`:
 
 | Part | Purpose |
 |------|---------|
-| `Field` / `Field.Root` | Vertical stack: label → control → hint/error |
+| `Field` / `Field` | Vertical stack: label → control → hint/error |
 | `Field.Label` | Alias for `Label` |
 | `Field.Hint` | Hint (`text-muted` or semantic) |
 | `Field.Error` | Error (`status="danger"`, `role="alert"`) |
@@ -110,7 +110,7 @@ Field.Set (fieldset)
 
 ### 1. No animations in Field itself
 
-No `useLayoutEffect` with GSAP, no hover handlers on `Field.Root`. `Field.Error` appears instantly (no built-in transition).
+No `useLayoutEffect` with GSAP, no hover handlers on `Field`. `Field.Error` appears instantly (no built-in transition).
 
 ### 2. Shell hover on child controls (2nd level)
 
@@ -119,7 +119,7 @@ No `useLayoutEffect` with GSAP, no hover handlers on `Field.Root`. `Field.Error`
 **On the field shell (shell ref):**
 
 1. **Init:** `initElementShadow(shell, shadowSm())` — resting state `shadow-token-sm`
-2. **Pointer enter on shell:** `animateInteractiveHoverLift` — sm → md + adaptive scale
+2. **Pointer enter on root:** `animateInteractiveHoverLift` — sm → md + adaptive scale
 3. **Pointer leave:** back to sm, scale 1
 4. Classes: `animate-shadow`, `field-shell-transition`, `focus-within-ring`
 
@@ -255,7 +255,7 @@ Used inside Input, TextArea, ComboBox and directly:
 
 | Slot | Element | Purpose |
 |------|---------|---------|
-| `root` | `Field.Root` div | Gap, max-width, outer border |
+| `root` | `Field` div | Gap, max-width, outer border |
 | `hint` | `Field.Hint` | Hint text |
 | `error` | `Field.Error` | Error text (`role="alert"`) |
 

@@ -54,7 +54,7 @@ function MobileThemeDrawer({
         </Button>
       </div>
 
-      <Drawer.Panel size="default" className="h-[90dvh] max-h-[90dvh]">
+      <Drawer.Panel extent="default" className="h-[90dvh] max-h-[90dvh]">
         <Drawer.Header>
           <Drawer.HeadingBlock>
             <Drawer.Title>Theme settings</Drawer.Title>
@@ -119,7 +119,7 @@ export function ShowcaseShell({ children }: { children: ReactNode }) {
         <main
           ref={scrollRef}
           data-showcase-scroll
-          className="site-panel-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain [overflow-anchor:none]"
+          className="site-panel-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain [overflow-root:none]"
         >
           <div
             key={pathname}

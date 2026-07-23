@@ -11,6 +11,7 @@ import textStatsGridSource from "@/components/showcase/demos/text/TextStatsGrid.
 import { TextVariantsDemo } from "@/components/showcase/demos/text/TextVariants.demo";
 import textVariantsSource from "@/components/showcase/demos/text/TextVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -38,6 +39,26 @@ export function TextShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={TextEditorialArticleDemo} source={textEditorialArticleSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={TextStatsGridDemo} source={textStatsGridSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="variant and as on the root - the main type of typography in the application."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Options">
+          <p>
+            <code>accent-header</code>, <code>header-1</code>, <code>header-2</code>,{" "}
+            <code>large</code>, <code>mid</code>, <code>base</code>, <code>small</code>, <code>tools</code>.
+            Additional colors - via <code>className</code> (For example, <code>text-muted</code>).
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

@@ -6,7 +6,7 @@ export function InputVariantsDemo() {
       <Input
         label="Email"
         placeholder="you@example.com"
-        hint="Default shell — bg-surface."
+        hint="We do not send spam."
         className="w-64"
       />
       <Input

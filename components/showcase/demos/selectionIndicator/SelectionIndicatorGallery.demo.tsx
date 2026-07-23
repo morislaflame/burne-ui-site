@@ -3,7 +3,7 @@ import { IoCheckmark } from "react-icons/io5";
 
 import { Checkbox } from "burne-ui";
 import { SelectionIndicator } from "burne-ui";
-import { SelectionThumb, SelectionThumbIcon } from "burne-ui";
+import { SelectionThumb } from "burne-ui";
 import { Text } from "burne-ui";
 
 import { SELECTION_INDICATOR_SIZES } from "@/lib/showcase/shared/constants";
@@ -21,14 +21,14 @@ export function SelectionIndicatorGalleryDemo() {
       <div className="flex flex-wrap items-end gap-mid">
         {SELECTION_INDICATOR_SIZES.map((size) => (
           <div key={size} className="flex flex-col items-center gap-xsmall">
-            <SelectionIndicator size={size} variant="base" selected={selected} />
+            <SelectionIndicator size={size} variant="default" selected={selected} />
             <Text as="span" variant="tools" className="text-muted">
               {size}
             </Text>
           </div>
         ))}
         <div className="flex flex-col items-center gap-xsmall">
-          <SelectionIndicator size="base" variant="base" selected={selected} check />
+          <SelectionIndicator size="base" variant="default" selected={selected} check />
           <Text as="span" variant="tools" className="text-muted">
             check
           </Text>
@@ -46,9 +46,9 @@ export function SelectionIndicatorGalleryDemo() {
         </Text>
         <div className="selection-indicator-base flex items-center justify-center">
           <SelectionThumb active={selected}>
-            <SelectionThumbIcon size="base">
+            <SelectionThumb.Icon size="base">
               <IoCheckmark aria-hidden />
-            </SelectionThumbIcon>
+            </SelectionThumb.Icon>
           </SelectionThumb>
         </div>
         <div className="selection-indicator-mid flex items-center justify-center">

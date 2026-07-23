@@ -9,7 +9,7 @@ export function ProgressBarClassNamesFullDemo() {
       value={72}
       color="var(--color-primary)"
       classNames={{
-        root: "rounded-mid border border-token bg-surface p-mid max-w-120",
+        root: "rounded-mid border border-primary/25 p-base",
         value: "text-primary font-semibold",
         track: "bg-primary/10",
         fill: "opacity-95",

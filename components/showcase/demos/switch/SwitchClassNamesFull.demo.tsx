@@ -4,15 +4,18 @@ export function SwitchClassNamesFullDemo() {
   return (
     <Switch
       defaultChecked
+      gloss
+      color="var(--color-primary)"
       classNames={{
-        root: "max-w-md rounded-mid border-token bg-surface p-mid max-w-component-small",
-        track: "ring-1 ring-primary/20 bg-primary",
-        thumbShell: "ring-primary/30 bg-primary",
-        labelText: "text-primary font-semibold",
+        root: "max-w-md rounded-mid border border-info/25 p-base",
+        track: "ring-1 ring-info/20",
+        fill: "opacity-95",
+        thumbShell: "ring-info/30",
+        labelText: "text-info font-semibold",
         hint: "text-muted/80",
       }}
     >
-      <Switch.Control gloss />
+      <Switch.Control />
       <Switch.Content>
         <Switch.Label>Notifications</Switch.Label>
         <Switch.Hint>Setting up slots via classNames on root.</Switch.Hint>

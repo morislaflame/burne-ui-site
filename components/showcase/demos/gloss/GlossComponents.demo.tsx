@@ -1,10 +1,7 @@
 import { useMemo, useState, type ChangeEvent } from "react";
-import { IoAdd, IoCheckmark, IoMoon, IoSearchOutline, IoSunny } from "react-icons/io5";
+import { IoAdd, IoCheckmark, IoMoon, IoSunny } from "react-icons/io5";
 
-import {
-  AlertDialog,
-  primaryButtonVariantForAlertTone,
-} from "burne-ui";
+import { AlertDialog, primaryButtonVariantForAlertTone } from "burne-ui";
 import { Alert } from "burne-ui";
 import { Avatar } from "burne-ui";
 import { Badge } from "burne-ui";
@@ -24,6 +21,7 @@ import { Input } from "burne-ui";
 import { ListBox } from "burne-ui";
 import { Popover } from "burne-ui";
 import { Radio } from "burne-ui";
+import { SearchInput } from "burne-ui";
 import { Slider } from "burne-ui";
 import { Surface } from "burne-ui";
 import { Switch } from "burne-ui";
@@ -136,7 +134,7 @@ export function GlossComponentsDemo() {
               {status}
             </Button>
           ))}
-          <Button variant="gloss" leftIcon={<IoAdd aria-hidden />}>
+          <Button variant="gloss" icon={<IoAdd aria-hidden />}>
             With icon
           </Button>
           <CloseButton variant="gloss" aria-label="Close gloss" />
@@ -180,13 +178,12 @@ export function GlossComponentsDemo() {
             rows={2}
             hint="TextArea gloss"
           />
-          <Input.Control
+          <SearchInput
             variant="gloss"
             aria-label="Search gloss"
             placeholder="Find…"
             value={glossSearch}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => setGlossSearch(event.target.value)}
-            prefix={<IoSearchOutline className="icon-base shrink-0" aria-hidden />}
+            onChange={(e) => setGlossSearch(e.target.value)}
           />
         </div>
       </div>
@@ -216,8 +213,8 @@ export function GlossComponentsDemo() {
             </Popover.Trigger>
             <Popover.Content showArrow>
               <Popover.Header>
-                <Popover.Label>Heading</Popover.Label>
-                <Popover.Hint>Glass pop-up panel</Popover.Hint>
+                <Popover.Title>Heading</Popover.Title>
+                <Popover.Description>Glass pop-up panel</Popover.Description>
               </Popover.Header>
               <Popover.Body>
                 <Text as="p" variant="small" className="text-muted">
@@ -260,7 +257,7 @@ export function GlossComponentsDemo() {
           >
             Gloss Toast
           </Button>
-          <Tooltip surface="gloss" variant="info">
+          <Tooltip variant="gloss" status="info">
             <Tooltip.Trigger asChild>
               <Button variant="gloss">Gloss Tooltip</Button>
             </Tooltip.Trigger>
@@ -464,7 +461,7 @@ export function GlossComponentsDemo() {
             variant="gloss"
             checked={glossCheckB}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setGlossCheckB(e.target.checked)}
-            checkIcon={<IoCheckmark aria-hidden />}
+            icon={<IoCheckmark aria-hidden />}
           />
           <Radio
             label="Radio gloss (off)"

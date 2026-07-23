@@ -22,7 +22,7 @@ import {
 ### Compound
 
 ```tsx
-<Input label="Email" hint="…" status="danger" isRequired>
+<Input label="Email" hint="…" status="danger" required>
   <Input.Label>Email</Input.Label>
   <Input.Control type="email" autoComplete="email" />
   <Input.Hint>Format: name@domain.tld</Input.Hint>
@@ -46,7 +46,7 @@ import {
   hint="Format: name@domain.tld"
   error={invalid ? "Enter a valid address." : undefined}
   status={invalid ? "danger" : "default"}
-  isRequired
+  required
   value={value}
   onChange={(e) => setValue(e.target.value)}
 />
@@ -98,7 +98,7 @@ Motion: `inputAnimations.ts` → `useInputShellMotion` + `animateInputFileRowExi
 **DOM structure (text/password):**
 
 ```
-Field.Root
+Field
   Label
   <div data-slot="input-shell" ref=shellRef>   ← motion target
     [prefix affix]
@@ -197,7 +197,7 @@ Password toggle and file remove — **CSS** `hoverVariant`, `TEXT_COLOR_TRANSITI
 |---------|----------|
 | `Form` | `error` from `getError(name)`, `size`, `disabled` |
 | `ButtonGroup` | `groupSegment`, `variant` gloss, no shell hover |
-| `FieldLabelContext` | auto `htmlFor`, `labelId`, `isRequired` |
+| `FieldLabelContext` | auto `htmlFor`, `labelId`, `required` |
 
 ## Styling and customization
 
@@ -212,7 +212,7 @@ In compound API, slots from root `classNames` apply to all parts. Additionally, 
 
 | Slot | DOM / element | When to use |
 |------|---------------|-------------|
-| `root` | `Field.Root` | Spacing, max-width, border around the entire field |
+| `root` | `Field` | Spacing, max-width, border around the entire field |
 | `label` | `Label` (simple and `Input.Label`) | Typography, label spacing |
 | `shell` | `[data-slot="input-shell"]` | Shell: ring, border, min-height, hover/focus (be careful with motion classes) |
 | `control` | `<input>` | Font, placeholder, padding inside shell |
@@ -237,7 +237,7 @@ All field and control props — on a single `Input`. Slot styles — via `classN
   className="max-w-sm"
   classNames={{
     root: "rounded-mid border border-primary/20 p-base",
-    shell: "ring-1 ring-primary/15",
+    root: "ring-1 ring-primary/15",
     control: "text-primary placeholder:text-primary/50",
     prefix: "bg-surface-elevated text-muted",
     hint: "text-foreground/70",
@@ -261,10 +261,10 @@ For `inputType="file"`, additionally: `fileArea`, `fileEmpty`, `fileRow`, `fileP
 ```tsx
 <Input
   status="danger"
-  isRequired
+  required
   classNames={{
     root: "max-w-md gap-small",
-    shell: "border-primary/30",
+    root: "border-primary/30",
     hint: "text-xs",
   }}
 >
@@ -300,7 +300,7 @@ For `inputType="file"`, additionally: `fileArea`, `fileEmpty`, `fileRow`, `fileP
 
 - `joinFieldDescribedBy(hintId, errorId)` on control
 - `aria-invalid` when `status="danger"`
-- `aria-required` from `isRequired`
+- `aria-required` from `required`
 - Password toggle: `aria-label`, `aria-pressed`
 - File remove: `aria-label`
 

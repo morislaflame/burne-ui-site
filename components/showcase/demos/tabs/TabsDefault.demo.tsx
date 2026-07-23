@@ -7,7 +7,7 @@ export function TabsDefaultDemo() {
   const [tab, setTab] = useState("overview");
 
   return (
-    <Tabs value={tab} onValueChange={setTab} className="w-full max-w-component-large items-center justify-center">
+    <Tabs value={tab} onValueChange={setTab}>
       <Tabs.List>
         <Tabs.Tab value="overview">Review</Tabs.Tab>
         <Tabs.Tab value="details">Details</Tabs.Tab>

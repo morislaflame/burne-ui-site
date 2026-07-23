@@ -31,6 +31,9 @@ export function DialogSettingsModalDemo() {
             label="Usage analytics"
             hint="Anonymous statistics to improve the product"
           />
+          <Text as="p" variant="tools" className="text-muted">
+            Dialog with settings form inside Body.
+          </Text>
         </Dialog.Body>
         <Dialog.Footer>
           <Button type="button" onClick={() => setOpen(false)}>

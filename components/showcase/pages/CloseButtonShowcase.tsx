@@ -15,6 +15,7 @@ import closeButtonSizesSource from "@/components/showcase/demos/close-button/Clo
 import { CloseButtonVariantsDemo } from "@/components/showcase/demos/close-button/CloseButtonVariants.demo";
 import closeButtonVariantsSource from "@/components/showcase/demos/close-button/CloseButtonVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -56,6 +57,28 @@ export function CloseButtonShowcase() {
         <ShowcaseDemoFromFile Demo={CloseButtonPreviewCardDemo} source={closeButtonPreviewCardSource} />
         <ShowcaseDemoFromFile Demo={CloseButtonFilterChipDemo} source={closeButtonFilterChipSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="variant, size, aria-label (required), onClick. Icon IoClose built-in."
+          />
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="root, icon, ripple — slots classNames on the root."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss>
+          <p>
+            Fill options match <code>Button</code> (without status tones). For Dialog and Drawer —
+            in header with sufficient pressing area; required <code>aria-label</code>.
+          </p>
+        </ShowcaseDoc.Customization>
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

@@ -7,17 +7,21 @@ export function TimeFieldClassNamesFullDemo() {
     <TimeField
       className="max-w-sm"
       classNames={{
-        root: "rounded-mid border-token bg-surface p-mid max-w-component-small",
+        root: "rounded-mid border border-primary/20 p-base",
         shell: "ring-1 ring-primary/15",
-        segment: "text-primary",
+        shellInner: "gap-xsmall",
+        segmentGroup: "px-px",
+        segment: "font-semibold",
         prefix: "text-primary",
         hint: "text-foreground/70",
-        error: "text-danger",
+        error: "font-medium",
       }}
       label="Meeting time"
       defaultValue="09:30"
+      status="danger"
       hint="24-hour format"
       error="Please enter the correct time."
+      segmentSeparator="·"
       prefix={<IoTimeOutline className="icon-base shrink-0" aria-hidden />}
     />
   );
@@ -28,18 +32,19 @@ export function TimeFieldClassNamesCompoundDemo() {
     <TimeField
       className="max-w-sm"
       classNames={{
-        root: "rounded-mid border-token bg-surface p-mid max-w-component-small",
-        shell: "border-primary/30 bg-primary/5",
-        segments: "text-primary",
-        segment: "text-primary",
-        prefix: "text-primary",
-        hint: "text-foreground/70",
+        root: "rounded-mid border border-info/25 p-base",
+        shell: "border-info/30 bg-info/5",
+        segments: "text-info",
+        segment: "font-medium",
+        prefix: "text-info",
+        hint: "text-info/80",
       }}
     >
       <TimeField.Label>Start of shift</TimeField.Label>
       <TimeField.Control
         defaultValue="14:30"
         variant="segmented"
+        segmentSeparator="·"
         prefix={<IoTimeOutline className="icon-base shrink-0" aria-hidden />}
       />
       <TimeField.Hint>Slots shell, segments and segment through classNames.</TimeField.Hint>

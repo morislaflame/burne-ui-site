@@ -1,11 +1,12 @@
 "use client";
 
+import { TooltipAsChildMergedPropsDemo } from "@/components/showcase/demos/tooltip/TooltipAsChildMergedProps.demo";
+import tooltipAsChildMergedPropsSource from "@/components/showcase/demos/tooltip/TooltipAsChildMergedProps.demo.tsx?raw";
+import { TooltipPortalContainerDemo } from "@/components/showcase/demos/tooltip/TooltipPortalContainer.demo";
+import tooltipPortalContainerSource from "@/components/showcase/demos/tooltip/TooltipPortalContainer.demo.tsx?raw";
 import { TooltipFormHintDemo } from "@/components/showcase/demos/tooltip/TooltipFormHint.demo";
 import tooltipFormHintSource from "@/components/showcase/demos/tooltip/TooltipFormHint.demo.tsx?raw";
-import {
-  TooltipClassNamesFullDemo,
-  TooltipClassNamesGlossDemo,
-} from "@/components/showcase/demos/tooltip/TooltipClassNamesFull.demo";
+import { TooltipClassNamesFullDemo, TooltipClassNamesGlossDemo } from "@/components/showcase/demos/tooltip/TooltipClassNamesFull.demo";
 import tooltipClassNamesFullSource from "@/components/showcase/demos/tooltip/TooltipClassNamesFull.demo.tsx?raw";
 import { TooltipGlossDemo } from "@/components/showcase/demos/tooltip/TooltipGloss.demo";
 import tooltipGlossSource from "@/components/showcase/demos/tooltip/TooltipGloss.demo.tsx?raw";
@@ -20,6 +21,7 @@ import tooltipSizesSource from "@/components/showcase/demos/tooltip/TooltipSizes
 import { TooltipVariantsDemo } from "@/components/showcase/demos/tooltip/TooltipVariants.demo";
 import tooltipVariantsSource from "@/components/showcase/demos/tooltip/TooltipVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -39,12 +41,27 @@ export function TooltipShowcase() {
         <ShowcaseDemoFromFile Demo={TooltipSizesDemo} source={tooltipSizesSource} />
       </ShowcaseSection>
 
-      <ShowcaseSection title="Gloss" description='surface="gloss" — glass tip with hover-lift.'>
+      <ShowcaseSection title="Gloss" description='variant="gloss" — glass tip with hover-lift.'>
         <ShowcaseDemoFromFile Demo={TooltipGlossDemo} source={tooltipGlossSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Accommodation" description="side: top, right, bottom, left.">
         <ShowcaseDemoFromFile Demo={TooltipSidesDemo} source={tooltipSidesSource} />
+      </ShowcaseSection>
+
+
+      <ShowcaseSection
+        title="portalContainer"
+        description="Custom portal host — tooltip mounts into the container."
+      >
+        <ShowcaseDemoFromFile align="stretch" Demo={TooltipPortalContainerDemo} source={tooltipPortalContainerSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="asChild — merged props"
+        description="Trigger merges id, data-*, className, and ref onto the child."
+      >
+        <ShowcaseDemoFromFile Demo={TooltipAsChildMergedPropsDemo} source={tooltipAsChildMergedPropsSource} />
       </ShowcaseSection>
 
       <ShowcaseSection
@@ -63,6 +80,26 @@ export function TooltipShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={TooltipFormHintDemo} source={tooltipFormHintSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={TooltipShortcutGridDemo} source={tooltipShortcutGridSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Tooltip.Trigger wraps an interactive element, Tooltip.Content — tooltip text."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Positioning">
+          <p>
+            Prop <code>side</code> on the root — <code>top</code>, <code>bottom</code>, <code>left</code>,{" "}
+            <code>right</code>. Size — <code>small</code>, <code>base</code>, <code>mid</code>,{" "}
+            <code>large</code>.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss='variant="gloss"' />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

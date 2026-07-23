@@ -30,7 +30,7 @@ Compound через `Object.assign`:
 
 | Часть | Назначение |
 |-------|------------|
-| `Field` / `Field.Root` | Вертикальный stack: label → control → hint/error |
+| `Field` / `Field` | Вертикальный stack: label → control → hint/error |
 | `Field.Label` | Алиас `Label` |
 | `Field.Hint` | Подсказка (`text-muted` или semantic) |
 | `Field.Error` | Ошибка (`status="danger"`, `role="alert"`) |
@@ -110,7 +110,7 @@ Field.Set (fieldset)
 
 ### 1. В самом Field — нет анимаций
 
-Нет `useLayoutEffect` с GSAP, нет hover handlers на `Field.Root`. Появление `Field.Error` — мгновенное (без built-in transition).
+Нет `useLayoutEffect` с GSAP, нет hover handlers на `Field`. Появление `Field.Error` — мгновенное (без built-in transition).
 
 ### 2. Shell hover у дочерних контролов (2-й уровень)
 
@@ -119,7 +119,7 @@ Field.Set (fieldset)
 **На оболочке поля (shell ref):**
 
 1. **Init:** `initElementShadow(shell, shadowSm())` — покой `shadow-token-sm`
-2. **Pointer enter на shell:** `animateInteractiveHoverLift` — sm → md + адаптивный scale
+2. **Pointer enter на root:** `animateInteractiveHoverLift` — sm → md + адаптивный scale
 3. **Pointer leave:** обратно к sm, scale 1
 4. Классы: `animate-shadow`, `field-shell-transition`, `focus-within-ring`
 
@@ -255,7 +255,7 @@ Field — layout-примитив: два независимых набора с
 
 | Слот | Элемент | Назначение |
 |------|---------|------------|
-| `root` | `Field.Root` div | Gap, max-width, внешняя рамка |
+| `root` | `Field` div | Gap, max-width, внешняя рамка |
 | `hint` | `Field.Hint` | Текст подсказки |
 | `error` | `Field.Error` | Текст ошибки (`role="alert"`) |
 

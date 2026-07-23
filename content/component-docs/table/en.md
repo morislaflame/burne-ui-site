@@ -87,6 +87,7 @@ import {
 | `Table.Content` | `<table>` + selection/sort context |
 | `Table.Header` | `<thead>` |
 | `Table.Column` | `<th>` + sort UI |
+| `Table.Label` | Column header text (`className` / `ref`); plain Column children are wrapped automatically. Slot `classNames.columnLabel` |
 | `Table.Body` | `<tbody>` + empty state |
 | `Table.Row` | `<tr>` + tone/selection |
 | `Table.Cell` | `<td>` |
@@ -123,7 +124,7 @@ In `gloss`, selectable rows: `hover:bg-primary-tint`, selected — `bg-primary-t
 ```
 <th class=group/col>
   <span class=columnInner>
-    <span class=columnLabel>Name</span>
+    <Table.Label class=columnLabel>Name</Table.Label>
     <TableSortChevron ref=chevron>   ← IoChevronUp, GSAP rotate
       <IoChevronUp />
 ```
@@ -228,7 +229,7 @@ Sub-parts: **`className` on `Table.Column` / `Table.Row` / `Table.Cell`** on top
 | `headerRow` | Header `<tr>` | Bottom border, bg strip |
 | `column` | `<th>` | Header typography, padding |
 | `columnInner` | Flex row label+chevron | Gap, alignment |
-| `columnLabel` | Label span | Font weight, truncate |
+| `columnLabel` | `Table.Label` | Font weight, color, truncate |
 | `columnSortChevron` | Chevron wrapper | Size/color sort icon |
 | `body` | `<tbody>` | Empty state container |
 | `row` | `<tr>` | Row hover, tone override |

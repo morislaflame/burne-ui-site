@@ -16,7 +16,7 @@ export function SwitchAccentColorDemo() {
         onChange={(e) => setEnabled(e.target.checked)}
         label="Gradient fill"
         hint="color — CSS-color or linear-gradient"
-        color="linear-gradient(90deg, var(--color-surface) 0%, var(--color-primary) 100%)"
+        color="linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%)"
       />
     </div>
   );

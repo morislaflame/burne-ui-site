@@ -1,13 +1,21 @@
 "use client";
 
+import { DropdownAsChildMergedPropsDemo } from "@/components/showcase/demos/dropdown/DropdownAsChildMergedProps.demo";
+import dropdownAsChildMergedPropsSource from "@/components/showcase/demos/dropdown/DropdownAsChildMergedProps.demo.tsx?raw";
+import { DropdownPortalContainerDemo } from "@/components/showcase/demos/dropdown/DropdownPortalContainer.demo";
+import dropdownPortalContainerSource from "@/components/showcase/demos/dropdown/DropdownPortalContainer.demo.tsx?raw";
 import { DropdownClassNamesFullDemo } from "@/components/showcase/demos/dropdown/DropdownClassNamesFull.demo";
 import dropdownClassNamesFullSource from "@/components/showcase/demos/dropdown/DropdownClassNamesFull.demo.tsx?raw";
 import { DropdownActionMenuDemo } from "@/components/showcase/demos/dropdown/DropdownActionMenu.demo";
 import dropdownActionMenuSource from "@/components/showcase/demos/dropdown/DropdownActionMenu.demo.tsx?raw";
+import { DropdownCustomSubTriggerIconDemo } from "@/components/showcase/demos/dropdown/DropdownCustomSubTriggerIcon.demo";
+import dropdownCustomSubTriggerIconSource from "@/components/showcase/demos/dropdown/DropdownCustomSubTriggerIcon.demo.tsx?raw";
 import { DropdownGlossDemo } from "@/components/showcase/demos/dropdown/DropdownGloss.demo";
 import dropdownGlossSource from "@/components/showcase/demos/dropdown/DropdownGloss.demo.tsx?raw";
 import { DropdownMultipleDemo } from "@/components/showcase/demos/dropdown/DropdownMultiple.demo";
 import dropdownMultipleSource from "@/components/showcase/demos/dropdown/DropdownMultiple.demo.tsx?raw";
+import { DropdownPopoverSideDemo } from "@/components/showcase/demos/dropdown/DropdownPopoverSide.demo";
+import dropdownPopoverSideSource from "@/components/showcase/demos/dropdown/DropdownPopoverSide.demo.tsx?raw";
 import { DropdownSingleSelectDemo } from "@/components/showcase/demos/dropdown/DropdownSingleSelect.demo";
 import dropdownSingleSelectSource from "@/components/showcase/demos/dropdown/DropdownSingleSelect.demo.tsx?raw";
 import { DropdownStatusPickerDemo } from "@/components/showcase/demos/dropdown/DropdownStatusPicker.demo";
@@ -15,6 +23,7 @@ import dropdownStatusPickerSource from "@/components/showcase/demos/dropdown/Dro
 import { DropdownUserMenuDemo } from "@/components/showcase/demos/dropdown/DropdownUserMenu.demo";
 import dropdownUserMenuSource from "@/components/showcase/demos/dropdown/DropdownUserMenu.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -39,6 +48,37 @@ export function DropdownShowcase() {
       </ShowcaseSection>
 
       <ShowcaseSection
+        title="Custom SubTrigger icon"
+        description="Dropdown.SubTrigger icon replaces the default chevron."
+      >
+        <ShowcaseDemoFromFile
+          Demo={DropdownCustomSubTriggerIconDemo}
+          source={dropdownCustomSubTriggerIconSource}
+        />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="Popover side"
+        description="Dropdown.Popover side / align / offset — open the menu upward."
+      >
+        <ShowcaseDemoFromFile Demo={DropdownPopoverSideDemo} source={dropdownPopoverSideSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="portalContainer"
+        description="Custom portal host — menu mounts into the container."
+      >
+        <ShowcaseDemoFromFile align="stretch" Demo={DropdownPortalContainerDemo} source={dropdownPortalContainerSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="asChild — merged props"
+        description="Trigger asChild merges id, data-*, className, and ref onto the child."
+      >
+        <ShowcaseDemoFromFile Demo={DropdownAsChildMergedPropsDemo} source={dropdownAsChildMergedPropsSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
         title="classNames"
         description="Full customization of slots via classNames on Root."
       >
@@ -56,6 +96,30 @@ export function DropdownShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={DropdownActionMenuDemo} source={dropdownActionMenuSource} />
         <ShowcaseDemoFromFile Demo={DropdownStatusPickerDemo} source={dropdownStatusPickerSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Dropdown.Trigger, Dropdown.Popover (variant gloss), Group, Item, ItemLabel, ItemHint, ItemIcon, Sub."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Choice">
+          <p>
+            <code>defaultValue</code> / <code>value</code> + <code>onValueChange</code> for controlled mode.
+            <code>multiple</code> switches to an array of values.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss>
+          <p>
+            <code>variant=&quot;gloss&quot;</code> on <code>Dropdown.Popover</code>. Items with{" "}
+            <code>href</code> rendered as links with a role menuitem.
+          </p>
+        </ShowcaseDoc.Customization>
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

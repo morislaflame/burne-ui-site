@@ -28,7 +28,7 @@ import {
   <Dropdown.Popover>
     <Dropdown.Item onClick={handleEdit}>Редактировать</Dropdown.Item>
     <Dropdown.Separator />
-    <Dropdown.Item variant="danger">Удалить</Dropdown.Item>
+    <Dropdown.Item status="danger">Удалить</Dropdown.Item>
   </Dropdown.Popover>
 </Dropdown>
 ```
@@ -218,7 +218,7 @@ animateInteractivePressSqueeze(el);
 
 **Position:** fixed `left/top`, gap 6px справа от trigger; flip влево если не влезает; clamp по viewport height.
 
-**Motion:** отдельный portal `z-[110]` с тем же `animatePortalOpen`/`Close` + `motionTooltip()`.
+**Motion:** отдельный portal `z-dropdown-sub` с тем же `animatePortalOpen`/`Close` + `motionTooltip()`.
 
 **Dismiss coordination:** `subPanelRootsRef` регистрирует submenu roots — main popover не закрывается при клике внутри submenu.
 
@@ -264,7 +264,7 @@ Gloss submenu: `subContentGlossPanel` + `subContentGlossContent` вместо `b
 | `optionListItemGridClass` | Grid: indicator, icon, label, hint |
 | `shadow-token-md` | Submenu default surface |
 | `gloss-panel gloss-deep` | Gloss popover/submenu |
-| `z-[100]` / `z-[110]` | Main menu / submenu stacking |
+| `z-dropdown` / `z-dropdown-sub` | Main menu / submenu stacking (`--z-dropdown`) |
 
 ## Стилизация и кастомизация
 
@@ -340,7 +340,7 @@ Gloss submenu: `subContentGlossPanel` + `subContentGlossContent` вместо `b
 <Dropdown classNames={{ item: "rounded-mid", subContent: "shadow-token-lg" }}>
   <Dropdown.Trigger>Меню</Dropdown.Trigger>
   <Dropdown.Popover bodyClassName="p-small">
-    <Dropdown.Item variant="danger">
+    <Dropdown.Item status="danger">
       <Dropdown.Label>Удалить</Dropdown.Label>
     </Dropdown.Item>
     <Dropdown.Separator />
@@ -359,7 +359,7 @@ Gloss submenu: `subContentGlossPanel` + `subContentGlossContent` вместо `b
 
 ### Практические заметки
 
-- **`Dropdown.Content`** — alias для `Dropdown.Popover`.
+- **`Dropdown.Popover`** — alias для `Dropdown.Popover`.
 - **`asChild` на Trigger:** стили `trigger` merge на child; squeeze координируется через `preventDefault`.
 - **Action items:** без `value` или `selection={false}` — закрывают меню без toggle selection.
 - **Link items:** `href` → `<a>`, role `menuitem`, close on navigate.

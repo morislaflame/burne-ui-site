@@ -91,7 +91,7 @@ Several independent layers: shell (like Input), open squeeze, chevron, popover (
 **DOM structure:**
 
 ```
-Field.Root
+Field
   Label
   <div InputGroup ref=anchorRef role=combobox>   ← shell + open squeeze
     <input ComboBox.Input />
@@ -202,7 +202,7 @@ ListBox items — their own selection animations (see ListBox.md).
 
 ### Two levels
 
-1. **`className` on root** — classes on `Field.Root` (merged with `classNames.root`).
+1. **`className` on root** — classes on `Field` (merged with `classNames.root`).
 2. **`classNames` on root** — slots via `ComboBoxClassNamesProvider`.
 
 In compound API, **`className` on each subpart** (`InputGroup`, `Input`, `Trigger`, `Popover`) is merged on top of the corresponding context slot.
@@ -211,7 +211,7 @@ In compound API, **`className` on each subpart** (`InputGroup`, `Input`, `Trigge
 
 | Slot | DOM / element | When to use |
 |------|---------------|-------------|
-| `root` | `Field.Root` | Max-width, field layout |
+| `root` | `Field` | Max-width, field layout |
 | `label` | `Label` | Label typography |
 | `inputGroup` | Shell `role="combobox"` | Border, background, hover shell, squeeze target |
 | `input` | `<input>` inside the group | Text, placeholder, muted state |

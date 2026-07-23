@@ -28,7 +28,7 @@ import {
   <Dropdown.Popover>
     <Dropdown.Item onClick={handleEdit}>Edit</Dropdown.Item>
     <Dropdown.Separator />
-    <Dropdown.Item variant="danger">Delete</Dropdown.Item>
+    <Dropdown.Item status="danger">Delete</Dropdown.Item>
   </Dropdown.Popover>
 </Dropdown>
 ```
@@ -218,7 +218,7 @@ Only the row element (`<button>` / `<a>`), not the indicator fill. Selection sta
 
 **Position:** fixed `left/top`, 6px gap to the right of trigger; flip left if it doesn't fit; clamp by viewport height.
 
-**Motion:** separate portal `z-[110]` with the same `animatePortalOpen`/`Close` + `motionTooltip()`.
+**Motion:** separate portal `z-dropdown-sub` with the same `animatePortalOpen`/`Close` + `motionTooltip()`.
 
 **Dismiss coordination:** `subPanelRootsRef` registers submenu roots — main popover does not close when clicking inside submenu.
 
@@ -264,7 +264,7 @@ On open — autofocus on the first focusable item in the panel.
 | `optionListItemGridClass` | Grid: indicator, icon, label, hint |
 | `shadow-token-md` | Submenu default surface |
 | `gloss-panel gloss-deep` | Gloss popover/submenu |
-| `z-[100]` / `z-[110]` | Main menu / submenu stacking |
+| `z-dropdown` / `z-dropdown-sub` | Main menu / submenu stacking (`--z-dropdown`) |
 
 ## Styling and customization
 
@@ -340,7 +340,7 @@ Sub-parts (`Dropdown.Item`, `Dropdown.SubTrigger`, …) accept **`className`** o
 <Dropdown classNames={{ item: "rounded-mid", subContent: "shadow-token-lg" }}>
   <Dropdown.Trigger>Menu</Dropdown.Trigger>
   <Dropdown.Popover bodyClassName="p-small">
-    <Dropdown.Item variant="danger">
+    <Dropdown.Item status="danger">
       <Dropdown.Label>Delete</Dropdown.Label>
     </Dropdown.Item>
     <Dropdown.Separator />
@@ -359,7 +359,7 @@ Sub-parts (`Dropdown.Item`, `Dropdown.SubTrigger`, …) accept **`className`** o
 
 ### Practical notes
 
-- **`Dropdown.Content`** — alias for `Dropdown.Popover`.
+- **`Dropdown.Popover`** — alias for `Dropdown.Popover`.
 - **`asChild` on Trigger:** `trigger` styles merge onto child; squeeze is coordinated via `preventDefault`.
 - **Action items:** without `value` or `selection={false}` — close menu without toggling selection.
 - **Link items:** `href` → `<a>`, role `menuitem`, close on navigate.

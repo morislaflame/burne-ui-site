@@ -11,11 +11,11 @@ export function PopoverWithHeaderDemo() {
       </Popover.Trigger>
       <Popover.Content showArrow>
         <Popover.Arrow />
-        <Popover.Header className="px-base">
-          <Popover.Label>Export</Popover.Label>
-          <Popover.Hint>Select file format</Popover.Hint>
+        <Popover.Header>
+          <Popover.Title>Export</Popover.Title>
+          <Popover.Description>Select file format</Popover.Description>
         </Popover.Header>
-        <Popover.Body className="p-base">
+        <Popover.Body>
           <div className="flex flex-col gap-xsmall">
             <Button variant="ghost" size="small" type="button">
               PDF

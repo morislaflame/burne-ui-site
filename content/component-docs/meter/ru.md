@@ -88,7 +88,7 @@ import {
 **DOM:**
 
 ```
-Field.Root
+Field
   Meter.Header (optional)
   <div role=meter track style=thickness>
     <span fill ref=fillRef style=initial %>   ← GSAP width/height
@@ -127,7 +127,7 @@ configureMotion({
 
 ### Два уровня
 
-1. **`className` на root** — `Field.Root` wrapper.
+1. **`className` на root** — `Field` wrapper.
 2. **`classNames` на root** — `MeterClassNamesProvider`.
 
 Подчасти принимают **`className`** поверх слота.
@@ -136,7 +136,7 @@ configureMotion({
 
 | Слот | DOM | Назначение |
 |------|-----|------------|
-| `root` | `Field.Root` | Padding, border, orientation layout |
+| `root` | `Field` | Padding, border, orientation layout |
 | `label` | `Meter.Label` | Типографика |
 | `header` | `Meter.Header` | Row layout label + value |
 | `value` | `Meter.Value` | Цвет/weight значения |

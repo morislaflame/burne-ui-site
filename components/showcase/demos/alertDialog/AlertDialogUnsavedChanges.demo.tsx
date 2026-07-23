@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-import {
-  AlertDialog,
-  primaryButtonVariantForAlertTone,
-} from "burne-ui";
+import { AlertDialog, primaryButtonVariantForAlertTone } from "burne-ui";
 import { Button } from "burne-ui";
 
 export function AlertDialogUnsavedChangesDemo() {

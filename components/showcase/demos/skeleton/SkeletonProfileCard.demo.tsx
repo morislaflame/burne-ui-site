@@ -1,14 +1,15 @@
-import { Skeleton } from "burne-ui";
-import { Surface } from "burne-ui";
+import { Skeleton, Surface } from "burne-ui";
 
 export function SkeletonProfileCardDemo() {
   return (
-    <Surface variant="secondary" padding="mid" className="flex w-full max-w-sm gap-mid">
-      <Skeleton.Circle className="aspect-square" variant="shimmer" />
-      <div className="flex min-w-0 flex-1 flex-col gap-small">
-        <Skeleton className="h-4 w-32 rounded-small" variant="shimmer" />
-        <Skeleton.Text lines={2} variant="shimmer" />
-      </div>
-    </Surface>
+    <Skeleton.Region busy aria-label="Profile card">
+      <Surface variant="secondary" padding="mid" className="flex w-full max-w-sm gap-mid">
+        <Skeleton.Circle className="size-12 shrink-0" animation="shimmer" />
+        <div className="flex min-w-0 flex-1 flex-col gap-small">
+          <Skeleton className="h-4 w-32 rounded-small" animation="shimmer" />
+          <Skeleton.Text lines={2} animation="shimmer" />
+        </div>
+      </Surface>
+    </Skeleton.Region>
   );
 }

@@ -1,6 +1,6 @@
 # Dialog
 
-Modal dialog built on the native `<dialog>` element with a portal to `document.body`, GSAP enter/leave animations, and compound composition. **Controlled** API only (`open` + `onOpenChange`).
+Modal dialog built on the native `<dialog>` element with a portal (`portalContainer`, default `document.body`), GSAP enter/leave animations, and compound composition. **Controlled** API only (`open` + `onOpenChange`).
 
 ## Import
 
@@ -25,6 +25,7 @@ import {
 | `onOpenChange` | `(open: boolean) => void` | yes | State change handler |
 | `children` | `ReactNode` | — | `Dialog.Panel`, `Dialog.Trigger`, … |
 | `classNames` | `DialogClassNames` | — | Slots for all sub-parts |
+| `portalContainer` | `HTMLElement \| null` | `document.body` | Portal host. Custom host → `show()` + `absolute` (not `showModal` top layer) |
 
 Root **does not render DOM** — only context and the `classNames` provider.
 
@@ -32,7 +33,7 @@ Root **does not render DOM** — only context and the `classNames` provider.
 
 | Part | Purpose |
 |------|---------|
-| `Dialog.Trigger` | Opens after press-squeeze; `asChild` |
+| `Dialog.Trigger` | Opens after press-squeeze; `asChild` merges `id` / `data-*` / `className` / `ref` onto the child |
 | `Dialog.Panel` | Portal + overlay + animations; props below |
 | `Dialog.Content` | Content wrapper (`p-large`, `gap-mid`) |
 | `Dialog.Header` | Header: heading + close |
@@ -51,6 +52,7 @@ Root **does not render DOM** — only context and the `classNames` provider.
 | `dismissOnBackdrop` | `boolean` | `true` | Close on overlay click |
 | `className` | `string` | — | On focusable panel wrapper |
 | `themeAnchor` | `HTMLElement` | auto | Anchor for light theme in portal |
+| `portalContainer` | `HTMLElement \| null` | Root | Override portal host |
 
 ### `DialogClassNames`
 
@@ -228,7 +230,7 @@ From `modalPanelLayout`:
 | `border-token`, `bg-surface` | Default surface |
 | `max-w-component-mid` | Panel width |
 | `rounded-mid` | Border radius |
-| `z-[100]` | Stacking dialog |
+| `z-dialog` | Stacking dialog (`--z-dialog`) |
 | `gloss-panel`, `gloss-deep` | Gloss variant |
 
 ## Styling and customization

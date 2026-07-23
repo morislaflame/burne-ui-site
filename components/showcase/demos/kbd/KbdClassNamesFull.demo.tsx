@@ -3,12 +3,12 @@ import { Kbd } from "burne-ui";
 export function KbdClassNamesFullDemo() {
   return (
     <Kbd
-      variant="primary"
+      variant="outline"
       classNames={{
-        root: "border-info/40 bg-info-tint text-info",
+        root: "border-info/40 bg-info/5 text-info",
       }}
     >
-      Cmd ⌘
+      /
     </Kbd>
   );
 }

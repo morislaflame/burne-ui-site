@@ -7,15 +7,17 @@ export function TooltipClassNamesFullDemo() {
   return (
     <Tooltip
       delayShowMs={0}
+      status="info"
       side="top"
       classNames={{
-        root: "rounded-full",
+        root: "rounded-full ring-2 ring-primary/35",
         trigger: "rounded-full",
-        arrow: "bg-secondary",
+        content: "ring-1 ring-primary/25",
+        arrow: "bg-surface-tint-info",
         panel: "border-primary/30",
-        indicator: "text-secondary",
-        title: "text-secondary font-semibold",
-        description: "text-muted",
+        indicator: "text-primary",
+        title: "text-primary font-semibold",
+        description: "text-muted/80",
       }}
     >
       <Tooltip.Trigger asChild>
@@ -38,9 +40,10 @@ export function TooltipClassNamesGlossDemo() {
   return (
     <Tooltip
       delayShowMs={0}
-      surface="gloss"
+      variant="gloss"
       side="bottom"
       classNames={{
+        glossPanel: "ring-1 ring-white/10",
         glossContent: "gap-y-xsmall",
         panel: "ring-1 ring-white/10",
         title: "text-foreground/95",

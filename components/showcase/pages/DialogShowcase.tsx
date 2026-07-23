@@ -2,6 +2,8 @@
 
 import { DialogClassNamesFullDemo } from "@/components/showcase/demos/dialog/DialogClassNamesFull.demo";
 import dialogClassNamesFullSource from "@/components/showcase/demos/dialog/DialogClassNamesFull.demo.tsx?raw";
+import { DialogAsChildMergedPropsDemo } from "@/components/showcase/demos/dialog/DialogAsChildMergedProps.demo";
+import dialogAsChildMergedPropsSource from "@/components/showcase/demos/dialog/DialogAsChildMergedProps.demo.tsx?raw";
 import { DialogBasicDemo } from "@/components/showcase/demos/dialog/DialogBasic.demo";
 import dialogBasicSource from "@/components/showcase/demos/dialog/DialogBasic.demo.tsx?raw";
 import { DialogCompactConfirmDemo } from "@/components/showcase/demos/dialog/DialogCompactConfirm.demo";
@@ -10,11 +12,14 @@ import { DialogGlossDemo } from "@/components/showcase/demos/dialog/DialogGloss.
 import dialogGlossSource from "@/components/showcase/demos/dialog/DialogGloss.demo.tsx?raw";
 import { DialogInviteTeamDemo } from "@/components/showcase/demos/dialog/DialogInviteTeam.demo";
 import dialogInviteTeamSource from "@/components/showcase/demos/dialog/DialogInviteTeam.demo.tsx?raw";
+import { DialogPortalContainerDemo } from "@/components/showcase/demos/dialog/DialogPortalContainer.demo";
+import dialogPortalContainerSource from "@/components/showcase/demos/dialog/DialogPortalContainer.demo.tsx?raw";
 import { DialogSettingsModalDemo } from "@/components/showcase/demos/dialog/DialogSettingsModal.demo";
 import dialogSettingsModalSource from "@/components/showcase/demos/dialog/DialogSettingsModal.demo.tsx?raw";
 import { DialogSizesDemo } from "@/components/showcase/demos/dialog/DialogSizes.demo";
 import dialogSizesSource from "@/components/showcase/demos/dialog/DialogSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -39,6 +44,20 @@ export function DialogShowcase() {
       </ShowcaseSection>
 
       <ShowcaseSection
+        title="portalContainer"
+        description="Custom portal host — non-modal show() + absolute, overlay stays inside the container."
+      >
+        <ShowcaseDemoFromFile align="stretch" Demo={DialogPortalContainerDemo} source={dialogPortalContainerSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="asChild — merged props"
+        description="Trigger asChild merges id, data-*, className, and ref onto the child via mergeAsChildProps."
+      >
+        <ShowcaseDemoFromFile Demo={DialogAsChildMergedPropsDemo} source={dialogAsChildMergedPropsSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
         title="classNames"
         description="Slot customization panel, header, title, body, footer through classNames."
       >
@@ -56,6 +75,32 @@ export function DialogShowcase() {
         <ShowcaseDemoFromFile Demo={DialogSettingsModalDemo} source={dialogSettingsModalSource} />
         <ShowcaseDemoFromFile Demo={DialogCompactConfirmDemo} source={dialogCompactConfirmSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Dialog.Header, Dialog.Body, Dialog.Footer, Dialog.Close — full panel layout."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="dialog, overlay, panel, content, header, title, description, body, footer, close."
+          />
+          <ShowcaseDoc.ApiRow
+            api="portalContainer"
+            description="Custom HTMLElement host. Contained portals use show() + absolute (not showModal top layer)."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss>
+          <p>
+            <code>size</code> and <code>variant</code> on the root. Closing by Escape and click on backdrop —
+            custom props. Enter/leave — <code>configureMotion()</code>.
+          </p>
+        </ShowcaseDoc.Customization>
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

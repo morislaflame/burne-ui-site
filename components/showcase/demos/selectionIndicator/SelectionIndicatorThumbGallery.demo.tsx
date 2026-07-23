@@ -1,20 +1,30 @@
 import { useState } from "react";
 import { IoCheckmark, IoEllipse } from "react-icons/io5";
 
-import { SelectionThumb, SelectionThumbIcon } from "burne-ui";
+import { SelectionThumb } from "burne-ui";
 import { Text } from "burne-ui";
 
 export function SelectionIndicatorThumbGalleryDemo() {
   const [active, setActive] = useState(true);
 
   return (
-    <div className="flex w-full max-w-component-small flex-col gap-mid justify-center items-center">
+    <div className="flex w-full max-w-md flex-col gap-mid">
       <Text as="p" variant="small" className="font-medium">
         SelectionThumb
       </Text>
       <div className="flex flex-wrap items-center gap-xlarge">
         <div className="selection-indicator-base flex items-center justify-center">
           <SelectionThumb active={active}>
+            <SelectionThumb.Icon size="base">
+              <IoCheckmark aria-hidden />
+            </SelectionThumb.Icon>
+          </SelectionThumb>
+        </div>
+        <div className="selection-indicator-mid flex items-center justify-center">
+          <SelectionThumb active={!active} className="rounded-mid">
+            <SelectionThumb.Icon size="mid">
+              <IoEllipse aria-hidden />
+            </SelectionThumb.Icon>
           </SelectionThumb>
         </div>
       </div>

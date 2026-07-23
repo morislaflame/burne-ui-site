@@ -2,6 +2,8 @@
 
 import { RadioGroupContactMethodDemo } from "@/components/showcase/demos/radioGroup/RadioGroupContactMethod.demo";
 import radioGroupContactMethodSource from "@/components/showcase/demos/radioGroup/RadioGroupContactMethod.demo.tsx?raw";
+import { RadioGroupClassNamesFullDemo } from "@/components/showcase/demos/radioGroup/RadioGroupClassNamesFull.demo";
+import radioGroupClassNamesFullSource from "@/components/showcase/demos/radioGroup/RadioGroupClassNamesFull.demo.tsx?raw";
 import { RadioClassNamesFullDemo } from "@/components/showcase/demos/radio/RadioClassNamesFull.demo";
 import radioClassNamesFullSource from "@/components/showcase/demos/radio/RadioClassNamesFull.demo.tsx?raw";
 import { RadioClassNamesSimpleLabelDemo } from "@/components/showcase/demos/radio/RadioClassNamesSimpleLabel.demo";
@@ -17,6 +19,7 @@ import radioGroupHorizontalSizesSource from "@/components/showcase/demos/radioGr
 import { RadioGroupPlanCardsDemo } from "@/components/showcase/demos/radioGroup/RadioGroupPlanCards.demo";
 import radioGroupPlanCardsSource from "@/components/showcase/demos/radioGroup/RadioGroupPlanCards.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -42,8 +45,13 @@ export function RadioGroupShowcase() {
 
       <ShowcaseSection
         title="classNames"
-        description="Full customization of slots Radio through classNames on root."
+        description="Full customization of slots RadioGroup and Radio through classNames."
       >
+        <ShowcaseDemoFromFile
+          align="stretch"
+          Demo={RadioGroupClassNamesFullDemo}
+          source={radioGroupClassNamesFullSource}
+        />
         <ShowcaseDemoFromFile
           align="stretch"
           Demo={RadioClassNamesFullDemo}
@@ -64,6 +72,26 @@ export function RadioGroupShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={RadioGroupHorizontalSizesDemo} source={radioGroupHorizontalSizesSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={RadioGroupCustomIndicatorDemo} source={radioGroupCustomIndicatorSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="RadioGroup.Legend, RadioGroup.Label, RadioGroup.List — wrapper. Radio — separate item with value and label."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="State">
+          <p>
+            <code>value</code> and <code>onValueChange</code> on RadioGroup. Every <code>Radio</code> sets{" "}
+            <code>value</code> and <code>label</code>.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

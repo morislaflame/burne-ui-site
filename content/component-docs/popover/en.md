@@ -30,8 +30,8 @@ import {
   </Popover.Trigger>
   <Popover.Content>
     <Popover.Header>
-      <Popover.Label>Filters</Popover.Label>
-      <Popover.Hint>Changes apply immediately</Popover.Hint>
+      <Popover.Title>Filters</Popover.Title>
+      <Popover.Description>Changes apply immediately</Popover.Description>
     </Popover.Header>
     <Popover.Body>
       Panel content
@@ -83,8 +83,8 @@ const [open, setOpen] = useState(false);
 | `Popover.Trigger` | Toggle button / `asChild` clone |
 | `Popover.Content` | Portal + panel shell |
 | `Popover.Header` | Label + hint row |
-| `Popover.Label` | `h2` title |
-| `Popover.Hint` | `FieldHint` subtitle |
+| `Popover.Title` | `h2` title |
+| `Popover.Description` | `FieldHint` subtitle |
 | `Popover.Body` | Main content |
 | `Popover.Arrow` | Custom arrow |
 
@@ -99,7 +99,7 @@ const [open, setOpen] = useState(false);
 | `default` | `bg-surface border-token` + persistent `shadowSm` |
 | `gloss` | `gloss-panel` + gloss interactive handlers |
 
-Sizes affect padding, typography (`Popover.Label` / `Hint`), and default `gap`.
+Sizes affect padding, typography (`Popover.Title` / `Hint`), and default `gap`.
 
 | size | Typical panel padding |
 |------|----------------------|
@@ -217,7 +217,7 @@ Gloss panel ref: `bindGlossPanelRef` on inner gloss layer.
 | `POPOVER_GLOSS_PANEL_CLASS` | `gloss-panel gloss-deep` |
 | `shadowSm()` via persistent shadow | Rest panel shadow |
 | `burneLightThemePortalProps` | Theme sync in portal |
-| `z-[100]` stacking | Panel above page content |
+| `z-popover` stacking | Panel above page / dialog (`--z-popover`) |
 
 ## Styling and customization
 
@@ -260,8 +260,8 @@ Gloss panel ref: `bindGlossPanelRef` on inner gloss layer.
   </Popover.Trigger>
   <Popover.Content>
     <Popover.Header>
-      <Popover.Label>Filters</Popover.Label>
-      <Popover.Hint>Changes apply immediately</Popover.Hint>
+      <Popover.Title>Filters</Popover.Title>
+      <Popover.Description>Changes apply immediately</Popover.Description>
     </Popover.Header>
     <Popover.Body>Panel content</Popover.Body>
   </Popover.Content>
@@ -314,7 +314,7 @@ const anchorRef = useRef<HTMLDivElement>(null);
 
 - Trigger: `aria-expanded`, `aria-controls={popoverId}` when open
 - Content: `role="dialog"` (default), `aria-labelledby`, `aria-describedby`
-- `Popover.Label` / `Hint` linked via `labelId` / `hintId`
+- `Popover.Title` / `Hint` linked via `labelId` / `hintId`
 - `Escape` closes
 - Outside `pointerdown` dismiss (respects `shouldDismiss`)
 - Portal theme sync via `burneLightThemePortalProps`

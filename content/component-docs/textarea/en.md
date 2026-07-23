@@ -78,7 +78,7 @@ Same as Input: `default` / `outline` / `gloss`; status tint for danger/success/w
 **DOM structure:**
 
 ```
-Field.Root
+Field
   Label
   <div data-slot="textarea-shell" ref=shellRef>
     <textarea ref=textareaRef />
@@ -167,7 +167,7 @@ configureMotion({
 
 ### Two levels
 
-1. **`className` on root** — classes on `Field.Root` (merged with `classNames.root`).
+1. **`className` on root** — classes on `Field` (merged with `classNames.root`).
 2. **`classNames` on root** — slots via `TextAreaClassNamesProvider`.
 
 In compound API each subpart (`TextArea.Control`, `TextArea.Label`, …) accepts **`className`**, merged on top of the slot from context.
@@ -176,7 +176,7 @@ In compound API each subpart (`TextArea.Control`, `TextArea.Label`, …) accepts
 
 | Slot | DOM / element | When to use |
 |------|---------------|-------------|
-| `root` | `Field.Root` | Max-width, outer spacing, field border |
+| `root` | `Field` | Max-width, outer spacing, field border |
 | `label` | `Label` | Label typography |
 | `shell` | `[data-slot="textarea-shell"]` | Min-height, ring, border; inline `height` from resize goes here too |
 | `control` | `<textarea>` | Line-height, padding, `field-sizing` behavior |
@@ -192,7 +192,7 @@ In compound API each subpart (`TextArea.Control`, `TextArea.Label`, …) accepts
   className="max-w-md"
   classNames={{
     root: "rounded-mid border border-primary/20 p-base",
-    shell: "min-h-[12rem] ring-1 ring-primary/15",
+    root: "min-h-[12rem] ring-1 ring-primary/15",
     control: "text-primary placeholder:text-primary/50 leading-relaxed",
     resizeHandle: "opacity-60 hover:opacity-100",
     hint: "text-foreground/70",
@@ -215,7 +215,7 @@ In compound API each subpart (`TextArea.Control`, `TextArea.Label`, …) accepts
   variant="outline"
   classNames={{
     root: "max-w-lg",
-    shell: "border-token/60",
+    root: "border-token/60",
   }}
 >
   <TextArea.Label className="font-semibold">

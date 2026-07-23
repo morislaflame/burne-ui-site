@@ -22,7 +22,7 @@ import {
 <ToggleButton
   defaultPressed
   variant="outline"
-  leftIcon={<IoHeartOutline aria-hidden />}
+  icon={<IoHeartOutline aria-hidden />}
   onPressedChange={setLiked}
 >
   Нравится
@@ -52,14 +52,14 @@ import {
 | `fillColor` | auto | CSS color заливки |
 | `value` | — | Для ToggleButtonGroup |
 | `groupSegment` | — | Сегмент ButtonGroup |
-| `leftIcon` / `rightIcon` | — | Иконки |
+| `icon` + `iconPosition` | — | Иконки |
 | `animated` | `true` | Hover lift + squeeze + fill |
 | `disabled` | `false` | |
 | `classNames` | — | см. стилизацию |
 
 ### `ToggleButtonClassNames`
 
-`root`, `fill`, `content`, `leftIcon`, `rightIcon`, `label`.
+`root`, `fill`, `content`, `icon`, `icon` + `iconPosition="end"`, `label`.
 
 Leaf-компонент: нет compound API; кастомизация через props + `classNames`.
 
@@ -82,7 +82,7 @@ Leaf-компонент: нет compound API; кастомизация чере�
 <button ref=setRefs>
   <span fill ref=fillRef>          ← scale fill (pressed)
   <span content ref=contentMotionRef>
-    leftIcon | label | rightIcon
+    icon | label | icon (end)
 </button>
 ```
 
@@ -135,7 +135,7 @@ configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggl
 ### Два уровня
 
 1. **`className`** — мерж в `root` слот кнопки.
-2. **`classNames`** — `root`, `fill`, `content`, `leftIcon`, `rightIcon`, `label`.
+2. **`classNames`** — `root`, `fill`, `content`, `icon`, `icon` + `iconPosition="end"`, `label`.
 
 ### Слоты
 
@@ -144,7 +144,7 @@ configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggl
 | `root` | `<button>` | Ring, min-width, segment rounding |
 | `fill` | Absolute fill layer | Tint pressed (`fillColor`) |
 | `content` | Flex row | Gap icons + label |
-| `leftIcon` / `rightIcon` | Icon wrappers | Size/color |
+| `icon` + `iconPosition` | Icon wrappers | Size/color |
 | `label` | `Text` children | Font weight |
 
 ### Пример
@@ -153,13 +153,13 @@ configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggl
 <ToggleButton
   defaultPressed
   variant="outline"
-  leftIcon={<IoHeartOutline aria-hidden />}
+  icon={<IoHeartOutline aria-hidden />}
   className="min-w-[8rem]"
   classNames={{
     root: "rounded-mid ring-1 ring-danger/25",
     fill: "bg-danger/20",
     content: "gap-small",
-    leftIcon: "text-danger",
+    icon: "text-danger",
     label: "font-semibold text-danger",
   }}
 >

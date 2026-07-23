@@ -2,9 +2,8 @@ import { Text } from "burne-ui";
 
 export function TextEditorialArticleDemo() {
   return (
-    <article className="flex w-full max-w-md flex-col gap-mid">
-      <div className="flex flex-col gap-small">
-        <div className="flex flex-wrap items-center gap-small">
+    <article className="flex w-full max-w-md flex-col gap-small">
+      <div className="flex flex-wrap items-center gap-small">
         <Text
           as="span"
           variant="tools"
@@ -15,12 +14,10 @@ export function TextEditorialArticleDemo() {
         <Text as="span" variant="tools" className="text-muted">
           12 min reading
         </Text>
-        </div>
-        <Text as="h3" variant="header-2" className="leading-tight">
-          How to assemble custom sections in playground
-        </Text>
       </div>
-      
+      <Text as="h3" variant="header-2" className="leading-tight">
+        How to assemble custom sections in playground
+      </Text>
       <Text as="p" variant="small" className="border-l-2 border-primary pl-small text-muted">
         Lead-paragraph with an accent bar on the left - typography Text, registration className.
       </Text>

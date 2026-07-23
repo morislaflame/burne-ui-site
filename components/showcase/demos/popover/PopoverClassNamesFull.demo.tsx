@@ -1,13 +1,14 @@
-import { Button } from "burne-ui";
-import { Popover } from "burne-ui";
-import { Text } from "burne-ui";
+import { Button, Popover, Text } from "burne-ui";
 
 export function PopoverClassNamesFullDemo() {
   return (
     <Popover
       classNames={{
+        root: "rounded-mid ring-2 ring-primary/40",
         trigger: "rounded-mid",
-        panel: "border-primary bg-surface",
+        content: "ring-1 ring-primary/25",
+        panelRelative: "isolate",
+        panel: "border-primary/30 bg-surface/95",
         label: "text-primary font-semibold",
         hint: "text-muted/80",
         body: "text-foreground",
@@ -20,8 +21,8 @@ export function PopoverClassNamesFullDemo() {
       </Popover.Trigger>
       <Popover.Content>
         <Popover.Header>
-          <Popover.Label>Display Settings</Popover.Label>
-          <Popover.Hint>root on the trigger, panel/label/body through classNames</Popover.Hint>
+          <Popover.Title>Display Settings</Popover.Title>
+          <Popover.Description>root on the trigger, panel/label/body through classNames</Popover.Description>
         </Popover.Header>
         <Popover.Body>
           <Text as="p" variant="small">

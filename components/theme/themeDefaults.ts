@@ -1,5 +1,5 @@
 /**
- * Theme defaults / apply / export — re-exported from `burne-ui`.
+ * Theme defaults / apply / export — re-exported from `burne-ui/internal`.
  * Named color/font/layout presets live in `./themePresets` + `./colorPresets` + `./themePalettes`.
  * Editor labels live in `./themeEditorChrome`.
  */
@@ -29,7 +29,7 @@ export {
   type ThemeStatusForegroundKey,
   type ThemeStatusForegrounds,
   type ThemeTokenState,
-} from "burne-ui";
+} from "burne-ui/internal";
 
 export {
   ANIMATION_FLAG_LABELS,
@@ -57,7 +57,7 @@ import {
   createDefaultThemeState,
   type ThemeMode,
   type ThemeTokenState,
-} from "burne-ui";
+} from "burne-ui/internal";
 
 /** Docs theme-builder state — kit tokens + active named color preset id. */
 export type ThemeEditorState = ThemeTokenState & {

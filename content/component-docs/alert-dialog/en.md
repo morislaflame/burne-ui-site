@@ -210,7 +210,7 @@ Portal motion: `modalSurfaceMotion.ts` (`animateModalOpen/Close`).
 
 | Class / preset | Purpose |
 |----------------|---------|
-| `ALERT_DIALOG_NATIVE_CLASS` | Fixed fullscreen `<dialog>`, z-100 |
+| `ALERT_DIALOG_NATIVE_CLASS` | Fixed fullscreen `<dialog>`, `z-dialog` |
 | `alertDialogPanelClass` | Shell + max-width/height |
 | `alertDialogGlossPanelClass` | Gloss shell |
 | `alertDialogOverlayClass` | → `dialogOverlayClass` |

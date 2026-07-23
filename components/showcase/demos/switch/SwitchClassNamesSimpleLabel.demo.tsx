@@ -7,11 +7,11 @@ export function SwitchClassNamesSimpleLabelDemo() {
       label="Push-notifications"
       hint="classNames.label applied to the signature cell."
       classNames={{
-        label: "text-primary",
-        labelText: "font-semibold underline decoration-primary/30 underline-offset-4",
+        label: "text-success",
+        labelText: "font-semibold underline decoration-success/30 underline-offset-4",
         hint: "text-muted/80",
       }}
-      className="max-w-md max-w-component-small"
+      className="max-w-md"
     />
   );
 }

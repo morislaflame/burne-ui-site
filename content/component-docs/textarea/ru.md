@@ -78,7 +78,7 @@ import {
 **DOM-структура:**
 
 ```
-Field.Root
+Field
   Label
   <div data-slot="textarea-shell" ref=shellRef>
     <textarea ref=textareaRef />
@@ -167,7 +167,7 @@ configureMotion({
 
 ### Два уровня
 
-1. **`className` на root** — классы на `Field.Root` (мерж с `classNames.root`).
+1. **`className` на root** — классы на `Field` (мерж с `classNames.root`).
 2. **`classNames` на root** — слоты через `TextAreaClassNamesProvider`.
 
 В compound API каждая подчасть (`TextArea.Control`, `TextArea.Label`, …) принимает **`className`**, мержится поверх слота из контекста.
@@ -176,7 +176,7 @@ configureMotion({
 
 | Слот | DOM / элемент | Когда использовать |
 |------|---------------|-------------------|
-| `root` | `Field.Root` | Max-width, внешние отступы, рамка поля |
+| `root` | `Field` | Max-width, внешние отступы, рамка поля |
 | `label` | `Label` | Типографика label |
 | `shell` | `[data-slot="textarea-shell"]` | Min-height, ring, border; сюда же inline `height` от resize |
 | `control` | `<textarea>` | Line-height, padding, `field-sizing` поведение |
@@ -192,7 +192,7 @@ configureMotion({
   className="max-w-md"
   classNames={{
     root: "rounded-mid border border-primary/20 p-base",
-    shell: "min-h-[12rem] ring-1 ring-primary/15",
+    root: "min-h-[12rem] ring-1 ring-primary/15",
     control: "text-primary placeholder:text-primary/50 leading-relaxed",
     resizeHandle: "opacity-60 hover:opacity-100",
     hint: "text-foreground/70",
@@ -215,7 +215,7 @@ configureMotion({
   variant="outline"
   classNames={{
     root: "max-w-lg",
-    shell: "border-token/60",
+    root: "border-token/60",
   }}
 >
   <TextArea.Label className="font-semibold">

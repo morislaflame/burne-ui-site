@@ -17,6 +17,7 @@ import listBoxSizesSource from "@/components/showcase/demos/listBox/ListBoxSizes
 import { ListBoxWorkspacePickerDemo } from "@/components/showcase/demos/listBox/ListBoxWorkspacePicker.demo";
 import listBoxWorkspacePickerSource from "@/components/showcase/demos/listBox/ListBoxWorkspacePicker.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -59,6 +60,28 @@ export function ListBoxShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ListBoxPermissionsDemo} source={listBoxPermissionsSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={ListBoxCommandPaletteDemo} source={listBoxCommandPaletteSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Section, Header, Item, ItemIndicator, Label, Hint and Icon — full list markup."
+          />
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="ListBox.Item with props label, hint and disabled — shortened version."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Choice">
+          <p>
+            Single mode - line in <code>value</code>. <code>multiple</code> — array of strings.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

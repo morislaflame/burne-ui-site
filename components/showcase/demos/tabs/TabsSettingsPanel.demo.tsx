@@ -8,8 +8,8 @@ export function TabsSettingsPanelDemo() {
   const [tab, setTab] = useState("general");
 
   return (
-    <Surface variant="secondary" padding="mid" className="w-full max-w-component-small items-center justify-center">
-      <Tabs value={tab} onValueChange={setTab} className="w-full items-center justify-center">
+    <Surface variant="secondary" padding="mid" className="w-full max-w-md">
+      <Tabs value={tab} onValueChange={setTab}>
         <Tabs.List>
           <Tabs.Tab value="general">General</Tabs.Tab>
           <Tabs.Tab value="security">Safety</Tabs.Tab>

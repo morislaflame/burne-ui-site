@@ -16,7 +16,7 @@ export type ShowcasePageComponent = ComponentType;
 function ShowcasePageLoading() {
   return (
     <div className="-my-xlarge flex min-h-[calc(100dvh-var(--site-header-height,4.5rem))] w-full items-center justify-center">
-      <Loading variant="dots" size="mid" color="primary" label="Loading showcase" />
+      <Loading type="dots" size="mid" color="primary" label="Loading showcase" />
     </div>
   );
 }

@@ -38,7 +38,7 @@ Extended API (for control authors) — from `@/components/composite/Form`: `useF
   <Form.Description>Update your account details.</Form.Description>
   <Form.Section>
     <Form.Field name="name">
-      <Input name="name" label="Name" isRequired />
+      <Input name="name" label="Name" required />
     </Form.Field>
     <Form.Field name="email">
       <Input name="email" label="Email" type="email" />

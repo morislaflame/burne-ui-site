@@ -8,13 +8,13 @@ export function CardClassNamesFullDemo() {
       variant="secondary"
       classNames={{
         root: "rounded-large border-info/40 shadow-token-mid",
-        header: "gap-xsmall",
-        title: "text-primary font-semibold",
+        header: "gap-mid",
+        title: "text-info font-semibold",
         description: "text-foreground/75",
-        body: "pt-mid",
-        footer: "border-primary/30",
+        body: "pt-small",
+        footer: "border-info/30",
       }}
-      className="max-w-component-small"
+      className="max-w-md"
     >
       <Card.Header>
         <Card.Title>Notifications</Card.Title>

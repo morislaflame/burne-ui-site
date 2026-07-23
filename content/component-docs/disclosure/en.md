@@ -1,13 +1,12 @@
 # Disclosure
 
-Expandable block (WAI-ARIA disclosure pattern). **Compound API only:** `Trigger`, `Content`, optionally `Handle` (drag). The `DisclosureGroup` container is an accordion with `accordion` / `separated`.
+Expandable block (WAI-ARIA disclosure pattern). **Compound API only:** `Trigger`, `Content`, optionally `Handle` (drag). The `Disclosure.Group` container is an accordion with `accordion` / `separated`.
 
 ## Import
 
 ```tsx
 import {
   Disclosure,
-  DisclosureGroup,
   type DisclosureProps,
   type DisclosureGroupProps,
   type DisclosureTriggerProps,
@@ -40,10 +39,10 @@ import {
 </Disclosure>
 ```
 
-### DisclosureGroup (accordion)
+### Disclosure.Group (accordion)
 
 ```tsx
-<DisclosureGroup defaultValue="faq-1" variant="secondary">
+<Disclosure.Group defaultValue="faq-1" variant="secondary">
   <Disclosure value="faq-1">
     <Disclosure.Trigger>Question 1</Disclosure.Trigger>
     <Disclosure.Content>Answer 1</Disclosure.Content>
@@ -52,7 +51,7 @@ import {
     <Disclosure.Trigger>Question 2</Disclosure.Trigger>
     <Disclosure.Content>Answer 2</Disclosure.Content>
   </Disclosure>
-</DisclosureGroup>
+</Disclosure.Group>
 ```
 
 No Simple API.
@@ -63,7 +62,7 @@ No Simple API.
 |------|---------|-------------|
 | `open` / `defaultOpen` | `false` | Controlled / uncontrolled |
 | `onOpenChange` | — | `(open: boolean) => void` |
-| `value` | — | ID for `DisclosureGroup` + `accordion` |
+| `value` | — | ID for `Disclosure.Group` + `accordion` |
 | `variant` | `default` | Visual style (inherited from group) |
 | `size` | `base` | `small` \| `base` \| `mid` \| `large` |
 | `disabled` | `false` | Disables trigger |
@@ -80,7 +79,7 @@ No Simple API.
 | `asChild` | `false` | Clone child with ARIA/handlers |
 | `className` | — | On `<button>` |
 
-### `DisclosureGroup` props
+### `Disclosure.Group` props
 
 | Prop | Default | Description |
 |------|---------|-------------|
@@ -224,7 +223,7 @@ Only `variant="card"` + `dragHandle`:
 ### Two levels
 
 1. **`className` on `Disclosure`** — root.
-2. **`classNames` on root** — trigger, content, handle; `DisclosureGroup` — `group` slot.
+2. **`classNames` on root** — trigger, content, handle; `Disclosure.Group` — `group` slot.
 
 `Disclosure.Trigger` — `className` on button.
 
@@ -242,7 +241,7 @@ Only `variant="card"` + `dragHandle`:
 | `contentPanel` | `<section>` | Content typography |
 | `glossPanel` / `glossContent` | Gloss layers | Gloss variant |
 | `handle` | Drag bar | Card drag grip |
-| `group` | `DisclosureGroup` | Accordion container |
+| `group` | `Disclosure.Group` | Accordion container |
 
 ### Single disclosure
 
@@ -262,13 +261,13 @@ Only `variant="card"` + `dragHandle`:
 ### Group separated cards
 
 ```tsx
-<DisclosureGroup separated variant="card" classNames={{ group: "gap-mid" }}>
+<Disclosure.Group separated variant="card" classNames={{ group: "gap-mid" }}>
   <Disclosure value="a" dragHandle>
     <Disclosure.Trigger>Step 1</Disclosure.Trigger>
     <Disclosure.Content>...</Disclosure.Content>
     <Disclosure.Handle />
   </Disclosure>
-</DisclosureGroup>
+</Disclosure.Group>
 ```
 
 ### Practical notes
@@ -276,7 +275,7 @@ Only `variant="card"` + `dragHandle`:
 - `accordion={false}` — multiple open at once.
 - `icon={null}` — trigger without chevron.
 - `asChild` on Trigger — merge ARIA onto child button/link.
-- Card in group without `separated`: card shell on `DisclosureGroup`.
+- Card in group without `separated`: card shell on `Disclosure.Group`.
 - **Do not override `height` on `contentShell`** — GSAP collapsible.
 - Drag children order: Trigger → Content → Handle (`orderDragHandleChildren`).
 

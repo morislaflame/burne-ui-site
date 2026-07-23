@@ -16,7 +16,7 @@ export function TableGlossSelectionDemo() {
         : "No";
 
   return (
-    <div className="flex flex-col gap-mid items-center justify-center max-w-component-large w-full">
+    <div className="flex flex-col gap-mid">
       <Table variant="gloss" className="w-full">
         <Table.ScrollContainer>
           <Table.Content

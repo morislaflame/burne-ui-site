@@ -39,7 +39,7 @@ import {
 ### Compound с title / description
 
 ```tsx
-<Tooltip variant="info" surface="gloss" delayShowMs={0}>
+<Tooltip status="info" variant="gloss" delayShowMs={0}>
   <Tooltip.Trigger>
     <Button type="button">Статус</Button>
   </Tooltip.Trigger>
@@ -186,8 +186,8 @@ Status variants auto-inject icon (`SEMANTIC_STATUS_ICONS`, io5). Icon cell не 
 |----------|---------|---------------------------|----------------|
 | Portal enter/exit | `animatePortalOpen/Close` | `tooltipDuration`, `interactiveEase` | `surface` |
 | Show delay | `setTimeout` | — | `delayShowMs` |
-| Persistent shadow | `usePersistentElShadow` | — | `surface="default"` |
-| Gloss ref | gloss utils | — | `surface="gloss"` |
+| Persistent shadow | `usePersistentElShadow` | — | `variant="default"` |
+| Gloss ref | gloss utils | — | `variant="gloss"` |
 | Reposition | `computeTooltipPlacement` | — | `side` |
 
 ## Токены и CSS
@@ -241,8 +241,8 @@ Status variants auto-inject icon (`SEMANTIC_STATUS_ICONS`, io5). Icon cell не 
 ```tsx
 <Tooltip
   delayShowMs={0}
-  variant="info"
-  surface="gloss"
+  status="info"
+  variant="gloss"
   classNames={{
     panel: "border-primary/30",
     title: "text-primary font-semibold",

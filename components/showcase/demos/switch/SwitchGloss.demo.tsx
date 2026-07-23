@@ -9,7 +9,7 @@ export function SwitchGlossDemo() {
   return (
     <div className="flex flex-wrap items-center gap-mid">
       <Switch
-        gloss={true}
+        gloss
         checked={enabled}
         onChange={(e) => setEnabled(e.target.checked)}
         iconOff={<IoMoon aria-hidden />}

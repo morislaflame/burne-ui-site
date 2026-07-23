@@ -1,4 +1,4 @@
-import { Disclosure, DisclosureGroup } from "burne-ui";
+import { Disclosure } from "burne-ui";
 import { Text } from "burne-ui";
 
 const RELEASES = [
@@ -9,7 +9,7 @@ const RELEASES = [
 
 export function DisclosureChangelogDemo() {
   return (
-    <DisclosureGroup variant="card" defaultValue="v1-2" className="w-full max-w-lg">
+    <Disclosure.Group variant="card" defaultValue="v1-2" className="w-full max-w-lg">
       {RELEASES.map((release) => (
         <Disclosure key={release.value} value={release.value}>
           <Disclosure.Trigger>{release.title}</Disclosure.Trigger>
@@ -20,6 +20,6 @@ export function DisclosureChangelogDemo() {
           </Disclosure.Content>
         </Disclosure>
       ))}
-    </DisclosureGroup>
+    </Disclosure.Group>
   );
 }

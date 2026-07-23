@@ -15,6 +15,7 @@ import progressVerticalSource from "@/components/showcase/demos/progress-bar/Pro
 import { ProgressVerticalMetersDemo } from "@/components/showcase/demos/progress-bar/ProgressVerticalMeters.demo";
 import progressVerticalMetersSource from "@/components/showcase/demos/progress-bar/ProgressVerticalMeters.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -53,6 +54,25 @@ export function ProgressBarShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ProgressPipelineDemo} source={progressPipelineSource} />
         <ShowcaseDemoFromFile Demo={ProgressVerticalMetersDemo} source={progressVerticalMetersSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="label, value, min, max, indeterminate, orientation, showValue, color on the root."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization>
+          <p>
+            <code>color</code> — semantic key or CSS-fill color. <code>indeterminate</code> — animation
+            without value. Smooth filling — <code>configureMotion()</code> (<code>enableProgressFill</code>,{" "}
+            <code>progressFillDuration</code>).
+          </p>
+        </ShowcaseDoc.Customization>
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

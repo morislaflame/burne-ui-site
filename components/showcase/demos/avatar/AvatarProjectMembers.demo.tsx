@@ -1,4 +1,4 @@
-import { Avatar, AvatarGroup } from "burne-ui";
+import { Avatar } from "burne-ui";
 import { Text } from "burne-ui";
 import { PIN_IMAGE1, PIN_IMAGE2, PIN_IMAGE3 } from "@/lib/showcase/mock-images";
 
@@ -9,12 +9,12 @@ export function AvatarProjectMembersDemo() {
         Project participants
       </Text>
       <div className="flex items-center gap-mid">
-        <AvatarGroup>
+        <Avatar.Group>
           <Avatar size="base" label="Kate" src={PIN_IMAGE1} alt="" loading="lazy" />
           <Avatar size="base" label="John" src={PIN_IMAGE2} alt="" loading="lazy" />
           <Avatar size="base" label="Sara" src={PIN_IMAGE3} alt="" loading="lazy" />
           <Avatar size="base" label="+2" />
-        </AvatarGroup>
+        </Avatar.Group>
         <Text as="span" variant="tools" className="text-muted">
           5 participants
         </Text>

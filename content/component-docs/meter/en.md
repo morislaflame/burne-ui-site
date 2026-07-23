@@ -88,7 +88,7 @@ import {
 **DOM:**
 
 ```
-Field.Root
+Field
   Meter.Header (optional)
   <div role=meter track style=thickness>
     <span fill ref=fillRef style=initial %>   ← GSAP width/height
@@ -127,7 +127,7 @@ configureMotion({
 
 ### Two levels
 
-1. **`className` on root** — `Field.Root` wrapper.
+1. **`className` on root** — `Field` wrapper.
 2. **`classNames` on root** — `MeterClassNamesProvider`.
 
 Subparts accept **`className`** on top of the slot.
@@ -136,7 +136,7 @@ Subparts accept **`className`** on top of the slot.
 
 | Slot | DOM | Purpose |
 |------|-----|---------|
-| `root` | `Field.Root` | Padding, border, orientation layout |
+| `root` | `Field` | Padding, border, orientation layout |
 | `label` | `Meter.Label` | Typography |
 | `header` | `Meter.Header` | Row layout label + value |
 | `value` | `Meter.Value` | Value color/weight |

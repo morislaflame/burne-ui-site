@@ -3,7 +3,7 @@ import { Tooltip } from "burne-ui";
 
 export function TooltipGlossDemo() {
   return (
-    <Tooltip surface="gloss" variant="info">
+    <Tooltip variant="gloss" status="info">
       <Tooltip.Trigger asChild>
         <Button variant="gloss">Gloss Tooltip</Button>
       </Tooltip.Trigger>

@@ -83,7 +83,7 @@ Second-level component with `hoverLift={true}` (like `Badge`, `Alert`): shadow a
 | `mid` | `min-h-5 px-base py-xsmall` | `small` |
 | `large` | `min-h-5 px-base py-xsmall` | `small` |
 
-Shared shell: `rounded-small font-mono inline-flex items-center justify-center`.
+Shared root: `rounded-small font-mono inline-flex items-center justify-center`.
 
 ## Animations
 

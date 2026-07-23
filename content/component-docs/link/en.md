@@ -7,7 +7,7 @@ Text link `<a>` with optional icons, underline, hover-lift, and press squeeze. S
 ```tsx
 import {
   Link,
-  LinkIcon,
+  Link.Icon,
   type LinkProps,
   type LinkSize,
   type LinkIconPosition,
@@ -24,7 +24,7 @@ import {
 | `href` | `string` | — | Required URL |
 | `size` | `small` \| `base` \| `mid` \| `large` | `base` | Text and icons |
 | `underline` | `boolean` | `false` | Text underline |
-| `leftIcon` / `rightIcon` | `ReactNode` | — | Simple API icons |
+| `icon` + `iconPosition` | `ReactNode` | — | Simple API icons |
 | `showDefaultIcon` | `boolean` | `false` | `IoArrowForward` ↗ |
 | `defaultIconPosition` | `start` \| `end` | `end` | Default icon position |
 | `className` | `string` | — | On `<a>` |
@@ -49,7 +49,7 @@ type LinkClassNames = {
   Documentation
 </Link>
 
-<Link href="/back" leftIcon={<IoChevronBack aria-hidden />} size="small">
+<Link href="/back" icon={<IoChevronBack aria-hidden />} size="small">
   Back
 </Link>
 ```
@@ -77,7 +77,7 @@ Empty `<Link.Icon />` without children → default ↗ at that position (`muted`
 
 ## Icons and color
 
-- Text and anchor: `text-primary`, `focus-ring`
+- Text and root: `text-primary`, `focus-ring`
 - Custom icon: `text-primary`
 - Default / compound without children: `text-muted` → `text-primary` on `group-hover/link` and `group-focus-visible/link`
 - Default ↗: `rotate-[-45deg]`
@@ -177,7 +177,7 @@ Link is a single component; "compound" only changes icon markup inside the ancho
 | `anchor` | `<a>` | Gap, padding, border, hover-lift target |
 | `text` | `Text` (children) | Font, underline override |
 | `iconStart` | Left icon wrapper | Size, muted/hover color |
-| `iconEnd` | Right icon wrapper | Default ↗ or `rightIcon` |
+| `iconEnd` | Right icon wrapper | Default ↗ or `icon` + `iconPosition="end"` |
 
 `size`, `underline` — base typography and underline from `linkStyles.ts`.
 
@@ -188,10 +188,10 @@ Link is a single component; "compound" only changes icon markup inside the ancho
   href="/docs"
   underline
   showDefaultIcon
-  leftIcon={<IoDocument aria-hidden />}
+  icon={<IoDocument aria-hidden />}
   className="max-w-xs"
   classNames={{
-    anchor: "gap-small rounded-mid border border-primary/20 p-xsmall text-info",
+    root: "gap-small rounded-mid border border-primary/20 p-xsmall text-info",
     text: "font-semibold",
     iconStart: "opacity-80",
     iconEnd: "text-warning",
@@ -201,7 +201,7 @@ Link is a single component; "compound" only changes icon markup inside the ancho
 </Link>
 ```
 
-Icons via `leftIcon` / `rightIcon` / `showDefaultIcon` props — wrapper styles via `iconStart` / `iconEnd`.
+Icons via `icon` + `iconPosition` / `showDefaultIcon` props — wrapper styles via `iconStart` / `iconEnd`.
 
 ### Compound API
 
@@ -209,7 +209,7 @@ Icons via `leftIcon` / `rightIcon` / `showDefaultIcon` props — wrapper styles 
 <Link
   href="/item"
   classNames={{
-    anchor: "gap-mid",
+    root: "gap-mid",
     text: "text-primary",
     iconStart: "text-muted group-hover:text-foreground",
   }}

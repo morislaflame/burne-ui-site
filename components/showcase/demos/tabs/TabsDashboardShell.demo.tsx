@@ -28,18 +28,14 @@ export function TabsDashboardShellDemo() {
           </div>
         </Tabs.Panel>
         <Tabs.Panel value="conversion" className="pt-mid">
-        <div className="flex h-24 items-center justify-center rounded-base border border-dashed border-token text-muted">
-            <Text as="span" variant="tools">
-              Conversion rate
-            </Text>
-          </div>
+          <Text as="p" variant="tools" className="text-muted">
+            Funnel and goals.
+          </Text>
         </Tabs.Panel>
         <Tabs.Panel value="retention" className="pt-mid">
-          <div className="flex h-24 items-center justify-center rounded-base border border-dashed border-token text-muted">
-            <Text as="span" variant="tools">
-              Retention rate
-            </Text>
-          </div>
+          <Text as="p" variant="tools" className="text-muted">
+            Cohorts in 30 days.
+          </Text>
         </Tabs.Panel>
       </Tabs>
     </Surface>

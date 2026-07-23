@@ -1,6 +1,6 @@
 # Dialog
 
-Модальное окно на нативном `<dialog>` с порталом в `document.body`, GSAP enter/leave и compound-компоновкой. Только **controlled** API (`open` + `onOpenChange`).
+Модальное окно на нативном `<dialog>` с порталом (`portalContainer`, по умолчанию `document.body`), GSAP enter/leave и compound-компоновкой. Только **controlled** API (`open` + `onOpenChange`).
 
 ## Импорт
 
@@ -25,6 +25,7 @@ import {
 | `onOpenChange` | `(open: boolean) => void` | да | Смена состояния |
 | `children` | `ReactNode` | — | `Dialog.Panel`, `Dialog.Trigger`, … |
 | `classNames` | `DialogClassNames` | — | Слоты всех подчастей |
+| `portalContainer` | `HTMLElement \| null` | `document.body` | Host для портала. Кастомный host → `show()` + `absolute` (не top layer `showModal`) |
 
 Root **не рендерит DOM** — только контекст и `classNames` provider.
 
@@ -32,7 +33,7 @@ Root **не рендерит DOM** — только контекст и `classNa
 
 | Часть | Назначение |
 |-------|------------|
-| `Dialog.Trigger` | Открытие после press-squeeze; `asChild` |
+| `Dialog.Trigger` | Открытие после press-squeeze; `asChild` мержит `id` / `data-*` / `className` / `ref` на child |
 | `Dialog.Panel` | Портал + overlay + анимации; props ниже |
 | `Dialog.Content` | Обёртка контента (`p-large`, `gap-mid`) |
 | `Dialog.Header` | Шапка: heading + close |
@@ -51,6 +52,7 @@ Root **не рендерит DOM** — только контекст и `classNa
 | `dismissOnBackdrop` | `boolean` | `true` | Закрытие по клику на overlay |
 | `className` | `string` | — | На focusable panel wrapper |
 | `themeAnchor` | `HTMLElement` | auto | Якорь для светлой темы портала |
+| `portalContainer` | `HTMLElement \| null` | Root | Override host портала |
 
 ### `DialogClassNames`
 
@@ -228,7 +230,7 @@ Kill tweens при unmount через `killMotion(overlay, panel)`.
 | `border-token`, `bg-surface` | Default surface |
 | `max-w-component-mid` | Ширина панели |
 | `rounded-mid` | Скругление |
-| `z-[100]` | Stacking dialog |
+| `z-dialog` | Stacking dialog (`--z-dialog`) |
 | `gloss-panel`, `gloss-deep` | Gloss variant |
 
 ## Стилизация и кастомизация

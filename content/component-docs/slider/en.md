@@ -101,7 +101,7 @@ Range compound: `<Slider.Thumb thumb="start" />` + `<Slider.Thumb thumb="end" />
 **DOM (horizontal):**
 
 ```
-Field.Root
+Field
   Slider.Track ref=trackRef
     <Slider.Rail />
     <span fill ref=fillRef style=left/width>    ← instant CSS updates
@@ -152,7 +152,7 @@ configureMotion({ pressSqueezeScale: [1, 0.98, 1], interactiveDuration: 280 });
 
 ### Two levels
 
-1. **`className` on root** — `Field.Root` wrapper.
+1. **`className` on root** — `Field` wrapper.
 2. **`classNames` on root** — all slots; `Slider.Track` can override track slots.
 
 ### `SliderClassNames` slots

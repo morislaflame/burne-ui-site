@@ -38,7 +38,7 @@ Root renders as `<label>` with grid: control + text column.
     <Checkbox.Indicator />
   </Checkbox.Control>
   <Checkbox.Content>
-    <Checkbox.Label isRequired>Email newsletter</Checkbox.Label>
+    <Checkbox.Label required>Email newsletter</Checkbox.Label>
     <Checkbox.Hint>You can unsubscribe at any time</Checkbox.Hint>
     <Checkbox.Error>Consent is required</Checkbox.Error>
   </Checkbox.Content>
@@ -57,7 +57,7 @@ Compound → `<fieldset>` + grid; `Checkbox.Content` can render as a nested `<la
 | `onChange` | — | Native change event |
 | `disabled` | `false` | + opacity track animation |
 | `danger` | `false` | Red label text (or from Form error) |
-| `checkIcon` | — | Custom icon in indicator |
+| `icon` | — | Custom icon in indicator |
 | `label` / `hint` / `error` | — | Simple API |
 | `name` / `value` | — | Form / CheckboxGroup |
 | `classNames` | — | see styling |
@@ -230,7 +230,7 @@ Subparts accept **`className`**; `Checkbox.Indicator` — nested `classNames` fo
 | Context | Behavior |
 |---------|----------|
 | `Form` | `name`, `checked`, `error` → danger |
-| `CheckboxGroup` | single/multi selection, `disabled`, `isRequired` |
+| `CheckboxGroup` | single/multi selection, `disabled`, `required` |
 
 ## Accessibility
 

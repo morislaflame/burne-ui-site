@@ -2,8 +2,8 @@
  * Named color presets — flat ThemeColors snapshots (same shape as Copy config palettes).
  * Defaults re-exported from the kit; named presets live only here / on the docs site.
  */
-import type { ThemeColors } from "burne-ui";
-import { DARK_COLORS, LIGHT_COLORS } from "burne-ui";
+import type { ThemeColors } from "burne-ui/internal";
+import { DARK_COLORS, LIGHT_COLORS } from "burne-ui/internal";
 
 export { DARK_COLORS, LIGHT_COLORS };
 

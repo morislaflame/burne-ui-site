@@ -1,6 +1,6 @@
 # Skeleton
 
-Loading placeholder: pulse, wave, shimmer, or static (`none`). Compound API: `Skeleton.Circle`, `Skeleton.Text`, `Skeleton.Block`. **CSS animations only** — no GSAP.
+Loading placeholder: pulse, wave, shimmer, or static (`none`). Compound API: `Skeleton.Circle`, `Skeleton.Text`, `Skeleton.Block`, `Skeleton.Region`. **CSS animations only** — no GSAP.
 
 ## Import
 
@@ -11,12 +11,14 @@ import {
   type SkeletonCircleProps,
   type SkeletonTextProps,
   type SkeletonBlockProps,
+  type SkeletonRegionProps,
   type SkeletonVariant,
   type SkeletonRadius,
   type SkeletonClassNames,
   type SkeletonCircleClassNames,
   type SkeletonTextClassNames,
   type SkeletonBlockClassNames,
+  type SkeletonRegionClassNames,
 } from "burne-ui";
 ```
 
@@ -25,22 +27,24 @@ import {
 ### Basic usage
 
 ```tsx
-<Skeleton variant="wave" className="h-8 w-full" />
+<Skeleton animation="wave" className="h-8 w-full" />
 
-<Skeleton variant="pulse" radius="mid" className="h-24 w-full" />
+<Skeleton animation="pulse" radius="mid" className="h-24 w-full" />
 ```
 
 ### Compound API
 
 ```tsx
-<Skeleton.Block variant="wave">
-  <div className="flex gap-base">
-    <Skeleton.Circle size="h-control-mid w-control-mid" />
-    <div className="flex-1">
-      <Skeleton.Text lines={3} variant="wave" />
+<Skeleton.Region busy aria-label="Profile">
+  <Skeleton.Block animation="wave">
+    <div className="flex gap-base">
+      <Skeleton.Circle size="h-control-mid w-control-mid" />
+      <div className="flex-1">
+        <Skeleton.Text lines={3} animation="wave" />
+      </div>
     </div>
-  </div>
-</Skeleton.Block>
+  </Skeleton.Block>
+</Skeleton.Region>
 ```
 
 ### Root props (`Skeleton`)
@@ -78,6 +82,32 @@ import {
 | `variant` | Animation variant |
 | `classNames` | `root`, `wave` |
 | `children` | Card/list layout inside |
+
+### `Skeleton.Region` props
+
+| Prop | Default | Description |
+|------|---------|-------------|
+| `busy` | `true` | `aria-busy` on the parent container |
+| `className` / `classNames.root` | — | Wrapper layout (no decorative surface) |
+| `aria-label` / `aria-labelledby` | — | Region name for AT (recommended) |
+| `children` | — | Skeleton placeholders or loaded content |
+
+`Skeleton.Region` is **not** decorative: no `aria-hidden` / `role="presentation"`. Placeholders inside stay presentation.
+
+```tsx
+const [busy, setBusy] = useState(true);
+
+<Skeleton.Region busy={busy} aria-label="Profile">
+  {busy ? (
+    <>
+      <Skeleton.Circle size="h-12 w-12" />
+      <Skeleton.Text lines={2} />
+    </>
+  ) : (
+    <ProfileCard />
+  )}
+</Skeleton.Region>
+```
 
 ## variant and radius
 
@@ -146,11 +176,11 @@ Each line: `animationDelay: index * 0.06s` for cascading wave.
 
 | Behavior | Mechanism | `configureMotion` keys | Local prop |
 |----------|-----------|------------------------|------------|
-| Wave slide | CSS `@keyframes` | — | `variant="wave"` |
-| Pulse | CSS `@keyframes` | — | `variant="pulse"` |
-| Shimmer | CSS `@keyframes` | — | `variant="shimmer"` |
+| Wave slide | CSS `@keyframes` | — | `animation="wave"` |
+| Pulse | CSS `@keyframes` | — | `animation="pulse"` |
+| Shimmer | CSS `@keyframes` | — | `animation="shimmer"` |
 | Line stagger | inline `animationDelay` | — | `Skeleton.Text` |
-| Static | no animation | — | `variant="none"` |
+| Static | no animation | — | `animation="none"` |
 
 ## Tokens and CSS
 
@@ -181,11 +211,12 @@ No separate root `classNames` provider — prop on each part.
 | `Skeleton.Circle` | `root`, `wave` | Avatar placeholder ring |
 | `Skeleton.Text` | `root`, `line`, `wave` | Per-line height/gap |
 | `Skeleton.Block` | `root`, `wave` | Card chrome padding |
+| `Skeleton.Region` | `root` | Layout wrapper (a11y parent) |
 
 ### Card loading layout
 
 ```tsx
-<Skeleton.Block variant="wave" classNames={{ root: "rounded-large p-mid" }}>
+<Skeleton.Block animation="wave" classNames={{ root: "rounded-large p-mid" }}>
   <div className="flex gap-base">
     <Skeleton.Circle size="h-control-large w-control-large" />
     <div className="flex flex-1 flex-col gap-small">
@@ -204,7 +235,7 @@ No separate root `classNames` provider — prop on each part.
 
 ```tsx
 <Skeleton
-  variant="shimmer"
+  animation="shimmer"
   className="h-4 w-full"
   classNames={{
     root: "bg-info/15",
@@ -213,7 +244,7 @@ No separate root `classNames` provider — prop on each part.
 />
 
 <Skeleton.Text
-  variant="wave"
+  animation="wave"
   lines={4}
   classNames={{
     line: "bg-success/15 h-3",
@@ -224,9 +255,9 @@ No separate root `classNames` provider — prop on each part.
 
 ### Practical notes
 
-- Skeleton is **decorative** — `aria-hidden`, `role="presentation"`.
-- Parent should announce loading (`aria-busy`, live region) separately.
-- `variant="none"` — static placeholder without motion (reduced motion friendly).
+- Skeleton (Root / Circle / Text / Block) is **decorative** — `aria-hidden`, `role="presentation"`.
+- Announce loading via `Skeleton.Region` (`aria-busy` + `aria-live="polite"`) or your own container with the same attributes.
+- `animation="none"` — static placeholder without motion (reduced motion friendly).
 - For lists — `Skeleton.Text` with wave + natural stagger.
 - Set sizes via Tailwind on `className` (`h-8`, `w-3/4`), not via size enum.
 - **Do not expect hover effects** — component is not interactive.
@@ -241,10 +272,10 @@ No separate root `classNames` provider — prop on each part.
 
 ## Accessibility
 
-- All parts: `aria-hidden={true}`, `role="presentation"`
+- Decorative parts: `aria-hidden={true}`, `role="presentation"`
 - Wave overlay: `aria-hidden`
-- No built-in loading announcement
-- Recommendation: `aria-busy="true"` on container + `aria-live="polite"` when loading completes
+- **`Skeleton.Region`:** `aria-busy={busy}`, `aria-live="polite"` — parent container for announcement; set `aria-label` / `aria-labelledby`
+- When `busy={false}`, AT is signaled that the region update finished
 
 ## File structure
 
@@ -255,7 +286,6 @@ Skeleton/
 ├── skeletonTypes.ts
 ├── skeletonStyles.ts
 ├── skeletonParts.tsx
-├── skeletonAPI.ts
 ├── skeletonA11y.ts
 ├── useSkeletonRootState.ts
 └── Skeleton.stories.tsx
@@ -263,4 +293,4 @@ Skeleton/
 
 ## Storybook
 
-`Core Components/Skeleton` — all variants, text lines, circles, card layout, list, block, custom sizes, `CustomClassNames`.
+`Core Components/Skeleton` — all variants, text lines, circles, card layout, list, block, `Skeleton.Region`, custom sizes, `CustomClassNames`.

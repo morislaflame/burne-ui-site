@@ -9,7 +9,7 @@ export function ToggleButtonGroupVerticalDemo() {
   const [view, setView] = useState("list");
 
   return (
-    <div className="flex w-full max-w-xs flex-col gap-mid justify-center w-full items-center">
+    <div className="flex w-full max-w-xs flex-col gap-mid">
       <Text as="p" variant="small" className="font-medium">
         Vertical group
       </Text>
@@ -20,11 +20,12 @@ export function ToggleButtonGroupVerticalDemo() {
         aria-label="List view"
         value={view}
         onValueChange={(v) => setView(v as string)}
+        className="w-full"
       >
-        <ToggleButton value="list" leftIcon={<IoListOutline aria-hidden />} className="w-full justify-start">
+        <ToggleButton value="list" icon={<IoListOutline aria-hidden />} className="w-full justify-start">
           List
         </ToggleButton>
-        <ToggleButton value="grid" leftIcon={<IoGridOutline aria-hidden />} className="w-full justify-start">
+        <ToggleButton value="grid" icon={<IoGridOutline aria-hidden />} className="w-full justify-start">
           Net
         </ToggleButton>
       </ToggleButtonGroup>

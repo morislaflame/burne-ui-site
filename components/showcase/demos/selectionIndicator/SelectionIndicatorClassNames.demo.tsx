@@ -7,23 +7,23 @@ export function SelectionIndicatorClassNamesDemo() {
   const [selected, setSelected] = useState(true);
 
   return (
-    <div className="flex w-full max-w-component-small flex-col gap-mid justify-center items-center">
+    <div className="flex w-full max-w-lg flex-col gap-mid">
       <Text as="p" variant="small" className="font-medium">
         classNames: shell / fill / mark
       </Text>
       <div className="flex flex-wrap items-end gap-xlarge">
         <SelectionIndicator
           size="large"
-          variant="base"
+          variant="default"
           selected={selected}
           check
           classNames={{
-            shell: "rounded-mid border-token bg-surface",
-            fill: "rounded-base bg-primary inset-0",
-            mark: "text-primary-foreground",
+            root: "rounded-mid ring-1 ring-primary/30",
+            fill: "rounded-[inherit] bg-danger",
+            mark: "text-danger-foreground",
           }}
         />
-        <SelectionIndicator size="large" variant="base" selected={selected} check />
+        <SelectionIndicator size="large" variant="default" selected={selected} check />
       </div>
       <label className="flex cursor-pointer items-center gap-small text-sm">
         <input

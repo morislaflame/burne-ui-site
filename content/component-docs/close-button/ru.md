@@ -192,7 +192,7 @@ configureMotion({
 
 - База: `INTERACTIVE_VARIANT_ROOT[variant]` (из Button)
 - Hover: `hoverVariant(CLOSE_BUTTON_HOVER_VARIANT[variant])`
-- Focus: `focus-visible:outline-primary`
+- Focus: `focus-ring` (цвет `--color-focus-ring`, ширина/offset — `--focus-ring-width` / `--focus-ring-offset`)
 - Disabled: `opacity-50`, `cursor-not-allowed`
 
 ### Размерные токены
@@ -248,7 +248,7 @@ CloseButton — leaf-компонент (без compound/simple split): один
 - Только иконка — **всегда** нужен `aria-label` (дефолт `"Закрыть"` подходит для generic close, в UI лучше уточнять: «Закрыть диалог», «Скрыть панель»).
 - Иконка `IoClose` — `aria-hidden`.
 - Нативный `disabled` на `<button>`.
-- Focus ring: `outline-none` + `focus-visible:outline-primary`.
+- Focus ring: `outline-none` + `focus-ring`.
 
 ## Отличия от Button
 
@@ -257,7 +257,7 @@ CloseButton — leaf-компонент (без compound/simple split): один
 | Children | текст / иконка | нет (`IoClose` внутри) |
 | `status` | да | нет |
 | Async states | да | нет |
-| `leftIcon` / `iconOnly` | да | нет (всегда icon-only) |
+| `icon` / `iconOnly` | да | нет (всегда icon-only) |
 | `classNames` | нет | `root`, `icon`, `ripple` |
 | Форма | `rounded-base` (или segment) | `rounded-full` |
 | Размерная сетка | `minWButton`, padding | `toggleBox` (квадрат) |

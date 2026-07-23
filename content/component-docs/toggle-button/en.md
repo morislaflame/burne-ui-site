@@ -22,7 +22,7 @@ import {
 <ToggleButton
   defaultPressed
   variant="outline"
-  leftIcon={<IoHeartOutline aria-hidden />}
+  icon={<IoHeartOutline aria-hidden />}
   onPressedChange={setLiked}
 >
   Like
@@ -52,14 +52,14 @@ In a group: `value` is required; `pressed` / selection comes from context; `role
 | `fillColor` | auto | CSS color for the fill |
 | `value` | — | For ToggleButtonGroup |
 | `groupSegment` | — | ButtonGroup segment |
-| `leftIcon` / `rightIcon` | — | Icons |
+| `icon` + `iconPosition` | — | Icons |
 | `animated` | `true` | Hover lift + squeeze + fill |
 | `disabled` | `false` | |
 | `classNames` | — | see styling |
 
 ### `ToggleButtonClassNames`
 
-`root`, `fill`, `content`, `leftIcon`, `rightIcon`, `label`.
+`root`, `fill`, `content`, `icon`, `icon` + `iconPosition="end"`, `label`.
 
 Leaf component: no compound API; customization via props + `classNames`.
 
@@ -82,7 +82,7 @@ Leaf component: no compound API; customization via props + `classNames`.
 <button ref=setRefs>
   <span fill ref=fillRef>          ← scale fill (pressed)
   <span content ref=contentMotionRef>
-    leftIcon | label | rightIcon
+    icon | label | icon (end)
 </button>
 ```
 
@@ -135,7 +135,7 @@ configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggl
 ### Two levels
 
 1. **`className`** — merged into the `root` slot of the button.
-2. **`classNames`** — `root`, `fill`, `content`, `leftIcon`, `rightIcon`, `label`.
+2. **`classNames`** — `root`, `fill`, `content`, `icon`, `icon` + `iconPosition="end"`, `label`.
 
 ### Slots
 
@@ -144,7 +144,7 @@ configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggl
 | `root` | `<button>` | Ring, min-width, segment rounding |
 | `fill` | Absolute fill layer | Tint pressed (`fillColor`) |
 | `content` | Flex row | Gap icons + label |
-| `leftIcon` / `rightIcon` | Icon wrappers | Size/color |
+| `icon` + `iconPosition` | Icon wrappers | Size/color |
 | `label` | `Text` children | Font weight |
 
 ### Example
@@ -153,13 +153,13 @@ configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggl
 <ToggleButton
   defaultPressed
   variant="outline"
-  leftIcon={<IoHeartOutline aria-hidden />}
+  icon={<IoHeartOutline aria-hidden />}
   className="min-w-[8rem]"
   classNames={{
     root: "rounded-mid ring-1 ring-danger/25",
     fill: "bg-danger/20",
     content: "gap-small",
-    leftIcon: "text-danger",
+    icon: "text-danger",
     label: "font-semibold text-danger",
   }}
 >

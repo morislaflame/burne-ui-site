@@ -1,5 +1,9 @@
 "use client";
 
+import { PopoverAsChildMergedPropsDemo } from "@/components/showcase/demos/popover/PopoverAsChildMergedProps.demo";
+import popoverAsChildMergedPropsSource from "@/components/showcase/demos/popover/PopoverAsChildMergedProps.demo.tsx?raw";
+import { PopoverPortalContainerDemo } from "@/components/showcase/demos/popover/PopoverPortalContainer.demo";
+import popoverPortalContainerSource from "@/components/showcase/demos/popover/PopoverPortalContainer.demo.tsx?raw";
 import { PopoverClassNamesFullDemo } from "@/components/showcase/demos/popover/PopoverClassNamesFull.demo";
 import popoverClassNamesFullSource from "@/components/showcase/demos/popover/PopoverClassNamesFull.demo.tsx?raw";
 import { PopoverFilterPanelDemo } from "@/components/showcase/demos/popover/PopoverFilterPanel.demo";
@@ -19,6 +23,7 @@ import popoverSizesSource from "@/components/showcase/demos/popover/PopoverSizes
 import { PopoverWithHeaderDemo } from "@/components/showcase/demos/popover/PopoverWithHeader.demo";
 import popoverWithHeaderSource from "@/components/showcase/demos/popover/PopoverWithHeader.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -50,6 +55,21 @@ export function PopoverShowcase() {
         <ShowcaseDemoFromFile Demo={PopoverSidesDemo} source={popoverSidesSource} />
       </ShowcaseSection>
 
+
+      <ShowcaseSection
+        title="portalContainer"
+        description="Custom portal host — panel mounts into the container."
+      >
+        <ShowcaseDemoFromFile align="stretch" Demo={PopoverPortalContainerDemo} source={popoverPortalContainerSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="asChild — merged props"
+        description="Trigger merges id, data-*, className, and ref onto the child."
+      >
+        <ShowcaseDemoFromFile Demo={PopoverAsChildMergedPropsDemo} source={popoverAsChildMergedPropsSource} />
+      </ShowcaseSection>
+
       <ShowcaseSection
         title="classNames"
         description="Slots root (trigger), trigger, content, panel, glossPanel, label, hint and body — through prop classNames."
@@ -65,6 +85,24 @@ export function PopoverShowcase() {
         <ShowcaseDemoFromFile Demo={PopoverShareMenuDemo} source={popoverShareMenuSource} />
         <ShowcaseDemoFromFile Demo={PopoverFilterPanelDemo} source={popoverFilterPanelSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Trigger, Content, Header, Body, Label, Hint and Arrow — slots for panel structure."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Arrow">
+          <p>
+            <code>showArrow</code> on Content includes Popover.Arrow — pointer to trigger.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

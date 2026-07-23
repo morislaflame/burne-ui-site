@@ -65,19 +65,25 @@ body {
 
 ## 3) Базовый RootLayout (Next.js, App Router)
 
-Минимально:
+С `ThemeScript` (нет вспышки темы при SSR) и `suppressHydrationWarning`:
 
 ```tsx
+import { ThemeScript } from "burne-ui";
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className="min-h-[100dvh] antialiased">
+    <html lang="ru" className="min-h-[100dvh] antialiased" suppressHydrationWarning>
+      <head>
+        <ThemeScript defaultTheme="system" />
+      </head>
       <body className="min-h-[100dvh] bg-background text-foreground">{children}</body>
     </html>
   );
 }
 ```
+
+`ThemeScript` читает `localStorage` и ставит `data-theme` **до первой отрисовки**. Параметры (`storageKey`, `defaultTheme`) должны совпадать с `BurneUIProvider` / `ThemeProvider`.
 
 `bg-background` и `text-foreground` работают из токенов `burne-ui`.
 
@@ -105,7 +111,36 @@ export function Demo() {
 <html data-theme="light">
 ```
 
-Простой runtime-переключатель:
+Рекомендуемый путь — `BurneUIProvider` / `ThemeProvider` + `useBurneTheme()` (и `ThemeScript` в layout, см. §3):
+
+```tsx
+"use client";
+
+import { BurneUIProvider, useBurneTheme } from "burne-ui";
+import burneTheme from "./burne-theme";
+
+export function AppProviders({ children }: { children: React.ReactNode }) {
+  return (
+    <BurneUIProvider config={burneTheme} defaultTheme="system" toast>
+      {children}
+    </BurneUIProvider>
+  );
+}
+
+export function ThemeToggle() {
+  const { resolvedTheme, setTheme } = useBurneTheme();
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+    >
+      {resolvedTheme}
+    </button>
+  );
+}
+```
+
+Низкоуровневый хелпер (если провайдер не нужен):
 
 ```ts
 function applyTheme(theme: "light" | "dark") {
@@ -360,17 +395,19 @@ lib/
   theme-font-links.ts     // Google Fonts URL для пресетов
 ```
 
-В `layout.tsx`:
+В `layout.tsx` (для app с `BurneUIProvider` + персистенцией темы — добавьте `ThemeScript`):
 
 ```tsx
+import { ThemeScript } from "burne-ui";
 import "./globals.css";
 import { THEME_MONO_FONTS_URL, THEME_SANS_FONTS_URL } from "@/lib/theme-font-links";
 import { SiteProviders } from "@/components/site-providers";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
       <head>
+        <ThemeScript defaultTheme="system" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="stylesheet" href={THEME_SANS_FONTS_URL} />
@@ -383,6 +420,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 }
 ```
+
+На самом `burne-ui-site` тема редактора живёт в React-state (`ThemeTokensProvider`), без `localStorage` / `ThemeProvider` — `ThemeScript` в корне сайта не нужен (иначе мог бы конфликтовать с дефолтом редактора).
 
 ---
 
@@ -419,6 +458,12 @@ Tailwind v4 при `@source` на `burne-ui/dist` может вырезать `b
 ### Тема не переключается
 
 - Атрибут ставится не на `document.documentElement` (`<html>`), а на другой узел.
+
+### Вспышка светлой/тёмной темы при загрузке (SSR)
+
+- Нет `ThemeScript` (или boot-скрипта из `getThemeScript`) в root layout / `index.html`.
+- `storageKey` / `defaultTheme` у скрипта и у `BurneUIProvider` / `ThemeProvider` должны совпадать.
+- На `<html>` нужен `suppressHydrationWarning`.
 
 ### Анимации «не меняются»
 

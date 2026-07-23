@@ -64,11 +64,16 @@ function fixDemoImports(content) {
       /from "@\/components\/core\/utils\/glossStoryChrome"/g,
       'from "@/lib/showcase/gloss-story-chrome"',
     )
+    .replace(
+      /from "@\/stories-utils\/glossStoryChrome"/g,
+      'from "@/lib/showcase/gloss-story-chrome"',
+    )
     .replace(/from "@\/components\/core\/ComboBox\/comboBoxContext"/g, 'from "burne-ui"')
     .replace(/from "@\/components\/core\/[^"]+"/g, 'from "burne-ui"')
     .replace(/from "@\/components\/composite\/[^"]+"/g, 'from "burne-ui"')
     .replace(/from "@\/utils\/cn"/g, 'from "burne-ui"')
     .replace(/from "@\/utils\/mockImages"/g, 'from "@/lib/showcase/mock-images"')
+    .replace(/from "@\/stories-utils\/mockImages"/g, 'from "@/lib/showcase/mock-images"')
     .replace(/from "@\/index"/g, 'from "burne-ui"')
     .replace(/from "\.\.\/\.\.\/shared\/utils"/g, 'from "@/lib/showcase/shared/utils"')
     .replace(/from "\.\.\/\.\.\/shared\/constants"/g, 'from "@/lib/showcase/shared/constants"')

@@ -22,7 +22,7 @@ import {
 ### Compound
 
 ```tsx
-<Input label="Email" hint="…" status="danger" isRequired>
+<Input label="Email" hint="…" status="danger" required>
   <Input.Label>Email</Input.Label>
   <Input.Control type="email" autoComplete="email" />
   <Input.Hint>Формат: name@domain.tld</Input.Hint>
@@ -46,7 +46,7 @@ import {
   hint="Формат: name@domain.tld"
   error={invalid ? "Укажите корректный адрес." : undefined}
   status={invalid ? "danger" : "default"}
-  isRequired
+  required
   value={value}
   onChange={(e) => setValue(e.target.value)}
 />
@@ -98,7 +98,7 @@ Motion: `inputAnimations.ts` → `useInputShellMotion` + `animateInputFileRowExi
 **DOM-структура (text/password):**
 
 ```
-Field.Root
+Field
   Label
   <div data-slot="input-shell" ref=shellRef>   ← motion target
     [prefix affix]
@@ -197,7 +197,7 @@ Toggle password и remove file — **CSS** `hoverVariant`, `TEXT_COLOR_TRANSITIO
 |----------|-----------|
 | `Form` | `error` из `getError(name)`, `size`, `disabled` |
 | `ButtonGroup` | `groupSegment`, `variant` gloss, без shell hover |
-| `FieldLabelContext` | auto `htmlFor`, `labelId`, `isRequired` |
+| `FieldLabelContext` | auto `htmlFor`, `labelId`, `required` |
 
 ## Стилизация и кастомизация
 
@@ -212,7 +212,7 @@ Toggle password и remove file — **CSS** `hoverVariant`, `TEXT_COLOR_TRANSITIO
 
 | Слот | DOM / элемент | Когда использовать |
 |------|---------------|-------------------|
-| `root` | `Field.Root` | Отступы, max-width, рамка вокруг всего поля |
+| `root` | `Field` | Отступы, max-width, рамка вокруг всего поля |
 | `label` | `Label` (simple и `Input.Label`) | Типографика, отступ label |
 | `shell` | `[data-slot="input-shell"]` | Оболочка: ring, border, min-height, hover/focus (осторожно с motion-классами) |
 | `control` | `<input>` | Шрифт, placeholder, padding внутри shell |
@@ -237,7 +237,7 @@ Toggle password и remove file — **CSS** `hoverVariant`, `TEXT_COLOR_TRANSITIO
   className="max-w-sm"
   classNames={{
     root: "rounded-mid border border-primary/20 p-base",
-    shell: "ring-1 ring-primary/15",
+    root: "ring-1 ring-primary/15",
     control: "text-primary placeholder:text-primary/50",
     prefix: "bg-surface-elevated text-muted",
     hint: "text-foreground/70",
@@ -261,10 +261,10 @@ Toggle password и remove file — **CSS** `hoverVariant`, `TEXT_COLOR_TRANSITIO
 ```tsx
 <Input
   status="danger"
-  isRequired
+  required
   classNames={{
     root: "max-w-md gap-small",
-    shell: "border-primary/30",
+    root: "border-primary/30",
     hint: "text-xs",
   }}
 >
@@ -300,7 +300,7 @@ Toggle password и remove file — **CSS** `hoverVariant`, `TEXT_COLOR_TRANSITIO
 
 - `joinFieldDescribedBy(hintId, errorId)` на control
 - `aria-invalid` при `status="danger"`
-- `aria-required` из `isRequired`
+- `aria-required` из `required`
 - Password toggle: `aria-label`, `aria-pressed`
 - File remove: `aria-label`
 

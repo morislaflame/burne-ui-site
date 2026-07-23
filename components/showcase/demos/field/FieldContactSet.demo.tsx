@@ -5,7 +5,7 @@ import { Label } from "burne-ui";
 
 export function FieldContactSetDemo() {
   return (
-    <Field.Set className="max-w-component-small w-full">
+    <Field.Set className="max-w-md">
       <Field.Legend>
         <Field.LegendHeader>
           <Label>Contact details</Label>

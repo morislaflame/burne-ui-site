@@ -13,10 +13,10 @@ export function CloseButtonPreviewCardDemo() {
       <CloseButton
         aria-label="Close preview"
         size="small"
-        className="absolute right-small top-small shadow-token-mid text-primary"
+        className="absolute right-small top-small shadow-token-mid"
       />
       <Surface variant="default" padding="base" className="rounded-none rounded-b-mid">
-        <Text as="p" variant="small" className="text-muted">
+        <Text as="p" variant="base">
           Preview Card
         </Text>
       </Surface>

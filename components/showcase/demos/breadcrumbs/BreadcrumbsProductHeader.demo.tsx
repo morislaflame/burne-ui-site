@@ -7,7 +7,7 @@ import { preventNav } from "@/lib/showcase/shared/utils";
 
 export function BreadcrumbsProductHeaderDemo() {
   return (
-    <div className="flex w-full flex-col gap-mid rounded-mid border-token bg-surface p-mid shadow-token-base">
+    <div className="flex w-full flex-col gap-mid rounded-mid border-token bg-surface px-mid py-small">
       <Breadcrumbs>
         <Breadcrumbs.List>
           <Breadcrumbs.Item href="#" onClick={preventNav}>

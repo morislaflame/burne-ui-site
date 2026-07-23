@@ -72,7 +72,7 @@ export function ShowcaseMobileNavProvider({ children }: { children: ReactNode })
     <ShowcaseMobileNavContext.Provider value={{ isShowcaseRoute, open, setOpen }}>
       {children}
       <Drawer open={open} onOpenChange={setOpen} placement="left">
-        <Drawer.Panel size="default">
+        <Drawer.Panel extent="default">
           <Drawer.Header>
             <Drawer.HeadingBlock>
               <Drawer.Title>Components</Drawer.Title>

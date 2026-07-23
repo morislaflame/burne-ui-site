@@ -33,6 +33,17 @@ export function BadgeClassNamesFullDemo() {
           }}
         />
       </div>
+
+      <Badge.Anchor
+        classNames={{
+          anchor: "rounded-full ring-2 ring-primary/30 p-1",
+          root: "rounded-full",
+          dot: "ring-2 ring-background",
+        }}
+      >
+        <Avatar size="base" label="Demo user" />
+        <Badge dot status="success" aria-label="online" />
+      </Badge.Anchor>
     </div>
   );
 }

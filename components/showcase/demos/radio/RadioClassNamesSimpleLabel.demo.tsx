@@ -9,8 +9,8 @@ export function RadioClassNamesSimpleLabelDemo() {
       label="Express delivery"
       hint="Slot label stylizes the signature in simple API."
       classNames={{
-        label: "text-primary",
-        labelText: "font-semibold underline decoration-primary/30 underline-offset-4 text-large",
+        label: "text-info",
+        labelText: "font-semibold underline decoration-info/30 underline-offset-4",
         hint: "text-muted/80",
       }}
       className="max-w-md"

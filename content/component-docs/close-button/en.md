@@ -192,7 +192,7 @@ The `duration` prop on Ripple overrides the global duration. Disabled when `disa
 
 - Base: `INTERACTIVE_VARIANT_ROOT[variant]` (from Button)
 - Hover: `hoverVariant(CLOSE_BUTTON_HOVER_VARIANT[variant])`
-- Focus: `focus-visible:outline-primary`
+- Focus: `focus-ring` (`--color-focus-ring`; width/offset via `--focus-ring-width` / `--focus-ring-offset`)
 - Disabled: `opacity-50`, `cursor-not-allowed`
 
 ### Size tokens
@@ -248,7 +248,7 @@ CloseButton is a leaf component (no compound/simple split): a single `<button>` 
 - Icon only — **always** needs `aria-label` (default `"Close"` works for generic close; in UI prefer specifics: "Close dialog", "Hide panel").
 - `IoClose` icon — `aria-hidden`.
 - Native `disabled` on `<button>`.
-- Focus ring: `outline-none` + `focus-visible:outline-primary`.
+- Focus ring: `outline-none` + `focus-ring`.
 
 ## Differences from Button
 
@@ -257,7 +257,7 @@ CloseButton is a leaf component (no compound/simple split): a single `<button>` 
 | Children | text / icon | none (`IoClose` inside) |
 | `status` | yes | no |
 | Async states | yes | no |
-| `leftIcon` / `iconOnly` | yes | no (always icon-only) |
+| `icon` / `iconOnly` | yes | no (always icon-only) |
 | `classNames` | no | `root`, `icon`, `ripple` |
 | Shape | `rounded-base` (or segment) | `rounded-full` |
 | Size grid | `minWButton`, padding | `toggleBox` (square) |

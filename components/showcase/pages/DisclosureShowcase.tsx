@@ -19,6 +19,7 @@ import disclosureSingleSource from "@/components/showcase/demos/disclosure/Discl
 import { DisclosureSizesDemo } from "@/components/showcase/demos/disclosure/DisclosureSizes.demo";
 import disclosureSizesSource from "@/components/showcase/demos/disclosure/DisclosureSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -27,7 +28,7 @@ export function DisclosureShowcase() {
     <ShowcasePage
       title="Disclosure"
       description="Expanding blocks with height animation - for FAQ and single sections."
-      importPath='import { Disclosure, DisclosureGroup } from "burne-ui";'
+      importPath='import { Disclosure } from "burne-ui";'
       tags={["core", "disclosure"]}
     >
       <ShowcaseSection title="Single" description="One Disclosure without a group.">
@@ -38,11 +39,11 @@ export function DisclosureShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={DisclosureSizesDemo} source={disclosureSizesSource} />
       </ShowcaseSection>
 
-      <ShowcaseSection title="Card group" description="DisclosureGroup variant card — general card.">
+      <ShowcaseSection title="Card group" description="Disclosure.Group variant card — general card.">
         <ShowcaseDemoFromFile align="stretch" Demo={DisclosureCardGroupDemo} source={disclosureCardGroupSource} />
       </ShowcaseSection>
 
-      <ShowcaseSection title="Outline FAQ" description="DisclosureGroup variant outline with icons.">
+      <ShowcaseSection title="Outline FAQ" description="Disclosure.Group variant outline with icons.">
         <ShowcaseDemoFromFile align="stretch" Demo={DisclosureOutlineFaqDemo} source={disclosureOutlineFaqSource} />
       </ShowcaseSection>
 
@@ -69,6 +70,29 @@ export function DisclosureShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={DisclosureSettingsGroupDemo} source={disclosureSettingsGroupSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={DisclosureChangelogDemo} source={disclosureChangelogSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Disclosure.Trigger and Disclosure.Content — block slots. Disclosure.Group combines several."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="root, trigger, triggerTitle, contentPanel, glossPanel, handle, group."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Groups">
+          <p>
+            <code>variant=&quot;card&quot;</code> and <code>variant=&quot;outline&quot;</code> on Disclosure.Group.
+            <code>defaultValue</code> — open item by default.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

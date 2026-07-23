@@ -38,7 +38,7 @@ import {
   <Form.Description>Обновите данные аккаунта.</Form.Description>
   <Form.Section>
     <Form.Field name="name">
-      <Input name="name" label="Имя" isRequired />
+      <Input name="name" label="Имя" required />
     </Form.Field>
     <Form.Field name="email">
       <Input name="email" label="Email" type="email" />

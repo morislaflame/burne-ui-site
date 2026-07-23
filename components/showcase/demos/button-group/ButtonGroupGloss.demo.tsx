@@ -1,13 +1,13 @@
 import { IoEllipsisHorizontal } from "react-icons/io5";
 
-import { ButtonGroup, ButtonGroupText } from "burne-ui";
+import { ButtonGroup } from "burne-ui";
 import { Button } from "burne-ui";
 import { Dropdown } from "burne-ui";
 
 export function ButtonGroupGlossDemo() {
   return (
     <ButtonGroup variant="gloss" aria-label="Gloss actions">
-      <ButtonGroupText>View</ButtonGroupText>
+      <ButtonGroup.Text>View</ButtonGroup.Text>
       <Button>List</Button>
       <Button>Net</Button>
       <Dropdown>
@@ -20,7 +20,7 @@ export function ButtonGroupGlossDemo() {
           <Dropdown.Item value="share" selection={false}>
             Share
           </Dropdown.Item>
-          <Dropdown.Item value="del" variant="danger" selection={false}>
+          <Dropdown.Item value="del" status="danger" selection={false}>
             Delete
           </Dropdown.Item>
         </Dropdown.Popover>

@@ -19,9 +19,7 @@ Additionally, style utilities are exported from the package (for custom controls
 
 ```tsx
 import {
-  buttonRootClass,
   buttonSpinnerClass,
-  controlShellClass,
   buttonRippleTone,
 } from "burne-ui";
 ```
@@ -39,7 +37,7 @@ The component uses a **simple API** (single root `<button>` element).
 | `size` | `small` \| `base` \| `mid` \| `large` | `base` | Size; inherited from `ButtonGroup` / `Form` |
 | `animated` | `boolean` | `true` | Hover lift + press squeeze (GSAP) |
 | `ripple` | `boolean` | `false` | Converge-ripple from press point (`<Ripple />`) |
-| `leftIcon` | `ReactNode` | — | Icon to the left of the text |
+| `icon` | `ReactNode` | — | Icon to the left of the text |
 | `iconOnly` | `boolean` | `false` | Compact width (`min-w-fit`); `aria-label` is required |
 | `disabled` | `boolean` | `false` | Disabled state; inherited from `Form` |
 | `asyncState` | `idle` \| `loading` \| `success` \| `error` | — | Controlled async state |
@@ -58,7 +56,7 @@ The component uses a **simple API** (single root `<button>` element).
 <Button variant="primary">Save</Button>
 
 // With icon
-<Button leftIcon={<IoAdd aria-hidden />}>Add</Button>
+<Button icon={<IoAdd aria-hidden />}>Add</Button>
 
 // Icon only
 <Button iconOnly aria-label="Add">
@@ -286,7 +284,7 @@ Button is a leaf component: **`className` on `<button>` only**. No `classNames` 
   status="danger"
   size="mid"
   className="min-w-[10rem] border-primary/40"
-  leftIcon={<IoSave aria-hidden />}
+  icon={<IoSave aria-hidden />}
 >
   Save
 </Button>
@@ -301,7 +299,7 @@ Button is a leaf component: **`className` on `<button>` only**. No `classNames` 
 | `groupSegment` | Glue in ButtonGroup (segment rounding) |
 | `className` | Any additional Tailwind classes on root |
 
-Icons and text are children / `leftIcon`; there are no separate slots for them.
+Icons and text are children / `icon`; there are no separate slots for them.
 
 ### Compound-like patterns
 
@@ -322,7 +320,8 @@ For non-standard markup inside the button, use children and style wrappers yours
 For your own controls with the same layout:
 
 ```tsx
-import { buttonRootClass, controlShellClass, buttonRippleTone } from "burne-ui";
+import { buttonRippleTone } from "burne-ui/internal";
+import { buttonRootClass, controlShellClass } from "burne-ui/internal";
 
 const shell = controlShellClass("base");
 const root = buttonRootClass("base", false);
@@ -342,7 +341,7 @@ Or globally: `configureMotion({ enableHoverLift: false, enablePressSqueeze: fals
 - Native `<button>` with correct `type`.
 - `aria-busy={true}` when `asyncState === "loading"`.
 - With `iconOnly` — a meaningful `aria-label` is required.
-- Icons in `leftIcon` and async layers — `aria-hidden`.
+- Icons in `icon` and async layers — `aria-hidden`.
 - Focus ring via `focus-ring` + status outline.
 - When blocked (`disabled` or busy async) — `disabled` + `pointer-events-none`, opacity 50%.
 

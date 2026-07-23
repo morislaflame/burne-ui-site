@@ -17,6 +17,7 @@ import expandableSimpleApiSource from "@/components/showcase/demos/expandable/Ex
 import { ExpandableSizesDemo } from "@/components/showcase/demos/expandable/ExpandableSizes.demo";
 import expandableSizesSource from "@/components/showcase/demos/expandable/ExpandableSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -63,6 +64,28 @@ export function ExpandableShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={ExpandableShippingCompoundDemo} source={expandableShippingCompoundSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={ExpandableOrderDetailsDemo} source={expandableOrderDetailsSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="title, icon, description and children-root panel Expandable."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Trigger (Message: Title, Description, Icon) + Panel (Body). Content — inside Trigger, Panel — expandable area."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Icon">
+          <p>
+            Pass it on React-element in <code>icon</code> (Simple) or <code>Expandable.Icon</code> (Compound).
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

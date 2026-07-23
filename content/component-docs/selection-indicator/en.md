@@ -172,7 +172,7 @@ In compound API, `SelectionIndicator.Fill` / `.Mark` accept their own **`classNa
   check
   className="ring-2 ring-primary/30"
   classNames={{
-    shell: "border-primary/50",
+    root: "border-primary/50",
     fill: "bg-primary/30",
     mark: "text-primary",
   }}

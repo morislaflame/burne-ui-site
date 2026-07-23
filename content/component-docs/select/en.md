@@ -90,7 +90,7 @@ Layers: shell (like Input), open squeeze, chevron, popover, ListBox items.
 **DOM structure:**
 
 ```
-Field.Root
+Field
   Label
   <div TriggerGroup ref=anchorRef role=combobox>
     <button Select.Value />      ← focus + keyboard
@@ -154,7 +154,7 @@ Selection indicator + label press squeeze — see ListBox.md.
 
 ### Two levels
 
-1. **`className` on root** — `Field.Root` (merged with `classNames.root`).
+1. **`className` on root** — `Field` (merged with `classNames.root`).
 2. **`classNames` on root** — `SelectClassNamesProvider`.
 
 Subparts accept **`className`** on top of the context slot.
@@ -163,13 +163,13 @@ Subparts accept **`className`** on top of the context slot.
 
 | Slot | DOM | Purpose |
 |------|-----|---------|
-| `root` | `Field.Root` | Max-width, field gap |
+| `root` | `Field` | Max-width, field gap |
 | `label` | `Label` | Typography |
 | `triggerGroup` | Shell combobox | Border, hover, squeeze target |
 | `value` | `Select.Value` button | Value text, muted placeholder |
 | `trigger` | Chevron button | Trigger hit-area |
 | `triggerIcon` | `IoChevronDown` | Chevron size/color |
-| `popover` | `Popover.Content` | Shadow, z-index |
+| `popover` | `Popover.Content` | Shadow, `z-popover` |
 | `popoverBody` | `Popover.Body` | Menu padding |
 | `listBox` | `ListBox` | Scroll area |
 | `hint` / `error` | `Field.Hint` / `Field.Error` | Hint / error |

@@ -128,7 +128,7 @@ function ShowcaseMarkdownDocPanel({
                 variant="outline"
                 size="small"
                 onClick={onCopy}
-                leftIcon={
+                icon={
                   copied ? (
                     <IoCheckmark aria-hidden className="text-success" />
                   ) : (

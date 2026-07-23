@@ -11,7 +11,7 @@ const USERS = [
 
 export function AvatarPresenceRowDemo() {
   return (
-    <div className="flex w-full max-w-component-small justify-center flex-col gap-mid">
+    <div className="flex w-full max-w-sm flex-col gap-mid">
       <Text as="p" variant="small" className="font-medium">
         Online status
       </Text>

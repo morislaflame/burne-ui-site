@@ -19,6 +19,7 @@ import switchSizesSource from "@/components/showcase/demos/switch/SwitchSizes.de
 import { SwitchSettingsPanelDemo } from "@/components/showcase/demos/switch/SwitchSettingsPanel.demo";
 import switchSettingsPanelSource from "@/components/showcase/demos/switch/SwitchSettingsPanel.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -70,6 +71,29 @@ export function SwitchShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={SwitchCompoundThemeDemo} source={switchCompoundThemeSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={SwitchAccentColorDemo} source={switchAccentColorSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="label, hint, checked, onChange, disabled, gloss at the root - without children."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Switch.Label, Switch.Hint, Switch.Track — custom switch layout."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss="gloss">
+          <p>
+            Boolean <code>gloss</code> — glass track. Active state colors — CSS-topic variables.
+            Animation thumb — <code>configureMotion()</code> (<code>switchThumbDuration</code>,{" "}
+            <code>switchThumbEase</code>).
+          </p>
+        </ShowcaseDoc.Customization>
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

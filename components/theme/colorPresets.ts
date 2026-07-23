@@ -3,7 +3,7 @@ import {
   ensureModePalettes,
   type ThemeColors,
   type ThemeMode,
-} from "burne-ui";
+} from "burne-ui/internal";
 import {
   createDefaultEditorState,
   type ThemeEditorState,

@@ -30,12 +30,14 @@ export function ComboBoxClassNamesFullDemo() {
       onValueChange={setValue}
       variant="outline"
       classNames={{
-        root: "rounded-mid border-token bg-surface p-mid max-w-component-small",
-        inputGroup: "border-primary/40 bg-primary/5 shadow-token-base",
-        input: "text-primary placeholder:text-primary/50",
-        trigger: "text-primary hover:text-primary",
-        popoverBody: "bg-primary/5",
+        inputGroup: "border-info/40 bg-info/5 shadow-token-base",
+        input: "text-info placeholder:text-info/50",
+        trigger: "text-info hover:text-info",
+        popoverBody: "bg-info/5",
         listBox: "p-xsmall",
+        listBoxItem: "rounded-lg",
+        listBoxLabel: "font-semibold",
+        listBoxHint: "text-muted/80",
       }}
     />
   );

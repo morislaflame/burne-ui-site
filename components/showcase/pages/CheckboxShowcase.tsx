@@ -21,6 +21,7 @@ import checkboxTaskListSource from "@/components/showcase/demos/checkbox/Checkbo
 import { CheckboxTermsDemo } from "@/components/showcase/demos/checkbox/CheckboxTerms.demo";
 import checkboxTermsSource from "@/components/showcase/demos/checkbox/CheckboxTerms.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
+import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
 import { ShowcaseSection } from "@/components/showcase/layout/ShowcaseSection";
 
@@ -70,6 +71,33 @@ export function CheckboxShowcase() {
         <ShowcaseDemoFromFile align="stretch" Demo={CheckboxConsentCardDemo} source={checkboxConsentCardSource} />
         <ShowcaseDemoFromFile align="stretch" Demo={CheckboxTaskListDemo} source={checkboxTaskListSource} />
       </ShowcaseSection>
+
+      <ShowcaseDoc>
+        <ShowcaseDoc.Block title="Import">
+          <ShowcaseDoc.Import path="burne-ui" />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="API">
+          <ShowcaseDoc.ApiRow
+            api="simple"
+            description="label, checked, onChange, size, disabled on the root. SelectionIndicator inside."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="root, control, indicator, indicatorFill, indicatorMark, content, label, hint, error."
+          />
+          <ShowcaseDoc.ApiRow
+            api="compound"
+            description="Checkbox.Indicator.Fill / .Mark; classNames.root / fill / mark."
+          />
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Block title="Groups">
+          <p>
+            To set checkboxes use <code>CheckboxGroup</code> from{" "}
+            <code>@/components/composite/CheckboxGroup</code>.
+          </p>
+        </ShowcaseDoc.Block>
+        <ShowcaseDoc.Customization gloss />
+      </ShowcaseDoc>
     </ShowcasePage>
   );
 }

@@ -1,14 +1,14 @@
-import { Checkbox, CheckboxGroup, Disclosure, DisclosureGroup } from "burne-ui";
+import { Disclosure } from "burne-ui";
 import { Switch } from "burne-ui";
 import { Text } from "burne-ui";
 
 export function DisclosureSettingsGroupDemo() {
   return (
-    <DisclosureGroup variant="card" defaultValue="notifications" className="w-full max-w-lg">
+    <Disclosure.Group variant="card" defaultValue="notifications" className="w-full max-w-lg">
       <Disclosure value="notifications">
         <Disclosure.Trigger>Notifications</Disclosure.Trigger>
         <Disclosure.Content>
-          <div className="flex flex-col gap-base">
+          <div className="flex flex-col gap-mid">
             <Switch defaultChecked label="Email-digest" />
             <Switch label="Push on mobile" />
           </div>
@@ -17,12 +17,11 @@ export function DisclosureSettingsGroupDemo() {
       <Disclosure value="privacy">
         <Disclosure.Trigger>Privacy</Disclosure.Trigger>
         <Disclosure.Content>
-          <CheckboxGroup.List>
-            <Checkbox label="Profile" hint="Manage Profile Visibility and Analytics Data."/> 
-            <Checkbox label="Data collection" hint="Allow the application to collect data about my usage and behavior." />
-          </CheckboxGroup.List>
+          <Text as="p" variant="small" className="text-muted">
+            Manage Profile Visibility and Analytics Data.
+          </Text>
         </Disclosure.Content>
       </Disclosure>
-    </DisclosureGroup>
+    </Disclosure.Group>
   );
 }

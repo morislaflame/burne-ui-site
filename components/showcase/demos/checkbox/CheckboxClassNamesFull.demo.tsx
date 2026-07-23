@@ -6,20 +6,20 @@ export function CheckboxClassNamesFullDemo() {
       defaultChecked
       variant="outline"
       classNames={{
-        root: "rounded-large border-primary/40 p-mid",
-        control: "ring-primary/30",
-        controlTrack: "border-primary/50",
-        indicator: "text-primary rounded-mid",
+        root: "rounded-large border-info/40 p-mid shadow-token-base",
+        control: "ring-info/30",
+        controlTrack: "border-info/50",
+        indicator: "text-info rounded-mid",
         indicatorFill: "rounded-[inherit]",
         content: "gap-xsmall",
         label: "gap-xsmall",
-        labelText: "text-primary font-semibold text-large",
+        labelText: "text-info font-semibold",
         hint: "text-foreground/70",
       }}
       className="max-w-md"
     >
       <Checkbox.Control>
-        <Checkbox.Indicator size="large"/>
+        <Checkbox.Indicator />
       </Checkbox.Control>
       <Checkbox.Content>
         <Checkbox.Label>Notifications</Checkbox.Label>

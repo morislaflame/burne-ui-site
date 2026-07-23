@@ -22,7 +22,7 @@ Simple API — один `<span role="status">`.
 
 | Prop | Тип | По умолчанию | Описание |
 |------|-----|--------------|----------|
-| `variant` | `spinner` \| `dots` | `spinner` | Тип индикатора |
+| `type` | `spinner` \| `dots` | `spinner` | Тип индикатора |
 | `size` | `small` \| `base` \| `mid` \| `large` | `base` | Размер |
 | `color` | см. ниже | `primary` | Семантический цвет |
 | `label` | `string` | `"Loading"` | `aria-label` для screen reader |
@@ -37,10 +37,10 @@ Simple API — один `<span role="status">`.
 ```tsx
 <Loading />
 
-<Loading variant="dots" size="mid" color="success" label="Сохранение…" />
+<Loading type="dots" size="mid" color="success" label="Сохранение…" />
 
-// В Toast при isLoading
-<Toast status="default" isLoading title="Загрузка" />
+// В Toast при loading
+<Toast status="default" loading title="Загрузка" />
 ```
 
 ## variant
@@ -71,7 +71,7 @@ Simple API — один `<span role="status">`.
 
 ## Анимации
 
-### 1. Spinner (`variant="spinner"`)
+### 1. Spinner (`type="spinner"`)
 
 **DOM:**
 
@@ -86,7 +86,7 @@ Simple API — один `<span role="status">`.
 
 Цвет: `text-{color}` на ring (`border-current`).
 
-### 2. Dots wave (`variant="dots"`)
+### 2. Dots wave (`type="dots"`)
 
 **DOM:**
 
@@ -142,7 +142,7 @@ configureMotion({
 | Место | variant | color |
 |-------|---------|-------|
 | `Button` async loader | spinner | по variant кнопки |
-| `Toast` `isLoading` | spinner | по `toastLoadingColor(status)` |
+| `Toast` `loading` | spinner | по `toastLoadingColor(status)` |
 | Standalone | оба | prop `color` |
 
 ### Сводка: что настраивается где
@@ -170,7 +170,7 @@ Loading — leaf-компонент: **только `className` на root** (`<s
 
 | Способ | Что меняет |
 |--------|------------|
-| `variant` | `spinner` (кольцо) или `dots` (три точки) |
+| `type` | `spinner` (кольцо) или `dots` (три точки) |
 | `size` | Размер spinner / dots layout |
 | `color` | Semantic tint (`primary`, `info`, `danger`, …) |
 | `className` | Opacity, margin, display на root |
@@ -178,7 +178,7 @@ Loading — leaf-компонент: **только `className` на root** (`<s
 
 ```tsx
 <Loading
-  variant="dots"
+  type="dots"
   size="large"
   color="info"
   className="opacity-90 mx-auto"
@@ -195,7 +195,7 @@ Loading — leaf-компонент: **только `className` на root** (`<s
 
 ```tsx
 <Button disabled className="gap-small">
-  <Loading variant="spinner" size="small" color="foreground" className="shrink-0" />
+  <Loading type="spinner" size="small" color="foreground" className="shrink-0" />
   Сохранение…
 </Button>
 ```
