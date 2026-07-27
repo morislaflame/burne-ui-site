@@ -132,7 +132,7 @@ configureMotion({
 });
 ```
 
-**Reduced motion:** `prefersReducedInteractiveHoverLift()` — без squeeze.
+**Reduced motion:** `prefersReducedMotion()` — без squeeze.
 
 ### 2. Segment focus
 

@@ -110,7 +110,7 @@ Shared root: `rounded-small font-mono inline-flex items-center justify-center`.
 
 **Pointer leave:** scale `1`, shadow back to `sm`.
 
-Class: `SHADOW_LIFT_MOTION_CLASS` (`animate-shadow will-change-transform`).
+Class: `SHADOW_LIFT_MOTION_CLASS` (`animate-shadow origin-center`; `will-change` is set dynamically during the tween).
 
 **Locally:** `hoverLift={false}` — no handlers and `motionClass`.
 

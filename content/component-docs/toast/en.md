@@ -147,7 +147,7 @@ First mount (non-gloss): extra fade `opacity: 0 → 1` on stack layer.
 
 ### 4. Stack container height
 
-`frontHeight` (ResizeObserver on card) + `extraPeek` → GSAP `to(container, { height })` with `motionInteractive()`.
+`frontHeight` (ResizeObserver → ref Map, no React state) + `extraPeek` → immediate GSAP `to(container, { height })` / `style.height` under reduced motion. Viewport does not re-render from RO.
 
 ### 5. Scrim (gradient)
 

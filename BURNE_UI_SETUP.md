@@ -321,10 +321,14 @@ export function MotionProvider({ children }: { children: React.ReactNode }) {
 
 Основные группы `MotionConfig`:
 
-- тайминги/ease: `interactiveDuration`, `tooltipDuration`, `selectionFillDuration`, `expandDuration`, `progressFillDuration`, и `*Ease`
+- тайминги/ease: `interactiveDuration`, `pressSqueezeDurationFactor`, `tooltipDuration`, `selectionFillDuration`, `expandDuration`, `progressFillDuration`, и `*Ease`
 - hover/press: `hoverLiftScale`, `pressSqueezeScale`, `badgeAnchorHoverLiftScale`
 - ripple: `rippleDefaultDuration`, `rippleDefaultOpacityFrom`, `rippleExpandableDuration`, `rippleEaseCss`
 - feature flags: `enableHoverLift`, `enablePressSqueeze`, `enableToggleButtonFill`, `enableRipple`, `enableExpandable`, `enableToastStack`, `enableAsyncButtonCrossfade`, `enableContentFade`, `enableFeedbackExpand`, `enableProgressFill`
+
+`pressSqueezeDurationFactor` (default `1.15`) задаёт длительность press-squeeze и задержку open-after-squeeze (`interactiveDuration × factor`).
+
+Feel/layout-константы (не в конфиге) — см. `burne-ui/docs/SETUP.md` «Intentional motion constants».
 
 Важно: библиотека учитывает `prefers-reduced-motion`.
 

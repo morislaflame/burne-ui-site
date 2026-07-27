@@ -133,7 +133,7 @@ Compound включается автоматически при наличии �
 
 **Pointer leave:** обратно к `sm`, scale `1`.
 
-Класс на root: `animate-shadow will-change-transform origin-center` (`SHADOW_LIFT_MOTION_CLASS`).
+Класс на root: `animate-shadow origin-center` (`SHADOW_LIFT_MOTION_CLASS`). `will-change` ставится динамически на время GSAP-твина.
 
 **Отличие от Button (1-й уровень):** Alert **всегда** имеет тень в покое; Button — только при hover.
 
@@ -197,7 +197,7 @@ Surface всегда по `variant` (как у `AlertDialog`). Status краси
 
 - Покой: `shadow-token-sm` (через `--el-shadow`)
 - Hover: `shadow-token-md`
-- Класс motion: `animate-shadow will-change-transform`
+- Класс motion: `animate-shadow origin-center` (+ динамический `will-change` на время твина)
 
 ### Индикатор
 
@@ -314,4 +314,4 @@ Alert/
 
 ## Storybook
 
-`Core Components/Alert` — варианты × статусы, compound, gloss, hoverLift, кастомизация `classNames`, светлая/тёмная тема.
+`Core Components/Alert` — варианты × статусы, compound, gloss, `hoverLift`, кастомизация `classNames`, светлая/тёмная тема.

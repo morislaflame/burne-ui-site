@@ -74,6 +74,10 @@ const [page, setPage] = useState(1);
 
 `Pagination.Pages` requires `page` and `totalPages` on root.
 
+## Layout / responsive
+
+Root uses `flex-wrap`: Summary on the left, Content on the right. On narrow widths Summary may stack on its own row; buttons inside `Pagination.Content` **do not wrap** — horizontal scroll (`overflow-x-auto` + `flex-nowrap`).
+
 ## Range behavior
 
 `getPaginationRange(page, totalPages, siblingCount)`:
@@ -106,7 +110,7 @@ No portal, no hover shadow lift — only text press + layout shift.
 
 ### 1. Page flip (`usePaginationFlip`)
 
-On each layout pass of `Pagination.Content` (`useLayoutEffect`):
+`useLayoutEffect` with deps `page` / `totalPages` / `siblingCount` / `children` (not on every Content re-render):
 
 1. Collects `data-flip-key` from `<li>` children (or `__keyless_N` fallback)
 2. Compares `getBoundingClientRect()` with the previous frame
@@ -128,7 +132,7 @@ configureMotion({
 });
 ```
 
-**Reduced motion:** `prefersReducedInteractiveHoverLift()` — instant layout without GSAP.
+**Reduced motion:** `prefersReducedMotion()` — instant layout without GSAP.
 
 ### 2. Button press text motion
 

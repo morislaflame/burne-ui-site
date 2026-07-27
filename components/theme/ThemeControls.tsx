@@ -42,6 +42,7 @@ const FONT_WEIGHT_OPTIONS = [300, 400, 500, 600, 700, 800] as const;
 
 const MOTION_DURATION_CONTROLS = [
   { key: "interactiveDuration" as const, min: 120, max: 600, step: 10, unit: "ms" },
+  { key: "modalDuration" as const, min: 120, max: 600, step: 10, unit: "ms" },
   { key: "tooltipDuration" as const, min: 80, max: 400, step: 10, unit: "ms" },
   { key: "switchThumbDuration" as const, min: 120, max: 600, step: 10, unit: "ms" },
   { key: "selectionFillDuration" as const, min: 120, max: 800, step: 10, unit: "ms" },
@@ -50,6 +51,7 @@ const MOTION_DURATION_CONTROLS = [
   { key: "rippleDefaultDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },
   { key: "rippleExpandableDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },
   { key: "progressFillDuration" as const, min: 120, max: 1200, step: 10, unit: "ms" },
+  { key: "progressIndeterminateDuration" as const, min: 400, max: 3000, step: 50, unit: "ms" },
   { key: "loadingDotsDuration" as const, min: 300, max: 2400, step: 50, unit: "ms" },
   { key: "surfaceTransitionDuration" as const, min: 120, max: 1200, step: 20, unit: "ms" },
   { key: "toastDismissDuration" as const, min: 80, max: 600, step: 10, unit: "ms" },
@@ -59,6 +61,7 @@ const MOTION_SCALE_CONTROLS = [
   { key: "hoverLiftScale" as const, min: 1, max: 1.08, step: 0.005, unit: "×" },
   { key: "badgeAnchorHoverLiftScale" as const, min: 1, max: 1.1, step: 0.005, unit: "×" },
   { key: "pressSqueezeMid" as const, min: 0.92, max: 1, step: 0.005, unit: "×" },
+  { key: "pressSqueezeDurationFactor" as const, min: 1, max: 2, step: 0.05, unit: "×" },
   { key: "rippleDefaultOpacityFrom" as const, min: 0.1, max: 0.8, step: 0.02, unit: "" },
   { key: "rippleExpandableOpacityFrom" as const, min: 0.1, max: 0.8, step: 0.02, unit: "" },
 ] as const;
@@ -820,14 +823,9 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
         <SectionTitle>Animations</SectionTitle>
         <div className="flex flex-col gap-small rounded-base p-base gloss-panel">
           <Switch
-            checked={ANIMATION_FLAG_KEYS.every((key) => state[key])}
-            onChange={(e) => {
-              const checked = e.target.checked;
-              ANIMATION_FLAG_KEYS.forEach((key) => {
-                setAnimationFlag(key, checked);
-              });
-            }}
-            label="All animations included"
+            checked={state.enableAnimations}
+            onChange={(e) => setAnimationFlag("enableAnimations", e.target.checked)}
+            label="Enable all animations (master)"
           />
           <Separator className="my-xsmall opacity-50" />
           {ANIMATION_FLAG_KEYS.map((key) => (

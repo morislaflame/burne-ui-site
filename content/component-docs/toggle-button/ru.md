@@ -53,7 +53,6 @@ import {
 | `value` | — | Для ToggleButtonGroup |
 | `groupSegment` | — | Сегмент ButtonGroup |
 | `icon` + `iconPosition` | — | Иконки |
-| `animated` | `true` | Hover lift + squeeze + fill |
 | `disabled` | `false` | |
 | `classNames` | — | см. стилизацию |
 
@@ -117,21 +116,14 @@ Flow:
 
 ### 3. Отключение
 
-```tsx
-<ToggleButton animated={false}>Без motion</ToggleButton>
-```
-
 ```ts
+configureMotion({ enableAnimations: false });
+// или точечно:
 configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggleButtonFill: false });
 ```
 
-### Сводка
+Локального пропа `animated` нет.
 
-| Анимация | `configureMotion` |
-|----------|-------------------|
-| Fill scale | `selectionFillEase`, `interactiveDuration`, `enableToggleButtonFill` |
-| Hover/squeeze | `enableHoverLift`, `pressSqueezeScale` |
-| Gloss squeeze | gloss interactive tokens |
 
 ## Стилизация и кастомизация
 

@@ -53,7 +53,6 @@ In a group: `value` is required; `pressed` / selection comes from context; `role
 | `value` | — | For ToggleButtonGroup |
 | `groupSegment` | — | ButtonGroup segment |
 | `icon` + `iconPosition` | — | Icons |
-| `animated` | `true` | Hover lift + squeeze + fill |
 | `disabled` | `false` | |
 | `classNames` | — | see styling |
 
@@ -117,21 +116,14 @@ Visual pressed (`bg-transparent`, fill classNames) comes from `displayPressed`, 
 
 ### 3. Disabling
 
-```tsx
-<ToggleButton animated={false}>No motion</ToggleButton>
-```
-
 ```ts
+configureMotion({ enableAnimations: false });
+// or selectively:
 configureMotion({ enableHoverLift: false, enablePressSqueeze: false, enableToggleButtonFill: false });
 ```
 
-### Summary
+There is no per-instance `animated` prop.
 
-| Animation | `configureMotion` |
-|----------|-------------------|
-| Fill scale | `selectionFillEase`, `interactiveDuration`, `enableToggleButtonFill` |
-| Hover/squeeze | `enableHoverLift`, `pressSqueezeScale` |
-| Gloss squeeze | gloss interactive tokens |
 
 ## Styling and customization
 

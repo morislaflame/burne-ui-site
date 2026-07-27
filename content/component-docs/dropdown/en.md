@@ -174,7 +174,7 @@ configureMotion({
 });
 ```
 
-**Reduced motion:** squeeze is skipped inside `animateInteractivePressSqueeze` / `prefersReducedInteractiveHoverLift`.
+**Reduced motion:** squeeze is skipped inside `animateInteractivePressSqueeze` / `prefersReducedMotion`.
 
 ### 2. Main popover portal
 

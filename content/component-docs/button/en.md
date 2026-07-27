@@ -35,7 +35,6 @@ The component uses a **simple API** (single root `<button>` element).
 | `variant` | `default` \| `primary` \| `outline` \| `secondary` \| `ghost` \| `gloss` | `default` | Surface visual style |
 | `status` | `default` \| `danger` \| `success` \| `info` \| `warning` | `default` | Semantic tone (color, hover, focus, ripple) |
 | `size` | `small` \| `base` \| `mid` \| `large` | `base` | Size; inherited from `ButtonGroup` / `Form` |
-| `animated` | `boolean` | `true` | Hover lift + press squeeze (GSAP) |
 | `ripple` | `boolean` | `false` | Converge-ripple from press point (`<Ripple />`) |
 | `icon` | `ReactNode` | — | Icon to the left of the text |
 | `iconOnly` | `boolean` | `false` | Compact width (`min-w-fit`); `aria-label` is required |
@@ -132,7 +131,7 @@ All motion uses **GSAP**. Orchestration: `buttonAnimations.ts` + shared hook `us
 
 **Pointer enter (hover lift):**
 
-1. Checks: `animated && !blocked`, not `defaultPrevented`, `shouldSkipInteractiveHoverLift()`
+1. Checks: `!blocked`, not `defaultPrevented`, `shouldSkipInteractiveHoverLift()`
 2. `animateInteractiveHoverLift` — adaptive `scale` (from element size, cap = `hoverLiftScale`, default `1.025`)
 3. Shadow: `firstLevelHoverShadow()` — rest `--shadow-none`, hover `--shadow-sm` via `--el-shadow` + class `animate-shadow`
 
@@ -164,7 +163,7 @@ configureMotion({
 });
 ```
 
-**Locally:** `animated={false}` — disables lift/squeeze on this button.
+**Globally:** `enableAnimations: false` — disables lift/squeeze globally.
 
 **Reduced motion / touch:** `prefers-reduced-motion`, viewport ≤ tablet, `hover: none` — via `shouldSkipInteractiveHoverLift()`.
 
@@ -218,7 +217,7 @@ configureMotion({
 
 ### 4. Feedback expand ring
 
-After `loading → success|error` — `ButtonFeedbackExpandRipple` from the button center:
+After `loading → success|error` — `ButtonExpandRippleLayer` (own `useState`, imperative `push`) renders `ButtonFeedbackExpandRipple` from the button center; dismiss does not re-render the Button root:
 
 - `fromTo`: `scale: 0, autoAlpha: 0.5` → `scale: 1, autoAlpha: 0`
 - Size: `centerCoverDiameter(w, h)` — covers the entire button
@@ -236,8 +235,8 @@ configureMotion({
 
 | Animation | File / utility | `configureMotion` keys | Local prop |
 |----------|----------------|---------------------------|----------------|
-| Hover lift | `useFirstLevelInteractiveMotion` | `hoverLiftScale`, `hoverLiftEase`, `enableHoverLift` | `animated` |
-| Press squeeze | `animateInteractivePressSqueeze` | `pressSqueezeScale`, `interactiveDuration`, `enablePressSqueeze` | `animated` |
+| Hover lift | `useFirstLevelInteractiveMotion` | `hoverLiftScale`, `hoverLiftEase`, `enableHoverLift` | — |
+| Press squeeze | `animateInteractivePressSqueeze` | `pressSqueezeScale`, `interactiveDuration`, `enablePressSqueeze` | — |
 | Ripple | `<Ripple />` | `rippleDefaultDuration`, `rippleDefaultOpacityFrom`, `enableRipple` | `ripple` |
 | Async crossfade | `buttonAnimations` layoutEffect | `enableAsyncButtonCrossfade`, `interactiveDuration` | `asyncState` |
 | Expand ring | `ButtonFeedbackExpandRipple` | `enableFeedbackExpand`, `feedbackExpandDuration` | — |
@@ -330,11 +329,14 @@ const rippleColor = buttonRippleTone("primary", "danger");
 
 ### Disabling animations
 
-```tsx
-<Button animated={false}>No motion</Button>
+```ts
+configureMotion({ enableAnimations: false });
+// or selectively:
+configureMotion({ enableHoverLift: false, enablePressSqueeze: false });
 ```
 
-Or globally: `configureMotion({ enableHoverLift: false, enablePressSqueeze: false })`.
+There is no per-instance `animated` prop.
+
 
 ## Accessibility
 

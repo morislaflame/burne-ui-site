@@ -98,7 +98,7 @@ No `status` — only `variant` + `size`.
 ```
 <div class=root>
   <div role=tablist class=list ref=listRef>
-    <span class=indicator />              ← GSAP left/top/width/height
+    <span class=indicator />              ← layout left/top/w/h; GSAP x/y/scaleX/scaleY (FLIP)
     <button role=tab>
       <Text ref=motionRef class=tabText>  ← hover squeeze (not selected)
   <div role=tabpanel hidden=...>
@@ -110,10 +110,10 @@ On `value` change / resize:
 
 1. Finds the selected tab in the list
 2. Computes metrics (bbox or 2px line for `default`)
-3. GSAP `fromTo(indicator, metrics, { ...motionInteractive() })`
+3. Sets layout `left/top/width/height` instantly; FLIP via GSAP `x/y/scaleX/scaleY` (`transform-origin: 0 0`) + `motionInteractive()`
 4. `ResizeObserver` on list + tabs → recalculation
 
-**First layout / reduced motion:** instant positioning without tween.
+**First layout / reduced motion:** instant layout + clear transform, no tween.
 
 #### Customization
 
@@ -225,7 +225,7 @@ Handlers and ARIA merge onto the child; text motion is disabled.
 - Each `Tabs.Tab` and `Tabs.Panel` must have a unique `value`.
 - `disabled` on root blocks all tabs; per-tab — `disabled` on `Tabs.Tab`.
 - Vertical: `orientation="vertical"` + keyboard `ArrowUp`/`ArrowDown`.
-- **Do not set `transform` on `indicator`** — GSAP animates position/size.
+- **Do not set `transform` on `indicator`** — GSAP owns `x/y/scaleX/scaleY` (FLIP); layout `left/top/width/height` is set instantly.
 - **Merge order:** variant/size → `classNames.slot` → `className` tab/panel.
 
 ## Integrations

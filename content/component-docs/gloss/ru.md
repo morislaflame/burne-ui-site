@@ -103,7 +103,7 @@ configureMotion({
 });
 ```
 
-На отдельном компоненте: `animated={false}` или `hoverLift={false}` отключает motion локально.
+Глобально: `enableAnimations: false`. На компоненте (Badge/Alert/Kbd): `hoverLift={false}`.
 
 **Reduced motion / touch:** через `shouldSkipInteractiveHoverLift()` — без scale/lift.
 

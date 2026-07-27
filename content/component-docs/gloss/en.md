@@ -103,7 +103,7 @@ configureMotion({
 });
 ```
 
-Per component: `animated={false}` or `hoverLift={false}` disables motion locally.
+Globally: `enableAnimations: false`. Per component (Badge/Alert/Kbd): `hoverLift={false}`.
 
 **Reduced motion / touch:** via `shouldSkipInteractiveHoverLift()` — no scale/lift.
 

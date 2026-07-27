@@ -177,6 +177,8 @@ No GSAP scale/lift on rows.
 
 Controlled via React (`selectedKeys`, `onSelectionChange`):
 
+- Per-row `isSelected` / roving focus — external store + `useSyncExternalStore` (only affected rows re-render)
+- `Table.Row` / `Table.Cell` — `memo`
 - Row: `aria-selected`, `bg-default-hover` or gloss tint
 - Cell (toned): `ring-2 ring-inset ring-primary` when selected
 - Checkbox column — via `selectionMode`, no fill animation
@@ -194,7 +196,7 @@ Controlled via React (`selectedKeys`, `onSelectionChange`):
 |-----------|---------|------------------------|------------|
 | Chevron rotate | `useChevronRotation` | `interactiveDuration`, `interactiveEase` | `allowsSorting` on Column |
 | Row hover tint | CSS `hoverVariant` / brightness | — | `variant`, `tone` |
-| Selection highlight | React + CSS | — | `selectionMode`, `selectedKeys` |
+| Selection highlight | Store + CSS | — | `selectionMode`, `selectedKeys` |
 
 ## Tokens and CSS
 

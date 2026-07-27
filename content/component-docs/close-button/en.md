@@ -24,7 +24,6 @@ The component uses **simple API** (a single `<button>` without children). No com
 |------|-----|--------------|----------|
 | `variant` | `default` \| `primary` \| `outline` \| `secondary` \| `ghost` \| `gloss` | `default` | Visual style (shared with Button) |
 | `size` | `small` \| `base` \| `mid` \| `large` | `base` | Square area and icon size |
-| `animated` | `boolean` | `true` | Hover lift + press squeeze |
 | `ripple` | `boolean` | `false` | Converge-ripple on press |
 | `disabled` | `boolean` | `false` | `opacity-50`, `cursor-not-allowed` |
 | `aria-label` | `string` | `"Close"` | Accessible name (must be overridden in context) |
@@ -145,7 +144,7 @@ configureMotion({
 });
 ```
 
-**Locally:** `animated={false}`.
+**Globally:** `enableAnimations: false`.
 
 **Reduced motion / touch:** `shouldSkipInteractiveHoverLift()` — no lift or squeeze.
 
@@ -174,8 +173,8 @@ The `duration` prop on Ripple overrides the global duration. Disabled when `disa
 
 | Animation | Utility | `configureMotion` keys | Local prop |
 |----------|---------|---------------------------|----------------|
-| Hover lift | `useFirstLevelInteractiveMotion` | `hoverLiftScale`, `enableHoverLift` | `animated` |
-| Press squeeze | `animateInteractivePressSqueeze` | `pressSqueezeScale`, `enablePressSqueeze` | `animated` |
+| Hover lift | `useFirstLevelInteractiveMotion` | `hoverLiftScale`, `enableHoverLift` | — |
+| Press squeeze | `animateInteractivePressSqueeze` | `pressSqueezeScale`, `enablePressSqueeze` | — |
 | Ripple | `<Ripple />` | `rippleDefaultDuration`, `enableRipple` | `ripple` |
 | Gloss | `glossInteractiveMotion` | interactive tokens | `variant="gloss"` |
 
@@ -234,14 +233,14 @@ CloseButton is a leaf component (no compound/simple split): a single `<button>` 
 
 ### Disabling animations
 
-```tsx
-<CloseButton animated={false} aria-label="Close" />
+```ts
+configureMotion({ enableAnimations: false });
+// or selectively:
+configureMotion({ enableHoverLift: false, enablePressSqueeze: false });
 ```
 
-### Practical notes
+There is no per-instance `animated` prop.
 
-- **aria-label** is required (default "Close" — specify context: "Close dialog").
-- **Merge order:** `closeButtonRootClass` → `classNames.root` → `className`.
 
 ## Accessibility
 

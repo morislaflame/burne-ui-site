@@ -94,7 +94,7 @@ import {
 
 ```
 <div role=progressbar track>
-  <span fill ref=fillRef>    ← width/height % + GSAP
+  <span fill ref=fillRef>    ← 100% box + GSAP scaleX/scaleY
 </div>
 ```
 
@@ -110,9 +110,9 @@ import {
 
 При изменении `value`:
 
-- target width/height из percent
-- **First layout / reduced / `enableProgressFill: false`:** instant CSS
-- Иначе: `gsap.to(fill, { width|height, ...motionProgressFill() })`
+- fill на весь track (`width/height: 100%`); прогресс = `scaleX` (horizontal, origin left) / `scaleY` (vertical, origin bottom)
+- **First layout / reduced / `enableProgressFill: false`:** instant `gsap.set`
+- Иначе: `gsap.to(fill, { scaleX|scaleY, ...motionProgressFill() })`
 
 `motionProgressFill()` — `progressFillDuration`, `progressFillEase`.
 
@@ -147,7 +147,7 @@ configureMotion({
 
 | Режим | Анимация | Настройка |
 |-------|----------|-----------|
-| Determinate | GSAP width/height | `progressFillDuration`, `enableProgressFill` |
+| Determinate | GSAP `scaleX`/`scaleY` | `progressFillDuration`, `enableProgressFill` |
 | Indeterminate | GSAP translate loop | hardcode 1500ms, expo.inOut |
 | Value text | React re-render | `formatValue` |
 
@@ -219,7 +219,7 @@ configureMotion({
 
 - **`indeterminateFill` vs `fill`:** разные DOM-элементы — стилизуйте нужный слот.
 - **`color` prop** — inline tint; classNames дополняют.
-- **Не фиксируйте width fill в determinate** — управляется анимацией.
+- **Не фиксируйте `transform` / scale на fill в determinate** — управляется анимацией (`scaleX`/`scaleY`).
 - **Порядок мержа:** базовые → `classNames` → `className`.
 
 ## Доступность

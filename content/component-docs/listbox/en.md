@@ -79,7 +79,12 @@ import {
 
 ### `useListBox()`
 
-Context inside `ListBox`: `selected`, `selectItem`, `activeValue`, `showIndicator`, `indicatorMode` (`radio` | `multi`).
+Selection context inside `ListBox`: `selected`, `selectItem`, `setActiveValue`, `showIndicator`, `indicatorMode` (`radio` | `multi`).  
+`activeValue` is separate: `useListBoxActiveValue()` + DOM `data-active` (arrow/hover does not re-render every option).
+
+### `useListBoxActiveValue()`
+
+Current keyboard/hover active option value (`string | null`).
 
 ## variant
 
@@ -132,7 +137,7 @@ Mode: `radio` (single) or `multi` (multiple) from context.
 
 ### 4. Active highlight (CSS)
 
-`active` (keyboard focus option) → `bg-default-hover` — no GSAP.
+Root syncs the `data-active` attribute on the active option (`useListBoxActiveOptionHighlight`). Style is the static `data-active:bg-default-hover` class on each item — no React `isActive`, no GSAP.
 
 ### Summary
 

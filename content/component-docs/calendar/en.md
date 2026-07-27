@@ -142,7 +142,7 @@ Nav buttons: `CALENDAR_NAV_BTN` per size. Weekday labels — uppercase muted `we
 
 ### 1. Nav buttons (`useCalendarNavButtonAnimations`)
 
-**Pointer enter:** `animateInteractiveHoverLift(el, true)` — scale lift without second-level shadow (1st level).
+**Pointer enter:** `animateInteractiveHoverLift(el, true)` — scale lift without second-level shadow (1st level); dynamic `will-change` for the tween (no permanent `will-change-transform` on cells).
 
 **Pointer leave:** lift reverse.
 
@@ -166,7 +166,7 @@ configureMotion({
 });
 ```
 
-**Reduced motion:** `shouldSkipInteractiveHoverLift()` / `prefersReducedInteractiveHoverLift()` — no lift/squeeze.
+**Reduced motion:** `shouldSkipInteractiveHoverLift()` / `prefersReducedMotion()` — no lift/squeeze.
 
 ### 2. Day / month / year cells (`useCalendarInteractiveCellAnimations`)
 
@@ -182,7 +182,7 @@ Same pipeline as nav: hover lift + press squeeze on `<button>`.
 
 ### 3. Selection fill (`useToggleButtonFillAnimation`)
 
-`cellFill` span — GSAP scale/opacity fill on `selected` / `aria-pressed`:
+`cellFill` span — GSAP scale/opacity fill on `selected` / `aria-pressed` (+ dynamic `will-change` during the fill tween):
 
 - Same as `ToggleButton` / `Switch` fill
 - **Do not override `transform` on `cellFill` in CSS**

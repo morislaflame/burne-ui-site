@@ -11,7 +11,8 @@
     "use-demo-raw": "node scripts/use-demo-raw-imports.mjs"
   },
   "dependencies": {
-    "burne-ui": "^1.6.9",
+    "burne-ui": "^1.7.0",
+    "gsap": "^3.15.0",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",

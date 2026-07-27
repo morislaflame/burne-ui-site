@@ -104,9 +104,11 @@ function useThemeTokensState() {
     (
       key:
         | "interactiveDuration"
+        | "modalDuration"
         | "tooltipDuration"
         | "expandDuration"
         | "progressFillDuration"
+        | "progressIndeterminateDuration"
         | "loadingDotsDuration"
         | "switchThumbDuration"
         | "selectionFillDuration"
@@ -128,6 +130,7 @@ function useThemeTokensState() {
         | "hoverLiftScale"
         | "badgeAnchorHoverLiftScale"
         | "pressSqueezeMid"
+        | "pressSqueezeDurationFactor"
         | "rippleDefaultOpacityFrom"
         | "rippleExpandableOpacityFrom",
       value: number,
@@ -146,6 +149,7 @@ function useThemeTokensState() {
         | "selectionFillEase"
         | "expandOpenEase"
         | "progressFillEase"
+        | "progressIndeterminateEase"
         | "loadingDotsEaseUp"
         | "loadingDotsEaseDown"
         | "toastDismissEase",
@@ -163,6 +167,7 @@ function useThemeTokensState() {
   const setAnimationFlag = useCallback(
     (
       key:
+        | "enableAnimations"
         | "enableHoverLift"
         | "enablePressSqueeze"
         | "enableToggleButtonFill"
@@ -173,7 +178,12 @@ function useThemeTokensState() {
         | "enableContentFade"
         | "enableFeedbackExpand"
         | "enableProgressFill"
-        | "enableLoadingDots",
+        | "enableLoadingDots"
+        | "enableModalMotion"
+        | "enableSwitchThumb"
+        | "enableTabsIndicator"
+        | "enablePaginationFlip"
+        | "enableSelectionFill",
       value: boolean,
     ) => {
       setState((prev) => ({ ...prev, [key]: value }));

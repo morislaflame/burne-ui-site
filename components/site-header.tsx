@@ -62,7 +62,6 @@ export function SiteHeader() {
             type="button"
             variant="outline"
             size="small"
-            animated
             ripple
             icon={<IoLogoGithub />}
             onClick={() => window.open(githubUrl, "_blank", "noopener,noreferrer")}

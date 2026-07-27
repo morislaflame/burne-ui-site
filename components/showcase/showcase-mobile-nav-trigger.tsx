@@ -21,7 +21,6 @@ export function ShowcaseMobileNavTrigger() {
         variant="outline"
         size="small"
         iconOnly
-        animated
         ripple
         aria-label="Components"
         aria-haspopup="dialog"

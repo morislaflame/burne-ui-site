@@ -177,6 +177,8 @@ configureMotion({
 
 Controlled через React (`selectedKeys`, `onSelectionChange`):
 
+- Per-row `isSelected` / roving focus — external store + `useSyncExternalStore` (ре-рендер только затронутых строк)
+- `Table.Row` / `Table.Cell` — `memo`
 - Row: `aria-selected`, `bg-default-hover` или gloss tint
 - Cell (toned): `ring-2 ring-inset ring-primary` при selected
 - Checkbox column — через `selectionMode`, без fill animation
@@ -194,7 +196,7 @@ Controlled через React (`selectedKeys`, `onSelectionChange`):
 |----------|---------|---------------------------|----------------|
 | Chevron rotate | `useChevronRotation` | `interactiveDuration`, `interactiveEase` | `allowsSorting` на Column |
 | Row hover tint | CSS `hoverVariant` / brightness | — | `variant`, `tone` |
-| Selection highlight | React + CSS | — | `selectionMode`, `selectedKeys` |
+| Selection highlight | Store + CSS | — | `selectionMode`, `selectedKeys` |
 
 ## Токены и CSS
 

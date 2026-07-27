@@ -139,7 +139,7 @@ configureMotion({
 });
 ```
 
-**Reduced motion / touch:** lift and squeeze are disabled (`prefersReducedInteractiveHoverLift`, viewport ≤ tablet).
+**Reduced motion / touch:** lift and squeeze are disabled (`prefersReducedMotion`, viewport ≤ tablet).
 
 **Locally:** motion is always enabled in `useLinkAnimations`; Link has no disabled state — for an inactive link use styles + `aria-disabled` / `pointer-events-none` manually.
 

@@ -74,6 +74,10 @@ const [page, setPage] = useState(1);
 
 `Pagination.Pages` требует `page` и `totalPages` на root.
 
+## Layout / responsive
+
+Root — `flex-wrap`: Summary слева, Content справа. На узкой ширине Summary может уйти на свою строку; кнопки внутри `Pagination.Content` **не переносятся** — горизонтальный скролл (`overflow-x-auto` + `flex-nowrap`).
+
 ## Поведение range
 
 `getPaginationRange(page, totalPages, siblingCount)`:
@@ -106,7 +110,7 @@ const [page, setPage] = useState(1);
 
 ### 1. Page flip (`usePaginationFlip`)
 
-На каждый layout pass `Pagination.Content` (`useLayoutEffect`):
+`useLayoutEffect` с зависимостями `page` / `totalPages` / `siblingCount` / `children` (не на каждый рендер Content):
 
 1. Собирает `data-flip-key` у `<li>` children (или `__keyless_N` fallback)
 2. Сравнивает `getBoundingClientRect()` с предыдущим кадром
@@ -128,7 +132,7 @@ configureMotion({
 });
 ```
 
-**Reduced motion:** `prefersReducedInteractiveHoverLift()` — мгновенный layout без GSAP.
+**Reduced motion:** `prefersReducedMotion()` — мгновенный layout без GSAP.
 
 ### 2. Button press text motion
 

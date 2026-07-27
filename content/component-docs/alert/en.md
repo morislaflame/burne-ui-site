@@ -133,7 +133,7 @@ No collapse, portal, or ripple. Only hover lift on the root.
 
 **Pointer leave:** back to `sm`, scale `1`.
 
-Root class: `animate-shadow will-change-transform origin-center` (`SHADOW_LIFT_MOTION_CLASS`).
+Root class: `animate-shadow origin-center` (`SHADOW_LIFT_MOTION_CLASS`). `will-change` is set dynamically for the GSAP tween duration.
 
 **Difference from Button (1st level):** Alert **always** has a shadow at rest; Button — only on hover.
 
@@ -197,7 +197,7 @@ Surface always follows `variant` (like `AlertDialog`). Status colors the indicat
 
 - Rest: `shadow-token-sm` (via `--el-shadow`)
 - Hover: `shadow-token-md`
-- Motion class: `animate-shadow will-change-transform`
+- Motion class: `animate-shadow origin-center` (+ dynamic `will-change` during the tween)
 
 ### Indicator
 
@@ -314,4 +314,4 @@ Alert/
 
 ## Storybook
 
-`Core Components/Alert` — variants × statuses, compound, gloss, hoverLift, `classNames` customization, light/dark theme.
+`Core Components/Alert` — variants × statuses, compound, gloss, `hoverLift`, `classNames` customization, light/dark theme.

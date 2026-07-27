@@ -37,7 +37,7 @@ import {
 ### Pressable card
 
 ```tsx
-<Card pressable animated onPress={(e) => console.log(e)}>
+<Card pressable onPress={(e) => console.log(e)}>
   <Card.Header>
     <Card.Title>Open</Card.Title>
   </Card.Header>
@@ -66,7 +66,6 @@ No Simple API (no `title` prop on root) — compound children only.
 | `variant` | `default` | `default` \| `outline` \| `secondary` \| `gloss` |
 | `size` | `base` | `small` \| `base` \| `mid` \| `large` — radius (same as Button), section padding, Title/Description type scale |
 | `pressable` | `false` | Interactive card (`<button>` root) |
-| `animated` | `true` | GSAP hover/squeeze (when `pressable`) |
 | `onPress` | — | Activation on click / Enter / Space |
 | `onClick` / `onKeyDown` / `onPointerDown` | — | Low-level handlers |
 | `className` | — | Root / gloss panel |
@@ -159,7 +158,7 @@ Class: `pressableLift.motionClass` (`SHADOW_LIFT_MOTION_CLASS`).
 
 ### 2. Press squeeze
 
-`pointerdown` on pressable root (`animated={true}`):
+`pointerdown` on pressable root (enabled motion):
 
 - **default/outline/secondary:** `animateInteractivePressSqueeze(shell, { pointerInside, shadow })`
 - **gloss:** `animateGlossInteractivePressSqueeze(shell, pointerInside)`
@@ -187,9 +186,9 @@ configureMotion({
 - `useGlossInteractiveHandlers`
 - class `GLOSS_INTERACTIVE_MOTION_CLASS`
 
-`animated={false}` disables squeeze/hover, but `onPress` and button semantics remain.
+`enableAnimations: false` disables squeeze/hover globally; `onPress` and button semantics remain.
 
-**Reduced motion:** `shouldSkipInteractiveHoverLift()` / `prefersReducedInteractiveHoverLift()` — no lift or squeeze.
+**Reduced motion:** `shouldSkipInteractiveHoverLift()` / `prefersReducedMotion()` — no lift or squeeze.
 
 ### 4. Passive card
 
@@ -224,8 +223,8 @@ Squeeze animates the **entire** pressable shell; ripple is a separate layer.
 | Animation | Utility | `configureMotion` keys | Local prop |
 |-----------|---------|------------------------|------------|
 | Static shadow | CSS `shadow-token-sm` | — | `pressable={false}` |
-| Hover lift sm→md | `useSecondLevelShadowContainer` | `hoverLiftScale`, `enableHoverLift` | `pressable`, `animated`, `!gloss` |
-| Press squeeze | `animateInteractivePressSqueeze` | `pressSqueezeScale`, `enablePressSqueeze` | `animated` |
+| Hover lift sm→md | `useSecondLevelShadowContainer` | `hoverLiftScale`, `enableHoverLift` | `pressable`, `!gloss` |
+| Press squeeze | `animateInteractivePressSqueeze` | `pressSqueezeScale`, `enablePressSqueeze` | — |
 | Gloss hover/squeeze | gloss utils | gloss interactive tokens | `variant="gloss"` |
 | Ripple overlay | `<Ripple />` child | `rippleDefaultDuration` | manually in children |
 
@@ -310,7 +309,7 @@ Compound sub-parts do not accept a separate `classNames` — root only.
 </Card>
 ```
 
-`animated={false}` — static pressable card without GSAP (for nested controls).
+`enableAnimations: false` — disable motion globally via `enableAnimations`.
 
 ### Practical notes
 
