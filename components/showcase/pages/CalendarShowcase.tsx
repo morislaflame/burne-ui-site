@@ -112,7 +112,7 @@ export function CalendarShowcase() {
             description="Header, Grid, Footer, Title, NavPrev, NavNext, Day."
           />
           <ShowcaseDoc.ApiRow
-            api="renderDay"
+            api="compound"
             description="renderDay(date, state) customizes day cell content; classNames.dayEmpty for padding cells."
           />
         </ShowcaseDoc.Block>

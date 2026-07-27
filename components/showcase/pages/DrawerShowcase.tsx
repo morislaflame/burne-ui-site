@@ -98,7 +98,7 @@ export function DrawerShowcase() {
             description="Drawer.Header, Drawer.Body, Drawer.Footer, Drawer.Close, Drawer.Handle — panel structure."
           />
           <ShowcaseDoc.ApiRow
-            api="portalContainer"
+            api="compound"
             description="Custom HTMLElement host for the portal (contained: show + absolute)."
           />
         </ShowcaseDoc.Block>

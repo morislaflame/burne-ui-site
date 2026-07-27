@@ -90,7 +90,7 @@ export function DialogShowcase() {
             description="dialog, overlay, panel, content, header, title, description, body, footer, close."
           />
           <ShowcaseDoc.ApiRow
-            api="portalContainer"
+            api="compound"
             description="Custom HTMLElement host. Contained portals use show() + absolute (not showModal top layer)."
           />
         </ShowcaseDoc.Block>
