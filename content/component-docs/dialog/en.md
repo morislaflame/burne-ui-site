@@ -35,12 +35,12 @@ Root **does not render DOM** — only context and the `classNames` provider.
 |------|---------|
 | `Dialog.Trigger` | Opens after press-squeeze; `asChild` merges `id` / `data-*` / `className` / `ref` onto the child |
 | `Dialog.Panel` | Portal + overlay + animations; props below |
-| `Dialog.Content` | Content wrapper (`p-large`, `gap-mid`) |
+| `Dialog.Content` | Content wrapper (`p-xlarge`, `gap-large`) |
 | `Dialog.Header` | Header: heading + close |
 | `Dialog.HeadingBlock` | Title + description block |
 | `Dialog.Title` | `<h2>`, `Text` mid |
 | `Dialog.Description` | `<p>`, `text-muted` |
-| `Dialog.Close` | `CloseButton` small secondary |
+| `Dialog.Close` | `CloseButton` secondary; size from `PANEL_SIZE_LAYOUT.closeButtonSize` |
 | `Dialog.Body` | Scrollable area |
 | `Dialog.Footer` | Buttons, `justify-end` |
 
@@ -114,10 +114,17 @@ Trigger calls `e.preventDefault()` on `pointerdown` to suppress the `Button`'s o
 
 | variant | Panel |
 |---------|-------|
-| `default` | `bg-surface border-token shadow-token-lg rounded-mid` |
+| `default` | `bg-surface border-token shadow-token-large` + radius from `PANEL_SIZE_LAYOUT` |
 | `gloss` | `gloss-panel gloss-deep` + `gloss-content` |
 
-`max-w-component-mid`, `max-h-[min(90dvh,36rem)]`.
+Sizes (`size`) share `PANEL_SIZE_LAYOUT` with AlertDialog / Popover / Card: max-width, max-height, section padding, title/desc/body, radius.
+
+| size | max-width | title / body | close |
+|------|-----------|--------------|-------|
+| `small` | `max-w-component-base` | `small` / `small` | `small` |
+| `base` | `max-w-component-large` | `base` / `base` | `small` |
+| `mid` | `max-w-component-xlarge` | `mid` / `base` | `base` |
+| `large` | `max-w-component-2xlarge` | `large` / `mid` | `base` |
 
 ## Animations
 
@@ -210,27 +217,37 @@ Uses the same `pressSqueezeScale` / `interactiveDuration` as Button.
 
 | UI theme | Overlay |
 |----------|---------|
-| Light | `foreground 14%` + `backdrop-blur` |
-| Dark | `black 58%` |
+| Light | `overlay-backdrop` → `--overlay-backdrop-color` + blur/saturate |
+| Dark | `overlay-backdrop-scrim` → `--overlay-backdrop-scrim` |
 
 Portal theme: `usePortalThemeAnchor`, `useBurneLightTheme`, `burneLightThemePortalProps` — overlay adapts to anchor (e.g. `[data-theme="light"]` in the app).
+
+Override:
+
+```css
+:root {
+  --overlay-backdrop-color: color-mix(in oklab, var(--color-foreground) 20%, transparent);
+  --overlay-backdrop-blur: 20px;
+}
+```
 
 ## Layout
 
 From `modalPanelLayout`:
 
-- `Dialog.Content` — `MODAL_CONTENT_CLASS` (`p-large`, `gap-mid` between Header/Body/Footer)
+- `Dialog.Content` — `MODAL_CONTENT_CLASS` (`p-xlarge`, `gap-large` between Header/Body/Footer)
 - `Dialog.Body` — `MODAL_BODY_SCROLL_CLASS` (scroll only in body)
 
 ## Tokens and CSS
 
 | Class | Purpose |
 |-------|---------|
-| `shadow-token-lg` | Panel shadow |
+| `shadow-token-large` | Panel shadow |
 | `border-token`, `bg-surface` | Default surface |
-| `max-w-component-mid` | Panel width |
-| `rounded-mid` | Border radius |
+| `max-w-component-*` | Panel width (`PANEL_SIZE_LAYOUT`) |
+| `rounded-*` | Radius by `size` (same as Button / Card) |
 | `z-dialog` | Stacking dialog (`--z-dialog`) |
+| `overlay-backdrop` / `overlay-backdrop-scrim` | Backdrop (light frosted / dark solid) |
 | `gloss-panel`, `gloss-deep` | Gloss variant |
 
 ## Styling and customization
@@ -273,7 +290,7 @@ Sub-parts (`Dialog.Title`, `Dialog.Body`, …) accept **`className`** on top of 
     panel: "max-w-lg border-primary/40 bg-primary/5 shadow-token-lg",
     title: "text-primary font-semibold",
     description: "text-foreground/80",
-    body: "px-large",
+    body: "px-xlarge",
     footer: "border-t border-primary/20 pt-small",
     close: "opacity-80",
   }}
@@ -301,7 +318,7 @@ Sub-parts (`Dialog.Title`, `Dialog.Body`, …) accept **`className`** on top of 
 ### Practical notes
 
 - **Panel vs Dialog:** `classNames` are set on `<Dialog>`, rendered in the portal inside `Dialog.Panel`.
-- **Close:** `Dialog.Close` — `CloseButton` wrapper; accepts `variant`, `size`, `classNames` of CloseButton.
+- **Close:** `Dialog.Close` — `CloseButton` wrapper; default `size` from `PANEL_SIZE_LAYOUT.closeButtonSize` (overridable via prop).
 - **Scroll:** only `Dialog.Body` scrolls — set min-height/max-height on the `body` slot.
 - **Merge order:** base styles → `classNames.slot` → sub-part `className` / `Dialog.Panel`.
 

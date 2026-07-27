@@ -271,7 +271,7 @@ Simple рендерит фиксированную разметку: `Label` →
 
   <ComboBox.InputGroup className="shadow-token-sm">
     <ComboBox.Input className="font-medium" placeholder="Поиск…" />
-    <ComboBox.Trigger className="px-mid" />
+    <ComboBox.Trigger className="px-large" />
   </ComboBox.InputGroup>
 
   <ComboBox.Popover className="shadow-token-lg">

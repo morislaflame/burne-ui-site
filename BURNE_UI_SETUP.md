@@ -252,7 +252,7 @@ URL-ы для пресетов Theme panel лежат в `lib/theme-font-links.t
 :root {
   --color-primary: #6366f1;
   --color-surface: #121212;
-  --space: 0.5625rem;
+  --space: 0.5625rem;   /* fixed rem — без fluid по viewport */
   --size: 1.0625rem;
   --radius: 0.625rem;
 }
@@ -261,6 +261,10 @@ URL-ы для пресетов Theme panel лежат в `lib/theme-font-links.t
   --color-primary: #4f46e5;
 }
 ```
+
+Чтобы **сохранить fluid** (адаптацию spacing/size/radius к ширине экрана), задайте knobs в `burne-theme.ts` / theme config — `applyThemeTokens` пишет scaled `clamp`, а не фиксированный rem. Ручной CSS с fixed rem fluid отключает.
+
+Инлайн с JS пишутся **только** токены, отличающиеся от дефолтов кита — точечный CSS-оверрайд остальных переменных не блокируется.
 
 Полный runtime-пример (цвета + layout + шрифты) — см. `components/theme/themeDefaults.ts` → `applyThemeTokens()`.
 

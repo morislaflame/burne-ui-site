@@ -1,6 +1,6 @@
 # ToggleButtonGroup
 
-A group of toggle buttons based on `ToggleButton`. Joined (`separated={false}`) like `ButtonGroup` or with a gap. **multiple** and **single** (radio-like) modes.
+A group of toggle buttons based on `ToggleButton`. Joined (`segmented={false}`) like `ButtonGroup` or with a gap. **multiple** and **single** (radio-like) modes.
 
 ## Import
 
@@ -56,7 +56,7 @@ No compound API — only root + child `ToggleButton` elements.
 |------|--------------|----------|
 | `type` | `multiple` | `multiple` \| `single` |
 | `orientation` | `horizontal` | `horizontal` \| `vertical` |
-| `separated` | `false` | `true` — gap between buttons |
+| `segmented` | `false` | `true` — gap between buttons |
 | `disabled` | `false` | Disables the group and all `ToggleButton` elements |
 | `size` | `base` | `small` \| `base` \| `mid` \| `large` → context |
 | `variant` | `default` | `default` \| `outline` \| `ghost` \| `gloss` |
@@ -134,7 +134,7 @@ configureMotion({
 |----------|---------|---------------------------|----------------|
 | Toggle fill | `useToggleButtonFillAnimation` | `enableToggleButtonFill` | `pressed` |
 | Press squeeze | first-level motion | `pressSqueezeScale` | `disabled` |
-| Segment glue | CSS only | — | `separated` |
+| Segment glue | CSS only | — | `segmented` |
 
 ## Tokens and CSS
 
@@ -170,10 +170,10 @@ Root: `role="toolbar"`, `aria-orientation`, `aria-disabled`.
 </ToggleButtonGroup>
 ```
 
-### Separated variants
+### Segmented variants
 
 ```tsx
-<ToggleButtonGroup separated type="single" variant="outline" aria-label="Theme">
+<ToggleButtonGroup segmented type="single" variant="outline" aria-label="Theme">
   <ToggleButton value="light">Light</ToggleButton>
   <ToggleButton value="dark">Dark</ToggleButton>
 </ToggleButtonGroup>
@@ -185,7 +185,7 @@ Root: `role="toolbar"`, `aria-orientation`, `aria-disabled`.
 - `type="single"`: buttons use `role="radio"`, `aria-checked`; arrow keys on root.
 - `type="multiple"`: `aria-pressed` on buttons.
 - `data-toggle-button-value` on buttons — for keyboard navigation.
-- `separated` — when independent borders/shadows are needed.
+- `segmented` — when independent borders/shadows are needed.
 - `disabled` on the group disables all toggle buttons.
 
 ## Integrations
@@ -224,6 +224,6 @@ ToggleButtonGroup/
 
 ## Storybook
 
-`Composite Components/ToggleButtonGroup` — connected H/V, separated, single, single separated, disabled, variants.
+`Composite Components/ToggleButtonGroup` — connected H/V, segmented, single, single segmented, disabled, variants.
 
 Playground: `playground/showcase/demos/toggleButtonGroup/`.

@@ -94,8 +94,8 @@ Child options are **`Radio`** from core.
 
 | `orientation` | Layout |
 |---------------|--------|
-| `vertical` | `flex flex-col gap-plus` |
-| `horizontal` | `flex flex-row flex-wrap gap-x-mid gap-y-plus` |
+| `vertical` | `flex flex-col gap-mid` |
+| `horizontal` | `flex flex-row flex-wrap gap-x-large gap-y-mid` |
 
 Option visuals via `Radio` (`variant`, `danger` on individual option).
 

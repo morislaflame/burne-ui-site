@@ -86,11 +86,11 @@ import {
 | variant | Root |
 |---------|------|
 | `default` | `flex flex-col gap-xsmall` |
-| `gloss` | `gloss-panel gloss-deep rounded-mid p-plus` + gloss ref refresh |
+| `gloss` | `gloss-panel gloss-deep rounded-mid p-mid` + gloss ref refresh |
 
 ## Размеры
 
-`size` влияет на padding items и размер `SelectionIndicator` в item.
+`size` влияет на padding items, типографику label, gap indicator↔label и размер `SelectionIndicator` (`small` list → `xsmall` indicator).
 
 ## Анимации
 
@@ -198,7 +198,7 @@ Reduced motion: skip GSAP.
 ### Compound item layout
 
 ```tsx
-<ListBox.Item value="de" className="py-large">
+<ListBox.Item value="de" className="py-xlarge">
   <ListBox.ItemIndicator
     classNames={{ itemIndicatorFill: "bg-primary/20" }}
   />

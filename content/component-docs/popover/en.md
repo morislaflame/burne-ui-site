@@ -99,13 +99,14 @@ const [open, setOpen] = useState(false);
 | `default` | `bg-surface border-token` + persistent `shadowSm` |
 | `gloss` | `gloss-panel` + gloss interactive handlers |
 
-Sizes affect padding, typography (`Popover.Title` / `Hint`), and default `gap`.
+Sizes control padding, typography (`Popover.Title` / `Hint`), radius, and default `gap` via shared `PANEL_SIZE_LAYOUT` (with Dialog / AlertDialog / Card).
 
-| size | Typical panel padding |
-|------|----------------------|
-| `small` | compact header/body |
-| `base` | default |
-| `mid` / `large` | increased spacing and Text variants |
+| size | panel padding | title / desc |
+|------|---------------|--------------|
+| `small` | `px-small py-xsmall` | `small` / `xsmall` |
+| `base` | `px-mid py-base` | `base` / `small` |
+| `mid` | `px-large py-mid` | `mid` / `base` |
+| `large` | `px-xlarge py-large` | `large` / `base` |
 
 ## Animations
 
@@ -213,7 +214,7 @@ Gloss panel ref: `bindGlossPanelRef` on inner gloss layer.
 
 | Class / token | Purpose |
 |---------------|---------|
-| `POPOVER_PANEL_CLASS` | `bg-surface border-token rounded-mid` |
+| `POPOVER_DEFAULT_PANEL_CLASS` | `bg-surface border-token` + radius from `PANEL_SIZE_LAYOUT` |
 | `POPOVER_GLOSS_PANEL_CLASS` | `gloss-panel gloss-deep` |
 | `shadowSm()` via persistent shadow | Rest panel shadow |
 | `burneLightThemePortalProps` | Theme sync in portal |

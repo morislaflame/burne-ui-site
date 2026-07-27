@@ -112,7 +112,9 @@ function useThemeTokensState() {
         | "selectionFillDuration"
         | "feedbackExpandDuration"
         | "rippleDefaultDuration"
-        | "rippleExpandableDuration",
+        | "rippleExpandableDuration"
+        | "surfaceTransitionDuration"
+        | "toastDismissDuration",
       value: number,
     ) => {
       setState((prev) => ({ ...prev, [key]: value }));
@@ -145,7 +147,8 @@ function useThemeTokensState() {
         | "expandOpenEase"
         | "progressFillEase"
         | "loadingDotsEaseUp"
-        | "loadingDotsEaseDown",
+        | "loadingDotsEaseDown"
+        | "toastDismissEase",
       value: string,
     ) => {
       setState((prev) => ({ ...prev, [key]: value }));

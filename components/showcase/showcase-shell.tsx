@@ -20,7 +20,7 @@ function DesktopThemePanel() {
 
   return (
     <aside className="hidden md:flex h-full min-h-0 w-96 shrink-0 flex-col overflow-hidden border-l-token bg-surface">
-      <div className="site-panel-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain p-mid">
+      <div className="site-panel-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain p-large">
         <ThemeControls tokens={tokens} />
       </div>
     </aside>
@@ -62,7 +62,7 @@ function MobileThemeDrawer({
           </Drawer.HeadingBlock>
           <Drawer.Close />
         </Drawer.Header>
-        <Drawer.Body className="site-panel-scroll flex min-h-0 flex-1 flex-col overflow-y-auto p-mid">
+        <Drawer.Body className="site-panel-scroll flex min-h-0 flex-1 flex-col overflow-y-auto p-large">
           <ThemeControls tokens={tokens} />
         </Drawer.Body>
       </Drawer.Panel>
@@ -124,7 +124,7 @@ export function ShowcaseShell({ children }: { children: ReactNode }) {
           <div
             key={pathname}
             ref={contentRef}
-            className="mx-auto box-border flex min-h-full w-full max-w-4xl flex-col px-mid py-xlarge"
+            className="mx-auto box-border flex min-h-full w-full max-w-4xl flex-col px-large py-2xlarge"
           >
             {children}
           </div>

@@ -160,9 +160,8 @@ Track opacity `0.48` instant на `trackRef`.
 | Анимация | `configureMotion` |
 |----------|-------------------|
 | Thumb slide | `switchThumbDuration`, `switchThumbEase` |
-| Fill/icons | `interactiveDuration`, `interactiveEase` |
+| Track fill / icons | `interactiveDuration`, `interactiveEase` |
 | Press squeeze | `pressSqueezeScale`, `enablePressSqueeze` |
-| SelectionThumb fill | interactive (внутри thumb) |
 
 ## Стилизация и кастомизация
 

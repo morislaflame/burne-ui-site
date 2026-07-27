@@ -6,12 +6,12 @@ import { cn } from "burne-ui";
 
 function ShowcaseDocRoot({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <Card variant="outline" className={cn("flex flex-col gap-mid", className)}>
+    <Card variant="outline" className={cn("flex flex-col gap-large", className)}>
       <Card.Header>
         <Card.Title>Documentation</Card.Title>
         <Card.Description>Import, API and customization rules.</Card.Description>
       </Card.Header>
-      <Card.Body className="flex flex-col gap-mid pt-0">{children}</Card.Body>
+      <Card.Body className="flex flex-col gap-large pt-0">{children}</Card.Body>
     </Card>
   );
 }
@@ -61,7 +61,7 @@ function ShowcaseDocApiRow({
     <div className="flex flex-col gap-xsmall sm:flex-row sm:items-start sm:gap-small">
       <Text
         as="span"
-        variant="tools"
+        variant="xsmall"
         className="inline-flex w-fit shrink-0 rounded-small bg-surface-secondary px-small py-0.5 font-medium text-foreground"
       >
         {label}

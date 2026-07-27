@@ -9,7 +9,7 @@ const METRICS = [
 
 export function CardMetricTilesDemo() {
   return (
-    <div className="grid w-full max-w-2xl gap-mid sm:grid-cols-3">
+    <div className="grid w-full max-w-2xl gap-large sm:grid-cols-3">
       {METRICS.map((metric) => (
         <Card key={metric.label} variant="secondary">
           <Card.Header>
@@ -17,10 +17,10 @@ export function CardMetricTilesDemo() {
             <Card.Title className="text-xl font-bold">{metric.value}</Card.Title>
           </Card.Header>
           <Card.Body>
-            <Text as="span" variant="tools" className="font-medium text-success">
+            <Text as="span" variant="xsmall" className="font-medium text-success">
               {metric.delta}
             </Text>
-            <Text as="span" variant="tools" className="text-muted">
+            <Text as="span" variant="xsmall" className="text-muted">
               {" "}
               in 30 days
             </Text>

@@ -52,7 +52,7 @@ import {
 | Prop | По умолчанию | Описание |
 |------|--------------|----------|
 | `selected` | — | **Обязательный.** Активное состояние → анимация fill/mark |
-| `size` | `base` | `small` \| `base` \| `mid` \| `large` |
+| `size` | `base` | `xsmall` \| `small` \| `base` \| `mid` \| `large` |
 | `variant` | `base` | `base` \| `secondary` \| `outline` \| `gloss` |
 | `check` | `false` | Дефолтная галочка `IoCheckmarkSharp` |
 | `dot` | `false` | Radio-dot (круг внутри) |
@@ -90,14 +90,16 @@ type SelectionIndicatorClassNames = {
 
 ## Размеры
 
-CSS-переменные: `--selection-indicator-small` … `--selection-indicator-large`.
+CSS-переменные: `--selection-indicator-xsmall` … `--selection-indicator-large` (диаметр),
+`--selection-indicator-radius-*` = `--radius-*` × 0.75 (углы shell/dot — не `rounded-full`; fill без своего радиуса, клип через shell).
 
-| size | CSS class | Icon class |
-|------|-----------|------------|
-| `small` | `selection-indicator-small` | `icon-xsmall` |
-| `base` | `selection-indicator-base` | `icon-xsmall` |
-| `mid` | `selection-indicator-mid` | `icon-base` |
-| `large` | `selection-indicator-large` | `icon-mid` |
+| size | CSS class | Mark icon |
+|------|-----------|-----------|
+| `xsmall` | `selection-indicator-xsmall` | `--icon-size-xsmall` × 0.75 |
+| `small` | `selection-indicator-small` | `--icon-size-small` × 0.75 |
+| `base` | `selection-indicator-base` | `--icon-size-base` × 0.75 |
+| `mid` | `selection-indicator-mid` | `--icon-size-mid` × 0.75 |
+| `large` | `selection-indicator-large` | `--icon-size-large` × 0.75 |
 
 Утилита `selectionIndicatorFallbackPx(size)` — px для layout без DOM.
 
@@ -108,8 +110,8 @@ CSS-переменные: `--selection-indicator-small` … `--selection-indicat
 **DOM-структура:**
 
 ```
-<span shell aria-hidden>              ← rounded-full shell
-  <span fill ref=fillRef>             ← scale 0→1, z-0
+<span shell aria-hidden>              ← shell: size + radius token
+  <span fill ref=fillRef>             ← scale 0→1, z-0, inset-0 (clip via shell overflow)
   <span mark ref=markRef>             ← check/dot/icon, z-2
 </span>
 ```

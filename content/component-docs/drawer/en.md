@@ -24,6 +24,7 @@ import {
 | `open` | — | Controlled state |
 | `onOpenChange` | — | Open/close callback |
 | `placement` | `right` | `left` \| `right` \| `top` \| `bottom` |
+| `size` | `base` | Chrome density (`PANEL_SIZE_LAYOUT`): padding, typography, close/footer buttons |
 | `classNames` | — | Portal and panel slots |
 
 ### Compound sub-parts
@@ -34,7 +35,7 @@ import {
 | `Drawer.Panel` | Portal + overlay + slide motion |
 | `Drawer.Backdrop` | Marker `isDismissable={false}` (renders `null`) |
 | `Drawer.Handle` | Drag handle for swipe-dismiss |
-| `Drawer.Content` | Layout wrapper (`p-large`, `gap-mid`) |
+| `Drawer.Content` | Layout wrapper (`p-xlarge`, `gap-large`) |
 | `Drawer.Header` / `HeadingBlock` / `Title` / `Description` | Header |
 | `Drawer.Body` | Scrollable area |
 | `Drawer.Footer` | Buttons |
@@ -44,7 +45,7 @@ import {
 
 | Prop | Default | Description |
 |------|---------|-------------|
-| `size` | `default` | `default` \| `mid` \| `full` |
+| `extent` | `default` | `default` \| `mid` \| `full` |
 | `variant` | `default` | `default` \| `gloss` |
 | `themeAnchor` | auto | Theme anchor for portal overlay |
 | `className` | — | On focusable panel wrapper |
@@ -73,7 +74,7 @@ const [open, setOpen] = useState(false);
 
 `Drawer.Backdrop isDismissable={false}` — disable closing on overlay click.
 
-## placement and size
+## placement, extent, and size
 
 | placement | Slide axis | Panel position |
 |-----------|------------|----------------|
@@ -82,13 +83,15 @@ const [open, setOpen] = useState(false);
 | `top` | `yPercent: -100 → 0` | `top-0 inset-x-0` |
 | `bottom` | `yPercent: 100 → 0` | `bottom-0 inset-x-0` |
 
-| size | horizontal drawer | vertical drawer |
+`extent` on `Drawer.Panel` — viewport share. `size` on `Drawer` — chrome from `PANEL_SIZE_LAYOUT` (same as Dialog / Card).
+
+| extent | horizontal drawer | vertical drawer |
 |------|-------------------|-----------------|
 | `default` | `max-w-[min(100vw,24rem)]` | `max-h-[90dvh]` |
 | `mid` | `50vw` | `max-h-[50dvh]` |
 | `full` | `w-screen` | `h-dvh` |
 
-Rounding: `rounded-*-mid` on the side opposite the screen edge (`size="full"` — no rounding).
+Edge rounding: `rounded-*-{size}` (`extent="full"` — no rounding).
 
 ## Animations
 
@@ -200,8 +203,8 @@ Slide keyframes — in `drawerAPI.ts`, not in config.
 
 | Element | Classes |
 |---------|---------|
-| Overlay light | `foreground 14%` + blur |
-| Overlay dark | `black 55%` |
+| Overlay light | `overlay-backdrop` (`--overlay-backdrop-color` + blur) |
+| Overlay dark | `overlay-backdrop-scrim` (`--overlay-backdrop-scrim`) |
 | Panel | `bg-surface border-token shadow-token-lg` |
 | Gloss | `gloss-panel gloss-deep` |
 | Handle grip | `bg-tertiary`, `rounded-full` |
@@ -236,7 +239,7 @@ Sub-parts (`Drawer.Title`, `Drawer.Handle`, …) accept **`className`** on top o
 | `footer` | `Drawer.Footer` | Actions row |
 | `close` | `Drawer.Close` | CloseButton styles |
 
-`Drawer.Panel`: `size` (`default` | `mid` | `full`), `variant` (`default` | `gloss`), `placement` on `<Drawer>`.
+`Drawer.Panel`: `extent` (`default` | `mid` | `full`), `variant` (`default` | `gloss`); `placement` / `size` on `<Drawer>`.
 
 ### Compound API
 
@@ -248,11 +251,11 @@ Sub-parts (`Drawer.Title`, `Drawer.Handle`, …) accept **`className`** on top o
   classNames={{
     overlay: "backdrop-blur-2xl",
     panel: "max-h-[85vh] border-primary/40 shadow-token-lg",
-    handle: "py-plus",
+    handle: "py-mid",
     header: "border-b border-primary/20 pb-small",
     title: "text-primary font-semibold",
     description: "text-foreground/75",
-    body: "px-large",
+    body: "px-xlarge",
     footer: "border-t border-primary/20 pt-small",
   }}
 >

@@ -34,13 +34,13 @@ export function DrawerNotificationPanelDemo() {
           </Drawer.HeadingBlock>
           <Drawer.Close />
         </Drawer.Header>
-        <Drawer.Body className="flex flex-col gap-mid">
+        <Drawer.Body className="flex flex-col gap-large">
           {NOTIFICATIONS.map((item) => (
-            <div key={item.title} className="flex flex-col gap-xsmall rounded-base border-token px-plus py-small">
+            <div key={item.title} className="flex flex-col gap-xsmall rounded-base border-token px-mid py-small">
               <Text as="span" variant="small" className="font-medium">
                 {item.title}
               </Text>
-              <Text as="span" variant="tools" className="text-muted">
+              <Text as="span" variant="xsmall" className="text-muted">
                 {item.time}
               </Text>
             </div>

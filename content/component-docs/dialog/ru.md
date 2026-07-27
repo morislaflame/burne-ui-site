@@ -35,12 +35,12 @@ Root **не рендерит DOM** — только контекст и `classNa
 |-------|------------|
 | `Dialog.Trigger` | Открытие после press-squeeze; `asChild` мержит `id` / `data-*` / `className` / `ref` на child |
 | `Dialog.Panel` | Портал + overlay + анимации; props ниже |
-| `Dialog.Content` | Обёртка контента (`p-large`, `gap-mid`) |
+| `Dialog.Content` | Обёртка контента (`p-xlarge`, `gap-large`) |
 | `Dialog.Header` | Шапка: heading + close |
 | `Dialog.HeadingBlock` | Блок title + description |
 | `Dialog.Title` | `<h2>`, `Text` mid |
 | `Dialog.Description` | `<p>`, `text-muted` |
-| `Dialog.Close` | `CloseButton` small secondary |
+| `Dialog.Close` | `CloseButton` secondary; size из `PANEL_SIZE_LAYOUT.closeButtonSize` |
 | `Dialog.Body` | Скроллируемая область |
 | `Dialog.Footer` | Кнопки, `justify-end` |
 
@@ -114,10 +114,17 @@ Trigger вызывает `e.preventDefault()` на `pointerdown`, чтобы п�
 
 | variant | Панель |
 |---------|--------|
-| `default` | `bg-surface border-token shadow-token-lg rounded-mid` |
+| `default` | `bg-surface border-token shadow-token-large` + radius из `PANEL_SIZE_LAYOUT` |
 | `gloss` | `gloss-panel gloss-deep` + `gloss-content` |
 
-`max-w-component-mid`, `max-h-[min(90dvh,36rem)]`.
+Размеры (`size`) — общий пресет `PANEL_SIZE_LAYOUT` (вместе с AlertDialog / Popover / Card): max-width, max-height, section padding, title/desc/body, radius.
+
+| size | max-width | title / body | close |
+|------|-----------|--------------|-------|
+| `small` | `max-w-component-base` | `small` / `small` | `small` |
+| `base` | `max-w-component-large` | `base` / `base` | `small` |
+| `mid` | `max-w-component-xlarge` | `mid` / `base` | `base` |
+| `large` | `max-w-component-2xlarge` | `large` / `mid` | `base` |
 
 ## Анимации
 
@@ -210,27 +217,37 @@ Kill tweens при unmount через `killMotion(overlay, panel)`.
 
 | Тема UI | Overlay |
 |---------|---------|
-| Light | `foreground 14%` + `backdrop-blur` |
-| Dark | `black 58%` |
+| Light | `overlay-backdrop` → `--overlay-backdrop-color` + blur/saturate |
+| Dark | `overlay-backdrop-scrim` → `--overlay-backdrop-scrim` |
 
 Тема портала: `usePortalThemeAnchor`, `useBurneLightTheme`, `burneLightThemePortalProps` — overlay подстраивается под якорь (например, `[data-theme="light"]` в приложении).
+
+Переопределение:
+
+```css
+:root {
+  --overlay-backdrop-color: color-mix(in oklab, var(--color-foreground) 20%, transparent);
+  --overlay-backdrop-blur: 20px;
+}
+```
 
 ## Layout
 
 Из `modalPanelLayout`:
 
-- `Dialog.Content` — `MODAL_CONTENT_CLASS` (`p-large`, `gap-mid` между Header/Body/Footer)
+- `Dialog.Content` — `MODAL_CONTENT_CLASS` (`p-xlarge`, `gap-large` между Header/Body/Footer)
 - `Dialog.Body` — `MODAL_BODY_SCROLL_CLASS` (скролл только в body)
 
 ## Токены и CSS
 
 | Класс | Назначение |
 |-------|------------|
-| `shadow-token-lg` | Тень панели |
+| `shadow-token-large` | Тень панели |
 | `border-token`, `bg-surface` | Default surface |
-| `max-w-component-mid` | Ширина панели |
-| `rounded-mid` | Скругление |
+| `max-w-component-*` | Ширина панели (`PANEL_SIZE_LAYOUT`) |
+| `rounded-*` | Скругление по `size` (как Button / Card) |
 | `z-dialog` | Stacking dialog (`--z-dialog`) |
+| `overlay-backdrop` / `overlay-backdrop-scrim` | Подложка (light frosted / dark solid) |
 | `gloss-panel`, `gloss-deep` | Gloss variant |
 
 ## Стилизация и кастомизация
@@ -273,7 +290,7 @@ Kill tweens при unmount через `killMotion(overlay, panel)`.
     panel: "max-w-lg border-primary/40 bg-primary/5 shadow-token-lg",
     title: "text-primary font-semibold",
     description: "text-foreground/80",
-    body: "px-large",
+    body: "px-xlarge",
     footer: "border-t border-primary/20 pt-small",
     close: "opacity-80",
   }}
@@ -301,7 +318,7 @@ Kill tweens при unmount через `killMotion(overlay, panel)`.
 ### Практические заметки
 
 - **Panel vs Dialog:** `classNames` задаются на `<Dialog>`, рендерятся в портале внутри `Dialog.Panel`.
-- **Close:** `Dialog.Close` — обёртка `CloseButton`; принимает `variant`, `size`, `classNames` CloseButton.
+- **Close:** `Dialog.Close` — обёртка `CloseButton`; `size` по умолчанию из `PANEL_SIZE_LAYOUT.closeButtonSize` (можно переопределить пропом).
 - **Scroll:** только `Dialog.Body` скроллится — min-height/max-height задавайте на `body` слот.
 - **Порядок мержа:** базовые стили → `classNames.slot` → `className` подчасти / `Dialog.Panel`.
 

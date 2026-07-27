@@ -97,14 +97,14 @@ When `status !== "default"`, the hover variant is recalculated (e.g. `primary` +
 
 ## Sizes
 
-Sizes come from `CONTROL_SIZE_LAYOUT` (`controlSizeLayout.ts`):
+Sizes come from `CONTROL_SIZE_LAYOUT` (`utils/sizeLayout`):
 
-| size | Height | min-width (button) | Text (`Text`) | Icon in slot |
-|------|--------|--------------------|----------------|----------------|
-| `small` | `h-control-small` | `min-w-button-small` | `small` | `icon-small` |
-| `base` | `h-control-base` | `min-w-button-base` | `base` | `icon-base` |
-| `mid` | `h-control-mid` | `min-w-button-mid` | `mid` | `icon-large` |
-| `large` | `h-control-large` | `min-w-button-large` | `mid` | `icon-large` |
+| size | Height | min-width (button) | Text (`Text`) | Icon in slot | Radius |
+|------|--------|--------------------|----------------|----------------|--------|
+| `small` | `h-control-small` | `min-w-button-small` | `small` | `icon-small` | `rounded-small` |
+| `base` | `h-control-base` | `min-w-button-base` | `base` | `icon-base` | `rounded-base` |
+| `mid` | `h-control-mid` | `min-w-button-mid` | `mid` | `icon-mid` | `rounded-mid` |
+| `large` | `h-control-large` | `min-w-button-large` | `mid` | `icon-large` | `rounded-large` |
 
 With `iconOnly`, minimum width is not applied (`min-w-fit`).
 
@@ -270,7 +270,7 @@ Classes: `gloss-btn`, `gloss-btn-danger`, `gloss-btn-success`, `gloss-btn-info`,
 
 ### Size tokens
 
-`--control-height-*`, `min-w-button-*`, spacing (`px-plus`, `py-small`, …), `icon-small` / `icon-base` / `icon-large`.
+`--control-height-*`, `min-w-button-*`, spacing (`px-mid`, `py-small`, …), `icon-small` / `icon-base` / `icon-large`.
 
 ## Styling and customization
 
@@ -306,7 +306,7 @@ Icons and text are children / `icon`; there are no separate slots for them.
 For non-standard markup inside the button, use children and style wrappers yourself:
 
 ```tsx
-<Button variant="ghost" className="justify-between gap-large px-large">
+<Button variant="ghost" className="justify-between gap-xlarge px-xlarge">
   <span className="flex flex-col items-start text-left">
     <span className="font-semibold">Title</span>
     <span className="text-small text-muted">Caption</span>

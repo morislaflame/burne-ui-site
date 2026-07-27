@@ -9,7 +9,7 @@ export function TimeFieldVariantsDemo() {
   const [timeValue, setTimeValue] = useState("09:30");
 
   return (
-    <div className="flex w-full flex-col items-center gap-mid">
+    <div className="flex w-full flex-col items-center gap-large">
       <TimeField
         label="Start of shift"
         hint="Default shell — bg-surface."

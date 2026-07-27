@@ -274,7 +274,7 @@ Toggle password и remove file — **CSS** `hoverVariant`, `TEXT_COLOR_TRANSITIO
 
   <div className="relative">
     <Input.Control
-      className="pr-large"
+      className="pr-xlarge"
       placeholder="you@example.com"
       prefix={<IoMail aria-hidden />}
     />

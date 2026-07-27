@@ -2,7 +2,7 @@ import { Skeleton } from "burne-ui";
 
 export function SkeletonBasicShapesDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-mid">
+    <div className="flex flex-wrap items-center gap-large">
       <Skeleton className="h-10 w-32" />
       <Skeleton.Circle className="size-10" />
     </div>

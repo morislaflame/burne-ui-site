@@ -12,7 +12,7 @@ export function SelectVariantsDemo() {
   const [value, setValue] = useState("react");
 
   return (
-    <div className="flex w-full flex-col items-center gap-mid">
+    <div className="flex w-full flex-col items-center gap-large">
       <Select
         label="Framework"
         options={options}

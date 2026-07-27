@@ -202,7 +202,7 @@ Subparts accept **`className`** on top of the context slot.
   <Select.Label className="font-semibold">Region</Select.Label>
   <Select.TriggerGroup className="shadow-token-sm">
     <Select.Value className="text-left" placeholder="—" />
-    <Select.Trigger className="px-mid" />
+    <Select.Trigger className="px-large" />
   </Select.TriggerGroup>
   <Select.Popover className="shadow-token-lg" />
 </Select>

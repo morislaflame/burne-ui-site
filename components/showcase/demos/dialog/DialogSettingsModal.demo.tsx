@@ -24,14 +24,14 @@ export function DialogSettingsModalDemo() {
           </Dialog.HeadingBlock>
           <Dialog.Close />
         </Dialog.Header>
-        <Dialog.Body className="flex flex-col gap-mid">
+        <Dialog.Body className="flex flex-col gap-large">
           <Switch
             checked={analytics}
             onChange={(e) => setAnalytics(e.target.checked)}
             label="Usage analytics"
             hint="Anonymous statistics to improve the product"
           />
-          <Text as="p" variant="tools" className="text-muted">
+          <Text as="p" variant="xsmall" className="text-muted">
             Dialog with settings form inside Body.
           </Text>
         </Dialog.Body>

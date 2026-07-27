@@ -2,7 +2,7 @@ import { Alert } from "burne-ui";
 
 export function AlertGlossDemo() {
   return (
-    <div className="flex flex-col gap-mid">
+    <div className="flex flex-col gap-large">
       <Alert
         variant="gloss"
         status="info"

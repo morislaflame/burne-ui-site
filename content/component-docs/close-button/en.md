@@ -90,10 +90,10 @@ CloseButton has **no** `status` prop — only variant.
 
 | size | Root | Icon |
 |------|--------|--------|
-| `small` | `h-control-small w-control-small` | `icon-small` |
-| `base` | `h-control-base w-control-base` | `icon-base` |
-| `mid` | `h-control-mid w-control-mid` | `icon-large` |
-| `large` | `h-control-large w-control-large` | `icon-large` |
+| `small` | `h-control-xsmall w-control-xsmall` | `icon-small` |
+| `base` | `h-control-small w-control-small` | `icon-base` |
+| `mid` | `h-control-base w-control-base` | `icon-mid` |
+| `large` | `h-control-mid w-control-mid` | `icon-large` |
 
 Shape is always `rounded-full`.
 
@@ -197,7 +197,7 @@ The `duration` prop on Ripple overrides the global duration. Disabled when `disa
 
 ### Size tokens
 
-`h-control-*`, `w-control-*` (square), `icon-small` / `icon-base` / `icon-large`.
+`h-control-*`, `w-control-*` (square), `icon-small` / `icon-base` / `icon-mid` / `icon-large`.
 
 ## Styling and customization
 

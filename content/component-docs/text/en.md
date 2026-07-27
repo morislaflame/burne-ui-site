@@ -36,7 +36,7 @@ There is no compound API: the component is leaf-level and has no sub-parts.
 
 ### `TextVariant`
 
-`accent-header`, `header-1`, `header-2`, `large`, `mid`, `base`, `small`, `tools`.
+`accent-header`, `header-1`, `header-2`, `large`, `mid`, `base`, `small`, `xsmall`.
 
 ### Default tags
 
@@ -45,7 +45,7 @@ There is no compound API: the component is leaf-level and has no sub-parts.
 | `accent-header` | `h1` |
 | `header-1` | `h2` |
 | `header-2` | `h3` |
-| `large` / `mid` / `base` / `small` / `tools` | `p` |
+| `large` / `mid` / `base` / `small` / `xsmall` | `p` |
 
 ## Sizes and variants
 
@@ -60,7 +60,7 @@ There is no compound API: the component is leaf-level and has no sub-parts.
 | `mid` | `text-mid` |
 | `base` | `text-base` |
 | `small` | `text-small` |
-| `tools` | `text-tools` |
+| `xsmall` | `text-xsmall` |
 
 `variant` does not set semantic status and does not change color except the default `text-foreground`.
 

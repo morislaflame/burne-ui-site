@@ -209,7 +209,7 @@ Icons via `icon` + `iconPosition` / `showDefaultIcon` props — wrapper styles v
 <Link
   href="/item"
   classNames={{
-    root: "gap-mid",
+    root: "gap-large",
     text: "text-primary",
     iconStart: "text-muted group-hover:text-foreground",
   }}

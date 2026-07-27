@@ -12,7 +12,7 @@ export function CalendarCompoundLayoutDemo() {
   const [date, setDate] = useState<Date | null>(null);
 
   return (
-    <div className="flex w-full max-w-sm flex-col gap-mid">
+    <div className="flex w-full max-w-sm flex-col gap-large">
       <Text as="p" variant="small" className="font-medium">
         Compound layout
       </Text>
@@ -21,7 +21,7 @@ export function CalendarCompoundLayoutDemo() {
         <Calendar.Grid />
         <Calendar.Footer />
       </Calendar>
-      <Text as="p" variant="tools" className="text-muted">
+      <Text as="p" variant="xsmall" className="text-muted">
         {formatDate(date)}
       </Text>
     </div>

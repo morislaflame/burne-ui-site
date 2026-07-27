@@ -102,7 +102,7 @@ Simple API нет — всегда compound.
 | `AlertDialog.Description` | Muted subtitle → `aria-describedby` |
 | `AlertDialog.Body` | Scrollable content |
 | `AlertDialog.Footer` | Actions row; auto `Button` size |
-| `AlertDialog.Close` | `CloseButton` |
+| `AlertDialog.Close` | `CloseButton` secondary; size из `PANEL_SIZE_LAYOUT.closeButtonSize` |
 
 ### `useAlertDialog()`
 
@@ -131,10 +131,12 @@ primaryButtonStatusForAlertTone("danger");     // → "danger"
 
 | size | max-width | title / body Text |
 |------|-----------|-------------------|
-| `small` | `max-w-component-small` | `base` / `small` |
-| `base` | `max-w-component-mid` | `mid` / `base` |
-| `mid` | `max-w-component-mid` | `mid` / `base` |
-| `large` | `max-w-component-large` | `large` / `mid` |
+| `small` | `max-w-component-base` | `base` / `small` |
+| `base` | `max-w-component-large` | `mid` / `base` |
+| `mid` | `max-w-component-xlarge` | `mid` / `base` |
+| `large` | `max-w-component-2xlarge` | `large` / `mid` |
+
+Размеры — общий `PANEL_SIZE_LAYOUT` (Dialog / AlertDialog / Popover / Card). Title у AlertDialog — `alertTitleVariant` (в `base` крупнее обычного panel title).
 
 ## Анимации
 

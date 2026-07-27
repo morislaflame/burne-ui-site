@@ -17,7 +17,7 @@ export function CheckboxTaskListDemo() {
   });
 
   return (
-    <div className="flex w-full max-w-xs flex-col gap-plus">
+    <div className="flex w-full max-w-xs flex-col gap-mid">
       <Text as="p" variant="small" className="font-medium">
         Access rights
       </Text>
@@ -33,7 +33,7 @@ export function CheckboxTaskListDemo() {
           </li>
         ))}
       </ul>
-      <Text as="p" variant="tools" className="text-muted">
+      <Text as="p" variant="xsmall" className="text-muted">
         variant secondary / default / outline on one screen.
       </Text>
     </div>

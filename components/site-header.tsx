@@ -38,14 +38,14 @@ export function SiteHeader() {
       data-site-header
       className="shrink-0 border-b-token bg-surface/90 shadow-token-sm backdrop-blur-md"
     >
-      <div className="flex items-center gap-mid px-mid py-base sm:px-large">
+      <div className="flex items-center gap-large px-large py-base sm:px-xlarge">
         <span className="shrink-0 text-header-2 text-foreground">Burne UI</span>
 
         <Text as="span" variant="small" className="hidden min-w-0 flex-1 text-muted lg:inline">
           Component catalog & theme playground
         </Text>
 
-        <div className="ml-auto flex shrink-0 items-center gap-small sm:gap-mid">
+        <div className="ml-auto flex shrink-0 items-center gap-small sm:gap-large">
           <Switch
             gloss
             checked={state.theme === "light"}

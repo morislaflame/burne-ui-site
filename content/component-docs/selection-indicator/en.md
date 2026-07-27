@@ -52,7 +52,7 @@ If `children` contains `SelectionIndicator.Fill` or `.Mark`, compound layout mod
 | Prop | Default | Description |
 |------|---------|-------------|
 | `selected` | — | **Required.** Active state → fill/mark animation |
-| `size` | `base` | `small` \| `base` \| `mid` \| `large` |
+| `size` | `base` | `xsmall` \| `small` \| `base` \| `mid` \| `large` |
 | `variant` | `base` | `base` \| `secondary` \| `outline` \| `gloss` |
 | `check` | `false` | Default checkmark `IoCheckmarkSharp` |
 | `dot` | `false` | Radio dot (inner circle) |
@@ -90,14 +90,16 @@ type SelectionIndicatorClassNames = {
 
 ## Sizes
 
-CSS variables: `--selection-indicator-small` … `--selection-indicator-large`.
+CSS variables: `--selection-indicator-xsmall` … `--selection-indicator-large` (diameter),
+`--selection-indicator-radius-*` = `--radius-*` × 0.75 (shell/dot corners — not `rounded-full`; fill has no own radius, clipped by shell).
 
-| size | CSS class | Icon class |
-|------|-----------|------------|
-| `small` | `selection-indicator-small` | `icon-xsmall` |
-| `base` | `selection-indicator-base` | `icon-xsmall` |
-| `mid` | `selection-indicator-mid` | `icon-base` |
-| `large` | `selection-indicator-large` | `icon-mid` |
+| size | CSS class | Mark icon |
+|------|-----------|-----------|
+| `xsmall` | `selection-indicator-xsmall` | `--icon-size-xsmall` × 0.75 |
+| `small` | `selection-indicator-small` | `--icon-size-small` × 0.75 |
+| `base` | `selection-indicator-base` | `--icon-size-base` × 0.75 |
+| `mid` | `selection-indicator-mid` | `--icon-size-mid` × 0.75 |
+| `large` | `selection-indicator-large` | `--icon-size-large` × 0.75 |
 
 Utility `selectionIndicatorFallbackPx(size)` — px for layout without DOM.
 
@@ -108,8 +110,8 @@ Utility `selectionIndicatorFallbackPx(size)` — px for layout without DOM.
 **DOM structure:**
 
 ```
-<span shell aria-hidden>              ← rounded-full shell
-  <span fill ref=fillRef>             ← scale 0→1, z-0
+<span shell aria-hidden>              ← shell: size + radius token
+  <span fill ref=fillRef>             ← scale 0→1, z-0, inset-0 (clip via shell overflow)
   <span mark ref=markRef>             ← check/dot/icon, z-2
 </span>
 ```

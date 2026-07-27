@@ -57,12 +57,12 @@ export function ShowcaseSidebar({
   const pathname = usePathname();
 
   return (
-    <div className={cn("site-panel-scroll flex min-h-0 flex-1 flex-col gap-mid overflow-y-auto overscroll-y-contain p-mid", className)}>
+    <div className={cn("site-panel-scroll flex min-h-0 flex-1 flex-col gap-large overflow-y-auto overscroll-y-contain p-large", className)}>
       {SHOWCASE_GROUPS.map((group: ShowcaseGroup) => (
         <div key={group.id} className="flex flex-col gap-xsmall">
           <Text
             as="span"
-            variant="tools"
+            variant="xsmall"
             className="mb-small px-small font-semibold uppercase tracking-wider underline underline-offset-4"
           >
             {group.label}

@@ -51,6 +51,8 @@ const MOTION_DURATION_CONTROLS = [
   { key: "rippleExpandableDuration" as const, min: 200, max: 1200, step: 10, unit: "ms" },
   { key: "progressFillDuration" as const, min: 120, max: 1200, step: 10, unit: "ms" },
   { key: "loadingDotsDuration" as const, min: 300, max: 2400, step: 50, unit: "ms" },
+  { key: "surfaceTransitionDuration" as const, min: 120, max: 1200, step: 20, unit: "ms" },
+  { key: "toastDismissDuration" as const, min: 80, max: 600, step: 10, unit: "ms" },
 ] as const;
 
 const MOTION_SCALE_CONTROLS = [
@@ -177,7 +179,7 @@ function ScaleControl({
       gloss
       thickness={12}
       classNames={{
-        value: "text-tools",
+        value: "text-xsmall",
       }}
       label={label}
       showValue
@@ -294,7 +296,7 @@ function ColorControl({
           onChange={(e) => onChange(e.target.value)}
           aria-label={`${label} — CSS`}
           className={cn(
-            "min-w-0 flex-1 rounded-base border-token bg-surface px-small py-xsmall font-mono text-tools text-foreground outline-none",
+            "min-w-0 flex-1 rounded-base border-token bg-surface px-small py-xsmall font-mono text-xsmall text-foreground outline-none",
             "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
           )}
         />
@@ -370,7 +372,7 @@ function TintColorControl({
                 aria-label={`${label} — mix color`}
                 className="size-8 shrink-0 cursor-pointer rounded-small bg-transparent p-0.5"
               />
-              <Text as="span" variant="tools" className="font-mono text-muted">
+              <Text as="span" variant="xsmall" className="font-mono text-muted">
                 {parsed.mixColor}
               </Text>
             </div>
@@ -383,13 +385,13 @@ function TintColorControl({
           onChange={(e) => apply({ custom: e.target.value })}
           aria-label={`${label} — custom CSS`}
           className={cn(
-            "w-full rounded-base border-token bg-surface px-small py-xsmall font-mono text-tools text-foreground outline-none",
+            "w-full rounded-base border-token bg-surface px-small py-xsmall font-mono text-xsmall text-foreground outline-none",
             "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
           )}
         />
       )}
 
-      <Text as="span" variant="tools" className="truncate font-mono text-muted" title={value}>
+      <Text as="span" variant="xsmall" className="truncate font-mono text-muted" title={value}>
         {value}
       </Text>
     </div>
@@ -465,7 +467,7 @@ function SpacingPreview({ space }: { space: number }) {
   ] as const;
 
   return (
-    <div className="flex items-end gap-xsmall rounded-small p-base mt-plus gloss-panel">
+    <div className="flex items-end gap-xsmall rounded-small p-base mt-mid gloss-panel">
       {steps.map(({ name, mult }) => (
         <div key={name} className="flex flex-1 flex-col items-center gap-xsmall">
           <div
@@ -473,7 +475,7 @@ function SpacingPreview({ space }: { space: number }) {
             style={{ height: `${space * mult * 16}px` }}
             title={`--space-${name}`}
           />
-          <Text as="span" variant="tools" className="text-muted">
+          <Text as="span" variant="xsmall" className="text-muted">
             {name}
           </Text>
         </div>
@@ -522,7 +524,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
   };
 
   return (
-    <div className="flex flex-col gap-mid">
+    <div className="flex flex-col gap-large">
         <div className="min-w-0">
           <div className="flex items-center justify-between gap-small mb-base">
             <Text as="h2" variant="header-2">
@@ -667,7 +669,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
           presets={MONO_FONT_PRESETS}
           onChange={setFontFamilyMono}
         />
-        <div className="rounded-small p-base text-muted gloss-panel mt-plus">
+        <div className="rounded-small p-base text-muted gloss-panel mt-mid">
           <Text as="p" variant="small">
             <span className="font-sans">Aa Bb 123 — sans</span>
             <br />
@@ -689,7 +691,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
             onChange={(value) => setFontWeight(key, value)}
           />
         ))}
-        <div className="rounded-small p-base text-muted gloss-panel mt-plus">
+        <div className="rounded-small p-base text-muted gloss-panel mt-mid">
           <Text as="p" variant="small">
           <span className="font-w-small">Small — small text</span>
           <br />
@@ -709,7 +711,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
       <div className="flex flex-col gap-base">
         <SectionTitle>Motion (GSAP)</SectionTitle>
         <div className="flex flex-col gap-base">
-          <Text as="p" variant="tools" className="text-muted">
+          <Text as="p" variant="xsmall" className="text-muted">
             Durations
           </Text>
           {MOTION_DURATION_CONTROLS.map(({ key, min, max, step, unit }) => (
@@ -725,7 +727,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
             />
           ))}
         </div>
-        <Text as="p" variant="tools" className="mt-xsmall text-muted">
+        <Text as="p" variant="xsmall" className="mt-xsmall text-muted">
           Scales & opacity
         </Text>
         {MOTION_SCALE_CONTROLS.map(({ key, min, max, step, unit }) => (
@@ -740,7 +742,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
             onChange={(v) => setMotionScale(key, v)}
           />
         ))}
-        <Text as="p" variant="tools" className="mt-xsmall text-muted">
+        <Text as="p" variant="xsmall" className="mt-xsmall text-muted">
           Easing
         </Text>
         {MOTION_EASE_KEYS.map((key) => (

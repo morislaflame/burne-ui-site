@@ -13,12 +13,12 @@ export function CalendarBookingPanelDemo() {
   const [range, setRange] = useState<CalendarRangeValue>({ start: null, end: null });
 
   return (
-    <Surface variant="secondary" padding="mid" className="flex w-full max-w-sm flex-col gap-mid">
+    <Surface variant="secondary" padding="large" className="flex w-full max-w-sm flex-col gap-large">
       <div className="flex flex-col gap-xsmall">
         <Text as="p" variant="small" className="font-medium">
           Booking
         </Text>
-        <Text as="p" variant="tools" className="text-muted">
+        <Text as="p" variant="xsmall" className="text-muted">
           {formatDate(range.start)} — {formatDate(range.end)}
         </Text>
       </div>

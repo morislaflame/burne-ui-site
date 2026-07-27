@@ -209,7 +209,7 @@ Link — один компонент; «compound» меняет только р�
 <Link
   href="/item"
   classNames={{
-    root: "gap-mid",
+    root: "gap-large",
     text: "text-primary",
     iconStart: "text-muted group-hover:text-foreground",
   }}

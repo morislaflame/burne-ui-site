@@ -2,7 +2,7 @@ import { TextArea } from "burne-ui";
 
 export function TextAreaVariantsDemo() {
   return (
-    <div className="flex w-full flex-col items-center gap-mid">
+    <div className="flex w-full flex-col items-center gap-large">
       <TextArea
         label="Comment"
         placeholder="Message text…"

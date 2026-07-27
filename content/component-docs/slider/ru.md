@@ -106,7 +106,7 @@ Field
     <Slider.Rail />
     <span fill ref=fillRef style=left/width>    ← instant CSS updates
     <button role=slider thumb>                  ← left % position
-      SelectionThumb active={dragging}
+      SelectionThumb
 ```
 
 ### 1. Thumb position (CSS, не GSAP)
@@ -127,11 +127,7 @@ Field
 
 `useSliderThumbShellAnimation` — opacity `0.48` when disabled.
 
-### 4. SelectionThumb fill
-
-`SelectionThumb active={activeThumb === kind}` — fill scale через `useSelectionIndicatorAnimation` при активном drag/focus thumb.
-
-### 5. Fill cleanup
+### 4. Fill cleanup
 
 `useSliderFillCleanup` — `killMotion` on unmount.
 
@@ -141,7 +137,6 @@ Field
 |-----|-------|-------------------|
 | Thumb/fill position | Нет — CSS % | — |
 | Press squeeze | Да | `pressSqueezeScale` |
-| Thumb fill pulse | Да (SelectionThumb) | interactive |
 | Marks | CSS position | — |
 
 ```ts

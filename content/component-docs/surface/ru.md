@@ -20,11 +20,11 @@ import {
 ### Базовое использование
 
 ```tsx
-<Surface variant="default" shadow="md" padding="plus" radius="mid">
+<Surface variant="default" shadow="md" padding="mid" radius="mid">
   <Text variant="base">Контент панели</Text>
 </Surface>
 
-<Surface variant="gloss" padding="plus" radius="large" className="w-56">
+<Surface variant="gloss" padding="mid" radius="large" className="w-56">
   <Text variant="base" className="font-medium">Gloss panel</Text>
 </Surface>
 ```
@@ -61,7 +61,7 @@ Compound API нет.
 
 ### Padding
 
-`p-small`, `p-base`, `p-plus`, `p-mid`.
+`p-small`, `p-base`, `p-mid`, `p-large`.
 
 ### Radius
 
@@ -84,7 +84,7 @@ Compound API нет.
 **DOM (default):**
 
 ```
-<div class="bg-surface shadow-token-md p-plus rounded-mid">
+<div class="bg-surface shadow-token-md p-mid rounded-mid">
   children
 </div>
 ```
@@ -141,7 +141,7 @@ Compound API нет.
 | `variant="tertiary"` | `bg-tertiary` |
 | `variant="gloss"` | `gloss-panel` + inner `gloss-content` |
 | `shadow="sm"` | `shadow-token-sm` |
-| `padding="plus"` | `p-plus` |
+| `padding="mid"` | `p-mid` |
 | `radius="mid"` | `rounded-mid` |
 | `hoverVariant()` | Для интерактивных children (не на Surface root) |
 
@@ -156,11 +156,11 @@ Compound API нет.
 ### Базовые панели
 
 ```tsx
-<Surface variant="default" shadow="md" padding="plus" radius="mid" className="w-full max-w-sm">
+<Surface variant="default" shadow="md" padding="mid" radius="mid" className="w-full max-w-sm">
   <Text variant="base">Контент панели</Text>
 </Surface>
 
-<Surface variant="gloss" padding="plus" radius="large" className="w-56">
+<Surface variant="gloss" padding="mid" radius="large" className="w-56">
   <Text variant="base" className="font-medium">Gloss panel</Text>
 </Surface>
 ```
@@ -168,7 +168,7 @@ Compound API нет.
 ### Вложенные surface (nested panels)
 
 ```tsx
-<Surface padding="plus" shadow="sm" className="max-w-sm">
+<Surface padding="mid" shadow="sm" className="max-w-sm">
   <Text variant="base" className="font-medium">Outer</Text>
   <Surface variant="tertiary" padding="small" radius="base" className="mt-small">
     <Text variant="small" className="text-muted">Inner panel</Text>

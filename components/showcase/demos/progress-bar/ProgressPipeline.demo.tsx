@@ -9,14 +9,14 @@ const STEPS = [
 
 export function ProgressPipelineDemo() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-mid">
+    <div className="flex w-full max-w-md flex-col gap-large">
       {STEPS.map((step) => (
         <div key={step.label} className="flex flex-col gap-xsmall">
           <div className="flex items-center justify-between">
             <Text as="span" variant="small" className="font-medium">
               {step.label}
             </Text>
-            <Text as="span" variant="tools" className="tabular-nums text-muted">
+            <Text as="span" variant="xsmall" className="tabular-nums text-muted">
               {step.value}%
             </Text>
           </div>

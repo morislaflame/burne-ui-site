@@ -102,7 +102,7 @@ No simple API — always compound.
 | `AlertDialog.Description` | Muted subtitle → `aria-describedby` |
 | `AlertDialog.Body` | Scrollable content |
 | `AlertDialog.Footer` | Actions row; auto `Button` size |
-| `AlertDialog.Close` | `CloseButton` |
+| `AlertDialog.Close` | `CloseButton` secondary; size from `PANEL_SIZE_LAYOUT.closeButtonSize` |
 
 ### `useAlertDialog()`
 
@@ -131,10 +131,12 @@ primaryButtonStatusForAlertTone("danger");     // → "danger"
 
 | size | max-width | title / body Text |
 |------|-----------|-------------------|
-| `small` | `max-w-component-small` | `base` / `small` |
-| `base` | `max-w-component-mid` | `mid` / `base` |
-| `mid` | `max-w-component-mid` | `mid` / `base` |
-| `large` | `max-w-component-large` | `large` / `mid` |
+| `small` | `max-w-component-base` | `base` / `small` |
+| `base` | `max-w-component-large` | `mid` / `base` |
+| `mid` | `max-w-component-xlarge` | `mid` / `base` |
+| `large` | `max-w-component-2xlarge` | `large` / `mid` |
+
+Sizes share `PANEL_SIZE_LAYOUT` (Dialog / AlertDialog / Popover / Card). AlertDialog title uses `alertTitleVariant` (larger than panel title at `base`).
 
 ## Animations
 

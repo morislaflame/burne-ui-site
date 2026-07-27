@@ -192,7 +192,7 @@ Each line: `animationDelay: index * 0.06s` for cascading wave.
 | Circle default | `rounded-full h-control-base w-control-base` |
 | Text line | `h-[1em] rounded-small` |
 | Last line | `w-3/5` when `lastShort` |
-| Block | `rounded-mid px-mid py-plus` |
+| Block | `rounded-mid px-large py-mid` |
 
 ## Styling and customization
 
@@ -216,7 +216,7 @@ No separate root `classNames` provider — prop on each part.
 ### Card loading layout
 
 ```tsx
-<Skeleton.Block animation="wave" classNames={{ root: "rounded-large p-mid" }}>
+<Skeleton.Block animation="wave" classNames={{ root: "rounded-large p-large" }}>
   <div className="flex gap-base">
     <Skeleton.Circle size="h-control-large w-control-large" />
     <div className="flex flex-1 flex-col gap-small">

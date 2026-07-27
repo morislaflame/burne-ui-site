@@ -3,7 +3,7 @@ import { Button } from "burne-ui";
 
 export function ButtonAsChildDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-mid">
+    <div className="flex flex-wrap items-center gap-large">
       <Button asChild variant="primary">
         <a href="#docs">Open docs</a>
       </Button>

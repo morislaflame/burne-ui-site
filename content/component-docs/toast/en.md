@@ -120,13 +120,13 @@ When `isDismissing`:
 ```ts
 animatePortalClose({
   surface: animRef,
-  vars: { duration: 0.22, ease: "power2.in" }, // fixed
+  vars: { ...motionToastDismiss() }, // toastDismissDuration / toastDismissEase
   exit: { y: slideDir },
   onComplete: () => removeFromDOM,
 });
 ```
 
-Dismiss is **220 ms** — not from `configureMotion`.
+Dismiss comes from `configureMotion` (`toastDismissDuration`, default 220 ms).
 
 ### 3. Stack — reposition (peek + scale)
 
@@ -151,7 +151,7 @@ First mount (non-gloss): extra fade `opacity: 0 → 1` on stack layer.
 
 ### 5. Scrim (gradient)
 
-`scrimRef`: fade `opacity 0↔1`. Last toast dismiss → `0.22s power2.in` (same as card exit).
+`scrimRef`: fade `opacity 0↔1`. Last toast dismiss → `motionToastDismiss()` (same as card exit).
 
 Tokens: `--toast-scrim-*` (`tokens/toastScrim.ts`).
 
@@ -172,6 +172,8 @@ configureMotion({
   enableToastStack: true,       // peek/scale/height — instant if false
   interactiveDuration: 320,     // enter slide, stack reposition, container height, scrim in
   interactiveEase: "power2.out",
+  toastDismissDuration: 220,    // dismiss slide + last scrim out
+  toastDismissEase: "power2.in",
 });
 ```
 
@@ -182,10 +184,10 @@ configureMotion({
 | Animation | Element | `configureMotion` | Constants / hardcode |
 |-----------|---------|-------------------|------------------------|
 | Enter slide | `animRef` | `interactiveDuration`, `interactiveEase` | `ENTRY_OFFSET_PX=24`, `SCALE_FROM=0.97` |
-| Dismiss slide | `animRef` | — | `0.22s`, `power2.in` |
+| Dismiss slide | `animRef` | `toastDismissDuration`, `toastDismissEase` | — |
 | Stack peek/scale | `stackRef` | `enableToastStack`, `interactiveDuration` | `PEEK`, `SCALE_STEP`, `MAX_VISIBLE` |
 | Container height | `containerRef` | `enableToastStack`, `interactiveDuration` | — |
-| Scrim | `scrimRef` | `interactiveDuration` (in) | `0.22s` (out) |
+| Scrim | `scrimRef` | `interactiveDuration` (in), `toastDismissDuration` (out) | — |
 | Gloss hover | `ToastRoot` | interactive | `variant="gloss"` |
 | Auto-close | — | — | `timeout` prop (default 4000) |
 
@@ -193,7 +195,7 @@ configureMotion({
 
 | Element | Classes / tokens |
 |---------|------------------|
-| Card | `rounded-mid py-base px-plus`, `shadow-token-md` |
+| Card | `rounded-mid py-base px-mid`, `shadow-token-md` |
 | Viewport | `fixed z-toast` (`--z-toast`), placement offsets (`top-4`, …) |
 | Scrim | `toastScrimToken(gradientTop/Bottom, mask, …)` |
 | Width | `360px` (`TOAST_WIDTH_PX`) |

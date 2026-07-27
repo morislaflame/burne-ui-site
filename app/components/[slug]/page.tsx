@@ -33,7 +33,7 @@ export default async function ComponentShowcasePage({ params }: PageProps) {
   const docs = getComponentDocs(page.id);
 
   return (
-    <div className="flex flex-col gap-xlarge">
+    <div className="flex flex-col gap-2xlarge">
       <ShowcasePageView pageId={page.id} label={page.label} />
       {docs ? <ShowcaseMarkdownDoc docs={docs} /> : null}
     </div>

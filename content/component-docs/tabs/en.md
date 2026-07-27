@@ -160,7 +160,7 @@ Selected tab — no motion (static primary text).
 
 | Class / token | Purpose |
 |---------------|---------|
-| `tabsRootClass` | `flex gap-mid`, orientation row/col |
+| `tabsRootClass` | `flex gap-large`, orientation row/col |
 | `LIST_VARIANT_CLASS` | Surface per variant |
 | `INDICATOR_VARIANT_CLASS` | Indicator color/shape |
 | `CONTROL_SIZE_LAYOUT` | Tab height/padding per size |
@@ -198,7 +198,7 @@ Selected tab — no motion (static primary text).
     indicator: "bg-info/30",
     tab: "font-medium",
     tabText: "gap-small",
-    panel: "rounded-small bg-info/5 p-mid",
+    panel: "rounded-small bg-info/5 p-large",
   }}
 >
   <Tabs.List>

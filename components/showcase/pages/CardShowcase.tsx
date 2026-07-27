@@ -14,6 +14,8 @@ import { CardPricingGridDemo } from "@/components/showcase/demos/card/CardPricin
 import cardPricingGridSource from "@/components/showcase/demos/card/CardPricingGrid.demo.tsx?raw";
 import { CardProductSelectableDemo } from "@/components/showcase/demos/card/CardProductSelectable.demo";
 import cardProductSelectableSource from "@/components/showcase/demos/card/CardProductSelectable.demo.tsx?raw";
+import { CardSizesDemo } from "@/components/showcase/demos/card/CardSizes.demo";
+import cardSizesSource from "@/components/showcase/demos/card/CardSizes.demo.tsx?raw";
 import { CardVariantsDemo } from "@/components/showcase/demos/card/CardVariants.demo";
 import cardVariantsSource from "@/components/showcase/demos/card/CardVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
@@ -31,6 +33,13 @@ export function CardShowcase() {
     >
       <ShowcaseSection title="Options" description="default, outline and secondary.">
         <ShowcaseDemoFromFile align="stretch" Demo={CardVariantsDemo} source={cardVariantsSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="Sizes"
+        description="small → large: radius matches Button; padding and type scale with size."
+      >
+        <ShowcaseDemoFromFile align="stretch" Demo={CardSizesDemo} source={cardSizesSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Pressable" description="Clickable card with ripple and preview.">
@@ -84,6 +93,10 @@ export function CardShowcase() {
           <p>
             <code>default</code>, <code>outline</code>, <code>secondary</code>, <code>gloss</code> — prop{" "}
             <code>variant</code> on the root Card.
+          </p>
+          <p>
+            <code>size</code>: <code>small</code> \| <code>base</code> \| <code>mid</code> \|{" "}
+            <code>large</code> — radius (same as Button), section padding, Title/Description type scale.
           </p>
         </ShowcaseDoc.Block>
         <ShowcaseDoc.Customization gloss />

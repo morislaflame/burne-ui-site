@@ -86,11 +86,11 @@ Context inside `ListBox`: `selected`, `selectItem`, `activeValue`, `showIndicato
 | variant | Root |
 |---------|------|
 | `default` | `flex flex-col gap-xsmall` |
-| `gloss` | `gloss-panel gloss-deep rounded-mid p-plus` + gloss ref refresh |
+| `gloss` | `gloss-panel gloss-deep rounded-mid p-mid` + gloss ref refresh |
 
 ## Sizes
 
-`size` affects item padding and `SelectionIndicator` size inside the item.
+`size` affects item padding, label typography, indicator↔label gap, and `SelectionIndicator` size (`small` list → `xsmall` indicator).
 
 ## Animations
 
@@ -198,7 +198,7 @@ Sub-parts (`ListBox.Item`, `ListBox.Header`, …) — **`className`** on top of 
 ### Compound item layout
 
 ```tsx
-<ListBox.Item value="de" className="py-large">
+<ListBox.Item value="de" className="py-xlarge">
   <ListBox.ItemIndicator
     classNames={{ itemIndicatorFill: "bg-primary/20" }}
   />

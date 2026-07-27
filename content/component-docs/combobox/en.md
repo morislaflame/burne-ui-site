@@ -271,7 +271,7 @@ Full control over layout and styles per part:
 
   <ComboBox.InputGroup className="shadow-token-sm">
     <ComboBox.Input className="font-medium" placeholder="Search…" />
-    <ComboBox.Trigger className="px-mid" />
+    <ComboBox.Trigger className="px-large" />
   </ComboBox.InputGroup>
 
   <ComboBox.Popover className="shadow-token-lg">

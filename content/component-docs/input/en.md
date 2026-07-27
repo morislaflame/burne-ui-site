@@ -274,7 +274,7 @@ For `inputType="file"`, additionally: `fileArea`, `fileEmpty`, `fileRow`, `fileP
 
   <div className="relative">
     <Input.Control
-      className="pr-large"
+      className="pr-xlarge"
       placeholder="you@example.com"
       prefix={<IoMail aria-hidden />}
     />

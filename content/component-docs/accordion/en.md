@@ -114,9 +114,9 @@ Behavior: click on open item → `value = null`; click on another → closes the
 | size | trigger min-h | panel pad |
 |------|---------------|-----------|
 | `small` | `min-h-control-small` | `px-base pb-base pt-small` |
-| `base` | `min-h-control-base` | `px-plus pb-plus pt-small` |
-| `mid` | `min-h-control-mid` | `px-mid pb-mid pt-base` |
-| `large` | `min-h-control-large` | `px-large pb-large pt-base` |
+| `base` | `min-h-control-base` | `px-mid pb-mid pt-small` |
+| `mid` | `min-h-control-mid` | `px-large pb-large pt-base` |
+| `large` | `min-h-control-large` | `px-xlarge pb-xlarge pt-base` |
 
 No `variant` or `status` — each Item uses `Expandable` with `variant="default"`.
 

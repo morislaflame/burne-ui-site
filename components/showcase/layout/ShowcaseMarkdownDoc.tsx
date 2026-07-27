@@ -25,7 +25,7 @@ const markdownComponents: Components = {
     </Text>
   ),
   h2: ({ children }) => (
-    <Text as="h3" variant="large" className="mt-mid font-semibold text-foreground first:mt-0">
+    <Text as="h3" variant="large" className="mt-large font-semibold text-foreground first:mt-0">
       {children}
     </Text>
   ),
@@ -40,10 +40,10 @@ const markdownComponents: Components = {
     </Text>
   ),
   ul: ({ children }) => (
-    <ul className="list-disc space-y-xsmall pl-mid text-base text-muted">{children}</ul>
+    <ul className="list-disc space-y-xsmall pl-large text-base text-muted">{children}</ul>
   ),
   ol: ({ children }) => (
-    <ol className="list-decimal space-y-xsmall pl-mid text-base text-muted">{children}</ol>
+    <ol className="list-decimal space-y-xsmall pl-large text-base text-muted">{children}</ol>
   ),
   li: ({ children }) => <li className="leading-relaxed">{children}</li>,
   strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
@@ -68,7 +68,7 @@ const markdownComponents: Components = {
     );
   },
   pre: ({ children }) => (
-    <pre className="overflow-x-auto rounded-mid border-token bg-surface-secondary/60 p-mid text-base font-mono bg-surface text-foreground">
+    <pre className="overflow-x-auto rounded-mid border-token bg-surface-secondary/60 p-large text-base font-mono bg-surface text-foreground">
       {children}
     </pre>
   ),
@@ -81,14 +81,14 @@ const markdownComponents: Components = {
   tbody: ({ children }) => <tbody className="divide-y divide-border">{children}</tbody>,
   tr: ({ children }) => <tr>{children}</tr>,
   th: ({ children }) => (
-    <th className="px-mid py-base font-semibold text-foreground">{children}</th>
+    <th className="px-large py-base font-semibold text-foreground">{children}</th>
   ),
-  td: ({ children }) => <td className="px-mid py-small text-muted">{children}</td>,
+  td: ({ children }) => <td className="px-large py-small text-muted">{children}</td>,
 };
 
 function ShowcaseMarkdownBody({ content }: { content: string }) {
   return (
-    <div className="flex flex-col gap-mid">
+    <div className="flex flex-col gap-large">
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
         {content}
       </ReactMarkdown>
@@ -117,7 +117,7 @@ function ShowcaseMarkdownDocPanel({
   }, [docs, locale]);
 
   return (
-    <Card variant="outline" className={cn("flex flex-col gap-mid", className)}>
+    <Card variant="outline" className={cn("flex flex-col gap-large", className)}>
       <Card.Header className="gap-small">
         <div className="flex flex-col gap-small sm:flex-row sm:items-start sm:justify-between">
           <div className="flex flex-col gap-xsmall w-full">
@@ -148,11 +148,11 @@ function ShowcaseMarkdownDocPanel({
           </div>
         </div>
       </Card.Header>
-      <Card.Body className="flex flex-col gap-large pt-0">
+      <Card.Body className="flex flex-col gap-xlarge pt-0">
         <Tabs
           value={locale}
           onValueChange={(value) => setLocale(value as ComponentDocLocale)}
-          className="flex flex-col gap-mid"
+          className="flex flex-col gap-large"
         >
           <Tabs.List className="w-full sm:w-fit">
             {(Object.keys(LOCALE_LABELS) as ComponentDocLocale[]).map((key) => (

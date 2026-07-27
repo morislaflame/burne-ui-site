@@ -40,7 +40,7 @@ export function ShowcasePagePlaceholder({
         title="Preview"
         description="Временная заглушка до переноса демо из playground."
       >
-        <div className="flex flex-col gap-mid rounded-small border-token bg-surface p-large shadow-token-sm">
+        <div className="flex flex-col gap-large rounded-small border-token bg-surface p-xlarge shadow-token-sm">
           <Text as="p" variant="base" className="text-muted">
             Компонент <strong className="text-foreground">{label}</strong> — скоро здесь будут
             демо из playground.
@@ -60,7 +60,7 @@ export function ShowcasePagePlaceholder({
         title="Controls"
         description="Пример пер-слайдового состояния — значения не сбрасываются при навигации."
       >
-        <div className="grid gap-mid sm:grid-cols-3">
+        <div className="grid gap-large sm:grid-cols-3">
           <Select
             label="Variant"
             value={controls.variant}

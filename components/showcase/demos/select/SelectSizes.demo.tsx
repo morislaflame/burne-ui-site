@@ -6,13 +6,20 @@ const options = [
   { value: "de", label: "Deutsch" },
 ];
 
+const SIZES = ["small", "base", "mid", "large"] as const;
+
 export function SelectSizesDemo() {
   return (
-    <div className="flex w-64 flex-col gap-mid">
-      <Select size="small" label="small" options={options} defaultValue="ru" />
-      <Select size="base" label="base" options={options} defaultValue="ru" />
-      <Select size="mid" label="mid" options={options} defaultValue="ru" />
-      <Select size="large" label="large" options={options} defaultValue="ru" />
+    <div className="flex w-64 flex-col gap-large">
+      {SIZES.map((size) => (
+        <Select
+          key={size}
+          size={size}
+          label={size}
+          options={options}
+          defaultValue="ru"
+        />
+      ))}
     </div>
   );
 }

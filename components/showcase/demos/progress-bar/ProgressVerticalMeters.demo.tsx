@@ -3,7 +3,7 @@ import { Text } from "burne-ui";
 
 export function ProgressVerticalMetersDemo() {
   return (
-    <div className="flex items-end gap-mid rounded-mid border-token bg-tertiary p-mid">
+    <div className="flex items-end gap-large rounded-mid border-token bg-tertiary p-large">
       <div className="flex flex-col items-center gap-xsmall">
         <ProgressBar
           orientation="vertical"
@@ -13,7 +13,7 @@ export function ProgressVerticalMetersDemo() {
           color="var(--color-primary)"
           className="h-32"
         />
-        <Text as="span" variant="tools" className="text-muted">
+        <Text as="span" variant="xsmall" className="text-muted">
           CI
         </Text>
       </div>
@@ -26,7 +26,7 @@ export function ProgressVerticalMetersDemo() {
           color="var(--color-success)"
           className="h-32"
         />
-        <Text as="span" variant="tools" className="text-muted">
+        <Text as="span" variant="xsmall" className="text-muted">
           QA
         </Text>
       </div>

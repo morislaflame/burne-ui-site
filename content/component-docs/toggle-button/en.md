@@ -92,17 +92,20 @@ Leaf component: no compound API; customization via props + `classNames`.
 
 - pressed: `fromTo { scale:0, autoAlpha:0 } → { scale:1, autoAlpha:1 }`
 - unpressed: `to { scale:0, autoAlpha:0 }`
-- vars: `motionSelectionFill()` — `interactiveDuration * 1.15`, `selectionFillEase`
+- vars: `motionSelectionFill()` — same `selectionFillEase` / `selectionFillDuration` both ways
 - `enableToggleButtonFill: false` → instant
 
-**Coordination with press:** when `animated`, fill starts in the **release phase of squeeze** (`onPressReleaseStart`), not on pointerdown — so the fill aligns with button release.
+**Coordination with press:** fill starts in the **squeeze release phase** (`onPressReleaseStart`), after `click` confirms the next pressed value — both on and off.
 
 Flow:
 
-1. `pointerdown` → `deferFillFromPressRef = true`, `pendingFill = !pressed`
-2. squeeze release → `runPendingFill()` → `animateTo(next)`
-3. `click` → `queueFillOnClick` if release already passed
-4. `pointerleave` → reset coordination
+1. `pointerdown` → `deferFillFromPressRef = true` (no pending yet)
+2. `click` → `queueFillOnClick(next)` — confirms the value
+3. squeeze release → `runPendingFill()` → `animateTo(next)` (+ `displayPressed`)
+4. if release already passed by click time — fill starts immediately from `queueFillOnClick`
+5. `pointerleave` → reset coordination
+
+Visual pressed (`bg-transparent`, fill classNames) comes from `displayPressed`, not aria/`pressed`, so the surface does not reset before the unfill animation.
 
 ### 2. Hover lift + squeeze (1st level)
 

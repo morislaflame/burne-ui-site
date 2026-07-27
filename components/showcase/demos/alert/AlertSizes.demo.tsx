@@ -4,7 +4,7 @@ const SIZES: AlertSize[] = ["small", "base", "mid", "large"];
 
 export function AlertSizesDemo() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-plus">
+    <div className="flex w-full max-w-md flex-col gap-mid">
       {SIZES.map((size) => (
         <Alert key={size} status="info" size={size} className="w-full">
           <Alert.Message>
@@ -12,7 +12,7 @@ export function AlertSizesDemo() {
             <Alert.Content>
               <Alert.Title>size={size}</Alert.Title>
               <Alert.Description>
-                Padding, icon and typography are scaled according to the dimensional grid.
+                Padding, icon, typography and radius follow the size grid (same rounded-* as Button).
               </Alert.Description>
             </Alert.Content>
           </Alert.Message>

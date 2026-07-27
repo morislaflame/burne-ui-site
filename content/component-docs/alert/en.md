@@ -26,6 +26,7 @@ import {
 |------|-----|--------------|----------|
 | `variant` | `default` \| `outline` \| `secondary` \| `gloss` | `default` | Visual style |
 | `status` | `default` \| `danger` \| `success` \| `info` \| `warning` | `default` | Semantic tone |
+| `size` | `small` \| `base` \| `mid` \| `large` | `base` | Padding, icon, type and **radius** (`CONTROL_SIZE_LAYOUT.rounded`) |
 | `role` | `status` \| `alert` | auto | Live region; danger/warning → `alert` |
 | `title` | `ReactNode` | — | Simple API |
 | `description` | `ReactNode` | — | Simple API |
@@ -184,7 +185,7 @@ Root uses `messageBannerGridClass(gridSlots)`:
 - `hasIndicator`, `hasTitle`, `hasDescription`, `hasAction`
 - Slots are computed in `useAlertRootState` from props / compound children
 
-Shell: `w-fit max-w-component-base rounded-mid py-base px-plus`.
+Shell: `w-fit` + `max-w-component-*` + padding/radius from `MESSAGE_BANNER_SIZE` (radius = `CONTROL_SIZE_LAYOUT[size].rounded`, same as Button).
 
 ## Tokens and CSS
 

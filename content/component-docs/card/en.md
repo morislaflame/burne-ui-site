@@ -64,6 +64,7 @@ No Simple API (no `title` prop on root) — compound children only.
 | Prop | Default | Description |
 |------|---------|-------------|
 | `variant` | `default` | `default` \| `outline` \| `secondary` \| `gloss` |
+| `size` | `base` | `small` \| `base` \| `mid` \| `large` — radius (same as Button), section padding, Title/Description type scale |
 | `pressable` | `false` | Interactive card (`<button>` root) |
 | `animated` | `true` | GSAP hover/squeeze (when `pressable`) |
 | `onPress` | — | Activation on click / Enter / Space |
@@ -94,6 +95,17 @@ No Simple API (no `title` prop on root) — compound children only.
 | `outline` | transparent + border |
 | `secondary` | `bg-secondary border-token` |
 | `gloss` | `gloss-panel` + `gloss-content` |
+
+## Size
+
+Radius / padding / title+description share `PANEL_SIZE_LAYOUT` (Dialog / AlertDialog / Popover / Card).
+
+| size | Radius | Header | Body | Footer | Title | Description |
+|------|--------|--------|------|--------|-------|-------------|
+| `small` | `rounded-small` | `px-mid pt-base` + `gap-xsmall` | `px-mid py-small` | `px-mid pb-base` | `small` | `xsmall` |
+| `base` | `rounded-base` | `px-large pt-mid` + `gap-base` | `px-large py-small` | `px-large pb-mid` | `base` | `small` |
+| `mid` | `rounded-mid` | `px-large pt-mid` + `gap-base` | `px-large py-small` | `px-large pb-mid` | `mid` | `base` |
+| `large` | `rounded-large` | `px-large pt-mid` + `gap-base` | `px-large py-small` | `px-large pb-mid` | `large` | `base` |
 
 ### Shadows
 
@@ -221,12 +233,13 @@ Squeeze animates the **entire** pressable shell; ripple is a separate layer.
 
 | Class / token | Role |
 |---------------|------|
-| `CARD_ROOT_BASE_CLASS` | `rounded-mid overflow-hidden flex-col` |
-| `CARD_STATIC_SHADOW_CLASS` | Passive `shadow-token-sm` |
+| `CARD_ROOT_BASE_CLASS` | `overflow-hidden flex-col` (+ size `rounded-*`) |
+| `PANEL_SIZE_LAYOUT` | Radius / padding / title+description variants |
+| `CARD_STATIC_SHADOW_CLASS` | Passive `shadow-token-base` |
 | `CARD_PRESSABLE_ROOT_CLASS` | `cursor-pointer focus-ring` |
 | `CARD_BUTTON_SHELL_CLASS` | `w-full border-0 p-0 text-left` on `<button>` |
-| `CARD_HEADER_CLASS` / `BODY` / `FOOTER` | Padding + `border-t-token` footer |
-| `CARD_GLOSS_PANEL_CLASS` | `gloss-panel rounded-mid` |
+| `cardHeaderClass` / `cardBodyClass` / `cardFooterClass` | Padding from size layout; footer + `border-t-token` |
+| `CARD_GLOSS_PANEL_BASE_CLASS` | `gloss-panel` (+ size `rounded-*`) |
 | `GLOSS_INTERACTIVE_MOTION_CLASS` | Gloss pressable motion |
 | `SHADOW_LIFT_MOTION_CLASS` | GSAP shadow transition |
 
