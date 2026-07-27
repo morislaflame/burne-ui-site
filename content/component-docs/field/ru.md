@@ -169,7 +169,7 @@ configureMotion({
 | Анимация | Где живёт | `configureMotion` | Связь с Field |
 |----------|-----------|-------------------|---------------|
 | Shell hover sm→md | `useFieldShellHoverLift` | `enableHoverLift`, `hoverLiftScale` | обёртка Input и др. |
-| Shell hover bg | `fieldShellHoverClass` | — | CSS, status tint |
+| Shell hover bg | `fieldShellHoverClass` | — | CSS, variant hover |
 | Checkbox/Radio fill | контрол | `selectionFillEase` | child в Field |
 | Switch thumb | Switch | `switchThumbDuration` | child в Field |
 | Hint/Error appear | — | — | только CSS вручную |

@@ -78,13 +78,13 @@ Simple + compound (like Alert): `Toast.Title`, `Toast.Description`, `Toast.Indic
 
 | variant | Surface |
 |---------|---------|
-| `default` | `TOAST_SURFACE_CLASS[status]` + `shadow-token-md` |
+| `default` | `TOAST_SURFACE_CLASS` + `shadow-token-md` |
 | `gloss` | `gloss-panel gloss-deep` + `GLOSS_INTERACTIVE_MOTION_CLASS` |
 
 | status | Background / icon |
 |--------|-------------------|
 | `default` | `bg-surface`, `text-primary` |
-| `success` / `danger` / `info` / `warning` | `bg-surface-tint-*`, semantic icon color |
+| `success` / `danger` / `info` / `warning` | same `bg-surface`; semantic icon + title color |
 
 ## Animations
 

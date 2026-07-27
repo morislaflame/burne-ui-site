@@ -63,7 +63,7 @@ import {
 
 ## variant и status
 
-Аналогично Input: `default` / `outline` / `gloss`; status tint для danger/success/warning.
+Аналогично Input: `default` / `outline` / `gloss`; при status — нейтральный фон/border + постоянный статусный ring.
 
 ## Размеры
 

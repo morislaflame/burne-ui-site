@@ -91,10 +91,10 @@ Compound mode activates automatically when slots are present (`Alert.Message`, `
 
 | variant | default status | status ≠ default |
 |---------|----------------|------------------|
-| `default` | `bg-surface border-token` | tint + semantic text |
-| `outline` | transparent + `border-token` | semantic border + text |
-| `secondary` | `bg-secondary` | semantic text on secondary |
-| `gloss` | `gloss-panel border-0` | semantic text |
+| `default` | `bg-surface border-token` | same surface; status on indicator and title |
+| `outline` | transparent + `border-token` | same surface; status on indicator and title |
+| `secondary` | `bg-secondary` | same surface; status on indicator and title |
+| `gloss` | `gloss-panel border-0` | same surface; status on indicator and title |
 
 ### Default indicator
 
@@ -191,7 +191,7 @@ Shell: `w-fit` + `max-w-component-*` + padding/radius from `MESSAGE_BANNER_SIZE`
 
 ### Semantics
 
-`SEMANTIC_STATUS_SURFACE_TINT`, `SEMANTIC_STATUS_OUTLINE_BORDER`, `SEMANTIC_STATUS_TEXT` from `semanticStatusSurface`.
+Surface always follows `variant` (like `AlertDialog`). Status colors the indicator and title (`SEMANTIC_STATUS_TEXT`).
 
 ### Shadows
 

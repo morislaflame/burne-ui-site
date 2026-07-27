@@ -1,28 +1,20 @@
 import { Input } from "burne-ui";
 
+const VARIANTS = ["default", "outline", "secondary", "gloss"] as const;
+
 export function InputVariantsDemo() {
   return (
-    <div className="flex flex-col gap-large items-center w-full">
-      <Input
-        label="Email"
-        placeholder="you@example.com"
-        hint="We do not send spam."
-        className="w-64"
-      />
-      <Input
-        label="Outline"
-        variant="outline"
-        placeholder="variant outline"
-        hint="Transparent background with outline."
-        className="w-64"
-      />
-      <Input
-        label="Secondary"
-        variant="secondary"
-        placeholder="variant secondary"
-        hint="Secondary surface — like Button secondary."
-        className="w-64"
-      />
+    <div className="grid w-full max-w-2xl gap-xlarge sm:grid-cols-2">
+      {VARIANTS.map((variant) => (
+        <Input
+          key={variant}
+          label={variant}
+          variant={variant}
+          placeholder={`variant="${variant}"`}
+          hint={`variant="${variant}"`}
+          className="w-full"
+        />
+      ))}
     </div>
   );
 }

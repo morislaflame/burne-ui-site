@@ -14,6 +14,8 @@ import { ButtonGlossDemo } from "@/components/showcase/demos/button/ButtonGloss.
 import buttonGlossSource from "@/components/showcase/demos/button/ButtonGloss.demo.tsx?raw";
 import { ButtonSizesDemo } from "@/components/showcase/demos/button/ButtonSizes.demo";
 import buttonSizesSource from "@/components/showcase/demos/button/ButtonSizes.demo.tsx?raw";
+import { ButtonStatusesDemo } from "@/components/showcase/demos/button/ButtonStatuses.demo";
+import buttonStatusesSource from "@/components/showcase/demos/button/ButtonStatuses.demo.tsx?raw";
 import { ButtonVariantsDemo } from "@/components/showcase/demos/button/ButtonVariants.demo";
 import buttonVariantsSource from "@/components/showcase/demos/button/ButtonVariants.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
@@ -31,6 +33,13 @@ export function ButtonShowcase() {
     >
       <ShowcaseSection title="Options" description="variant, status, disabled, icons and built-in ripple.">
         <ShowcaseDemoFromFile Demo={ButtonVariantsDemo} source={buttonVariantsSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="Statuses × variants"
+        description="Every status with every variant — same matrix as Storybook."
+      >
+        <ShowcaseDemoFromFile align="stretch" Demo={ButtonStatusesDemo} source={buttonStatusesSource} />
       </ShowcaseSection>
 
       <ShowcaseSection title="Dimensions" description="size: small, base, mid, large.">

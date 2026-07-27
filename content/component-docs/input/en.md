@@ -85,7 +85,7 @@ import {
 | `outline` | transparent + `border-token` |
 | `gloss` | `gloss-control` |
 
-With `status` danger/success/warning — tint background (`bg-surface-tint-*`). Affix: `bg-primary-tint` or status tint.
+With `status` danger/success/info/warning — neutral surface and border; permanent outer status ring (`--focus-ring-*` geometry). Affix: `bg-primary-tint`.
 
 ## Sizes
 

@@ -63,7 +63,7 @@ import {
 
 ## variant and status
 
-Same as Input: `default` / `outline` / `gloss`; status tint for danger/success/warning.
+Same as Input: `default` / `outline` / `gloss`; status uses neutral surface/border + permanent status ring.
 
 ## Sizes
 

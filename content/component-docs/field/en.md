@@ -169,7 +169,7 @@ No built-in animation. Example via Tailwind:
 | Animation | Where it lives | `configureMotion` | Relation to Field |
 |-----------|----------------|-------------------|-------------------|
 | Shell hover sm→md | `useFieldShellHoverLift` | `enableHoverLift`, `hoverLiftScale` | Input shell and others |
-| Shell hover bg | `fieldShellHoverClass` | — | CSS, status tint |
+| Shell hover bg | `fieldShellHoverClass` | — | CSS, variant hover |
 | Checkbox/Radio fill | control | `selectionFillEase` | child in Field |
 | Switch thumb | Switch | `switchThumbDuration` | child in Field |
 | Hint/Error appear | — | — | manual CSS only |

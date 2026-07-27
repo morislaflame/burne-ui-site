@@ -81,7 +81,7 @@ import {
 | status | Effect |
 |--------|--------|
 | `default` | Standard surface |
-| `danger` / `success` / `warning` | `bg-surface-tint-*` on shell/affix |
+| `danger` / `success` / `info` / `warning` | neutral surface/border + permanent status ring |
 
 | size | Shell height | Segment text |
 |------|--------------|--------------|

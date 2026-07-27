@@ -1,0 +1,26 @@
+"use client";
+
+import { useState } from "react";
+
+import { SearchInput } from "burne-ui";
+
+export function SearchInputWithResultDemo() {
+  const [search, setSearch] = useState("");
+
+  return (
+    <>
+      <SearchInput
+        aria-label="Search with hint"
+        placeholder="Enter your request…"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-64"
+      />
+      {search ? (
+        <p className="mt-large text-sm text-muted">
+          Request: <span className="font-medium text-foreground">{search}</span>
+        </p>
+      ) : null}
+    </>
+  );
+}

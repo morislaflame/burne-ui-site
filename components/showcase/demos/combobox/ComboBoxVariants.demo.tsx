@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 import { ComboBox } from "burne-ui";
@@ -8,37 +10,25 @@ const options = [
   { value: "vue", label: "Vue" },
 ];
 
+const VARIANTS = ["default", "outline", "secondary", "gloss"] as const;
+
 export function ComboBoxVariantsDemo() {
   const [value, setValue] = useState("react");
 
   return (
-    <div className="flex w-full flex-col items-center gap-large">
-      <ComboBox
-        label="Framework"
-        options={options}
-        value={value}
-        onValueChange={setValue}
-        hint="Default shell — bg-surface."
-        className="w-64"
-      />
-      <ComboBox
-        label="Outline"
-        variant="outline"
-        options={options}
-        value={value}
-        onValueChange={setValue}
-        hint="Transparent background with outline."
-        className="w-64"
-      />
-      <ComboBox
-        label="Secondary"
-        variant="secondary"
-        options={options}
-        value={value}
-        onValueChange={setValue}
-        hint="Secondary surface — like Button secondary."
-        className="w-64"
-      />
+    <div className="grid w-full max-w-2xl gap-xlarge sm:grid-cols-2">
+      {VARIANTS.map((variant) => (
+        <ComboBox
+          key={variant}
+          label={variant}
+          variant={variant}
+          options={options}
+          value={value}
+          onValueChange={setValue}
+          hint={`variant="${variant}"`}
+          className="w-full"
+        />
+      ))}
     </div>
   );
 }
