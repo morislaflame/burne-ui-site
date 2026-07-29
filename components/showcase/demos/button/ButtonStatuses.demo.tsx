@@ -21,7 +21,7 @@ export function ButtonStatusesDemo() {
   return (
     <div className="flex w-full flex-col gap-2xlarge">
       {BUTTON_STATUSES.map((status) => (
-        <div key={status} className="flex flex-col gap-base">
+        <div key={status} className="flex flex-col gap-base items-center">
           <span className="text-xsmall font-w-mid uppercase tracking-wide text-muted">
             status: {status}
           </span>
@@ -31,7 +31,7 @@ export function ButtonStatusesDemo() {
                 key={`${status}-${variant}`}
                 variant={variant}
                 status={status}
-                className="min-w-[7.5rem] capitalize"
+                className="capitalize"
               >
                 {variant}
               </Button>

@@ -84,10 +84,12 @@ Compound via `Object.assign`:
 
 | Prop | Default | Description |
 |------|---------|-------------|
-| `size` | `base` | `small` \| `base` \| `mid` \| `large` — spacing for stack/group/actions |
+| `size` | `base` | `small` \| `base` \| `mid` \| `large` — gaps + Label/Hint type (chrome only) |
 | `disabled` | — | On `<fieldset>` |
 | `hintId` / `errorId` | auto | For `aria-describedby` on child controls |
-| `classNames` | — | Slots: set, stack, legend, group, actions |
+| `classNames` | — | Slots: root, stack, legend, group, actions |
+
+> **Do not style a surface on `Field.Set`:** in a native `<fieldset>`, `<legend>` renders **outside** the content box. `border` / `rounded` / `padding` / `bg-*` on `className` / `classNames.root` **do not wrap** the legend — you cannot make a "card" around the whole group that way. For a frame, wrap the Set in an outer `div` / `Card`.
 
 **Auto-layout:** `useFieldSetRootState` parses children — extracts `Legend`, collects `Group`, `Actions`, everything else into `loose`.
 
@@ -176,7 +178,7 @@ No built-in animation. Example via Tailwind:
 
 ## Sizes (`Field.Set`)
 
-`FIELD_SET_SIZE_LAYOUT`:
+`FIELD_SIZE_LAYOUT`:
 
 | size | stack gap | group gap | actions gap | spacing after legend |
 |------|-----------|-----------|-------------|----------------------|
@@ -191,7 +193,7 @@ No built-in animation. Example via Tailwind:
 
 | Element | Classes |
 |---------|---------|
-| Field root | `flex w-full flex-col gap-xsmall` |
+| Field root | `flex w-full flex-col` + `fieldGap` |
 | Fieldset | `m-0 min-w-0 border-0 p-0`, `disabled:opacity-55` |
 | Hint default | `text-muted` |
 | Hint danger/success/warning | `text-danger` / `text-success` / `text-warning` |
@@ -267,8 +269,8 @@ Input/TextArea/ComboBox forward `classNames.hint` / `classNames.error` to the sa
 
 #### Two levels
 
-1. **`className` on `<fieldset>`** — merged with `classNames.set`.
-2. **`classNames`** — `set`, `stack`, `legend`, `legendHeader`, `group`, `actions`.
+1. **`className` on `<fieldset>`** — merged with `classNames.root`.
+2. **`classNames`** — `root`, `stack`, `legend`, `legendHeader`, `group`, `actions`.
 
 ```tsx
 <Field.Set
@@ -284,7 +286,7 @@ Input/TextArea/ComboBox forward `classNames.hint` / `classNames.error` to the sa
 >
   <Field.Legend>
     <Field.LegendHeader>
-      <Label>Contact details</Label>
+      <Field.Label>Contact details</Field.Label>
       <Field.Hint as="span">Slots via classNames</Field.Hint>
     </Field.LegendHeader>
   </Field.Legend>
@@ -299,8 +301,8 @@ Input/TextArea/ComboBox forward `classNames.hint` / `classNames.error` to the sa
 
 | Slot | Element | Purpose |
 |------|---------|---------|
-| `set` | `<fieldset>` | Root layout (`max-w-*`, gap, etc.) |
-| `stack` | Inner stack | Vertical gap between legend/groups/actions |
+| `root` | `<fieldset>` | Layout only (`max-w-*`, etc.) — **not** surface (`border` / `p-*` / `bg-*`) |
+| `stack` | Inner stack | Vertical gap between Group/Actions |
 | `legend` | `<legend>` | Group title |
 | `legendHeader` | Wrapper inside legend | Label + hint on one line |
 | `group` | `Field.Group` | Gap between fields |
@@ -310,14 +312,14 @@ Input/TextArea/ComboBox forward `classNames.hint` / `classNames.error` to the sa
 
 #### Native `<fieldset>` limitation
 
-`Field.Set` is semantic grouping, not a card-like container. With a native fieldset, `<legend>` renders **outside** the content box: `border` and `padding` on `set`/`className` **do not wrap the legend** and do not create a "card" around the entire group. Between the legend and content, the browser adds its own content-box spacing (plus `mt-*` on stack from `size`).
+`Field.Set` is semantic grouping, not a card-like container. With a native fieldset, `<legend>` renders **outside** the content box: `border`, `rounded`, `padding`, `background` on `root` / `className` **do not wrap the legend** and do not create a "card" around the entire group. Between the legend and content, the browser adds its own content-box spacing (plus `mt-*` on stack from `size`).
 
-For a visual frame around legend + fields, wrap `Field.Set` in an outer `div`/`Card` with border and padding — keep the fieldset borderless inside.
+For a visual frame around legend + fields, wrap `Field.Set` in an outer `div` / `Card` with border and padding — keep the fieldset without surface styles.
 
 ### Practical notes
 
-- **Set size:** `size` on `Field.Set` affects gap tokens — align with `Form` size.
-- **Border on set:** do not use `border`/`p-*` on `set` if you expect the legend to be wrapped — see limitation above.
+- **Size:** `size` on `Field` / `Field.Set` is chrome (gaps + Label/Hint). Controls keep their own `size`.
+- **Surface on Set:** do not use `border` / `p-*` / `bg-*` on `root` if you expect the legend to be wrapped — see the limitation above.
 - **Do not confuse with Input:** `Field.classNames` does not style the input shell — only Field layout; shell styling is in `Input.classNames.shell`.
 - **Merge order:** base → `classNames.slot` → subpart `className`.
 

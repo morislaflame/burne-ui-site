@@ -77,7 +77,7 @@ import {
 
 ### `TableClassNames`
 
-`root`, `glossContent`, `scrollContainer`, `content`, `header`, `headerRow`, `column`, `columnInner`, `columnLabel`, `columnSortChevron`, `body`, `row`, `cell`, `footer`, `emptyCell`.
+`root`, `glossContent`, `scrollContainer`, `content`, `header`, `headerRow`, `column`, `columnInner`, `columnLabel`, `columnSortIcon`, `body`, `row`, `cell`, `footer`, `emptyCell`.
 
 ### Compound sub-parts
 
@@ -148,7 +148,7 @@ No portal, no press squeeze on rows, no FLIP on data sort.
 
 **Direction change:** GSAP rotate chevron when `sortDirection === "descending"` (icon `IoChevronUp`).
 
-Slot: `classNames.columnSortChevron`.
+Slot: `classNames.columnSortIcon`.
 
 #### Customization
 
@@ -232,7 +232,7 @@ Sub-parts: **`className` on `Table.Column` / `Table.Row` / `Table.Cell`** on top
 | `column` | `<th>` | Header typography, padding |
 | `columnInner` | Flex row label+chevron | Gap, alignment |
 | `columnLabel` | `Table.Label` | Font weight, color, truncate |
-| `columnSortChevron` | Chevron wrapper | Size/color sort icon |
+| `columnSortIcon` | Chevron wrapper | Size/color sort icon |
 | `body` | `<tbody>` | Empty state container |
 | `row` | `<tr>` | Row hover, tone override |
 | `cell` | `<td>` | Cell padding, text color |
@@ -248,7 +248,7 @@ Sub-parts: **`className` on `Table.Column` / `Table.Row` / `Table.Cell`** on top
     root: "rounded-mid border border-info/25 shadow-token-sm",
     headerRow: "bg-info/10",
     column: "text-info font-semibold",
-    columnSortChevron: "text-info",
+    columnSortIcon: "text-info",
     row: "hover:bg-info/5",
     cell: "text-foreground/90",
     footer: "bg-info/5",
@@ -311,7 +311,7 @@ Sub-parts: **`className` on `Table.Column` / `Table.Row` / `Table.Cell`** on top
 - **`isRowHeader`** on the first column — screen reader row headers.
 - **`renderEmptyState` on `Table.Body`** — custom empty UI (`emptyCell` slot).
 - **Gloss:** table children are placed inside `glossContent` automatically; do not duplicate `gloss-panel` in `classNames.root`.
-- **Do not set `transform` on `columnSortChevron`** — conflicts with GSAP rotate.
+- **Do not set `transform` on `columnSortIcon`** — conflicts with GSAP rotate.
 - **Merge order:** variant styles → `classNames.slot` → sub-part `className`.
 
 ## Integrations

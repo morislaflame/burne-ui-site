@@ -64,8 +64,9 @@ No compound API — only root + child `ToggleButton` elements.
 | `defaultValue` | — | Uncontrolled initial |
 | `onValueChange` | — | `(value: string \| string[]) => void` |
 | `className` | — | On root `<div role="toolbar">` |
+| `classNames` | — | Slots: `root`, `separator` |
 
-No `status` or `classNames` on the group.
+Joined frame same as `ButtonGroup`: on `classNames.root` use `rounded-*` and `border-primary` (color only — no width `border`).
 
 ### Child elements
 
@@ -153,7 +154,8 @@ Root: `role="toolbar"`, `aria-orientation`, `aria-disabled`.
 
 | Part | Customization |
 |-------|--------------|
-| root | `ToggleButtonGroup className` |
+| root | `className` / `classNames.root` |
+| separator | `classNames.separator` |
 | buttons | `ToggleButton className` / `classNames` |
 
 ### Connected horizontal

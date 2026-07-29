@@ -84,10 +84,12 @@ Compound через `Object.assign`:
 
 | Prop | По умолчанию | Описание |
 |------|--------------|----------|
-| `size` | `base` | `small` \| `base` \| `mid` \| `large` — отступы stack/group/actions |
+| `size` | `base` | `small` \| `base` \| `mid` \| `large` — gaps + Label/Hint type (chrome only) |
 | `disabled` | — | На `<fieldset>` |
 | `hintId` / `errorId` | auto | Для `aria-describedby` у дочерних контролов |
-| `classNames` | — | Слоты set, stack, legend, group, actions |
+| `classNames` | — | Слоты root, stack, legend, group, actions |
+
+> **Не стилизуйте поверхность на `Field.Set`:** у нативного `<fieldset>` `<legend>` рендерится **вне** content box. `border` / `rounded` / `padding` / `bg-*` на `className` / `classNames.root` **не оборачивают** legend — «карточки» вокруг всей группы так не сделать. Для рамки оберните Set во внешний `div` / `Card`.
 
 **Авто-раскладка:** `useFieldSetRootState` парсит children — выносит `Legend`, собирает `Group`, `Actions`, остальное в `loose`.
 
@@ -176,7 +178,7 @@ configureMotion({
 
 ## Размеры (`Field.Set`)
 
-`FIELD_SET_SIZE_LAYOUT`:
+`FIELD_SIZE_LAYOUT`:
 
 | size | stack gap | group gap | actions gap | отступ после legend |
 |------|-----------|-----------|-------------|---------------------|
@@ -185,13 +187,13 @@ configureMotion({
 | `mid` | `gap-2xlarge` | `gap-large` | `gap-large` | `mt-2xlarge` |
 | `large` | `gap-2xlarge` | `gap-xlarge` | `gap-xlarge` | `mt-2xlarge` |
 
-`Field` (одиночный) — фиксированный `gap-xsmall` между label / control / hint.
+`Field size` также масштабирует gap и типографику Label/Hint; внутри Set наследует size, если не задан.
 
 ## Токены и CSS
 
 | Элемент | Классы |
 |---------|--------|
-| Field root | `flex w-full flex-col gap-xsmall` |
+| Field root | `flex w-full flex-col` + `fieldGap` |
 | Fieldset | `m-0 min-w-0 border-0 p-0`, `disabled:opacity-55` |
 | Hint default | `text-muted` |
 | Hint danger/success/warning | `text-danger` / `text-success` / `text-warning` |
@@ -267,8 +269,8 @@ Input/TextArea/ComboBox прокидывают `classNames.hint` / `classNames.e
 
 #### Два уровня
 
-1. **`className` на `<fieldset>`** — мерж с `classNames.set`.
-2. **`classNames`** — `set`, `stack`, `legend`, `legendHeader`, `group`, `actions`.
+1. **`className` на `<fieldset>`** — мерж с `classNames.root`.
+2. **`classNames`** — `root`, `stack`, `legend`, `legendHeader`, `group`, `actions`.
 
 ```tsx
 <Field.Set
@@ -284,7 +286,7 @@ Input/TextArea/ComboBox прокидывают `classNames.hint` / `classNames.e
 >
   <Field.Legend>
     <Field.LegendHeader>
-      <Label>Контактные данные</Label>
+      <Field.Label>Контактные данные</Field.Label>
       <Field.Hint as="span">Слоты через classNames</Field.Hint>
     </Field.LegendHeader>
   </Field.Legend>
@@ -299,8 +301,8 @@ Input/TextArea/ComboBox прокидывают `classNames.hint` / `classNames.e
 
 | Слот | Элемент | Назначение |
 |------|---------|------------|
-| `set` | `<fieldset>` | Layout на корне (`max-w-*`, gap и т.п.) |
-| `stack` | Внутренний stack | Вертикальный gap между legend/groups/actions |
+| `root` | `<fieldset>` | Только layout (`max-w-*` и т.п.) — **не** surface (`border` / `p-*` / `bg-*`) |
+| `stack` | Внутренний stack | Вертикальный gap между Group/Actions |
 | `legend` | `<legend>` | Заголовок группы |
 | `legendHeader` | Обёртка в legend | Label + hint в одной строке |
 | `group` | `Field.Group` | Gap между полями |
@@ -310,14 +312,14 @@ Input/TextArea/ComboBox прокидывают `classNames.hint` / `classNames.e
 
 #### Ограничение нативного `<fieldset>`
 
-`Field.Set` — семантическая группировка, не card-like контейнер. У нативного fieldset `<legend>` рендерится **вне** content box: `border` и `padding` на `set`/`className` **не оборачивают legend** и не дают «карточку» вокруг всей группы. Между legend и контентом браузер добавляет свой отступ content box (плюс `mt-*` на stack от `size`).
+`Field.Set` — семантическая группировка, не card-like контейнер. У нативного fieldset `<legend>` рендерится **вне** content box: `border`, `rounded`, `padding`, `background` на `root` / `className` **не оборачивают legend** и не дают «карточку» вокруг всей группы. Между legend и контентом браузер добавляет свой отступ content box (плюс `mt-*` на stack от `size`).
 
-Для визуальной рамки вокруг legend + полей оберните `Field.Set` во внешний `div`/`Card` с border и padding — внутри оставьте fieldset без border.
+Для визуальной рамки вокруг legend + полей оберните `Field.Set` во внешний `div` / `Card` с border и padding — внутри оставьте fieldset без surface-стилей.
 
 ### Практические заметки
 
-- **Размер Set:** `size` на `Field.Set` влияет на gap токенов — согласуйте с `Form` size.
-- **Border на set:** не используйте `border`/`p-*` на `set`, если ожидаете обёртку legend — см. ограничение выше.
+- **Размер:** `size` на `Field` / `Field.Set` — chrome (gaps + Label/Hint). Контролы — свой `size`.
+- **Surface на Set:** не используйте `border` / `p-*` / `bg-*` на `root`, если ожидаете обёртку legend — см. ограничение выше.
 - **Не путать с Input:** `Field.classNames` не стилизует shell input — только layout Field; shell — в `Input.classNames.shell`.
 - **Порядок мержа:** базовые → `classNames.slot` → `className` подчасти.
 

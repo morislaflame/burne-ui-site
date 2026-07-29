@@ -10,7 +10,7 @@ import {
   Link.Icon,
   type LinkProps,
   type LinkSize,
-  type LinkIconPosition,
+  type LinkIconPos,
   type LinkClassNames,
 } from "burne-ui";
 ```
@@ -28,17 +28,16 @@ import {
 | `showDefaultIcon` | `boolean` | `false` | `IoArrowForward` ↗ |
 | `defaultIconPosition` | `start` \| `end` | `end` | Default icon position |
 | `className` | `string` | — | On `<a>` |
-| `classNames` | `LinkClassNames` | — | `anchor`, `text`, `iconStart`, `iconEnd` |
+| `classNames` | `LinkClassNames` | — | `root`, `text`, `icon` |
 | … | `AnchorHTMLAttributes` | — | `target`, `rel`, `onClick`, … |
 
 ### `LinkClassNames`
 
 ```tsx
 type LinkClassNames = {
-  anchor?: string;
+  root?: string;
   text?: string;
-  iconStart?: string;
-  iconEnd?: string;
+  icon?: string;
 };
 ```
 
@@ -58,9 +57,9 @@ type LinkClassNames = {
 
 ```tsx
 <Link href="/item">
-  <Link.Icon position="start"><IoDocument aria-hidden /></Link.Icon>
+  <Link.Icon iconPosition="start"><IoDocument aria-hidden /></Link.Icon>
   Open file
-  <Link.Icon position="end" />
+  <Link.Icon iconPosition="end" />
 </Link>
 ```
 
@@ -165,8 +164,8 @@ configureMotion({
 
 ### Two levels
 
-1. **`className`** — extra classes on `<a>` (merged with `classNames.anchor`).
-2. **`classNames`** — slots `anchor`, `text`, `iconStart`, `iconEnd`.
+1. **`className`** — extra classes on `<a>` (merged with `classNames.root`).
+2. **`classNames`** — slots `root`, `text`, `icon`.
 
 Link is a single component; "compound" only changes icon markup inside the anchor.
 
@@ -174,10 +173,9 @@ Link is a single component; "compound" only changes icon markup inside the ancho
 
 | Slot | DOM / element | When to use |
 |------|---------------|-------------------|
-| `anchor` | `<a>` | Gap, padding, border, hover-lift target |
+| `root` | `<a>` | Gap, padding, border, hover-lift target |
 | `text` | `Text` (children) | Font, underline override |
-| `iconStart` | Left icon wrapper | Size, muted/hover color |
-| `iconEnd` | Right icon wrapper | Default ↗ or `icon` + `iconPosition="end"` |
+| `icon` | Icon wrapper (start/end) | Size, muted/hover color |
 
 `size`, `underline` — base typography and underline from `linkStyles.ts`.
 
@@ -193,15 +191,14 @@ Link is a single component; "compound" only changes icon markup inside the ancho
   classNames={{
     root: "gap-small rounded-mid border border-primary/20 p-xsmall text-info",
     text: "font-semibold",
-    iconStart: "opacity-80",
-    iconEnd: "text-warning",
+    icon: "text-warning",
   }}
 >
   Documentation
 </Link>
 ```
 
-Icons via `icon` + `iconPosition` / `showDefaultIcon` props — wrapper styles via `iconStart` / `iconEnd`.
+Icons via `icon` + `iconPosition` / `showDefaultIcon` props — wrapper styles via `icon`.
 
 ### Compound API
 
@@ -211,20 +208,20 @@ Icons via `icon` + `iconPosition` / `showDefaultIcon` props — wrapper styles v
   classNames={{
     root: "gap-large",
     text: "text-primary",
-    iconStart: "text-muted group-hover:text-foreground",
+    icon: "text-muted group-hover:text-foreground",
   }}
 >
-  <Link.Icon position="start">
+  <Link.Icon iconPosition="start">
     <IoFolder aria-hidden />
   </Link.Icon>
   Open file
-  <Link.Icon position="end" />
+  <Link.Icon iconPosition="end" />
 </Link>
 ```
 
-Empty `<Link.Icon position="end" />` — default ↗; `muted` until hover is set via `iconEnd` styles.
+Empty `<Link.Icon iconPosition="end" />` — default ↗; `muted` until hover is set via `icon` styles.
 
-`Link.Icon` has no separate slot in `LinkClassNames` — style the icon via `iconStart` / `iconEnd` or wrap children.
+`Link.Icon` has no separate slot in `LinkClassNames` — style the icon via `icon` or wrap children.
 
 ### Practical notes
 

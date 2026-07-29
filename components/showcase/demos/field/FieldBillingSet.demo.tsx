@@ -1,14 +1,13 @@
 import { Button } from "burne-ui";
 import { Field } from "burne-ui";
 import { Input } from "burne-ui";
-import { Label } from "burne-ui";
 
 export function FieldBillingSetDemo() {
   return (
-    <Field.Set className="w-full max-w-md">
+    <Field.Set className="w-full">
       <Field.Legend>
         <Field.LegendHeader>
-          <Label>Payment</Label>
+          <Field.Label>Payment</Field.Label>
           <Field.Hint as="span">Data protected</Field.Hint>
         </Field.LegendHeader>
       </Field.Legend>
@@ -24,7 +23,7 @@ export function FieldBillingSetDemo() {
         </Input>
       </Field.Group>
       <Field.Actions>
-        <Button type="button" variant="primary" size="small">
+        <Button type="button" variant="primary">
           Pay
         </Button>
       </Field.Actions>

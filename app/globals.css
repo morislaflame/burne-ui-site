@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@source "../node_modules/burne-ui/dist";
+
+/* Scan app code only — kit classes already ship in burne-ui/styles.css (prebuilt ui.css).
+ * Do NOT @source node_modules/burne-ui/dist: double-generates utilities and can crash Turbopack/PostCSS. */
 @source "../components/**/*.{tsx,ts}";
 @source "../app/**/*.{tsx,ts}";
 @source "../lib/**/*.{tsx,ts}";
@@ -8,7 +10,7 @@
 
 /*
  * Site Tailwind re-generates `text-base` from @source with default 1rem.
- * burne-ui semantic `text-base` = `--text-scale-small` (0.875rem).
+ * burne-ui semantic `text-base` = `--text-scale-base` (0.875rem).
  */
 @theme {
   --text-base: var(--text-base-size);

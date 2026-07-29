@@ -28,6 +28,15 @@ export function DropdownClassNamesFullDemo() {
             <Dropdown.ItemLabel>English</Dropdown.ItemLabel>
             <Dropdown.ItemHint>Latin</Dropdown.ItemHint>
           </Dropdown.Item>
+          <Dropdown.Sub>
+            <Dropdown.SubTrigger>More</Dropdown.SubTrigger>
+            <Dropdown.SubContent>
+              <Dropdown.Item value="de">
+                <Dropdown.ItemIndicator />
+                <Dropdown.ItemLabel>Deutsch</Dropdown.ItemLabel>
+              </Dropdown.Item>
+            </Dropdown.SubContent>
+          </Dropdown.Sub>
         </Dropdown.Group>
       </Dropdown.Popover>
     </Dropdown>

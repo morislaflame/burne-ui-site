@@ -1,14 +1,13 @@
 import { Button } from "burne-ui";
 import { Field } from "burne-ui";
 import { Input } from "burne-ui";
-import { Label } from "burne-ui";
 
 export function FieldContactSetDemo() {
   return (
-    <Field.Set className="max-w-md">
+    <Field.Set className="w-full">
       <Field.Legend>
         <Field.LegendHeader>
-          <Label>Contact details</Label>
+          <Field.Label>Contact details</Field.Label>
           <Field.Hint as="span">All fields are required</Field.Hint>
         </Field.LegendHeader>
       </Field.Legend>

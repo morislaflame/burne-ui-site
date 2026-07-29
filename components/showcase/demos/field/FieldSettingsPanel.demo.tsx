@@ -1,14 +1,13 @@
 import { Field } from "burne-ui";
-import { Label } from "burne-ui";
 import { Switch } from "burne-ui";
 
 export function FieldSettingsPanelDemo() {
   return (
-    <Field.Set className="w-full max-w-md">
+    <Field.Set>
       <div className="flex flex-col gap-large p-large">
         <Field.Legend>
           <Field.LegendHeader>
-            <Label>Notifications</Label>
+            <Field.Label>Notifications</Field.Label>
             <Field.Hint as="span">Email and push</Field.Hint>
           </Field.LegendHeader>
         </Field.Legend>

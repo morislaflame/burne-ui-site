@@ -1,6 +1,6 @@
 # Form
 
-Composite wrapper around `<form>`: state machine (values, errors, touched, submit), field binding by `name`, validation, and a11y announce. **Compound API only** — layout from `Title`, `Section`, `Field`, `Actions`.
+Composite wrapper around `<form>`: state machine (values, errors, touched, submit), field binding by `name`, validation, and a11y announce. **Compound API only** — layout from `Header`, `Title`, `Description`, `Section`, `Field`, `Actions`.
 
 ## Import
 
@@ -10,7 +10,9 @@ import {
   useFormField,
   type FormProps,
   type FormSectionProps,
+  type FormHeaderProps,
   type FormClassNames,
+  type FormSize,
   type FormValues,
   type FormFieldRules,
   type FormResolver,
@@ -34,8 +36,10 @@ Extended API (for control authors) — from `@/components/composite/Form`: `useF
   }}
   onSubmit={(values) => console.log(values)}
 >
-  <Form.Title>Profile</Form.Title>
-  <Form.Description>Update your account details.</Form.Description>
+  <Form.Header>
+    <Form.Title>Profile</Form.Title>
+    <Form.Description>Update your account details.</Form.Description>
+  </Form.Header>
   <Form.Section>
     <Form.Field name="name">
       <Input name="name" label="Name" required />
@@ -62,7 +66,7 @@ Extended API (for control authors) — from `@/components/composite/Form`: `useF
 | `rules` | — | `Record<string, FormFieldRules>` at form level |
 | `resolver` | — | Async/sync validation after rules |
 | `validateMode` | `onSubmit` | `onSubmit` \| `onBlur` \| `onChange` |
-| `size` | — | `small` \| `base` \| `mid` \| `large` → context for fields |
+| `size` | `base` | `small` \| `base` \| `mid` \| `large` — Form chrome only (`Header` / `Title` / `Description` / `Section` / `Actions`). Does not cascade into `Input` / `Button` |
 | `disabled` / `readOnly` | `false` | Passed through context |
 | `onSubmit` | — | `(values) => void \| Promise<void>` |
 | `onSubmitError` | — | `(errors) => void` on validation errors |
@@ -77,6 +81,7 @@ HTML `onSubmit` is overridden — native validation is disabled (`noValidate`).
 | Part | DOM | Purpose |
 |------|-----|---------|
 | `Form` | `<form>` | Root + state machine |
+| `Form.Header` | `<div>` | Wrapper for `Title` + `Description` (`headingGap`) |
 | `Form.Section` | `<div>` | Field group |
 | `Form.Title` | `Text as="h2"` | Form heading |
 | `Form.Description` | `<p>` | Description |
@@ -87,7 +92,7 @@ HTML `onSubmit` is overridden — native validation is disabled (`noValidate`).
 
 ### `FormClassNames`
 
-`root`, `section`, `title`, `description`, `actions`, `errorSummary`, `announce`, `field`.
+`root`, `header`, `section`, `title`, `description`, `actions`, `errorSummary`, `announce`, `field`.
 
 ### `useFormField(name, rules?)`
 
@@ -154,7 +159,7 @@ On submit, validation is **always** full + `resolver`.
 |------|------|
 | `variant` | No |
 | `status` | No (errors on fields via `status="danger"`) |
-| `size` | Yes — context for `Input`, `Button`, … |
+| `size` | Yes — Form chrome; fields set their own `size` |
 | `disabled` / `readOnly` | Yes — context |
 
 ## Animations
@@ -179,15 +184,16 @@ On submit, validation is **always** full + `resolver`.
 
 | Slot | Base classes (`formStyles.ts`) |
 |------|--------------------------------|
-| `root` | `flex flex-col gap-large w-full text-left` |
-| `section` | `flex flex-col gap-base` |
-| `title` | `text-header-3 font-semibold text-foreground` |
-| `description` | `text-base text-muted` |
-| `actions` | `flex flex-wrap justify-end gap-small pt-small` |
+| `root` | `flex flex-col text-left` + `rootGap` |
+| `header` | `flex flex-col` + `headingGap` |
+| `section` | `flex flex-col` + `sectionGap` |
+| `title` | `titleVariant` + `titleClassName` |
+| `description` | `descClassName` |
+| `actions` | `actionsGap` + `actionsPaddingTop` |
 | `errorSummary` / `announce` | `sr-only` |
 | `field` | user classes only |
 
-`Form.Title` — `Text variant="mid" as="h2"` on top of `formTitleClass`.
+`Form.Title` — `Text` with `formTitleVariant(size)` on top of `formTitleClass`.
 
 ## Styling and customization
 
@@ -196,14 +202,15 @@ On submit, validation is **always** full + `resolver`.
 1. **`className` on `Form`** — layout (horizontal toolbar, max-width).
 2. **`classNames` on root** — all layout slots.
 
-`Form.Section` / `Form.Field` can override a local slot (`section`, `field`).
+`Form.Header` / `Form.Section` / `Form.Field` can override a local slot (`header`, `section`, `field`).
 
 ### `FormClassNames` slots
 
 | Slot | DOM | When to use |
 |------|-----|-------------|
 | `root` | `<form>` | Border, padding, bg panel |
-| `section` | Section div | Gap between fields |
+| `header` | Header div | Gap between Title and Description |
+| `section` | Gap between fields |
 | `title` | `h2` Text | Heading color/size |
 | `description` | `<p>` | Muted intro |
 | `actions` | Actions row | Align buttons, border-top |
@@ -225,7 +232,9 @@ On submit, validation is **always** full + `resolver`.
   }}
   onSubmit={handleSubmit}
 >
-  <Form.Title>Feedback</Form.Title>
+  <Form.Header>
+    <Form.Title>Feedback</Form.Title>
+  </Form.Header>
   <Form.Section>
     <Form.Field name="topic">
       <Input name="topic" label="Topic" />
@@ -283,7 +292,7 @@ On submit, validation is **always** full + `resolver`.
 | `Input` | `useFormControlProps` — event-based |
 | `Checkbox` | `useFormControlProps` (`type="checkbox"`) |
 | `ComboBox` / `Select` | `useFormFieldBinding` — value-based |
-| `Button` | `size`, `disabled`, `isSubmitting` from context |
+| `Button` | `disabled` / `isSubmitting` from context (not `size`) |
 | `CheckboxGroup` | No direct binding; single selection — separate `name`/`value` pattern |
 | `Card` / `Dialog` / `Surface` | Layout wrappers in stories |
 

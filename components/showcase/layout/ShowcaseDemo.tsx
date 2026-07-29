@@ -29,7 +29,7 @@ function ShowcaseCodePanel({ code }: { code: string }) {
       className="border-t-token bg-surface"
     >
       <div className="flex items-center justify-between gap-small p-large">
-        <Disclosure.Trigger asChild icon={null}>
+        <Disclosure.Trigger asChild chevron={null}>
           <Button
             type="button"
             variant="outline"
@@ -93,11 +93,11 @@ export function ShowcaseDemo({
         variant="default"
         padding={padding}
         className={cn(
-          "rounded-none border-0 shadow-none bg-transparent flex items-center justify-center min-h-72 p-large px-xlarge",
+          "rounded-none border-0 shadow-none bg-transparent flex items-center justify-center min-h-72 py-2xlarge px-xlarge",
           alignClass,
         )}
       >
-        {children}
+        <div className="w-full flex items-center justify-center">{children}</div>
       </Surface>
       {code ? <ShowcaseCodePanel code={code} /> : null}
     </div>

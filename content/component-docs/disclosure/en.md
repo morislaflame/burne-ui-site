@@ -13,7 +13,7 @@ import {
   type DisclosureContentProps,
   type DisclosureVariant,
   type DisclosureSize,
-  type DisclosureIconPos,
+  type DisclosureChevronPos,
   type DisclosureClassNames,
 } from "burne-ui";
 ```
@@ -66,18 +66,38 @@ No Simple API.
 | `variant` | `default` | Visual style (inherited from group) |
 | `size` | `base` | `small` \| `base` \| `mid` \| `large` |
 | `disabled` | `false` | Disables trigger |
-| `iconPos` | `right` | `left` \| `right` |
+| `chevronPosition` | `end` | `start` \| `end` — chevron placement |
 | `dragHandle` | `false` | Drag-to-expand (`variant="card"` only) |
 | `className` | — | On root |
 | `classNames` | — | Slots |
+
+### Compound parts
+
+| Part | Description |
+|------|-------------|
+| `Disclosure.Trigger` | Header button |
+| `Disclosure.Icon` | Leading icon left of title |
+| `Disclosure.Chevron` | Custom chevron (compound) |
+| `Disclosure.Content` | Content panel |
+| `Disclosure.Handle` | Drag handle (`variant="card"`) |
+| `Disclosure.Group` | Accordion container |
 
 ### `Disclosure.Trigger` props
 
 | Prop | Default | Description |
 |------|---------|-------------|
-| `icon` | `IoChevronDown` | Custom icon; `null` — no chevron |
+| `icon` | — | Leading icon left of title |
+| `chevron` | `IoChevronDown` | Custom chevron; `null` hides chevron |
 | `asChild` | `false` | Clone child with ARIA/handlers |
 | `className` | — | On `<button>` |
+
+```tsx
+<Disclosure.Trigger icon={<IoHelp aria-hidden />}>
+  Title with icon
+</Disclosure.Trigger>
+
+<Disclosure.Trigger chevron={null}>No chevron</Disclosure.Trigger>
+```
 
 ### `Disclosure.Group` props
 
@@ -94,7 +114,7 @@ When `accordion={false}`, each `Disclosure` manages its own `open` independently
 
 ### `DisclosureClassNames`
 
-`root`, `trigger`, `triggerTitleLift`, `triggerTitle`, `triggerChevron`, `contentShell`, `contentWrap`, `contentPanel`, `glossPanel`, `glossContent`, `handle`, `group`.
+`root`, `trigger`, `titleLift`, `title`, `icon`, `chevron`, `contentShell`, `contentWrap`, `contentPanel`, `glossPanel`, `glossContent`, `handle`, `group`.
 
 ## variant and sizes
 
@@ -233,9 +253,9 @@ Only `variant="card"` + `dragHandle`:
 |------|-----|-------------|
 | `root` | Root div | Outer spacing |
 | `trigger` | `<button>` | Padding, hover bg |
-| `triggerTitleLift` | Lift wrapper | Motion target area |
-| `triggerTitle` | Title Text | Typography |
-| `triggerChevron` | Chevron span | Icon color/size |
+| `titleLift` | Lift wrapper | Motion target area |
+| `title` | Title Text | Typography |
+| `chevron` | Chevron span | Icon color/size |
 | `contentShell` | Collapsible shell | Max-height helpers |
 | `contentWrap` | Inner wrap | Padding for framed variants |
 | `contentPanel` | `<section>` | Content typography |
@@ -273,7 +293,7 @@ Only `variant="card"` + `dragHandle`:
 ### Practical notes
 
 - `accordion={false}` — multiple open at once.
-- `icon={null}` — trigger without chevron.
+- `chevron={null}` — trigger without chevron.
 - `asChild` on Trigger — merge ARIA onto child button/link.
 - Card in group without `separated`: card shell on `Disclosure.Group`.
 - **Do not override `height` on `contentShell`** — GSAP collapsible.
@@ -318,4 +338,4 @@ Disclosure/
 
 ## Storybook
 
-`Core Components/Disclosure` — variants, sizes, icon position, controlled, disabled, group modes, card drag, `CustomClassNames`.
+`Core Components/Disclosure` — variants, sizes, chevron position, icon, controlled, disabled, group modes, card drag, `CustomClassNames`.

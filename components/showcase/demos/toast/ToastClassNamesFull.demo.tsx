@@ -16,13 +16,12 @@ function ToastRenameForm({ onSubmit }: { onSubmit: (name: string) => void }) {
       }}
     >
       <Input.Control
-        size="small"
         placeholder="New name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         autoComplete="off"
       />
-      <Button type="submit" size="small" variant="primary" disabled={!name.trim()}>
+      <Button type="submit" variant="primary" disabled={!name.trim()}>
         Save
       </Button>
     </form>

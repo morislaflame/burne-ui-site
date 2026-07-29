@@ -10,7 +10,7 @@ import {
   Link.Icon,
   type LinkProps,
   type LinkSize,
-  type LinkIconPosition,
+  type LinkIconPos,
   type LinkClassNames,
 } from "burne-ui";
 ```
@@ -28,17 +28,16 @@ import {
 | `showDefaultIcon` | `boolean` | `false` | `IoArrowForward` ↗ |
 | `defaultIconPosition` | `start` \| `end` | `end` | Позиция дефолтной иконки |
 | `className` | `string` | — | На `<a>` |
-| `classNames` | `LinkClassNames` | — | `anchor`, `text`, `iconStart`, `iconEnd` |
+| `classNames` | `LinkClassNames` | — | `root`, `text`, `icon` |
 | … | `AnchorHTMLAttributes` | — | `target`, `rel`, `onClick`, … |
 
 ### `LinkClassNames`
 
 ```tsx
 type LinkClassNames = {
-  anchor?: string;
+  root?: string;
   text?: string;
-  iconStart?: string;
-  iconEnd?: string;
+  icon?: string;
 };
 ```
 
@@ -58,9 +57,9 @@ type LinkClassNames = {
 
 ```tsx
 <Link href="/item">
-  <Link.Icon position="start"><IoDocument aria-hidden /></Link.Icon>
+  <Link.Icon iconPosition="start"><IoDocument aria-hidden /></Link.Icon>
   Открыть файл
-  <Link.Icon position="end" />
+  <Link.Icon iconPosition="end" />
 </Link>
 ```
 
@@ -165,8 +164,8 @@ configureMotion({
 
 ### Два уровня
 
-1. **`className`** — доп. классы на `<a>` (мерж с `classNames.anchor`).
-2. **`classNames`** — слоты `anchor`, `text`, `iconStart`, `iconEnd`.
+1. **`className`** — доп. классы на `<a>` (мерж с `classNames.root`).
+2. **`classNames`** — слоты `root`, `text`, `icon`.
 
 Link — один компонент; «compound» меняет только разметку иконок внутри якоря.
 
@@ -174,10 +173,9 @@ Link — один компонент; «compound» меняет только р�
 
 | Слот | DOM / элемент | Когда использовать |
 |------|---------------|-------------------|
-| `anchor` | `<a>` | Gap, padding, border, hover-lift target |
+| `root` | `<a>` | Gap, padding, border, hover-lift target |
 | `text` | `Text` (children) | Шрифт, underline override |
-| `iconStart` | Обёртка левой иконки | Размер, muted/hover цвет |
-| `iconEnd` | Обёртка правой иконки | Дефолтная ↗ или `icon` + `iconPosition="end"` |
+| `icon` | Обёртка иконки (start/end) | Размер, muted/hover цвет |
 
 `size`, `underline` — базовая типографика и подчёркивание из `linkStyles.ts`.
 
@@ -193,15 +191,14 @@ Link — один компонент; «compound» меняет только р�
   classNames={{
     root: "gap-small rounded-mid border border-primary/20 p-xsmall text-info",
     text: "font-semibold",
-    iconStart: "opacity-80",
-    iconEnd: "text-warning",
+    icon: "text-warning",
   }}
 >
   Документация
 </Link>
 ```
 
-Иконки через props `icon` + `iconPosition` / `showDefaultIcon` — стили обёрток через `iconStart` / `iconEnd`.
+Иконки через props `icon` + `iconPosition` / `showDefaultIcon` — стили обёрток через `icon`.
 
 ### Compound API
 
@@ -211,20 +208,20 @@ Link — один компонент; «compound» меняет только р�
   classNames={{
     root: "gap-large",
     text: "text-primary",
-    iconStart: "text-muted group-hover:text-foreground",
+    icon: "text-muted group-hover:text-foreground",
   }}
 >
-  <Link.Icon position="start">
+  <Link.Icon iconPosition="start">
     <IoFolder aria-hidden />
   </Link.Icon>
   Открыть файл
-  <Link.Icon position="end" />
+  <Link.Icon iconPosition="end" />
 </Link>
 ```
 
-Пустой `<Link.Icon position="end" />` — дефолтная ↗; `muted` до hover задаётся стилями `iconEnd`.
+Пустой `<Link.Icon iconPosition="end" />` — дефолтная ↗; `muted` до hover задаётся стилями `icon`.
 
-`Link.Icon` не имеет отдельного слота в `LinkClassNames` — стилизуйте иконку через `iconStart` / `iconEnd` или оберните children.
+`Link.Icon` не имеет отдельного слота в `LinkClassNames` — стилизуйте иконку через `icon` или оберните children.
 
 ### Практические заметки
 

@@ -64,8 +64,9 @@ Compound API **нет** — только root + дочерние `ToggleButton`.
 | `defaultValue` | — | Uncontrolled initial |
 | `onValueChange` | — | `(value: string \| string[]) => void` |
 | `className` | — | На root `<div role="toolbar">` |
+| `classNames` | — | Слоты: `root`, `separator` |
 
-`status` и `classNames` на группе **нет**.
+Joined-рамка как у `ButtonGroup`: на `classNames.root` — `rounded-*` и `border-primary` (цвет, без ширины `border`).
 
 ### Дочерние элементы
 
@@ -153,7 +154,8 @@ Root: `role="toolbar"`, `aria-orientation`, `aria-disabled`.
 
 | Часть | Кастомизация |
 |-------|--------------|
-| root | `ToggleButtonGroup className` |
+| root | `className` / `classNames.root` |
+| separator | `classNames.separator` |
 | кнопки | `ToggleButton className` / `classNames` |
 
 ### Connected horizontal

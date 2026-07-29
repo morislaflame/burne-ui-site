@@ -17,7 +17,7 @@ const ITEMS = [
 
 export function AlertCompactStackDemo() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-base items-center justify-center">
+    <div className="flex flex-col gap-base">
       {ITEMS.map((item) => (
         <Alert
           key={item.title}

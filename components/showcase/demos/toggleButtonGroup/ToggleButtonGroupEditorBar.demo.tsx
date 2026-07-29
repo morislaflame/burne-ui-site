@@ -9,7 +9,7 @@ export function ToggleButtonGroupEditorBarDemo() {
   const [formats, setFormats] = useState<string[]>(["bold", "italic"]);
 
   return (
-    <Surface variant="secondary" padding="small" className="w-full max-w-md">
+    <Surface variant="secondary" padding="small">
       <div className="flex flex-col gap-small">
         <Text as="span" variant="xsmall" className="text-muted">
           Format panel

@@ -1,13 +1,12 @@
 import { Field } from "burne-ui";
 import { Input } from "burne-ui";
-import { Label } from "burne-ui";
 
 export function FieldAddressSetDemo() {
   return (
-    <Field.Set className="max-w-md">
+    <Field.Set>
       <Field.Legend>
         <Field.LegendHeader>
-          <Label>Delivery address</Label>
+          <Field.Label>Delivery address</Field.Label>
           <Field.Hint as="span">Please provide a current address</Field.Hint>
         </Field.LegendHeader>
       </Field.Legend>

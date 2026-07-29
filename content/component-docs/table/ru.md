@@ -77,7 +77,7 @@ import {
 
 ### `TableClassNames`
 
-`root`, `glossContent`, `scrollContainer`, `content`, `header`, `headerRow`, `column`, `columnInner`, `columnLabel`, `columnSortChevron`, `body`, `row`, `cell`, `footer`, `emptyCell`.
+`root`, `glossContent`, `scrollContainer`, `content`, `header`, `headerRow`, `column`, `columnInner`, `columnLabel`, `columnSortIcon`, `body`, `row`, `cell`, `footer`, `emptyCell`.
 
 ### Compound-подчасти
 
@@ -148,7 +148,7 @@ import {
 
 **Direction change:** GSAP rotate chevron при `sortDirection === "descending"` (иконка `IoChevronUp`).
 
-Слот: `classNames.columnSortChevron`.
+Слот: `classNames.columnSortIcon`.
 
 #### Кастомизация
 
@@ -232,7 +232,7 @@ Controlled через React (`selectedKeys`, `onSelectionChange`):
 | `column` | `<th>` | Header typography, padding |
 | `columnInner` | Flex row label+chevron | Gap, alignment |
 | `columnLabel` | `Table.Label` | Font weight, color, truncate |
-| `columnSortChevron` | Chevron wrapper | Size/color sort icon |
+| `columnSortIcon` | Chevron wrapper | Size/color sort icon |
 | `body` | `<tbody>` | Empty state container |
 | `row` | `<tr>` | Row hover, tone override |
 | `cell` | `<td>` | Cell padding, text color |
@@ -248,7 +248,7 @@ Controlled через React (`selectedKeys`, `onSelectionChange`):
     root: "rounded-mid border border-info/25 shadow-token-sm",
     headerRow: "bg-info/10",
     column: "text-info font-semibold",
-    columnSortChevron: "text-info",
+    columnSortIcon: "text-info",
     row: "hover:bg-info/5",
     cell: "text-foreground/90",
     footer: "bg-info/5",
@@ -311,7 +311,7 @@ Controlled через React (`selectedKeys`, `onSelectionChange`):
 - **`isRowHeader`** на первой колонке — screen reader row headers.
 - **`renderEmptyState` на `Table.Body`** — кастом empty UI (`emptyCell` слот).
 - **Gloss:** children table внутри `glossContent` автоматически; не дублируйте `gloss-panel` в `classNames.root`.
-- **Не задавайте `transform` на `columnSortChevron`** — конфликт с GSAP rotate.
+- **Не задавайте `transform` на `columnSortIcon`** — конфликт с GSAP rotate.
 - **Порядок мержа:** variant styles → `classNames.slot` → `className` подчасти.
 
 ## Интеграции

@@ -9,9 +9,8 @@ export function ButtonAsyncClickDemo() {
           window.setTimeout(() => resolve(true), 1400);
         })
       }
-      className="cursor-progress w-fit"
     >
-      Async conservation
+      Async
     </Button>
   );
 }

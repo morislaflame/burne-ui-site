@@ -4,9 +4,9 @@ const SIZES: AlertSize[] = ["small", "base", "mid", "large"];
 
 export function AlertSizesDemo() {
   return (
-    <div className="flex w-full max-w-md flex-col gap-mid">
+    <div className="flex flex-col gap-mid">
       {SIZES.map((size) => (
-        <Alert key={size} status="info" size={size} className="w-full">
+        <Alert key={size} status="info" size={size}>
           <Alert.Message>
             <Alert.Indicator />
             <Alert.Content>

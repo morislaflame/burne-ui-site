@@ -1,7 +1,6 @@
 import { Button } from "burne-ui";
 import { Field } from "burne-ui";
 import { Input } from "burne-ui";
-import { Label } from "burne-ui";
 
 export function FieldClassNamesFullDemo() {
   return (
@@ -24,15 +23,16 @@ export function FieldClassNamesFullDemo() {
 export function FieldSetClassNamesFullDemo() {
   return (
     <Field.Set
-      className="max-w-md"
       classNames={{
-        root: "rounded-mid",
-        stack: "gap-2xlarge mt-2xlarge",
+        legend: "text-primary",
+        stack: "gap-2xlarge",
+        group: "gap-large",
+        actions: "justify-start pt-small",
       }}
     >
       <Field.Legend>
         <Field.LegendHeader>
-          <Label>Contact details</Label>
+          <Field.Label>Contact details</Field.Label>
           <Field.Hint as="span">classNames on Field.Set</Field.Hint>
         </Field.LegendHeader>
       </Field.Legend>

@@ -24,8 +24,7 @@ Peer-зависимости библиотеки:
 ```css
 @import "tailwindcss";
 
-/* Tailwind v4: сканируем prebuilt bundle и ваш код */
-@source "../node_modules/burne-ui/dist";
+/* Сканируем только код приложения — классы из burne-ui уже в prebuilt ui.css */
 @source "../components/**/*.{tsx,ts}";
 @source "../app/**/*.{tsx,ts}";
 @source "../lib/**/*.{tsx,ts}";
@@ -55,8 +54,8 @@ body {
 
 Почему это важно:
 
-- `burne-ui/styles.css` содержит токены (`--color-*`, `--space`, `--radius`, `--font-family-*`, и т.д.) и utility-bridge.
-- `@source "../node_modules/burne-ui/dist"` нужен, чтобы Tailwind не выкинул классы из библиотеки и ваших `className`.
+- `burne-ui/styles.css` (артефакт `dist/ui.css`) содержит токены, Tailwind-мост и prebuilt-утилиты для всех классов библиотеки.
+- `@source` нужен только на код приложения (`app/`, `components/`, `lib/`). **Не** сканируйте `node_modules/burne-ui/dist` — это дублирует генерацию утилит, сильно грузит CPU и может ронять Turbopack/PostCSS (fatal panic).
 - Блок `@theme` после импорта `burne-ui/styles.css` **обязателен** для корректных `text-base`, `font-sans` / `font-mono` и runtime-смены шрифтов.
 - Правило `html, body { font-family: var(--font-family-sans) }` нужно, чтобы смена `--font-family-sans` сразу отражалась на всём UI.
 - Gloss `backdrop-filter` уже в пакете с **1.5.3+** (порядок `-webkit` → unprefixed) — копировать в `globals.css` не нужно.
@@ -440,13 +439,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 Проверьте:
 
 1. Подключен ли `@import "burne-ui/styles.css";`
-2. Есть ли `@source "../node_modules/burne-ui/dist";`
+2. Есть ли `@source` на код приложения (`app/`, `components/`, …) — **без** `node_modules/burne-ui/dist`
 3. Не переопределили ли токены слишком рано (override должен идти **после** импорта `burne-ui/styles.css`)
 4. Есть ли блок `@theme` с `--font-sans` / `--text-base` (см. раздел 2)
 
+### Turbopack / PostCSS fatal panic при `next dev`
+
+Обычно из‑за `@source` на весь `node_modules/burne-ui/dist` вместе с prebuilt `styles.css`. Уберите этот `@source` (см. раздел 2) и очистите `.next`.
+
 ### Gloss-панели без blur (Dialog, Dropdown, ComboBox)
 
-Tailwind v4 при `@source` на `burne-ui/dist` может вырезать `backdrop-filter`. Добавьте fallback из раздела 2.
+С **1.5.3+** blur уже в `burne-ui/styles.css` (webkit → unprefixed). Не копируйте fallback в `globals.css`. Если blur пропал — проверьте, что пакет обновлён и нет лишнего переопределения gloss в app CSS.
 
 ### Шрифт в Theme panel не меняется визуально
 
@@ -502,9 +505,9 @@ ignore-scripts=true
 
 ## 12) Минимальный final checklist
 
-- [ ] Установили `burne-ui` + `react-icons`
+- [ ] Установили `burne-ui` + `react-icons` + `gsap`
 - [ ] Подключили `burne-ui/styles.css`
-- [ ] Добавили `@source "../node_modules/burne-ui/dist"`
+- [ ] Tailwind v4: `@source` на код приложения (не на `burne-ui/dist`)
 - [ ] Добавили `@theme` с `--text-base`, `--font-sans`, `--font-mono`
 - [ ] Добавили `html, body { font-family: var(--font-family-sans); }`
 - [ ] `burne-ui` ≥ 1.5.3 (gloss blur CSS в `styles.css`)

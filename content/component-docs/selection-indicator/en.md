@@ -91,7 +91,7 @@ type SelectionIndicatorClassNames = {
 ## Sizes
 
 CSS variables: `--selection-indicator-xsmall` … `--selection-indicator-large` (diameter),
-`--selection-indicator-radius-*` = `--radius-*` × 0.75 (shell/dot corners — not `rounded-full`; fill has no own radius, clipped by shell).
+`--selection-indicator-radius-*` = `--radius-*` × 0.618 (shell/dot corners — not `rounded-full`; fill has no own radius, clipped by shell).
 
 | size | CSS class | Mark icon |
 |------|-----------|-----------|

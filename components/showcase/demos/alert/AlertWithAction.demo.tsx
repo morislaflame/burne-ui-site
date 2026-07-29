@@ -5,6 +5,9 @@ export function AlertWithActionDemo() {
   return (
     <Alert
       status="warning"
+      classNames={{
+        root: "rounded-large p-large bg-surface-tint-warning",
+      }}
     >
       <Alert.Message>
         <Alert.Indicator className="text-foreground"/>

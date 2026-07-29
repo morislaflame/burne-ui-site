@@ -9,7 +9,7 @@ export function ButtonGroupPricingTierDemo() {
   const isSelected = (tier: "free" | "pro" | "team") => selectedTier === tier;
 
   return (
-    <div className="flex w-full max-w-md flex-col gap-small">
+    <div className="flex w-full items-center justify-center max-w-md flex-col gap-small">
       <Label>Pricing Tier</Label>
       <ButtonGroup aria-label="Tariff selection" segmented buttonSize="small" className="rounded-mid bg-surface p-small">
         <Button 

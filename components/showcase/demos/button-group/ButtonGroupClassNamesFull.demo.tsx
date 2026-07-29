@@ -7,13 +7,13 @@ export function ButtonGroupClassNamesFullDemo() {
       aria-label="Custom slots"
       buttonSize="base"
       classNames={{
-        root: "rounded-mid border border-primary/25 p-xsmall",
+        root: "rounded-[1.5rem] border-primary p-base bg-surface",
         separator: "border-primary/40",
         text: "bg-primary/5",
         textLabel: "text-primary font-medium",
       }}
     >
-      <ButtonGroup.Text>Label</ButtonGroup.Text>
+      <ButtonGroup.Text className="text-primary font-medium bg-tertiary">Label</ButtonGroup.Text>
       <Button variant="outline">One</Button>
       <Button variant="outline">Two</Button>
     </ButtonGroup>

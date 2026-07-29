@@ -86,6 +86,7 @@ const COLOR_GROUPS: { label: string; keys: ThemeColorKey[] }[] = [
     keys: [
       "background",
       "surface",
+      "muted",
       "secondary",
       "secondaryForeground",
       "tertiary",
@@ -94,7 +95,7 @@ const COLOR_GROUPS: { label: string; keys: ThemeColorKey[] }[] = [
   },
   {
     label: "content tokens",
-    keys: ["foreground", "muted", "border"],
+    keys: ["foreground", "mutedForeground", "border"],
   },
   {
     label: "primary tokens",
@@ -126,6 +127,7 @@ const COLOR_GROUPS: { label: string; keys: ThemeColorKey[] }[] = [
     keys: [
       "primaryHover",
       "defaultHover",
+      "transparentHover",
       "secondaryHover",
       "tertiaryHover",
       "surfaceTintDanger",
@@ -610,8 +612,10 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
               { id: "sand", label: "Sand" },
               { id: "bold", label: "Bold" },
               { id: "autumn", label: "Autumn" },
+              { id: "dreamland", label: "Dreamland" },
               { id: "harvest", label: "Harvest" },
               { id: "mystic", label: "Mystic" },
+              { id: "lavender", label: "Lavender" },
             ] as const
           ).map(({ id, label }) => (
             <Button

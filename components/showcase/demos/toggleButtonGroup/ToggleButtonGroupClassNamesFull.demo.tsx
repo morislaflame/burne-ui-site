@@ -8,7 +8,7 @@ export function ToggleButtonGroupClassNamesFullDemo() {
       defaultValue="a"
       aria-label="Custom slots"
       classNames={{
-        root: "rounded-mid border border-primary/25 p-xsmall",
+        root: "rounded-[1.5rem] border-primary/25 p-mid",
         separator: "border-primary/40",
       }}
     >

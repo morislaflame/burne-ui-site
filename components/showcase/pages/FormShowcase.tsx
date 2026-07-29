@@ -12,6 +12,8 @@ import { FormProfileDemo } from "@/components/showcase/demos/form/FormProfile.de
 import formProfileSource from "@/components/showcase/demos/form/FormProfile.demo.tsx?raw";
 import { FormSearchToolbarDemo } from "@/components/showcase/demos/form/FormSearchToolbar.demo";
 import formSearchToolbarSource from "@/components/showcase/demos/form/FormSearchToolbar.demo.tsx?raw";
+import { FormSizesDemo } from "@/components/showcase/demos/form/FormSizes.demo";
+import formSizesSource from "@/components/showcase/demos/form/FormSizes.demo.tsx?raw";
 import { ShowcaseDemoFromFile } from "@/components/showcase/layout/ShowcaseDemoFromFile";
 import { ShowcaseDoc } from "@/components/showcase/layout/ShowcaseDoc";
 import { ShowcasePage } from "@/components/showcase/layout/ShowcasePage";
@@ -30,6 +32,13 @@ export function FormShowcase() {
         description="Form.Section groups fields; CheckboxGroup — in a separate section with a large indentation."
       >
         <ShowcaseDemoFromFile align="stretch" Demo={FormProfileDemo} source={formProfileSource} />
+      </ShowcaseSection>
+
+      <ShowcaseSection
+        title="Sizes"
+        description="size scales Form chrome (Header, Title, Description, Section, Actions). Input and Button keep their own size."
+      >
+        <ShowcaseDemoFromFile align="stretch" Demo={FormSizesDemo} source={formSizesSource} />
       </ShowcaseSection>
 
       <ShowcaseSection
@@ -62,7 +71,11 @@ export function FormShowcase() {
         <ShowcaseDoc.Block title="API">
           <ShowcaseDoc.ApiRow
             api="compound"
-            description="Section — group of fields with dense gap-small inside; Form sets gap-large between sections."
+            description="Header wraps Title + Description; Section groups fields; Actions for submit/cancel."
+          />
+          <ShowcaseDoc.ApiRow
+            api="size"
+            description="small | base | mid | large — Form chrome only. Set size on Input / Button explicitly."
           />
           <ShowcaseDoc.ApiRow
             api="simple"

@@ -62,9 +62,16 @@ Simple API and compound `ButtonGroup.Text` **do not exist** — only `ButtonGrou
 | `buttonSize` | `base` | Cascade to segments: `small` \| `base` \| `mid` \| `large` |
 | `variant` | `default` | `default` \| `outline` \| `secondary` \| `gloss` \| `primary` |
 | `className` | — | On root `<div role="group">` |
+| `classNames` | — | Slots: `root`, `separator`, `text`, `textLabel` |
 | `children` | — | Segments |
 
-No `status` on group — on child `Button`s. No `classNames` on root.
+No `status` on group — on child `Button`s.
+
+### `ButtonGroupClassNames`
+
+`root`, `separator`, `text`, `textLabel`.
+
+Joined frame is `::after`: color from root `border-color`, radius from root `border-radius`. On `classNames.root` use `rounded-*` and `border-primary` (color only — no width `border`).
 
 ### `ButtonGroup.Text` props
 
@@ -163,9 +170,9 @@ configureMotion({
 
 | Function / constant | Purpose |
 |---------------------|------------|
-| `buttonGroupRootClass` | `inline-flex w-fit`, orientation, gloss border |
+| `buttonGroupRootClass` | `inline-flex w-fit`, orientation; joined frame via `::after` (`rounded-[inherit]`, `border-inherit`) |
 | `buttonGroupSeparatorClass` | `border-r-token` / `border-b-token` |
-| `buttonGroupRoundingClasses` | Rounding by `segment.position` |
+| `buttonGroupRoundingClasses` | Segment corners via `rounded-[inherit]` from root |
 | `buttonGroupOverlapBorderClasses` | `border-l-0` at joins |
 | `buttonGroupSegmentSurfaceClasses` | `!border-0 !shadow-none`, z-index focus |
 | `buttonGroupTextFrameClass` | Height from `CONTROL_SIZE_LAYOUT` |
@@ -175,13 +182,32 @@ Gloss: `glossInteractive.css` on root.
 
 ## Styling and customization
 
-### Single level — `className`
+### `className` and `classNames`
 
 | Part | Customization |
 |-------|--------------|
-| root | `ButtonGroup className` |
-| `ButtonGroup.Text` | `className` |
+| root | `className` / `classNames.root` |
+| separator | `classNames.separator` |
+| `ButtonGroup.Text` | `className` / `classNames.text` / `classNames.textLabel` |
 | segments | `Button className`, `groupSegment` override |
+
+```tsx
+<ButtonGroup
+  aria-label="Custom"
+  classNames={{
+    root: "rounded-mid border-primary/25 p-xsmall",
+    separator: "border-primary/40",
+    text: "bg-primary/5",
+    textLabel: "text-primary font-w-mid",
+  }}
+>
+  <ButtonGroup.Text>Label</ButtonGroup.Text>
+  <Button variant="outline">One</Button>
+  <Button variant="outline">Two</Button>
+</ButtonGroup>
+```
+
+On joined root: `rounded-*` and `border-*` (color) retarget the visible frame. Do not set width `border` on root — width lives on `::after`.
 
 ### Toolbar with Input
 

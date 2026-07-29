@@ -5,19 +5,8 @@ export function ToastModificationsDemo() {
   const { toast } = useToast();
 
   return (
-    <div className="flex flex-col gap-large">
-      <div className="flex flex-wrap gap-small">
-        <Button
-          variant="outline"
-          onClick={() =>
-            toast.show({
-              title: "default",
-              description: "Neutral notification without status icon.",
-            })
-          }
-        >
-          default
-        </Button>
+    <div className="flex flex-col gap-large items-center justify-center">
+      <div className="flex flex-wrap gap-small items-center justify-center">
         <Button
           variant="outline"
           onClick={() => toast.show({ title: "Saved", status: "success" })}
