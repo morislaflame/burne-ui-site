@@ -1,16 +1,18 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 
-import { Button, cn, Text } from "burne-ui";
+import { Link, cn, Text } from "burne-ui";
 
+import { SitePanelShell } from "@/components/layout/SitePanelShell";
 import {
   SHOWCASE_GROUPS,
   showcasePagePath,
   type ShowcaseGroup,
 } from "@/lib/showcase/registry";
 
-function ShowcaseNavButton({
+function ShowcaseNavLink({
   pageId,
   label,
   active,
@@ -23,47 +25,53 @@ function ShowcaseNavButton({
   onNavigate?: () => void;
   className?: string;
 }) {
-  const router = useRouter();
   const href = showcasePagePath(pageId);
 
   return (
-    <Button
-      type="button"
-      variant={active ? "secondary" : "ghost"}
-      aria-current={active ? "page" : undefined}
-      className={cn(
-        "h-9 w-full justify-start px-base text-left font-normal",
-        !active && "text-muted hover:text-foreground",
-        className,
-      )}
-      onMouseEnter={() => router.prefetch(href)}
-      onClick={() => {
-        router.push(href);
-        onNavigate?.();
+    <Link
+      asChild
+      classNames={{
+        root: cn(
+          "py-small justify-start px-base",
+          active ? "bg-secondary text-primary" : "text-foreground hover:text-foreground",
+          className,
+        ),
       }}
     >
-      {label}
-    </Button>
+      <NextLink
+        href={href}
+        aria-current={active ? "page" : undefined}
+        onClick={() => onNavigate?.()}
+      >
+        {label}
+      </NextLink>
+    </Link>
   );
 }
 
 export function ShowcaseSidebar({
   onNavigate,
   className,
+  withHeader = true,
 }: {
   onNavigate?: () => void;
   className?: string;
+  withHeader?: boolean;
 }) {
   const pathname = usePathname();
 
   return (
-    <div className={cn("site-panel-scroll flex min-h-0 flex-1 flex-col gap-large overflow-y-auto overscroll-y-contain p-large", className)}>
+    <SitePanelShell
+      className={className}
+      topBlurClassName="h-8"
+      bottomBlurClassName="h-8"
+    >
       {SHOWCASE_GROUPS.map((group: ShowcaseGroup) => (
-        <div key={group.id} className="flex flex-col gap-xsmall">
+        <div key={group.id} className="flex flex-col gap-xsmall pt-large">
           <Text
             as="span"
-            variant="xsmall"
-            className="mb-small px-small font-semibold uppercase tracking-wider underline underline-offset-4"
+            variant="base"
+            className="mb-small px-small font-semibold text-muted"
           >
             {group.label}
           </Text>
@@ -72,7 +80,7 @@ export function ShowcaseSidebar({
             const active = pathname === href;
 
             return (
-              <ShowcaseNavButton
+              <ShowcaseNavLink
                 key={page.id}
                 pageId={page.id}
                 label={page.label}
@@ -83,7 +91,7 @@ export function ShowcaseSidebar({
           })}
         </div>
       ))}
-    </div>
+    </SitePanelShell>
   );
 }
 

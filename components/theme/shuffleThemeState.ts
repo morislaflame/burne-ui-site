@@ -30,9 +30,9 @@ export function shuffleThemeState(prev: ThemeEditorState): ThemeEditorState {
   const withPreset = applyColorPresetToState(prev, pickRandom(COLOR_PRESET_KEYS));
 
   const scales = Object.fromEntries(
-    SCALE_CONTROLS.map(({ key, min, max, step }) => [
+    SCALE_CONTROLS.map(({ key, min, max, shuffleMin, shuffleMax, step }) => [
       key,
-      randomSteppedValue(min, max, step),
+      randomSteppedValue(shuffleMin ?? min, shuffleMax ?? max, step),
     ]),
   ) as Pick<ThemeEditorState, (typeof SCALE_CONTROLS)[number]["key"]>;
 

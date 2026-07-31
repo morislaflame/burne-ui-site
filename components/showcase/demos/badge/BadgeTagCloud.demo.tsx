@@ -4,7 +4,7 @@ const TAGS = ["React", "TypeScript", "Tailwind", "GSAP", "a11y"] as const;
 
 export function BadgeTagCloudDemo() {
   return (
-    <div className="flex-wrap gap-xsmall">
+    <div className="flex flex-wrap gap-xsmall">
       {TAGS.map((tag) => (
         <Badge
           key={tag}

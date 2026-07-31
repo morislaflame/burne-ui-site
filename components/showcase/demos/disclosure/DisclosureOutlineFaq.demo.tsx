@@ -4,7 +4,7 @@ import { Disclosure } from "burne-ui";
 import { Text } from "burne-ui";
 
 const faqItems = [
-  { value: "faq-1", title: "What&apos;s happened Burne UI?", icon: <IoInformationCircleOutline /> },
+  { value: "faq-1", title: "What's happened Burne UI?", icon: <IoInformationCircleOutline /> },
   { value: "faq-2", title: "How to connect a theme?", icon: <IoNotificationsOutline /> },
   { value: "faq-3", title: "Is there SSR?", icon: <IoLockClosedOutline /> },
 ] as const;

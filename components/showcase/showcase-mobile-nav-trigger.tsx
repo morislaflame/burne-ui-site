@@ -7,9 +7,9 @@ import { Button, Separator, cn } from "burne-ui";
 import { useShowcaseMobileNav } from "@/components/showcase/showcase-mobile-nav";
 
 export function ShowcaseMobileNavTrigger() {
-  const { isShowcaseRoute, open, setOpen } = useShowcaseMobileNav();
+  const { isNavRoute, isDocsRoute, open, setOpen } = useShowcaseMobileNav();
 
-  if (!isShowcaseRoute) {
+  if (!isNavRoute) {
     return null;
   }
 
@@ -22,7 +22,7 @@ export function ShowcaseMobileNavTrigger() {
         size="small"
         iconOnly
         ripple
-        aria-label="Components"
+        aria-label={isDocsRoute ? "Documentation menu" : "Components"}
         aria-haspopup="dialog"
         aria-expanded={open}
         className={cn("lg:hidden shrink-0")}

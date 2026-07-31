@@ -53,10 +53,11 @@ function ShowcaseDocApiRow({
   api,
   description,
 }: {
-  api: "simple" | "compound";
+  api: "simple" | "compound" | "size";
   description: string;
 }) {
-  const label = api === "simple" ? "Simple API" : "Compound API";
+  const label =
+    api === "simple" ? "Simple API" : api === "compound" ? "Compound API" : "size";
   return (
     <div className="flex flex-col gap-xsmall sm:flex-row sm:items-start sm:gap-small">
       <Text

@@ -1,7 +1,19 @@
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 
-import { DEFAULT_SHOWCASE_PAGE_ID, showcasePagePath } from "@/lib/showcase/registry";
+import { HomeLanding } from "@/components/home/HomeLanding";
+
+export const metadata: Metadata = {
+  title: "Burne UI",
+  description:
+    "Modern React design system — themes, motion, and components.",
+};
 
 export default function Home() {
-  redirect(showcasePagePath(DEFAULT_SHOWCASE_PAGE_ID));
+  return (
+    <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+      <main className="site-panel-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain pt-[var(--site-chrome-height)]">
+        <HomeLanding />
+      </main>
+    </div>
+  );
 }

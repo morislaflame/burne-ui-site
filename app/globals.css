@@ -7,22 +7,11 @@
 @source "../lib/**/*.{tsx,ts}";
 
 @import "burne-ui/styles.css";
-
-/*
- * Site Tailwind re-generates `text-base` from @source with default 1rem.
- * burne-ui semantic `text-base` = `--text-scale-base` (0.875rem).
- */
-@theme {
-  --text-base: var(--text-base-size);
-  --text-base--line-height: var(--text-base-line-height);
-  --text-base--font-weight: var(--text-base-weight);
-  /* Site @source re-generates font tokens; wire them to burne-ui runtime vars. */
-  --font-sans: var(--font-family-sans);
-  --font-mono: var(--font-family-mono);
-}
+@import "burne-ui/theme-bridge.css";
 
 :root {
   --site-header-height: 4.5rem;
+  --site-chrome-height: 4.5rem;
 }
 
 /* Same as burne-ui/playground/playground.css — inherit runtime --font-family-* tokens. */

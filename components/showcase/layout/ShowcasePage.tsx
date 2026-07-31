@@ -26,11 +26,6 @@ export function ShowcasePage({
           <Text as="h1" variant="header-1">
             {title}
           </Text>
-          {tags?.map((tag) => (
-            <Badge key={tag} variant="secondary" size="small">
-              {tag}
-            </Badge>
-          ))}
         </div>
         {description ? (
           <Text as="p" variant="base" className="text-muted max-w-2xl">

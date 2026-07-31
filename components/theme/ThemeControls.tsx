@@ -35,6 +35,7 @@ import {
   type TintMixMode,
 } from "./tintMix";
 import type { ThemeTokensApi } from "./useThemeTokens";
+import { ProgressiveBlur } from "@/components/effects/ProgressiveBlur";
 
 const TINT_COLOR_KEYS = new Set<ThemeColorKey>(["primaryTint", "primaryTintStrong"]);
 
@@ -538,42 +539,29 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
   };
 
   return (
-    <div className="flex flex-col gap-large">
-        <div className="min-w-0">
-          <div className="flex items-center justify-between gap-small mb-base">
-            <Text as="h2" variant="header-2">
-              Theme tokens
-            </Text>
+    <div className="relative h-full min-h-0 flex-1 overflow-hidden">
+      <div className="site-panel-scroll absolute inset-0 overflow-y-auto overscroll-y-contain">
+        <div className="relative sticky top-0 z-20 px-large pb-2xlarge pt-large">
+          <ProgressiveBlur
+            direction="top"
+            className="pointer-events-none absolute inset-0"
+            blurIntensity={0.45}
+          />
+          <div className="relative z-10">
+            <div className="mb-base flex items-center justify-between gap-small">
+              <Text as="h2" variant="header-2">
+                Theme tokens
+              </Text>
+            </div>
             
-          </div>
-          <Text as="p" variant="base" className="text-muted">
-            Change your theme tokens right here. Copy CSS for a stylesheet, or Copy config for{" "}
-            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
-              BurneUIProvider
-            </Text>
-            . Shared layout/motion live in{" "}
-            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
-              tokens
-            </Text>
-            ; colors in{" "}
-            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
-              colors.light
-            </Text>
-            {" / "}
-            <Text as="span" variant="base" className="text-foreground font-mono text-[0.85em]">
-              colors.dark
-            </Text>
-            .
-          </Text>
-        </div>
-        <div className="flex shrink-0 flex-wrap gap-xsmall">
+            <div className="mt-mid flex shrink-0 flex-wrap gap-xsmall">
               <Button type="button" size="small" variant="primary" onClick={reset}>
                 Reset
               </Button>
               <Button
                 type="button"
                 size="small"
-                variant="secondary"
+                variant="primary"
                 onClick={shuffle}
                 title="Random color preset, scale tokens, and fonts (motion unchanged)"
               >
@@ -582,71 +570,74 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
               <Button type="button" size="small" variant="gloss" onClick={handleCopyCss}>
                 {copied === "css" ? "Copied CSS" : "Copy CSS"}
               </Button>
-              <Button type="button" size="small" variant="outline" onClick={handleCopyConfig}>
+              <Button type="button" size="small" variant="gloss" onClick={handleCopyConfig}>
                 {copied === "config" ? "Copied config" : "Copy config"}
               </Button>
-         </div>
-
-      <div className="flex flex-col gap-base">
-        <Text as="span" variant="base" className="text-muted">
-          Color presets
-        </Text>
-        <div className="flex flex-wrap gap-xsmall">
-          {(
-            [
-              { id: "default", label: "Default" },
-              { id: "contrast", label: "Contrast" },
-              { id: "ocean", label: "Ocean" },
-              { id: "violet", label: "Violet" },
-              { id: "emerald", label: "Emerald" },
-              { id: "rose", label: "Rose" },
-              { id: "amber", label: "Amber" },
-              { id: "slate", label: "Slate" },
-              { id: "toffee", label: "Toffee" },
-              { id: "berry", label: "Berry" },
-              { id: "paprika", label: "Paprika" },
-              { id: "cherry", label: "Cherry" },
-              { id: "rustic", label: "Rustic" },
-              { id: "earthy", label: "Earthy" },
-              { id: "peach", label: "Peach" },
-              { id: "sand", label: "Sand" },
-              { id: "bold", label: "Bold" },
-              { id: "autumn", label: "Autumn" },
-              { id: "dreamland", label: "Dreamland" },
-              { id: "harvest", label: "Harvest" },
-              { id: "mystic", label: "Mystic" },
-              { id: "lavender", label: "Lavender" },
-            ] as const
-          ).map(({ id, label }) => (
-            <Button
-              key={id}
-              type="button"
-              size="small"
-              variant="outline"
-              onClick={() => applyColorPreset(id)}
-            >
-              {label}
-            </Button>
-          ))}
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-base">
-        <Text as="span" variant="base" className="text-muted">
-          Layout presets
-        </Text>
-        <div className="flex flex-wrap gap-xsmall">
-          <Button type="button" size="small" variant="outline" onClick={() => applyLayoutPreset("compact")}>
-            Compact
-          </Button>
-          <Button type="button" size="small" variant="outline" onClick={() => applyLayoutPreset("spacious")}>
-            Spacious
-          </Button>
-          <Button type="button" size="small" variant="outline" onClick={() => applyLayoutPreset("flat")}>
-            Flat
-          </Button>
-        </div>
-      </div>
+        <div className="flex flex-col gap-large px-large pb-large">
+          <div className="flex flex-col gap-base">
+            <Text as="span" variant="base" className="text-muted">
+              Color presets
+            </Text>
+            <div className="flex flex-wrap gap-xsmall">
+              {(
+                [
+                  { id: "default", label: "Default" },
+                  { id: "contrast", label: "Contrast" },
+                  { id: "ocean", label: "Ocean" },
+                  { id: "violet", label: "Violet" },
+                  { id: "emerald", label: "Emerald" },
+                  { id: "rose", label: "Rose" },
+                  { id: "amber", label: "Amber" },
+                  { id: "slate", label: "Slate" },
+                  { id: "toffee", label: "Toffee" },
+                  { id: "berry", label: "Berry" },
+                  { id: "paprika", label: "Paprika" },
+                  { id: "cherry", label: "Cherry" },
+                  { id: "rustic", label: "Rustic" },
+                  { id: "earthy", label: "Earthy" },
+                  { id: "peach", label: "Peach" },
+                  { id: "sand", label: "Sand" },
+                  { id: "bold", label: "Bold" },
+                  { id: "autumn", label: "Autumn" },
+                  { id: "dreamland", label: "Dreamland" },
+                  { id: "harvest", label: "Harvest" },
+                  { id: "mystic", label: "Mystic" },
+                  { id: "lavender", label: "Lavender" },
+                ] as const
+              ).map(({ id, label }) => (
+                <Button
+                  key={id}
+                  type="button"
+                  size="small"
+                  variant="outline"
+                  onClick={() => applyColorPreset(id)}
+                >
+                  {label}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-base">
+            <Text as="span" variant="base" className="text-muted">
+              Layout presets
+            </Text>
+            <div className="flex flex-wrap gap-xsmall">
+              <Button type="button" size="small" variant="outline" onClick={() => applyLayoutPreset("compact")}>
+                Compact
+              </Button>
+              <Button type="button" size="small" variant="outline" onClick={() => applyLayoutPreset("spacious")}>
+                Spacious
+              </Button>
+              <Button type="button" size="small" variant="outline" onClick={() => applyLayoutPreset("flat")}>
+                Flat
+              </Button>
+            </div>
+          </div>
 
       <Separator />
 
@@ -825,7 +816,7 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
 
       <div className="flex flex-col gap-base">
         <SectionTitle>Animations</SectionTitle>
-        <div className="flex flex-col gap-small rounded-base p-base gloss-panel">
+        <div className="flex flex-col gap-small">
           <Switch
             checked={state.enableAnimations}
             onChange={(e) => setAnimationFlag("enableAnimations", e.target.checked)}
@@ -891,6 +882,14 @@ export function ThemeControls({ tokens }: { tokens: ThemeTokensApi }) {
           ))}
         </div>
       </div>
+        </div>
+      </div>
+
+      <ProgressiveBlur
+        direction="bottom"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16"
+        blurIntensity={0.45}
+      />
     </div>
   );
 }

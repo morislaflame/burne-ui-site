@@ -76,9 +76,9 @@ Empty `<Link.Icon />` without children → default ↗ at that position (`muted`
 
 ## Icons and color
 
-- Text and root: `text-primary`, `focus-ring`
-- Custom icon: `text-primary`
-- Default / compound without children: `text-muted` → `text-primary` on `group-hover/link` and `group-focus-visible/link`
+- Text and root: `text-foreground`, `focus-ring`
+- Custom icon: `text-foreground`
+- Default / compound without children: `text-muted` → `text-foreground` on `group-hover/link` and `group-focus-visible/link`
 - Default ↗: `rotate-[-45deg]`
 
 Link color can be overridden: `className="text-muted"`.
@@ -154,7 +154,7 @@ configureMotion({
 
 | Class | Purpose |
 |-------|------------|
-| `text-primary` | link color |
+| `text-foreground` | link color |
 | `focus-ring` | focus visible |
 | `rounded-mid` | hit area |
 | `underline decoration-current/70` | when `underline` |

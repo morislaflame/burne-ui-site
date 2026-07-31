@@ -30,18 +30,7 @@ Peer-зависимости библиотеки:
 @source "../lib/**/*.{tsx,ts}";
 
 @import "burne-ui/styles.css";
-
-/*
- * Tailwind v4 через @source перегенерирует часть theme-токенов.
- * Привязываем их обратно к runtime-переменным burne-ui.
- */
-@theme {
-  --text-base: var(--text-base-size);
-  --text-base--line-height: var(--text-base-line-height);
-  --text-base--font-weight: var(--text-base-weight);
-  --font-sans: var(--font-family-sans);
-  --font-mono: var(--font-family-mono);
-}
+@import "burne-ui/theme-bridge.css";
 
 /* Наследуем runtime-шрифт (см. раздел 6) */
 html,
@@ -54,9 +43,9 @@ body {
 
 Почему это важно:
 
-- `burne-ui/styles.css` (артефакт `dist/ui.css`) содержит токены, Tailwind-мост и prebuilt-утилиты для всех классов библиотеки.
+- `burne-ui/styles.css` (артефакт `dist/ui.css`) содержит токены, Tailwind-мост и prebuilt-утилиты для классов, встретившихся при сборке кита.
 - `@source` нужен только на код приложения (`app/`, `components/`, `lib/`). **Не** сканируйте `node_modules/burne-ui/dist` — это дублирует генерацию утилит, сильно грузит CPU и может ронять Turbopack/PostCSS (fatal panic).
-- Блок `@theme` после импорта `burne-ui/styles.css` **обязателен** для корректных `text-base`, `font-sans` / `font-mono` и runtime-смены шрифтов.
+- `burne-ui/theme-bridge.css` **обязателен**: полный `@theme inline`-мост (spacing, colors, radius, fonts, z-index, …), чтобы Tailwind приложения мог сгенерировать классы вроде `px-2xlarge`, которых нет в prebuilt `ui.css`. `burne-ui init` добавляет этот импорт сам.
 - Правило `html, body { font-family: var(--font-family-sans) }` нужно, чтобы смена `--font-family-sans` сразу отражалась на всём UI.
 - Gloss `backdrop-filter` уже в пакете с **1.5.3+** (порядок `-webkit` → unprefixed) — копировать в `globals.css` не нужно.
 
@@ -441,7 +430,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 1. Подключен ли `@import "burne-ui/styles.css";`
 2. Есть ли `@source` на код приложения (`app/`, `components/`, …) — **без** `node_modules/burne-ui/dist`
 3. Не переопределили ли токены слишком рано (override должен идти **после** импорта `burne-ui/styles.css`)
-4. Есть ли блок `@theme` с `--font-sans` / `--text-base` (см. раздел 2)
+4. Есть ли `@import "burne-ui/theme-bridge.css"` (см. раздел 2)
 
 ### Turbopack / PostCSS fatal panic при `next dev`
 
@@ -454,13 +443,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ### Шрифт в Theme panel не меняется визуально
 
 1. Проверьте в DevTools, что на `<html>` меняется `--font-family-sans`
-2. Убедитесь, что в `globals.css` есть `@theme { --font-sans: var(--font-family-sans); }` **после** `@import "burne-ui/styles.css"`
+2. Убедитесь, что в `globals.css` есть `@import "burne-ui/theme-bridge.css"` **после** `@import "burne-ui/styles.css"`
 3. Убедитесь, что есть `html, body { font-family: var(--font-family-sans); }`
 4. Подключены ли Google Fonts / `next/font` для выбранного семейства (Inter, Roboto, …)
 
 ### `text-base` выглядит как 1rem вместо 0.875rem
 
-Добавьте в `@theme`: `--text-base: var(--text-base-size);` (см. раздел 2).
+Подключите `burne-ui/theme-bridge.css` (см. раздел 2).
 
 ### Не работает `useToast()`
 
@@ -508,7 +497,7 @@ ignore-scripts=true
 - [ ] Установили `burne-ui` + `react-icons` + `gsap`
 - [ ] Подключили `burne-ui/styles.css`
 - [ ] Tailwind v4: `@source` на код приложения (не на `burne-ui/dist`)
-- [ ] Добавили `@theme` с `--text-base`, `--font-sans`, `--font-mono`
+- [ ] Добавили `@import "burne-ui/theme-bridge.css"`
 - [ ] Добавили `html, body { font-family: var(--font-family-sans); }`
 - [ ] `burne-ui` ≥ 1.5.3 (gloss blur CSS в `styles.css`)
 - [ ] (При runtime-шрифтах) подключили Google Fonts или `next/font`

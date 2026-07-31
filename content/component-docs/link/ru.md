@@ -76,9 +76,9 @@ type LinkClassNames = {
 
 ## Иконки и цвет
 
-- Текст и якорь: `text-primary`, `focus-ring`
-- Кастомная иконка: `text-primary`
-- Дефолтная / compound без children: `text-muted` → `text-primary` на `group-hover/link` и `group-focus-visible/link`
+- Текст и якорь: `text-foreground`, `focus-ring`
+- Кастомная иконка: `text-foreground`
+- Дефолтная / compound без children: `text-muted` → `text-foreground` на `group-hover/link` и `group-focus-visible/link`
 - Дефолтная ↗: `rotate-[-45deg]`
 
 Цвет ссылки можно переопределить: `className="text-muted"`.
@@ -154,7 +154,7 @@ configureMotion({
 
 | Класс | Назначение |
 |-------|------------|
-| `text-primary` | цвет ссылки |
+| `text-foreground` | цвет ссылки |
 | `focus-ring` | focus visible |
 | `rounded-mid` | hit area |
 | `underline decoration-current/70` | при `underline` |

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SiteHeader } from "@/components/site-header";
+import { SiteAppShell } from "@/components/layout/SiteAppShell";
+import { SiteChrome } from "@/components/site-chrome";
 import { SiteProviders } from "@/components/site-providers";
 import { THEME_MONO_FONTS_URL, THEME_SANS_FONTS_URL } from "@/lib/theme-font-links";
 
@@ -24,8 +25,12 @@ export default function RootLayout({
       </head>
       <body className="flex h-dvh flex-col overflow-hidden bg-background text-foreground">
         <SiteProviders>
-          <SiteHeader />
-          <div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
+          <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
+            <SiteChrome />
+            <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden px-large">
+              <SiteAppShell>{children}</SiteAppShell>
+            </div>
+          </div>
         </SiteProviders>
       </body>
     </html>
